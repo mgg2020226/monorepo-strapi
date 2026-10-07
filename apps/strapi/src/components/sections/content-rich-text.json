@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_sections_content_rich_texts",
+  "info": { "displayName": "Rich text", "icon": "align-left" },
+  "options": {},
+  "attributes": {
+    "eyebrow": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "title": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "body": { "type": "richtext", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "style": { "type": "component", "component": "ui.style", "repeatable": false },
+    "motion": { "type": "component", "component": "ui.motion", "repeatable": false }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_sections_ctas",
+  "info": { "displayName": "CTA", "icon": "cursor" },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "description": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "actions": { "type": "component", "component": "ui.link", "repeatable": true },
+    "style": { "type": "component", "component": "ui.style", "repeatable": false },
+    "motion": { "type": "component", "component": "ui.motion", "repeatable": false }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_site_header_configs",
+  "info": { "displayName": "Header config", "icon": "layout" },
+  "options": {},
+  "attributes": {
+    "logoVariant": { "type": "enumeration", "enum": ["default", "light", "dark"], "default": "default" },
+    "showLanguageSwitcher": { "type": "boolean", "default": true },
+    "showSearch": { "type": "boolean", "default": false },
+    "showCta": { "type": "boolean", "default": false },
+    "cta": { "type": "component", "component": "ui.link", "repeatable": false },
+    "navigation": { "type": "component", "component": "site.navigation-item", "repeatable": true }
+  }
+}

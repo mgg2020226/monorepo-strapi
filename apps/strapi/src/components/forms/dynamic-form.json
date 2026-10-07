@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_sections_dynamic_forms",
+  "info": { "displayName": "Dynamic form", "icon": "forms" },
+  "options": {},
+  "attributes": {
+    "formSlug": { "type": "string", "required": true },
+    "style": { "type": "component", "component": "ui.style", "repeatable": false },
+    "motion": { "type": "component", "component": "ui.motion", "repeatable": false }
+  }
+}

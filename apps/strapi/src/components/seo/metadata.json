@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_seo_metadata",
+  "info": { "displayName": "SEO metadata", "icon": "search" },
+  "options": {},
+  "attributes": {
+    "metaTitle": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "metaDescription": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "keywords": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "shareImage": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "canonicalUrl": { "type": "string" },
+    "noIndex": { "type": "boolean", "default": false },
+    "noFollow": { "type": "boolean", "default": false }
+  }
+}

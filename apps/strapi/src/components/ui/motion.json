@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_ui_motions",
+  "info": { "displayName": "UI motion", "icon": "magic" },
+  "options": {},
+  "attributes": {
+    "preset": { "type": "enumeration", "enum": ["none", "fade", "slide-up", "slide-down", "slide-left", "slide-right", "scale", "reveal"], "default": "none" },
+    "duration": { "type": "enumeration", "enum": ["fast", "normal", "slow"], "default": "normal" },
+    "delay": { "type": "enumeration", "enum": ["none", "short", "medium", "long"], "default": "none" },
+    "trigger": { "type": "enumeration", "enum": ["on-load", "on-scroll", "on-hover"], "default": "on-scroll" },
+    "respectReducedMotion": { "type": "boolean", "default": true }
+  }
+}

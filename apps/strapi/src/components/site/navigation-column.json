@@ -1,0 +1,9 @@
+{
+  "collectionName": "components_site_navigation_columns",
+  "info": { "displayName": "Navigation column", "icon": "list" },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "links": { "type": "component", "component": "site.navigation-item", "repeatable": true }
+  }
+}

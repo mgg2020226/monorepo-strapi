@@ -1,0 +1,14 @@
+{
+  "kind": "singleType",
+  "collectionName": "platform_settings",
+  "info": { "singularName": "platform-settings", "pluralName": "platform-settings-config", "displayName": "Platform settings" },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "defaultLocale": { "type": "enumeration", "enum": ["es", "en"], "default": "es", "required": true },
+    "availableLocales": { "type": "json", "default": ["es", "en"], "required": true },
+    "globalRobotsPolicy": { "type": "enumeration", "enum": ["index", "noindex"], "default": "index", "required": true },
+    "securityContactEmail": { "type": "email", "required": true },
+    "maintenanceMode": { "type": "boolean", "default": false },
+    "maintenanceMessage": { "type": "text" }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_sections_galleries",
+  "info": { "displayName": "Gallery", "icon": "images" },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "description": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "images": { "type": "media", "multiple": true, "allowedTypes": ["images"], "required": true },
+    "layout": { "type": "enumeration", "enum": ["grid", "masonry", "carousel"], "default": "grid" },
+    "style": { "type": "component", "component": "ui.style", "repeatable": false },
+    "motion": { "type": "component", "component": "ui.motion", "repeatable": false }
+  }
+}

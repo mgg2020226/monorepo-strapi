@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_videos",
+  "info": { "displayName": "Video", "icon": "video" },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "description": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "videoUrl": { "type": "string", "required": true },
+    "poster": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "autoplay": { "type": "boolean", "default": false },
+    "loop": { "type": "boolean", "default": false },
+    "muted": { "type": "boolean", "default": true },
+    "style": { "type": "component", "component": "ui.style", "repeatable": false },
+    "motion": { "type": "component", "component": "ui.motion", "repeatable": false }
+  }
+}

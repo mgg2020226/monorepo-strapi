@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sites",
+  "info": {
+    "singularName": "site",
+    "pluralName": "sites",
+    "displayName": "Site",
+    "description": "Empresa o marca administrada por la plataforma"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "slug": { "type": "uid", "targetField": "name", "required": true, "unique": true },
+    "status": { "type": "enumeration", "enum": ["draft", "active", "archived"], "default": "draft", "required": true },
+    "logo": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "favicon": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "palette": { "type": "component", "component": "site.palette", "repeatable": false, "required": true },
+    "locales": { "type": "component", "component": "site.locale-config", "repeatable": true, "required": true },
+    "defaultSeo": { "type": "component", "component": "seo.metadata", "repeatable": false, "pluginOptions": { "i18n": { "localized": true } } },
+    "header": { "type": "component", "component": "site.header-config", "repeatable": false, "pluginOptions": { "i18n": { "localized": true } } },
+    "footer": { "type": "component", "component": "site.footer-config", "repeatable": false, "pluginOptions": { "i18n": { "localized": true } } },
+    "contactEmail": { "type": "email" },
+    "contactPhone": { "type": "string" },
+    "address": { "type": "text" },
+    "socialLinks": { "type": "component", "component": "site.social-link", "repeatable": true },
+    "searchEnabled": { "type": "boolean", "default": false },
+    "typesenseCollection": { "type": "string" },
+    "pages": { "type": "relation", "relation": "oneToMany", "target": "api::page.page", "mappedBy": "site" },
+    "blogPosts": { "type": "relation", "relation": "oneToMany", "target": "api::blog-post.blog-post", "mappedBy": "site" },
+    "blogCategories": { "type": "relation", "relation": "oneToMany", "target": "api::blog-category.blog-category", "mappedBy": "site" },
+    "calendarEvents": { "type": "relation", "relation": "oneToMany", "target": "api::calendar-event.calendar-event", "mappedBy": "site" },
+    "portfolioProjects": { "type": "relation", "relation": "oneToMany", "target": "api::portfolio-project.portfolio-project", "mappedBy": "site" },
+    "legalPages": { "type": "relation", "relation": "oneToMany", "target": "api::legal-page.legal-page", "mappedBy": "site" },
+    "forms": { "type": "relation", "relation": "oneToMany", "target": "api::form-definition.form-definition", "mappedBy": "site" },
+    "cmsUsers": { "type": "relation", "relation": "manyToMany", "target": "api::cms-user-access.cms-user-access", "mappedBy": "sites" }
+  }
+}

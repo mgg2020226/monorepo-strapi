@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_site_footer_configs",
+  "info": { "displayName": "Footer config", "icon": "layout" },
+  "options": {},
+  "attributes": {
+    "description": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "columns": { "type": "component", "component": "site.navigation-column", "repeatable": true },
+    "legalLinks": { "type": "component", "component": "ui.link", "repeatable": true },
+    "copyright": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "showSocialLinks": { "type": "boolean", "default": true }
+  }
+}

@@ -1,0 +1,291 @@
+{
+  "documentId": "uaj3gip6ihunjf5ms8pki9w5",
+  "name": "Editor",
+  "code": "strapi-editor",
+  "description": "Editors can manage and publish contents including those of other users.",
+  "locale": null,
+  "permissions": [
+    {
+      "documentId": "yauanzcg52k0xfbqqjy51gre",
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::footer.footer",
+      "properties": {
+        "fields": [
+          "sections.title",
+          "sections.links.label",
+          "sections.links.href",
+          "sections.links.newTab",
+          "links.label",
+          "links.href",
+          "links.newTab",
+          "copyRight",
+          "logoImage.image.media",
+          "logoImage.image.alt",
+          "logoImage.image.width",
+          "logoImage.image.height",
+          "logoImage.image.fallbackSrc",
+          "logoImage.link.label",
+          "logoImage.link.href",
+          "logoImage.link.newTab"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "j4rh6d80mggstrcyt76epi5u",
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::footer.footer",
+      "properties": {
+        "fields": [
+          "sections.title",
+          "sections.links.label",
+          "sections.links.href",
+          "sections.links.newTab",
+          "links.label",
+          "links.href",
+          "links.newTab",
+          "copyRight",
+          "logoImage.image.media",
+          "logoImage.image.alt",
+          "logoImage.image.width",
+          "logoImage.image.height",
+          "logoImage.image.fallbackSrc",
+          "logoImage.link.label",
+          "logoImage.link.href",
+          "logoImage.link.newTab"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "hvm2qp20n0mj6tngl6y892hj",
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::footer.footer",
+      "properties": {
+        "fields": [
+          "sections.title",
+          "sections.links.label",
+          "sections.links.href",
+          "sections.links.newTab",
+          "links.label",
+          "links.href",
+          "links.newTab",
+          "copyRight",
+          "logoImage.image.media",
+          "logoImage.image.alt",
+          "logoImage.image.width",
+          "logoImage.image.height",
+          "logoImage.image.fallbackSrc",
+          "logoImage.link.label",
+          "logoImage.link.href",
+          "logoImage.link.newTab"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "odlv1m01pgydyvdmawgpgkz5",
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::navbar.navbar",
+      "properties": {
+        "fields": [
+          "logoImage.image.media",
+          "logoImage.image.alt",
+          "logoImage.image.width",
+          "logoImage.image.height",
+          "logoImage.image.fallbackSrc",
+          "logoImage.link.label",
+          "logoImage.link.newTab",
+          "logoImage.link.href"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "q7x2yhimf8habcu73yu6cmdo",
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::navbar.navbar",
+      "properties": {
+        "fields": [
+          "logoImage.image.media",
+          "logoImage.image.alt",
+          "logoImage.image.width",
+          "logoImage.image.height",
+          "logoImage.image.fallbackSrc",
+          "logoImage.link.label",
+          "logoImage.link.newTab",
+          "logoImage.link.href"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "bv2bbvfglhjum6ghxu6j7z7u",
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::navbar.navbar",
+      "properties": {
+        "fields": [
+          "logoImage.image.media",
+          "logoImage.image.alt",
+          "logoImage.image.width",
+          "logoImage.image.height",
+          "logoImage.image.fallbackSrc",
+          "logoImage.link.label",
+          "logoImage.link.newTab",
+          "logoImage.link.href"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "zpksbnn5lannzjwpzcotjg96",
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::page.page",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "content",
+          "seo.metaTitle",
+          "seo.metaDescription",
+          "seo.metaImage",
+          "seo.keywords",
+          "seo.twitter.card",
+          "seo.twitter.title",
+          "seo.twitter.description",
+          "seo.twitter.siteId",
+          "seo.twitter.creator",
+          "seo.twitter.creatorId",
+          "seo.twitter.images",
+          "seo.applicationName",
+          "seo.metaRobots"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "gvid0qjy0s9ygusm9vcb58u0",
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::page.page",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "content",
+          "seo.metaTitle",
+          "seo.metaDescription",
+          "seo.metaImage",
+          "seo.keywords",
+          "seo.twitter.card",
+          "seo.twitter.title",
+          "seo.twitter.description",
+          "seo.twitter.siteId",
+          "seo.twitter.creator",
+          "seo.twitter.creatorId",
+          "seo.twitter.images",
+          "seo.applicationName",
+          "seo.metaRobots"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "hm5t18hwrfckkgnyaugyo273",
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::page.page",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "content",
+          "seo.metaTitle",
+          "seo.metaDescription",
+          "seo.metaImage",
+          "seo.keywords",
+          "seo.twitter.card",
+          "seo.twitter.title",
+          "seo.twitter.description",
+          "seo.twitter.siteId",
+          "seo.twitter.creator",
+          "seo.twitter.creatorId",
+          "seo.twitter.images",
+          "seo.applicationName",
+          "seo.metaRobots"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "ei4yguplldmy820vmmsqnrqw",
+      "action": "plugin::upload.assets.copy-link",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "cfhx7j6kxaqotfeb5sd39kq8",
+      "action": "plugin::upload.assets.create",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "rd7fpj9zb5z3vcoryy7tt5vf",
+      "action": "plugin::upload.assets.download",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "zb1t99rvse9no58dqgezohpu",
+      "action": "plugin::upload.assets.update",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "m5s1h181mhv6cw071nx56c8r",
+      "action": "plugin::upload.configure-view",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "dwbd9d605ns4drugz4e2kk7o",
+      "action": "plugin::upload.read",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    }
+  ]
+}

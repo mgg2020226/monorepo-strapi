@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_site_social_links",
+  "info": { "displayName": "Social link", "icon": "share-alt" },
+  "options": {},
+  "attributes": {
+    "platform": { "type": "enumeration", "enum": ["facebook", "instagram", "linkedin", "x", "youtube", "tiktok", "other"], "required": true },
+    "label": { "type": "string" },
+    "url": { "type": "string", "required": true },
+    "icon": { "type": "string" },
+    "order": { "type": "integer", "default": 0 }
+  }
+}

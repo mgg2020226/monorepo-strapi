@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sections_hero_standards",
+  "info": { "displayName": "Standard hero", "icon": "picture" },
+  "options": {},
+  "attributes": {
+    "eyebrow": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "title": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "description": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "actions": { "type": "component", "component": "ui.link", "repeatable": true },
+    "alignment": { "type": "enumeration", "enum": ["left", "center", "right"], "default": "left" },
+    "style": { "type": "component", "component": "ui.style", "repeatable": false },
+    "motion": { "type": "component", "component": "ui.motion", "repeatable": false }
+  }
+}

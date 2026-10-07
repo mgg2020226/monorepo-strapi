@@ -1,0 +1,11 @@
+{
+  "collectionName": "components_sections_feature_items",
+  "info": { "displayName": "Feature item", "icon": "star" },
+  "options": {},
+  "attributes": {
+    "icon": { "type": "string" },
+    "title": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "description": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "link": { "type": "component", "component": "ui.link", "repeatable": false }
+  }
+}

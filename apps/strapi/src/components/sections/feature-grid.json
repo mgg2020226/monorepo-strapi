@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sections_feature_grids",
+  "info": { "displayName": "Feature grid", "icon": "grid" },
+  "options": {},
+  "attributes": {
+    "eyebrow": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "title": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "description": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "items": { "type": "component", "component": "sections.feature-item", "repeatable": true, "required": true },
+    "columnsMobile": { "type": "integer", "default": 1, "min": 1, "max": 2 },
+    "columnsDesktop": { "type": "integer", "default": 3, "min": 1, "max": 6 },
+    "style": { "type": "component", "component": "ui.style", "repeatable": false },
+    "motion": { "type": "component", "component": "ui.motion", "repeatable": false }
+  }
+}

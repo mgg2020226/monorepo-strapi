@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_site_locale_configs",
+  "info": { "displayName": "Locale config", "icon": "language" },
+  "options": {},
+  "attributes": {
+    "locale": { "type": "enumeration", "enum": ["es", "en"], "required": true },
+    "enabled": { "type": "boolean", "default": true },
+    "isDefault": { "type": "boolean", "default": false }
+  }
+}

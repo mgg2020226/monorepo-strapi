@@ -1,0 +1,77 @@
+{
+  "name": "strapi-next-monorepo-starter",
+  "version": "3.0.0",
+  "private": true,
+  "author": {
+    "name": "Notum Technologies",
+    "email": "info@notum.cz",
+    "url": "https://notum.cz"
+  },
+  "maintainers": [
+    {
+      "name": "Notum Technologies",
+      "email": "info@notum.cz",
+      "url": "https://notum.cz"
+    }
+  ],
+  "scripts": {
+    "build": "turbo build --cache-dir=.turbo",
+    "build:docs": "pnpm -F @repo/docs build",
+    "build:strapi": "turbo run build --filter=@repo/strapi",
+    "build:mapp": "turbo run build --filter=@repo/mapp",
+    "build:mapp:static": "NODE_OPTIONS=--max-old-space-size=2048 turbo run build:static --filter=@repo/mapp",
+    "commit": "git-cz",
+    "dev": "turbo dev",
+    "dev:docs": "pnpm -F @repo/docs start",
+    "dev:strapi": "turbo run dev --filter=@repo/strapi",
+    "dev:mapp": "turbo run dev --filter=@repo/mapp",
+    "format": "prettier --write --cache --ignore-unknown \"**/(*.{md,css,scss}|*.package.json)\"",
+    "format:check": "prettier --check --cache --ignore-unknown \"**/(*.{md,css,scss}|*.package.json)\"",
+    "generate:types": "turbo run generate:types --filter=@repo/strapi",
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "pnpm run setup:apps",
+    "lint": "turbo lint",
+    "lint:fix": "turbo lint:fix",
+    "prepare": "node scripts/prepare.mjs",
+    "seed:check": "turbo run seed:check --filter=@repo/strapi",
+    "seed:export": "turbo run seed:export --filter=@repo/strapi",
+    "seed:import": "turbo run seed:import --filter=@repo/strapi",
+    "setup:apps": "node scripts/setup-apps.mjs",
+    "start:docs": "pnpm -F @repo/docs serve",
+    "start:strapi": "turbo run start --filter=@repo/strapi",
+    "start:mapp": "turbo run start --filter=@repo/mapp",
+    "sync-types": "turbo run sync-types --filter=@repo/strapi-types",
+    "test": "turbo run test",
+    "test:ci": "turbo run test",
+    "test:strapi": "turbo run test --filter=@repo/strapi",
+    "test:mapp": "turbo run test --filter=@repo/mapp",
+    "transfer:strapi": "turbo run transfer --filter=@repo/strapi",
+    "typecheck": "turbo run typecheck",
+    "typecheck:strapi": "turbo run typecheck --filter=@repo/strapi",
+    "typecheck:mapp": "turbo run typecheck --filter=@repo/mapp",
+    "worktree:cleanup": "scripts/worktree/cleanup.sh",
+    "worktree:create": "scripts/worktree/create.sh",
+    "worktree:setup": "scripts/worktree/setup.sh"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "20.5.3",
+    "@commitlint/config-conventional": "20.5.3",
+    "@commitlint/config-pnpm-scopes": "20.5.2",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/semantic-release-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "commitizen": "4.3.2",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "9.39.4",
+    "lefthook": "2.1.9",
+    "lint-staged": "15.5.2",
+    "prettier": "3.8.4",
+    "semantic-release": "24.2.9",
+    "tslib": "2.8.1",
+    "turbo": "2.9.18"
+  },
+  "packageManager": "pnpm@11.8.0",
+  "engines": {
+    "node": "^24.0.0"
+  }
+}

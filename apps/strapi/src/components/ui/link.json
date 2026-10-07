@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_ui_links",
+  "info": { "displayName": "UI link", "icon": "link" },
+  "options": {},
+  "attributes": {
+    "label": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "href": { "type": "string", "required": true },
+    "type": { "type": "enumeration", "enum": ["internal", "external", "email", "phone"], "default": "internal" },
+    "target": { "type": "enumeration", "enum": ["_self", "_blank"], "default": "_self" },
+    "variant": { "type": "enumeration", "enum": ["default", "secondary", "outline", "ghost", "link"], "default": "default" },
+    "size": { "type": "enumeration", "enum": ["sm", "md", "lg"], "default": "md" },
+    "icon": { "type": "string" }
+  }
+}

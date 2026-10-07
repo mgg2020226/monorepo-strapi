@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_admin_permissions",
+  "info": { "displayName": "Admin permission", "icon": "lock" },
+  "options": {},
+  "attributes": {
+    "resource": { "type": "enumeration", "enum": ["site", "page", "blog-post", "blog-category", "calendar-event", "portfolio-project", "legal-page", "form-definition", "media"], "required": true },
+    "actions": { "type": "json", "required": true, "default": ["read"] },
+    "scope": { "type": "enumeration", "enum": ["assigned-sites", "all-sites"], "default": "assigned-sites", "required": true }
+  }
+}

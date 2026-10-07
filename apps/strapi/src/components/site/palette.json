@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_site_palettes",
+  "info": { "displayName": "Site palette", "icon": "paint-brush" },
+  "options": {},
+  "attributes": {
+    "primary": { "type": "string", "required": true },
+    "secondary": { "type": "string", "required": true },
+    "accent": { "type": "string", "required": true },
+    "background": { "type": "string", "required": true },
+    "foreground": { "type": "string", "required": true },
+    "muted": { "type": "string" },
+    "border": { "type": "string" },
+    "destructive": { "type": "string" },
+    "fontHeading": { "type": "string" },
+    "fontBody": { "type": "string" },
+    "radius": { "type": "enumeration", "enum": ["none", "sm", "md", "lg", "xl"], "default": "md" },
+    "contrastMode": { "type": "enumeration", "enum": ["light", "dark", "auto"], "default": "light" }
+  }
+}

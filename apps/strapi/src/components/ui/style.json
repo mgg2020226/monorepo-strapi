@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_ui_styles",
+  "info": { "displayName": "UI style", "icon": "brush" },
+  "options": {},
+  "attributes": {
+    "container": { "type": "enumeration", "enum": ["none", "narrow", "default", "wide", "full"], "default": "default" },
+    "background": { "type": "enumeration", "enum": ["default", "muted", "primary", "secondary", "dark", "custom"], "default": "default" },
+    "alignment": { "type": "enumeration", "enum": ["left", "center", "right"], "default": "left" },
+    "paddingTop": { "type": "enumeration", "enum": ["none", "sm", "md", "lg", "xl"], "default": "lg" },
+    "paddingBottom": { "type": "enumeration", "enum": ["none", "sm", "md", "lg", "xl"], "default": "lg" },
+    "customClass": { "type": "string" }
+  }
+}

@@ -1,0 +1,313 @@
+{
+  "documentId": "x2pscfohrskcoom7huubg7q6",
+  "name": "Author",
+  "code": "strapi-author",
+  "description": "Authors can manage the content they have created.",
+  "locale": null,
+  "permissions": [
+    {
+      "documentId": "npekfqrd4ivec4vjjnhlsb25",
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::footer.footer",
+      "properties": {
+        "fields": [
+          "sections.title",
+          "sections.links.label",
+          "sections.links.href",
+          "sections.links.newTab",
+          "links.label",
+          "links.href",
+          "links.newTab",
+          "copyRight",
+          "logoImage.image.media",
+          "logoImage.image.alt",
+          "logoImage.image.width",
+          "logoImage.image.height",
+          "logoImage.image.fallbackSrc",
+          "logoImage.link.label",
+          "logoImage.link.href",
+          "logoImage.link.newTab"
+        ]
+      },
+      "conditions": [
+        "admin::is-creator"
+      ],
+      "locale": null
+    },
+    {
+      "documentId": "ayaimfvwdy2lql5b8pxxe3pu",
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::footer.footer",
+      "properties": {
+        "fields": [
+          "sections.title",
+          "sections.links.label",
+          "sections.links.href",
+          "sections.links.newTab",
+          "links.label",
+          "links.href",
+          "links.newTab",
+          "copyRight",
+          "logoImage.image.media",
+          "logoImage.image.alt",
+          "logoImage.image.width",
+          "logoImage.image.height",
+          "logoImage.image.fallbackSrc",
+          "logoImage.link.label",
+          "logoImage.link.href",
+          "logoImage.link.newTab"
+        ]
+      },
+      "conditions": [
+        "admin::is-creator"
+      ],
+      "locale": null
+    },
+    {
+      "documentId": "qq2jdde86y8aoljgjdi9pxr2",
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::footer.footer",
+      "properties": {
+        "fields": [
+          "sections.title",
+          "sections.links.label",
+          "sections.links.href",
+          "sections.links.newTab",
+          "links.label",
+          "links.href",
+          "links.newTab",
+          "copyRight",
+          "logoImage.image.media",
+          "logoImage.image.alt",
+          "logoImage.image.width",
+          "logoImage.image.height",
+          "logoImage.image.fallbackSrc",
+          "logoImage.link.label",
+          "logoImage.link.href",
+          "logoImage.link.newTab"
+        ]
+      },
+      "conditions": [
+        "admin::is-creator"
+      ],
+      "locale": null
+    },
+    {
+      "documentId": "j8zv6f9tut7esz50215ivsbf",
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::navbar.navbar",
+      "properties": {
+        "fields": [
+          "logoImage.image.media",
+          "logoImage.image.alt",
+          "logoImage.image.width",
+          "logoImage.image.height",
+          "logoImage.image.fallbackSrc",
+          "logoImage.link.label",
+          "logoImage.link.newTab",
+          "logoImage.link.href"
+        ]
+      },
+      "conditions": [
+        "admin::is-creator"
+      ],
+      "locale": null
+    },
+    {
+      "documentId": "lbzzpl5s6we41f3qpyfevvvy",
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::navbar.navbar",
+      "properties": {
+        "fields": [
+          "logoImage.image.media",
+          "logoImage.image.alt",
+          "logoImage.image.width",
+          "logoImage.image.height",
+          "logoImage.image.fallbackSrc",
+          "logoImage.link.label",
+          "logoImage.link.newTab",
+          "logoImage.link.href"
+        ]
+      },
+      "conditions": [
+        "admin::is-creator"
+      ],
+      "locale": null
+    },
+    {
+      "documentId": "ckw2zg0va8ojrjhzyml02uvc",
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::navbar.navbar",
+      "properties": {
+        "fields": [
+          "logoImage.image.media",
+          "logoImage.image.alt",
+          "logoImage.image.width",
+          "logoImage.image.height",
+          "logoImage.image.fallbackSrc",
+          "logoImage.link.label",
+          "logoImage.link.newTab",
+          "logoImage.link.href"
+        ]
+      },
+      "conditions": [
+        "admin::is-creator"
+      ],
+      "locale": null
+    },
+    {
+      "documentId": "t41h92vx4pmkzkuv5v95065l",
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::page.page",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "content",
+          "seo.metaTitle",
+          "seo.metaDescription",
+          "seo.metaImage",
+          "seo.keywords",
+          "seo.twitter.card",
+          "seo.twitter.title",
+          "seo.twitter.description",
+          "seo.twitter.siteId",
+          "seo.twitter.creator",
+          "seo.twitter.creatorId",
+          "seo.twitter.images",
+          "seo.applicationName",
+          "seo.metaRobots"
+        ]
+      },
+      "conditions": [
+        "admin::is-creator"
+      ],
+      "locale": null
+    },
+    {
+      "documentId": "kkzq66dkqgfuljlarhhsyhmt",
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::page.page",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "content",
+          "seo.metaTitle",
+          "seo.metaDescription",
+          "seo.metaImage",
+          "seo.keywords",
+          "seo.twitter.card",
+          "seo.twitter.title",
+          "seo.twitter.description",
+          "seo.twitter.siteId",
+          "seo.twitter.creator",
+          "seo.twitter.creatorId",
+          "seo.twitter.images",
+          "seo.applicationName",
+          "seo.metaRobots"
+        ]
+      },
+      "conditions": [
+        "admin::is-creator"
+      ],
+      "locale": null
+    },
+    {
+      "documentId": "vyjpi4zmwqjsohgxgkt8n6vc",
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::page.page",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "content",
+          "seo.metaTitle",
+          "seo.metaDescription",
+          "seo.metaImage",
+          "seo.keywords",
+          "seo.twitter.card",
+          "seo.twitter.title",
+          "seo.twitter.description",
+          "seo.twitter.siteId",
+          "seo.twitter.creator",
+          "seo.twitter.creatorId",
+          "seo.twitter.images",
+          "seo.applicationName",
+          "seo.metaRobots"
+        ]
+      },
+      "conditions": [
+        "admin::is-creator"
+      ],
+      "locale": null
+    },
+    {
+      "documentId": "kyftflz0iwzb86c1145ojhyk",
+      "action": "plugin::upload.assets.copy-link",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "w7t5b7p3obuqxs3lub96agvb",
+      "action": "plugin::upload.assets.create",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "e447g9r9iwnm48nqbh44jomf",
+      "action": "plugin::upload.assets.download",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "rgz6ak940qe8gqlmto56fu06",
+      "action": "plugin::upload.assets.update",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [
+        "admin::is-creator"
+      ],
+      "locale": null
+    },
+    {
+      "documentId": "ra5jmx3vslj4l78jvnerlxn3",
+      "action": "plugin::upload.configure-view",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "uyxquxv21l7nwyp7wi232oen",
+      "action": "plugin::upload.read",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [
+        "admin::is-creator"
+      ],
+      "locale": null
+    }
+  ]
+}

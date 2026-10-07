@@ -1,0 +1,62 @@
+---
+sidebar_position: 1
+---
+
+# Installation
+
+Set up the monorepo on a fresh machine.
+
+## Prerequisites
+
+| Tool                                 | Version  | Why                                                   |
+| ------------------------------------ | -------- | ----------------------------------------------------- |
+| Node.js                              | `24.x`   | Workspace constraint (`engines.node: ^24.0.0`)        |
+| pnpm                                 | `11.1.1` | Workspace manager — pinned via `packageManager` field |
+| Git                                  | any      | clone + hooks                                         |
+| [nvm](https://github.com/nvm-sh/nvm) | optional | switch Node versions                                  |
+
+Optional but recommended: install VSCode extensions from `.vscode/extensions.json`.
+
+## Clone
+
+```bash
+git clone https://github.com/mgg2020226/monorepo-strapi
+cd monorepo-strapi
+git checkout principal
+```
+
+:::tip New project remote
+
+If you cloned this starter to build a new project, change `origin` before further development so pushes go to your project repository instead of the starter:
+
+```bash
+git remote set-url origin <your-repository-url>
+git remote -v
+```
+
+Keep the original remote only when you intentionally work on the upstream starter.
+
+:::
+
+## Install dependencies
+
+```bash
+nvm use
+pnpm install
+```
+
+`pnpm install` triggers `postinstall` which:
+
+- runs `setup:apps` — copies every `*.example` file to its non-`.example` sibling (creates `.env`, `.env.local` from templates)
+- runs `prepare` — installs Lefthook git hooks
+
+## Environment files
+
+After install, you'll have:
+
+- `apps/strapi/.env` — Strapi backend
+- `apps/mapp/.env.local` — Next.js UI
+
+Both start from `.env.example` templates. Most values work out of the box; you'll need to fill at minimum a Strapi API token before the UI can fetch content — covered in [Quick Start](./quick-start.md).
+
+Strapi also needs a reachable PostgreSQL instance. Set its connection details in `apps/strapi/.env`; SQLite and a local Docker database are not part of this setup.
