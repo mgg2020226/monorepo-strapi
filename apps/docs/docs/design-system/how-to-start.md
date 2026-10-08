@@ -38,7 +38,7 @@ Setting up the design system usually includes:
 
 - Typography, fonts, and dedicated typography components.
 - Color palette and semantic color tokens.
-- Base atomic components, especially Shadcn/ui components in `apps/mapp/src/components/ui`.
+- Base atomic components, especially Shadcn/ui components in `packages/design-system/src/ui`.
 - Containers, breakpoints, spacing, padding, and shadows.
 - Rich text editor rules for CKEditor or TipTap.
 - Strapi components and single types for globally reused content.

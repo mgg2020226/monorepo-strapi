@@ -120,7 +120,7 @@ For example, if most sections need top padding, bottom padding, and background v
 Base UI primitives live in:
 
 ```text
-apps/mapp/src/components/ui
+packages/design-system/src/ui
 ```
 
 Use these as the starting point for atomic UI:

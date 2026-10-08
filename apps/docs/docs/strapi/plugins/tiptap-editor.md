@@ -61,13 +61,13 @@ The editor stores these attributes on the ProseMirror `image` node:
 | `data-align`    | `left`, `center`, `right`, or `null`                             |
 | `data-asset-id` | Media Library asset ID                                           |
 
-`data-align` and `data-asset-id` are non-standard, and `@tiptap/static-renderer` drops attributes the extension does not declare. The UI therefore extends the image extension as `StrapiImage` in `apps/mapp/src/components/elementary/tiptap-editor/extensions.tsx` to declare both.
+`data-align` and `data-asset-id` are non-standard, and `@tiptap/static-renderer` drops attributes the extension does not declare. The UI therefore extends the image extension as `StrapiImage` in `packages/design-system/src/elementary/tiptap-editor/extensions.tsx` to declare both.
 
 :::note
 The frontend deliberately does **not** pass `resize` to its image extension. In `@tiptap/extension-image`, `width` and `height` are declared unconditionally in `addAttributes()`, and `resize` only gates `addNodeView()` — which `@tiptap/static-renderer` never calls. Passing it would be dead config.
 :::
 
-Rendering lives in the `image` node mapping in `apps/mapp/src/components/elementary/tiptap-editor/index.tsx`. It emits a full-width `<figure>` with `mx-auto`/`ml-auto` on the `<img>` handling alignment, and `h-auto max-w-full` so an image wider than the container scales down without distorting.
+Rendering lives in the `image` node mapping in `packages/design-system/src/elementary/tiptap-editor/index.tsx`. It emits a full-width `<figure>` with `mx-auto`/`ml-auto` on the `<img>` handling alignment, and `h-auto max-w-full` so an image wider than the container scales down without distorting.
 
 ## Design Tokens
 

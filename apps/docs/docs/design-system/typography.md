@@ -10,8 +10,8 @@ Relevant files in this repository:
 
 - `apps/mapp/src/lib/fonts.ts`
 - `apps/mapp/src/app/[locale]/layout.tsx`
-- `apps/mapp/src/components/typography/index.tsx`
-- `apps/mapp/src/components/typography/config.ts`
+- `packages/design-system/src/typography/index.tsx`
+- `packages/design-system/src/typography/config.ts`
 - `apps/strapi/src/admin/ckeditor/headings.ts`
 - `packages/design-system/src/custom-styles.css`
 - `packages/design-system/src/theme.css`
@@ -168,7 +168,7 @@ For broader editor setup, see [Rich Text Editors](/docs/design-system/rich-text-
 Frontend semantic text should use the shared Typography component:
 
 ```text
-apps/mapp/src/components/typography/index.tsx
+packages/design-system/src/typography/index.tsx
 ```
 
 It lets the caller choose:
@@ -180,7 +180,7 @@ It lets the caller choose:
 Available variants are mapped in:
 
 ```text
-apps/mapp/src/components/typography/config.ts
+packages/design-system/src/typography/config.ts
 ```
 
 Example:
@@ -257,6 +257,6 @@ If several components need the same text style, add a typography variant. Local 
 When adding or changing a typography variant, update the relevant files together:
 
 - `packages/design-system/src/custom-styles.css` for `.typo-*` styles and rich text selectors.
-- `apps/mapp/src/components/typography/config.ts` for `variantStyles`, `defaultStyles`, and optional color or weight variants.
+- `packages/design-system/src/typography/config.ts` for `variantStyles`, `defaultStyles`, and optional color or weight variants.
 - `apps/strapi/src/admin/ckeditor/headings.ts` when CKEditor should expose the variant to editors.
 - `packages/design-system/src/theme.css` if the change needs new font, color, or spacing tokens.

@@ -29,7 +29,7 @@ Use this checklist when creating a task for initial design-system setup or a lar
 - [ ] Attach font variables in `apps/mapp/src/app/[locale]/layout.tsx`.
 - [ ] Collect all typography variants before component implementation starts.
 - [ ] Define `.typo-*` classes in `packages/design-system/src/custom-styles.css`.
-- [ ] Map typography variants in `apps/mapp/src/components/typography/config.ts`.
+- [ ] Map typography variants in `packages/design-system/src/typography/config.ts`.
 - [ ] Confirm `defaultStyles` are correct for `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, and `p`.
 - [ ] Update `apps/strapi/src/admin/ckeditor/headings.ts` when CKEditor should expose changed or new typography variants.
 - [ ] Verify semantic heading tags can use different visual variants when needed.
@@ -59,7 +59,7 @@ Use this checklist when creating a task for initial design-system setup or a lar
 ## Frontend Components
 
 - [ ] Check existing shared components, utilities, hooks, and packages before adding new ones.
-- [ ] Use `apps/mapp/src/components/ui` primitives as the base for atomic UI.
+- [ ] Use `packages/design-system/src/ui` primitives as the base for atomic UI.
 - [ ] Prefer bounded variants over many booleans or open-ended props.
 - [ ] Keep one prop responsible for one concept.
 - [ ] Decide whether a visual pattern belongs in a page-builder component, atomic component, utility, or shared token.

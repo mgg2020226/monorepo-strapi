@@ -22,8 +22,8 @@ Relevant files:
 - `apps/strapi/src/admin/ckeditor/configs.ts`
 - `apps/strapi/src/admin/ckeditor/headings.ts`
 - `apps/strapi/src/admin/app.tsx`
-- `apps/mapp/src/components/page-builder/components/utilities/StrapiCkEditorContent.tsx`
-- `apps/mapp/src/components/page-builder/components/utilities/StrapiTipTapEditorContent.tsx`
+- `packages/sections/src/utilities/StrapiCkEditorContent.tsx`
+- `packages/sections/src/utilities/StrapiTipTapEditorContent.tsx`
 
 ## Editor Choice
 
@@ -135,13 +135,13 @@ Editors should get the formatting options they need for the field, not every ava
 CKEditor content is rendered through:
 
 ```text
-apps/mapp/src/components/page-builder/components/utilities/StrapiCkEditorContent.tsx
+packages/sections/src/utilities/StrapiCkEditorContent.tsx
 ```
 
 TipTap content is rendered through:
 
 ```text
-apps/mapp/src/components/page-builder/components/utilities/StrapiTipTapEditorContent.tsx
+packages/sections/src/utilities/StrapiTipTapEditorContent.tsx
 ```
 
 When creating or changing rich text fields, decide:

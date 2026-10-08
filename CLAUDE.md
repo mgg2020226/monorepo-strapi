@@ -10,7 +10,8 @@ Monorepo starter with Strapi v5 CMS, Next.js 16 Mapp frontend, Docusaurus docs, 
 | `apps/strapi`            | Strapi v5 CMS with PostgreSQL                                           |
 | `apps/docs`              | Docusaurus documentation site (port 3300)                               |
 | `packages/strapi-types`  | Auto-generated TypeScript types from Strapi schemas                     |
-| `packages/design-system` | Shared TailwindCSS tokens, CKEditor and TipTap editor styles            |
+| `packages/design-system` | Shared visual components, form controls, hooks, typography, and editor styles |
+| `packages/sections`      | Reusable page-builder sections and Strapi rendering utilities          |
 | `packages/shared-data`   | Shared constants and types                                              |
 | `packages/logging`       | Structured pino logging + OpenTelemetry trace context (`@repo/logging`) |
 
