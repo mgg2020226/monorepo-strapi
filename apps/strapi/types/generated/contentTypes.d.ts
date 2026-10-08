@@ -1035,7 +1035,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         "sections.faq",
         "sections.carousel",
         "sections.animated-logo-row",
-        "forms.newsletter-form",
         "forms.contact-form",
         "utilities.ck-editor-content",
         "sections.statistics",
@@ -1246,6 +1245,8 @@ export interface ApiRedirectRedirect extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private
     publishedAt: Schema.Attribute.DateTime
+    site: Schema.Attribute.Relation<"manyToOne", "api::site.site"> &
+      Schema.Attribute.Required
     source: Schema.Attribute.String & Schema.Attribute.Required
     updatedAt: Schema.Attribute.DateTime
     updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
@@ -1329,6 +1330,7 @@ export interface ApiSiteSite extends Struct.CollectionTypeSchema {
       "api::portfolio-project.portfolio-project"
     >
     publishedAt: Schema.Attribute.DateTime
+    redirects: Schema.Attribute.Relation<"oneToMany", "api::redirect.redirect">
     searchEnabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
     slug: Schema.Attribute.UID<"name"> &
       Schema.Attribute.Required &
@@ -1337,6 +1339,10 @@ export interface ApiSiteSite extends Struct.CollectionTypeSchema {
     status: Schema.Attribute.Enumeration<["draft", "active", "archived"]> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<"draft">
+    subscribers: Schema.Attribute.Relation<
+      "oneToMany",
+      "api::subscriber.subscriber"
+    >
     typesenseCollection: Schema.Attribute.String
     updatedAt: Schema.Attribute.DateTime
     updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
@@ -1361,6 +1367,7 @@ export interface ApiSubscriberSubscriber extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
       Schema.Attribute.Private
     email: Schema.Attribute.Email
+    formSlug: Schema.Attribute.String & Schema.Attribute.Required
     locale: Schema.Attribute.String & Schema.Attribute.Private
     localizations: Schema.Attribute.Relation<
       "oneToMany",
@@ -1370,6 +1377,9 @@ export interface ApiSubscriberSubscriber extends Struct.CollectionTypeSchema {
     message: Schema.Attribute.Text
     name: Schema.Attribute.String
     publishedAt: Schema.Attribute.DateTime
+    site: Schema.Attribute.Relation<"manyToOne", "api::site.site"> &
+      Schema.Attribute.Required
+    submissionData: Schema.Attribute.JSON & Schema.Attribute.Required
     updatedAt: Schema.Attribute.DateTime
     updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
       Schema.Attribute.Private

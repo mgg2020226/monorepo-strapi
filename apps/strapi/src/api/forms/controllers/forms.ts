@@ -26,14 +26,21 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
     const form = (await strapi
       .documents("api::form-definition.form-definition")
       .findFirst({
-        filters: { slug: formSlug, site: { slug: siteSlug } },
-        populate: { fields: { populate: { options: true } } },
+        filters: {
+          slug: formSlug,
+          site: { slug: siteSlug, status: "active" },
+        },
+        populate: {
+          fields: { populate: { options: true } },
+          site: true,
+        },
       })) as null | {
       fields?: FormField[]
       recipientEmail?: string
       active?: boolean
       honeypotEnabled?: boolean
       rateLimitPerMinute?: number
+      site?: { documentId?: string }
     }
 
     if (!form || form.active === false) {
@@ -84,15 +91,44 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
       return ctx.internalServerError("Email delivery is not configured")
     }
 
+    if (!form.site?.documentId) {
+      strapi.log.error("Form submission rejected because the site is missing")
+
+      return ctx.internalServerError("Form site is not configured")
+    }
+
     const text = Object.entries(payload)
       .map(([key, value]) => `${key}: ${value}`)
       .join("\n")
 
-    await emailService.send({
-      to: form.recipientEmail,
-      subject: `New form submission: ${formSlug}`,
-      text,
-    })
+    const subscriber = await strapi
+      .documents("api::subscriber.subscriber")
+      .create({
+        data: {
+          name: payload.name,
+          email: payload.email,
+          message: payload.message,
+          formSlug,
+          submissionData: payload,
+          site: form.site.documentId,
+        },
+      })
+
+    try {
+      await emailService.send({
+        to: form.recipientEmail,
+        replyTo: payload.email,
+        subject: `New form submission: ${formSlug}`,
+        text,
+      })
+    } catch (error) {
+      strapi.log.error("Failed to notify site about form submission", {
+        error: error instanceof Error ? error.message : String(error),
+        subscriber: subscriber.documentId,
+      })
+
+      return ctx.internalServerError("Form notification failed")
+    }
 
     return ctx.send({ ok: true })
   },

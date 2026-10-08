@@ -131,8 +131,21 @@ export default factories.createCoreService(
 
         if (change.redirect) {
           try {
+            const page = await strapi.documents("api::page.page").findOne({
+              documentId: change.documentId,
+              locale: change.locale,
+              populate: { site: { fields: ["documentId"] } },
+            })
+            const siteDocumentId = page?.site?.documentId
+            if (!siteDocumentId) {
+              throw new Error(
+                `Page ${change.documentId} has no Site; cannot create a redirect.`
+              )
+            }
+
             const affectedSources = await this.upsertRedirectWithCompaction(
-              change.redirect
+              change.redirect,
+              siteDocumentId
             )
             for (const source of affectedSources) {
               redirectSources.add(source)
@@ -198,19 +211,25 @@ export default factories.createCoreService(
      * Returns every redirect source whose target changed so the caller can
      * revalidate them.
      */
-    async upsertRedirectWithCompaction({
-      source,
-      destination,
-    }: {
-      source: string
-      destination: string
-    }): Promise<string[]> {
+    async upsertRedirectWithCompaction(
+      {
+        source,
+        destination,
+      }: {
+        source: string
+        destination: string
+      },
+      siteDocumentId: string
+    ): Promise<string[]> {
       const redirects = strapi.documents("api::redirect.redirect")
       const affectedSources = new Set<string>([source])
 
       // 1. Collapse chains leading into `source`: X -> source becomes X -> destination.
       const inbound = await redirects.findMany({
-        filters: { destination: source },
+        filters: {
+          destination: source,
+          site: { documentId: siteDocumentId },
+        },
         status: "published",
       })
 
@@ -231,7 +250,10 @@ export default factories.createCoreService(
       // 2. Upsert the `source -> destination` record itself, reusing any stale
       // record that already maps this source instead of duplicating it.
       const [existing, ...duplicates] = await redirects.findMany({
-        filters: { source },
+        filters: {
+          source,
+          site: { documentId: siteDocumentId },
+        },
         status: "published",
       })
 
@@ -247,7 +269,11 @@ export default factories.createCoreService(
         }
       } else {
         await redirects.create({
-          data: { source, destination },
+          data: {
+            source,
+            destination,
+            site: siteDocumentId,
+          },
           status: "published",
         })
       }

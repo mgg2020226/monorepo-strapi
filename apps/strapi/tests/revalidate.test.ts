@@ -251,12 +251,12 @@ describe("auto revalidate document middleware", () => {
     expect(result).toBe(nextResult)
   })
 
-  it("revalidates collection tags for public single types on update", async () => {
+  it("revalidates site chrome tags on update", async () => {
     const { middleware, runMock } = buildMiddleware()
 
     await middleware(
       {
-        uid: "api::navbar.navbar",
+        uid: "api::site.site",
         action: "update",
         params: {
           data: {
@@ -271,7 +271,7 @@ describe("auto revalidate document middleware", () => {
     )
 
     expect(runMock).toHaveBeenCalledWith({
-      uid: "api::navbar.navbar",
+      uid: "api::site.site",
       tags: undefined,
     })
   })

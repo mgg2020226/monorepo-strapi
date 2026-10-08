@@ -167,18 +167,6 @@ export interface FormsDynamicForm extends Struct.ComponentSchema {
   }
 }
 
-export interface FormsNewsletterForm extends Struct.ComponentSchema {
-  collectionName: "components_forms_newsletter_forms"
-  info: {
-    displayName: "Newsletter"
-  }
-  attributes: {
-    description: Schema.Attribute.Text
-    gdpr: Schema.Attribute.Component<"utilities.link", false>
-    title: Schema.Attribute.String
-  }
-}
-
 export interface LayoutNavbarItem extends Struct.ComponentSchema {
   collectionName: "components_layout_navbar_items"
   info: {
@@ -1159,7 +1147,6 @@ declare module "@strapi/strapi" {
       "form.option": FormOption
       "forms.contact-form": FormsContactForm
       "forms.dynamic-form": FormsDynamicForm
-      "forms.newsletter-form": FormsNewsletterForm
       "layout.navbar-item": LayoutNavbarItem
       "sections.animated-logo-row": SectionsAnimatedLogoRow
       "sections.carousel": SectionsCarousel

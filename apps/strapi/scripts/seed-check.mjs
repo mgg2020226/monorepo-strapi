@@ -12,8 +12,7 @@ const require = createRequire(import.meta.url)
 
 const requiredDocuments = [
   { label: "Page", uid: "api::page.page" },
-  { label: "Navbar", uid: "api::navbar.navbar" },
-  { label: "Footer", uid: "api::footer.footer" },
+  { label: "Site", uid: "api::site.site" },
 ]
 
 process.env.STRAPI_TELEMETRY_DISABLED ??= "1"

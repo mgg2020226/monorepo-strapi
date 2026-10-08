@@ -72,8 +72,7 @@ const REVALIDATE_CONFIG: Record<
         : { uid, fullPaths: [fullPath] },
     }
   },
-  "api::navbar.navbar": tagBasedAction("navbar"),
-  "api::footer.footer": tagBasedAction("footer"),
+  "api::site.site": tagBasedAction("site"),
 }
 
 function DataRevalidateButton() {

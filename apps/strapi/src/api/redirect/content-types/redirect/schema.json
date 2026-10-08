@@ -17,6 +17,13 @@
     "destination": {
       "type": "string",
       "required": true
+    },
+    "site": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::site.site",
+      "inversedBy": "redirects",
+      "required": true
     }
   }
 }

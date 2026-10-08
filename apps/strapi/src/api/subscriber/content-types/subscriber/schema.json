@@ -20,6 +20,21 @@
     "message": {
       "type": "text"
     },
+    "formSlug": {
+      "type": "string",
+      "required": true
+    },
+    "submissionData": {
+      "type": "json",
+      "required": true
+    },
+    "site": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::site.site",
+      "inversedBy": "subscribers",
+      "required": true
+    },
     "content": {
       "type": "customField",
       "customField": "plugin::tiptap-editor.RichText"

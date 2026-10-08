@@ -32,6 +32,8 @@
     "portfolioProjects": { "type": "relation", "relation": "oneToMany", "target": "api::portfolio-project.portfolio-project", "mappedBy": "site" },
     "legalPages": { "type": "relation", "relation": "oneToMany", "target": "api::legal-page.legal-page", "mappedBy": "site" },
     "forms": { "type": "relation", "relation": "oneToMany", "target": "api::form-definition.form-definition", "mappedBy": "site" },
+    "subscribers": { "type": "relation", "relation": "oneToMany", "target": "api::subscriber.subscriber", "mappedBy": "site" },
+    "redirects": { "type": "relation", "relation": "oneToMany", "target": "api::redirect.redirect", "mappedBy": "site" },
     "cmsUsers": { "type": "relation", "relation": "manyToMany", "target": "api::cms-user-access.cms-user-access", "mappedBy": "sites" }
   }
 }
