@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation"
 import type { Locale } from "next-intl"
 import React, { useTransition } from "react"
 
-import { UseSearchParamsWrapper } from "@/components/helpers/UseSearchParamsWrapper"
+import { UseSearchParamsWrapper } from "@repo/design-system/elementary/UseSearchParamsWrapper"
 import {
   Select,
   SelectContent,
@@ -12,7 +12,7 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@repo/design-system/ui/select"
 import { routing, usePathname, useRouter } from "@/lib/navigation"
 
 const localeTranslation = {

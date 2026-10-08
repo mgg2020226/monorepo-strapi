@@ -1,6 +1,6 @@
 import type { Data } from "@repo/strapi-types"
 
-import StrapiLink from "@/components/page-builder/components/utilities/StrapiLink"
+import StrapiLink from "@repo/sections/utilities/StrapiLink"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -8,7 +8,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
+} from "@repo/design-system/ui/navigation-menu"
 import { cn } from "@/lib/styles"
 
 interface DesktopNavigationProps {

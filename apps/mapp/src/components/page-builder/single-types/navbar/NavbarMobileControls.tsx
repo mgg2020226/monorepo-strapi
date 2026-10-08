@@ -5,12 +5,12 @@ import { Menu, X } from "lucide-react"
 import type { Locale } from "next-intl"
 
 import { MobileNavigation } from "@/components/page-builder/single-types/navbar/MobileNavigation"
-import { Button } from "@/components/ui/button"
-import { useNavbarMobile } from "@/hooks/useNavbarMobile"
+import { Button } from "@repo/design-system/ui/button"
+import { useNavbarMobile } from "@repo/design-system/hooks/useNavbarMobile"
 import { cn } from "@/lib/styles"
 import type { BetterAuthSessionWithStrapi } from "@/types/better-auth"
 
-export { NavbarMobileProvider } from "@/hooks/useNavbarMobile"
+export { NavbarMobileProvider } from "@repo/design-system/hooks/useNavbarMobile"
 
 export function NavbarMobileToggle() {
   const [mobileOpen, setMobileOpen] = useNavbarMobile()

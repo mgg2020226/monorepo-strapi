@@ -1,0 +1,42 @@
+import { type Locale, useLocale } from "next-intl"
+
+import {
+  processLinksInHtmlContent,
+  removeEmptyImagesFromContent,
+} from "./utils"
+import { cn } from "@repo/design-system/utils"
+
+function CkEditorRenderer({
+  htmlContent,
+  className,
+  locale: passedLocale,
+  variant = "page",
+}: {
+  htmlContent?: string | null
+  className?: string
+  locale?: Locale
+  variant?: "page" | "blog"
+}) {
+  const currentLocale = useLocale()
+  const locale = passedLocale ?? currentLocale
+
+  const processHtmlContent = (html: string, locale: Locale) => {
+    const transformers = [
+      (h: string) => processLinksInHtmlContent(h, locale),
+      removeEmptyImagesFromContent,
+    ]
+
+    return transformers.reduce((result, transform) => transform(result), html)
+  }
+
+  return htmlContent ? (
+    <div
+      className={cn(`ck-editor-rich-text-${variant}`, className)}
+      dangerouslySetInnerHTML={{
+        __html: processHtmlContent(htmlContent, locale),
+      }}
+    />
+  ) : null
+}
+
+export default CkEditorRenderer

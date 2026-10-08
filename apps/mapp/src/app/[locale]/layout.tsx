@@ -12,7 +12,7 @@ import StrapiNavbar from "@/components/page-builder/single-types/navbar/StrapiNa
 import { ClientProviders } from "@/components/providers/ClientProviders"
 import { ServerProviders } from "@/components/providers/ServerProviders"
 import TrackingScripts from "@/components/providers/TrackingScripts"
-import { Toaster } from "@/components/ui/sonner"
+import { Toaster } from "@repo/design-system/ui/sonner"
 import { debugStaticParams } from "@/lib/build"
 import { fontRoboto } from "@/lib/fonts"
 import { isValidLocale, routing } from "@/lib/navigation"
@@ -71,24 +71,27 @@ export default async function RootLayout({
     "IMGPROXY_URL",
   ]
 
+  const csrConfig = CSR_ENVs.reduce(
+    (acc, curr) => {
+      acc[curr] = process.env?.[curr]
+
+      return acc
+    },
+    {} as Record<string, string | undefined>
+  )
+
+  const csrConfigScript =
+    "window.CSR_CONFIG = window.CSR_CONFIG || {};" +
+    `window.CSR_CONFIG = ${JSON.stringify(csrConfig)};`
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        <Script id="csr-config" strategy="beforeInteractive">
-          {`
-         window.CSR_CONFIG = window.CSR_CONFIG || {};
-         window.CSR_CONFIG = ${JSON.stringify({
-           ...CSR_ENVs.reduce(
-             (acc, curr) => {
-               acc[curr] = process.env?.[curr]
-
-               return acc
-             },
-             {} as Record<string, string | undefined>
-           ),
-         })};
-       `}
-        </Script>
+        <Script
+          id="csr-config"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: csrConfigScript }}
+        />
       </head>
       <body
         className={cn(

@@ -5,9 +5,9 @@ import { MoveRight } from "lucide-react"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 
-import { AppField } from "@/components/forms/AppField"
-import { AppForm } from "@/components/forms/AppForm"
-import { Button } from "@/components/ui/button"
+import { AppField } from "@repo/design-system/forms/AppField"
+import { AppForm } from "@repo/design-system/forms/AppForm"
+import { Button } from "@repo/design-system/ui/button"
 
 export function NewsletterForm() {
   const form = useForm<z.infer<FormSchemaType>>({

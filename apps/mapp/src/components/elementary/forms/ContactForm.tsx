@@ -6,11 +6,11 @@ import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import * as z from "zod"
 
-import AppLink from "@/components/elementary/AppLink"
-import { AppField } from "@/components/forms/AppField"
-import { AppForm } from "@/components/forms/AppForm"
-import { AppTextArea } from "@/components/forms/AppTextArea"
-import { Button } from "@/components/ui/button"
+import AppLink from "@repo/design-system/elementary/AppLink"
+import { AppField } from "@repo/design-system/forms/AppField"
+import { AppForm } from "@repo/design-system/forms/AppForm"
+import { AppTextArea } from "@repo/design-system/forms/AppTextArea"
+import { Button } from "@repo/design-system/ui/button"
 import { useContactForm } from "@/hooks/useAppForm"
 
 export function ContactForm({

@@ -2,8 +2,8 @@ import "server-only"
 
 import type { Data } from "@repo/strapi-types"
 
-import AppLink from "@/components/elementary/AppLink"
-import { Container } from "@/components/elementary/Container"
+import AppLink from "@repo/design-system/elementary/AppLink"
+import { Container } from "@repo/design-system/elementary/Container"
 import { NewsletterForm } from "@/components/elementary/forms/NewsletterForm"
 import { removeThisWhenYouNeedMe } from "@/lib/general-helpers"
 import type { PageBuilderComponentProps } from "@/types/general"

@@ -1,18 +1,20 @@
 import type { UID } from "@repo/strapi-types"
+import {
+  StrapiAnimatedLogoRow,
+  StrapiCarousel,
+  StrapiCkEditorContent,
+  StrapiCTABanner,
+  StrapiFaq,
+  StrapiFeaturesList,
+  StrapiHeadingWithCTAButton,
+  StrapiHero,
+  StrapiImageWithCTAButton,
+  StrapiStatistics,
+  StrapiTipTapEditorContent,
+} from "@repo/sections"
 
 import StrapiContactForm from "@/components/page-builder/components/forms/StrapiContactForm"
 import StrapiNewsletterForm from "@/components/page-builder/components/forms/StrapiNewsletterForm"
-import StrapiAnimatedLogoRow from "@/components/page-builder/components/sections/StrapiAnimatedLogoRow"
-import StrapiCarousel from "@/components/page-builder/components/sections/StrapiCarousel"
-import StrapiCTABanner from "@/components/page-builder/components/sections/StrapiCTABanner"
-import StrapiFaq from "@/components/page-builder/components/sections/StrapiFaq"
-import { StrapiFeaturesList } from "@/components/page-builder/components/sections/StrapiFeaturesList"
-import { StrapiStatistics } from "@/components/page-builder/components/sections/StrapiFigures"
-import StrapiHeadingWithCTAButton from "@/components/page-builder/components/sections/StrapiHeadingWithCTAButton"
-import StrapiHero from "@/components/page-builder/components/sections/StrapiHero"
-import StrapiImageWithCTAButton from "@/components/page-builder/components/sections/StrapiImageWithCTAButton"
-import StrapiCkEditorContent from "@/components/page-builder/components/utilities/StrapiCkEditorContent"
-import StrapiTipTapEditorContent from "@/components/page-builder/components/utilities/StrapiTipTapEditorContent"
 
 /**
  * Mapping of Strapi Component UID to React Component

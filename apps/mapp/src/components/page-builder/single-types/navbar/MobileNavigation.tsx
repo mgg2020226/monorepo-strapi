@@ -6,10 +6,10 @@ import { useTranslations, type Locale } from "next-intl"
 import { useState } from "react"
 
 import LocaleSwitcher from "@/components/elementary/LocaleSwitcher"
-import StrapiLink from "@/components/page-builder/components/utilities/StrapiLink"
+import StrapiLink from "@repo/sections/utilities/StrapiLink"
 import { NavbarAuthSection } from "@/components/page-builder/single-types/navbar/NavbarAuthSection"
-import Typography from "@/components/typography"
-import { Button } from "@/components/ui/button"
+import Typography from "@repo/design-system/typography"
+import { Button } from "@repo/design-system/ui/button"
 import { cn } from "@/lib/styles"
 import type { BetterAuthSessionWithStrapi } from "@/types/better-auth"
 

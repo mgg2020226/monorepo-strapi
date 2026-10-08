@@ -2,9 +2,9 @@ import "server-only"
 
 import type { Data } from "@repo/strapi-types"
 
-import { Container } from "@/components/elementary/Container"
+import { Container } from "@repo/design-system/elementary/Container"
 import { ContactForm } from "@/components/elementary/forms/ContactForm"
-import { Typography } from "@/components/typography"
+import { Typography } from "@repo/design-system/typography"
 import { removeThisWhenYouNeedMe } from "@/lib/general-helpers"
 import type { PageBuilderComponentProps } from "@/types/general"
 

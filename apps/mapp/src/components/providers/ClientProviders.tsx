@@ -5,7 +5,7 @@ import { ThemeProvider } from "next-themes"
 import type React from "react"
 import { z } from "zod"
 
-import { useTranslatedZod } from "@/hooks/useTranslatedZod"
+import { useTranslatedZod } from "@repo/design-system/hooks/useTranslatedZod"
 import { setupLibraries } from "@/lib/general-helpers"
 
 // Setup libraries in client environment

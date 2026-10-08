@@ -3,11 +3,11 @@ import "server-only"
 import type { Data } from "@repo/strapi-types"
 import type { Locale } from "next-intl"
 
-import { Container } from "@/components/elementary/Container"
+import { Container } from "@repo/design-system/elementary/Container"
 import LocaleSwitcher from "@/components/elementary/LocaleSwitcher"
-import { StrapiBasicImage } from "@/components/page-builder/components/utilities/StrapiBasicImage"
-import StrapiImageWithLink from "@/components/page-builder/components/utilities/StrapiImageWithLink"
-import StrapiLink from "@/components/page-builder/components/utilities/StrapiLink"
+import { StrapiBasicImage } from "@repo/sections/utilities/StrapiBasicImage"
+import StrapiImageWithLink from "@repo/sections/utilities/StrapiImageWithLink"
+import StrapiLink from "@repo/sections/utilities/StrapiLink"
 import { NavbarAuthSection } from "@/components/page-builder/single-types/navbar/NavbarAuthSection"
 import {
   NavbarMobileNavigation,

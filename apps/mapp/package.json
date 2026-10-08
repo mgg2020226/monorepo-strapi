@@ -38,6 +38,7 @@
     "@radix-ui/react-tooltip": "1.2.10",
     "@repo/design-system": "workspace:*",
     "@repo/logging": "workspace:*",
+    "@repo/sections": "workspace:*",
     "@repo/shared-data": "workspace:*",
     "@sentry/nextjs": "10.58.0",
     "@t3-oss/env-nextjs": "0.13.11",

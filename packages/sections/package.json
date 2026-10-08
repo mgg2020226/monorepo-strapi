@@ -4,12 +4,22 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./sections/*": "./src/sections/*.tsx",
+    "./utilities/*": "./src/utilities/*.tsx",
+    "./types": "./src/types.ts"
   },
   "scripts": {
     "build": "tsc --noEmit",
     "lint": "eslint -c ../../eslint.config.mjs .",
     "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@repo/design-system": "workspace:*",
+    "@repo/strapi-types": "workspace:*",
+    "next": "16.3.3",
+    "next-intl": "4.13.0",
+    "react": "19.3.0"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",

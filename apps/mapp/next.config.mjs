@@ -18,7 +18,7 @@ const nextConfig = {
     turbopackFileSystemCacheForDev: true,
   },
   reactCompiler: true,
-  transpilePackages: ["@repo/design-system"],
+  transpilePackages: ["@repo/design-system", "@repo/sections"],
   // pino (via @repo/logging) and the Azure Monitor exporter rely on Node
   // internals / worker threads that must not be bundled by the server compiler.
   serverExternalPackages: [
