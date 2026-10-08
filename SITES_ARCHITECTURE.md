@@ -44,7 +44,7 @@ Los componentes están bajo `apps/strapi/src/components` y contienen los campos 
 - `site.locale-config`: idioma habilitado e idioma principal.
 - `site.header-config`: logo, búsqueda, selector de idioma, CTA y navegación.
 - `site.footer-config`: descripción, columnas, enlaces legales y copyright.
-- `site.navigation-item`: etiqueta, destino, target, orden y subelementos.
+- `site.navigation-item`: etiqueta, destino, target y orden.
 - `site.social-link`: plataforma, etiqueta, URL, icono y orden.
 - `seo.metadata`: título, descripción, keywords, imagen social, canonical y robots.
 - `ui.link`: etiqueta, href, tipo, target, variante, tamaño e icono.
