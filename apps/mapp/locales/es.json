@@ -35,6 +35,18 @@
     "back": "Atrás"
   },
 
+  "content": {
+    "blog": "Blog",
+    "events": "Eventos",
+    "portfolio": "Portafolio",
+    "legal": "Información legal",
+    "readMore": "Leer más",
+    "backToBlog": "Volver al blog",
+    "backToEvents": "Volver a eventos",
+    "backToPortfolio": "Volver al portafolio",
+    "backToLegal": "Volver a la información legal"
+  },
+
   "tables": {
     "previousPage": "Página anterior",
     "nextPage": "Página siguiente",

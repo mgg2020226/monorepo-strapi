@@ -85,7 +85,8 @@ export type BreadCrumb = {
 export type StrapiLocalization = {
   id: number
   documentId: string
-  fullPath: string
+  fullPath?: string | null
+  slug?: string | null
   locale: Locale
 }
 

@@ -1,7 +1,7 @@
-import type { Data } from "@repo/strapi-types"
-
 import CKEditorRenderer from "@repo/design-system/elementary/ck-editor"
 import { Container } from "@repo/design-system/elementary/Container"
+import type { Data } from "@repo/strapi-types"
+
 import type { PageBuilderComponentProps } from "@repo/sections/types"
 
 export function StrapiCkEditorContent({
@@ -9,7 +9,6 @@ export function StrapiCkEditorContent({
 }: PageBuilderComponentProps & {
   component: Data.Component<"utilities.ck-editor-content">
 }) {
-
   return (
     <Container>
       <CKEditorRenderer

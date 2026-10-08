@@ -4,17 +4,22 @@ import {
   StrapiCarousel,
   StrapiCkEditorContent,
   StrapiCTABanner,
+  StrapiContentRichText,
   StrapiFaq,
+  StrapiFeatureGrid,
   StrapiFeaturesList,
+  StrapiGallery,
+  StrapiHeroStandard,
   StrapiHeadingWithCTAButton,
   StrapiHero,
   StrapiImageWithCTAButton,
+  StrapiCta,
   StrapiStatistics,
   StrapiTipTapEditorContent,
+  StrapiVideo,
 } from "@repo/sections"
 
 import StrapiContactForm from "@/components/page-builder/components/forms/StrapiContactForm"
-import StrapiNewsletterForm from "@/components/page-builder/components/forms/StrapiNewsletterForm"
 
 /**
  * Mapping of Strapi Component UID to React Component
@@ -31,6 +36,7 @@ export const PageContentComponents: Partial<
   "utilities.ck-editor-content": StrapiCkEditorContent,
   "utilities.ck-editor-text": StrapiCkEditorContent,
   "utilities.tip-tap-rich-text": StrapiTipTapEditorContent,
+  "sections.content-rich-text": StrapiContentRichText,
 
   // Sections
   "sections.animated-logo-row": StrapiAnimatedLogoRow,
@@ -41,11 +47,15 @@ export const PageContentComponents: Partial<
   "sections.image-with-cta-button": StrapiImageWithCTAButton,
   "sections.statistics": StrapiStatistics,
   "sections.features-list": StrapiFeaturesList,
+  "sections.feature-grid": StrapiFeatureGrid,
+  "sections.gallery": StrapiGallery,
+  "sections.hero-standard": StrapiHeroStandard,
+  "sections.cta": StrapiCta,
+  "sections.video": StrapiVideo,
   "sections.cta-banner": StrapiCTABanner,
 
   // Forms
   "forms.contact-form": StrapiContactForm,
-  "forms.newsletter-form": StrapiNewsletterForm,
 
   // Add more components here
 }

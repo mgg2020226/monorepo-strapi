@@ -1,20 +1,33 @@
+import AppLink from "@repo/design-system/elementary/AppLink"
 import type { Data } from "@repo/strapi-types"
 import type React from "react"
 
-import AppLink from "@repo/design-system/elementary/AppLink"
 import { StrapiBasicImage } from "@repo/sections/utilities/StrapiBasicImage"
 
 export interface StrapiLinkProps {
-  readonly component: Data.Component<"utilities.link"> | undefined | null
+  readonly component:
+    | Data.Component<"utilities.link">
+    | Data.Component<"ui.link">
+    | Data.Component<"site.navigation-item">
+    | undefined
+    | null
   readonly children?: React.ReactNode
   readonly className?: string
   readonly onClick?: () => void
 }
-const getStrapiLinkHref = (
-  component?: Data.Component<"utilities.link"> | null
-) => {
+type LinkComponent = NonNullable<StrapiLinkProps["component"]>
+
+const getStrapiLinkHref = (component?: LinkComponent | null) => {
+  if (component && "href" in component) {
+    return component.href
+  }
+
   // Add more when needed
-  switch (component?.type) {
+  if (!component || !("type" in component)) {
+    return
+  }
+
+  switch (component.type) {
     case "external":
       return component.href
     case "page":
@@ -31,21 +44,36 @@ export function StrapiLink({
   className,
   onClick,
 }: StrapiLinkProps) {
-
   if (component == null) {
     return null
   }
 
-  const { newTab = false, label, decorations } = component ?? {}
+  const { label } = component
+  const newTab =
+    "newTab" in component
+      ? component.newTab
+      : "target" in component
+        ? component.target === "_blank"
+        : false
 
-  const {
-    variant = "link",
-    size = "default",
-    leftIcon,
-    rightIcon,
-    hasIcons = false,
-    disableAnimations = false,
-  } = decorations ?? {}
+  const isUiLink = "variant" in component
+  const variant = isUiLink
+    ? component.variant === "default"
+      ? "default"
+      : component.variant
+    : "link"
+  const size = isUiLink
+    ? component.size === "sm"
+      ? "sm"
+      : component.size === "lg"
+        ? "lg"
+        : "default"
+    : "default"
+  const decorations = "decorations" in component ? component.decorations : null
+  const leftIcon = decorations?.leftIcon
+  const rightIcon = decorations?.rightIcon
+  const hasIcons = decorations?.hasIcons ?? false
+  const disableAnimations = decorations?.disableAnimations ?? false
 
   const linkHref = getStrapiLinkHref(component)
 

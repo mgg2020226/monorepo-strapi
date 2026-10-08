@@ -1,10 +1,8 @@
-import "server-only"
-
-import type { Data } from "@repo/strapi-types"
-
 import CkEditorRenderer from "@repo/design-system/elementary/ck-editor"
 import { Container } from "@repo/design-system/elementary/Container"
 import Typography from "@repo/design-system/typography"
+import type { Data } from "@repo/strapi-types"
+
 import type { PageBuilderComponentProps } from "@repo/sections/types"
 
 export function StrapiStatistics({

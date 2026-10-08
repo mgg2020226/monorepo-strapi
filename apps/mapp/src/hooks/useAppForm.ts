@@ -2,24 +2,30 @@
 
 import { useMutation } from "@tanstack/react-query"
 
-import { PublicStrapiClient } from "@/lib/strapi-api"
-
-export function useContactForm() {
+export function useContactForm(siteSlug: string, formSlug = "contact") {
   return useMutation({
-    mutationFn: (values: { name: string; email: string; message: string }) => {
-      const path = PublicStrapiClient.getStrapiApiPathByUId(
-        "api::subscriber.subscriber"
-      )
-
-      return PublicStrapiClient.fetchAPI(
-        path,
-        undefined,
+    mutationFn: async (values: {
+      name: string
+      email: string
+      message: string
+    }) => {
+      const response = await fetch(
+        `/api/forms/${encodeURIComponent(siteSlug)}/${encodeURIComponent(formSlug)}/submit`,
         {
           method: "POST",
-          body: JSON.stringify({ data: values }),
-        },
-        { useProxy: true }
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        }
       )
+
+      const body = await response.json()
+      if (!response.ok) {
+        throw new Error(
+          body?.error?.message ?? "Contact form submission failed"
+        )
+      }
+
+      return body
     },
   })
 }

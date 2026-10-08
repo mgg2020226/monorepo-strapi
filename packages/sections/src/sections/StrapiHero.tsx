@@ -1,11 +1,9 @@
-import "server-only"
-
-import type { Data } from "@repo/strapi-types"
-
 import CkEditorRenderer from "@repo/design-system/elementary/ck-editor"
 import { Container } from "@repo/design-system/elementary/Container"
-import StrapiLink from "@repo/sections/utilities/StrapiLink"
+import type { Data } from "@repo/strapi-types"
+
 import type { PageBuilderComponentProps } from "@repo/sections/types"
+import StrapiLink from "@repo/sections/utilities/StrapiLink"
 
 export function StrapiHero({
   component,

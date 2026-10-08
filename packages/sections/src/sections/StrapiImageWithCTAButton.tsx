@@ -1,18 +1,15 @@
-import "server-only"
-
+import { Container } from "@repo/design-system/elementary/Container"
 import type { Data } from "@repo/strapi-types"
 
-import { Container } from "@repo/design-system/elementary/Container"
+import type { PageBuilderComponentProps } from "@repo/sections/types"
 import { StrapiBasicImage } from "@repo/sections/utilities/StrapiBasicImage"
 import StrapiLink from "@repo/sections/utilities/StrapiLink"
-import type { PageBuilderComponentProps } from "@repo/sections/types"
 
 export function StrapiImageWithCTAButton({
   component,
 }: PageBuilderComponentProps & {
   component: Data.Component<"sections.image-with-cta-button">
 }) {
-
   return (
     <section>
       <Container className="items-center gap-4 md:grid md:grid-cols-2 xl:gap-8">

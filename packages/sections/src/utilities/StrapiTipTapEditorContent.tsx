@@ -1,5 +1,3 @@
-import type { Data } from "@repo/strapi-types"
-
 import { Container } from "@repo/design-system/elementary/Container"
 import { TiptapRichText } from "@repo/design-system/elementary/tiptap-editor"
 import {
@@ -7,6 +5,8 @@ import {
   textColorVariants,
 } from "@repo/design-system/typography/config"
 import { cn } from "@repo/design-system/utils"
+import type { Data } from "@repo/strapi-types"
+
 import type { PageBuilderComponentProps } from "@repo/sections/types"
 
 function StrapiTipTapEditorContent({
@@ -16,7 +16,6 @@ function StrapiTipTapEditorContent({
   component: Data.Component<"utilities.tip-tap-rich-text">
   textColor?: TextColor
 }) {
-
   const textColorClass = textColorVariants[textColor ?? "black"]
 
   return (

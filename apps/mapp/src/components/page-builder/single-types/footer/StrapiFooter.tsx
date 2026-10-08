@@ -1,21 +1,22 @@
 import "server-only"
 
+import { Container } from "@repo/design-system/elementary/Container"
+import { ThemeToggle } from "@repo/design-system/elementary/ThemeToggle"
+import Typography from "@repo/design-system/typography"
+import StrapiLink from "@repo/sections/utilities/StrapiLink"
 import type { Locale } from "next-intl"
 import { use } from "react"
 
-import { Container } from "@repo/design-system/elementary/Container"
-import { ThemeToggle } from "@repo/design-system/elementary/ThemeToggle"
-import StrapiImageWithLink from "@repo/sections/utilities/StrapiImageWithLink"
-import StrapiLink from "@repo/sections/utilities/StrapiLink"
-import Typography from "@repo/design-system/typography"
-import { fetchFooter } from "@/lib/strapi-api/content/server"
+import { SiteLogo } from "@/components/page-builder/single-types/SiteLogo"
+import { fetchSite } from "@/lib/strapi-api/content/server"
 import { cn } from "@/lib/styles"
 
 export function StrapiFooter({ locale }: { readonly locale: Locale }) {
-  const response = use(fetchFooter(locale))
-  const footer = response?.data
+  const response = use(fetchSite(locale))
+  const site = response?.data?.[0]
+  const footer = site?.footer
 
-  if (footer == null) {
+  if (site == null || footer == null) {
     return null
   }
 
@@ -27,7 +28,12 @@ export function StrapiFooter({ locale }: { readonly locale: Locale }) {
       <Container className="pt-8 pb-4">
         <div className="flex flex-col justify-between gap-10 lg:flex-row">
           <div className="flex flex-col items-center justify-center space-y-4 md:items-start md:justify-start">
-            <StrapiImageWithLink component={footer.logoImage} />
+            <SiteLogo logo={site.logo} siteName={site.name ?? ""} />
+            {footer.description && (
+              <Typography className="max-w-80 text-center md:text-left">
+                {footer.description}
+              </Typography>
+            )}
           </div>
 
           <div
@@ -35,7 +41,7 @@ export function StrapiFooter({ locale }: { readonly locale: Locale }) {
               "grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
             )}
           >
-            {footer.sections?.map((section) => (
+            {footer.columns?.map((section) => (
               <div
                 className="flex flex-col items-center md:items-start"
                 key={section.id}
@@ -57,15 +63,15 @@ export function StrapiFooter({ locale }: { readonly locale: Locale }) {
 
         <div className="flex flex-col-reverse justify-between gap-4 lg:flex-row lg:items-center">
           <div>
-            {footer.copyRight && (
+            {footer.copyright && (
               <Typography className="mx-auto w-fit lg:mx-0">
-                {footer.copyRight.split("{YEAR}").join(String(currentYear))}
+                {footer.copyright.split("{YEAR}").join(String(currentYear))}
               </Typography>
             )}
           </div>
 
           <div className="flex flex-col items-center sm:flex-row md:space-x-4 lg:items-end">
-            {footer.links?.map((link) => (
+            {footer.legalLinks?.map((link) => (
               <StrapiLink
                 key={link.id}
                 component={link}

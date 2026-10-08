@@ -1,17 +1,14 @@
-import "server-only"
-
+import { Container } from "@repo/design-system/elementary/Container"
 import type { Data } from "@repo/strapi-types"
 
-import { Container } from "@repo/design-system/elementary/Container"
-import StrapiLink from "@repo/sections/utilities/StrapiLink"
 import type { PageBuilderComponentProps } from "@repo/sections/types"
+import StrapiLink from "@repo/sections/utilities/StrapiLink"
 
 export function StrapiHeadingWithCTAButton({
   component,
 }: PageBuilderComponentProps & {
   component: Data.Component<"sections.heading-with-cta-button">
 }) {
-
   return (
     <section className="px-4 py-8 sm:py-16 lg:px-6">
       <Container>

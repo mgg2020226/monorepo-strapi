@@ -1,20 +1,17 @@
-import "server-only"
-
-import type { Data } from "@repo/strapi-types"
-
 import CkEditorRenderer from "@repo/design-system/elementary/ck-editor"
 import { Container } from "@repo/design-system/elementary/Container"
+import { cn } from "@repo/design-system/utils"
+import type { Data } from "@repo/strapi-types"
+
+import type { PageBuilderComponentProps } from "@repo/sections/types"
 import { StrapiBasicImage } from "@repo/sections/utilities/StrapiBasicImage"
 import StrapiLink from "@repo/sections/utilities/StrapiLink"
-import { cn } from "@repo/design-system/utils"
-import type { PageBuilderComponentProps } from "@repo/sections/types"
 
 export function StrapiCTABanner({
   component,
 }: PageBuilderComponentProps & {
   component: Data.Component<"sections.cta-banner">
 }) {
-
   const { title, description, links, features } = component
   const isThereFeatures = features && features.length > 0
 

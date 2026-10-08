@@ -1,12 +1,10 @@
-import "server-only"
-
-import type { Data } from "@repo/strapi-types"
-
 import CkEditorRenderer from "@repo/design-system/elementary/ck-editor"
 import { Container } from "@repo/design-system/elementary/Container"
-import { StrapiBasicImage } from "@repo/sections/utilities/StrapiBasicImage"
 import { cn } from "@repo/design-system/utils"
+import type { Data } from "@repo/strapi-types"
+
 import type { PageBuilderComponentProps } from "@repo/sections/types"
+import { StrapiBasicImage } from "@repo/sections/utilities/StrapiBasicImage"
 
 export function StrapiFeaturesList({
   component,

@@ -6,20 +6,20 @@ import { use } from "react"
 
 import NavbarInner from "@/components/page-builder/single-types/navbar/NavbarInner"
 import { getSessionSSR } from "@/lib/auth"
-import { fetchNavbar } from "@/lib/strapi-api/content/server"
+import { fetchSite } from "@/lib/strapi-api/content/server"
 
 export function StrapiNavbar({ locale }: { readonly locale: Locale }) {
-  const response = use(fetchNavbar(locale))
-  const navbar = response?.data
+  const response = use(fetchSite(locale))
+  const site = response?.data?.[0]
 
-  if (navbar == null) {
+  if (site == null) {
     return null
   }
 
   const requestHeaders = use(headers())
   const session = use(getSessionSSR(requestHeaders))
 
-  return <NavbarInner locale={locale} navbarData={navbar} session={session} />
+  return <NavbarInner locale={locale} siteData={site} session={session} />
 }
 StrapiNavbar.displayName = "StrapiNavbar"
 

@@ -19,7 +19,10 @@ export const env = createEnv({
     SHOW_NON_BLOCKING_ERRORS: optionalZodBoolean(),
     DEBUG_STRAPI_CLIENT_API_CALLS: optionalZodBoolean(),
     STRAPI_URL: z.string().url().optional(),
-    SITE_SLUG: z.string().default("mapp"),
+    STRAPI_PREVIEW_SECRET: z.string().optional(),
+    SITE_DOMAIN_MAP: z
+      .string()
+      .default('{"localhost":"mapp","127.0.0.1":"mapp","::1":"mapp"}'),
     STRAPI_REST_READONLY_API_KEY: z.string().optional(),
     STRAPI_REST_CUSTOM_API_KEY: z.string().optional(),
     STRAPI_REVALIDATE_SECRET: z.string().optional(),
@@ -90,7 +93,8 @@ export const env = createEnv({
     DEBUG_STRAPI_CLIENT_API_CALLS: process.env.DEBUG_STRAPI_CLIENT_API_CALLS,
     SHOW_NON_BLOCKING_ERRORS: process.env.SHOW_NON_BLOCKING_ERRORS,
     STRAPI_URL: process.env.STRAPI_URL,
-    SITE_SLUG: process.env.SITE_SLUG,
+    STRAPI_PREVIEW_SECRET: process.env.STRAPI_PREVIEW_SECRET,
+    SITE_DOMAIN_MAP: process.env.SITE_DOMAIN_MAP,
     STRAPI_REST_READONLY_API_KEY: process.env.STRAPI_REST_READONLY_API_KEY,
     STRAPI_REST_CUSTOM_API_KEY: process.env.STRAPI_REST_CUSTOM_API_KEY,
     STRAPI_REVALIDATE_SECRET: process.env.STRAPI_REVALIDATE_SECRET,

@@ -2,12 +2,21 @@ import "server-only"
 
 import { strapiCacheTag } from "@repo/shared-data"
 import type { UID } from "@repo/strapi-types"
+import { draftMode } from "next/headers"
 import type { Locale } from "next-intl"
 
-import { getEnvVar } from "@/lib/env-vars"
 import { logNonBlockingError } from "@/lib/logging"
+import { getSiteSlugFromRequest } from "@/lib/site-server"
 import { PublicStrapiClient } from "@/lib/strapi-api"
 import type { CustomFetchOptions } from "@/types/general"
+
+async function getContentStatus() {
+  return (await draftMode()).isEnabled ? "draft" : "published"
+}
+
+async function getPublishedContentStatusFilter() {
+  return (await draftMode()).isEnabled ? undefined : "published"
+}
 
 // ------ Page fetching functions
 export async function fetchPage(
@@ -22,8 +31,8 @@ export async function fetchPage(
       fullPath,
       {
         locale,
-        status: "published",
-        filters: { site: { slug: getEnvVar("SITE_SLUG", true) } },
+        status: await getContentStatus(),
+        filters: { site: { slug: await getSiteSlugFromRequest() } },
         populate: { seo: "smart", content: "smart" },
       },
       {
@@ -59,8 +68,8 @@ export async function fetchAllPages(
         locale,
         fields: ["fullPath", "locale", "updatedAt", "createdAt", "slug"],
         populate: {},
-        status: "published",
-        filters: { site: { slug: getEnvVar("SITE_SLUG", true) } },
+        status: await getContentStatus(),
+        filters: { site: { slug: await getSiteSlugFromRequest() } },
         ...params,
       },
       requestInit
@@ -89,7 +98,7 @@ export async function fetchSeo(
   try {
     return await PublicStrapiClient.fetchOneByFullPath(uid, fullPath, {
       locale,
-      filters: { site: { slug: getEnvVar("SITE_SLUG", true) } },
+      filters: { site: { slug: await getSiteSlugFromRequest() } },
       populate: {
         seo: "smart",
         localizations: true,
@@ -106,31 +115,35 @@ export async function fetchSeo(
   }
 }
 
-// ------ Navbar fetching functions
+// ------ Site chrome fetching functions
 
-export async function fetchNavbar(locale: Locale) {
+export async function fetchSite(locale: Locale) {
   try {
-    return await PublicStrapiClient.fetchOne(
-      "api::navbar.navbar",
-      undefined,
+    return await PublicStrapiClient.fetchAll(
+      "api::site.site",
       {
         locale,
+        filters: {
+          slug: await getSiteSlugFromRequest(),
+          status: "active",
+        },
         populate: {
-          logoImage: "smart",
-          primaryButtons: "smart",
-          navbarItems: "smart",
+          logo: true,
+          header: "smart",
+          footer: "smart",
+          socialLinks: "smart",
         },
       },
       {
         next: {
-          revalidate: 600, // 10 minutes; tag-revalidated on Strapi publish
-          tags: [strapiCacheTag("api::navbar.navbar")],
+          revalidate: 600,
+          tags: [strapiCacheTag("api::site.site")],
         },
       }
     )
   } catch (e: unknown) {
     logNonBlockingError({
-      message: `Error fetching navbar for locale '${locale}'`,
+      message: `Error fetching site chrome for locale '${locale}'`,
       error: {
         error: e instanceof Error ? e.message : String(e),
         stack: e instanceof Error ? e.stack : undefined,
@@ -139,37 +152,157 @@ export async function fetchNavbar(locale: Locale) {
   }
 }
 
-// ------ Footer fetching functions
+type SiteScopedContentUid =
+  | "api::page.page"
+  | "api::blog-post.blog-post"
+  | "api::calendar-event.calendar-event"
+  | "api::portfolio-project.portfolio-project"
+  | "api::legal-page.legal-page"
 
-export async function fetchFooter(locale: Locale) {
-  try {
-    return await PublicStrapiClient.fetchOne(
-      "api::footer.footer",
-      undefined,
-      {
-        locale,
-        populate: {
-          sections: "smart",
-          logoImage: "smart",
-          links: "smart",
-        },
+export async function fetchBlogPosts(locale: Locale) {
+  const contentStatus = await getPublishedContentStatusFilter()
+
+  return PublicStrapiClient.fetchAll("api::blog-post.blog-post", {
+    locale,
+    status: await getContentStatus(),
+    filters: {
+      site: { slug: await getSiteSlugFromRequest() },
+      ...(contentStatus && { contentStatus }),
+    },
+    populate: {
+      seo: "smart",
+      coverImage: "smart",
+      category: "smart",
+      tags: "smart",
+    },
+    sort: { publishedAt: "desc" },
+  })
+}
+
+export async function fetchBlogPost(slug: string, locale: Locale) {
+  const contentStatus = await getPublishedContentStatusFilter()
+
+  return PublicStrapiClient.fetchOneBySlug("api::blog-post.blog-post", slug, {
+    locale,
+    status: await getContentStatus(),
+    filters: {
+      site: { slug: await getSiteSlugFromRequest() },
+      ...(contentStatus && { contentStatus }),
+    },
+    populate: {
+      seo: "smart",
+      coverImage: "smart",
+      category: "smart",
+      tags: "smart",
+      localizations: true,
+    },
+  })
+}
+
+export async function fetchCalendarEvents(locale: Locale) {
+  const contentStatus = await getPublishedContentStatusFilter()
+
+  return PublicStrapiClient.fetchAll("api::calendar-event.calendar-event", {
+    locale,
+    status: await getContentStatus(),
+    filters: {
+      site: { slug: await getSiteSlugFromRequest() },
+      ...(contentStatus && { contentStatus }),
+    },
+    populate: { seo: "smart", image: "smart" },
+    sort: { startDate: "asc", startTime: "asc" },
+  })
+}
+
+export async function fetchCalendarEvent(slug: string, locale: Locale) {
+  const contentStatus = await getPublishedContentStatusFilter()
+
+  return PublicStrapiClient.fetchOneBySlug(
+    "api::calendar-event.calendar-event",
+    slug,
+    {
+      locale,
+      status: await getContentStatus(),
+      filters: {
+        site: { slug: await getSiteSlugFromRequest() },
+        ...(contentStatus && { contentStatus }),
       },
-      {
-        next: {
-          revalidate: 600, // 10 minutes; tag-revalidated on Strapi publish
-          tags: [strapiCacheTag("api::footer.footer")],
-        },
-      }
-    )
-  } catch (e: unknown) {
-    logNonBlockingError({
-      message: `Error fetching footer for locale '${locale}'`,
-      error: {
-        error: e instanceof Error ? e.message : String(e),
-        stack: e instanceof Error ? e.stack : undefined,
+      populate: { seo: "smart", image: "smart", localizations: true },
+    }
+  )
+}
+
+export async function fetchPortfolioProjects(locale: Locale) {
+  return PublicStrapiClient.fetchAll(
+    "api::portfolio-project.portfolio-project",
+    {
+      locale,
+      status: await getContentStatus(),
+      filters: { site: { slug: await getSiteSlugFromRequest() } },
+      populate: { seo: "smart", coverImage: "smart", gallery: "smart" },
+      sort: { order: "asc", title: "asc" },
+    }
+  )
+}
+
+export async function fetchPortfolioProject(slug: string, locale: Locale) {
+  return PublicStrapiClient.fetchOneBySlug(
+    "api::portfolio-project.portfolio-project",
+    slug,
+    {
+      locale,
+      status: await getContentStatus(),
+      filters: { site: { slug: await getSiteSlugFromRequest() } },
+      populate: {
+        seo: "smart",
+        coverImage: "smart",
+        gallery: "smart",
+        localizations: true,
       },
-    })
-  }
+    }
+  )
+}
+
+export async function fetchLegalPages(locale: Locale) {
+  const contentStatus = await getPublishedContentStatusFilter()
+
+  return PublicStrapiClient.fetchAll("api::legal-page.legal-page", {
+    locale,
+    status: await getContentStatus(),
+    filters: {
+      site: { slug: await getSiteSlugFromRequest() },
+      ...(contentStatus && { contentStatus }),
+    },
+    populate: { seo: "smart" },
+    sort: { legalType: "asc", title: "asc" },
+  })
+}
+
+export async function fetchLegalPage(slug: string, locale: Locale) {
+  const contentStatus = await getPublishedContentStatusFilter()
+
+  return PublicStrapiClient.fetchOneBySlug("api::legal-page.legal-page", slug, {
+    locale,
+    status: await getContentStatus(),
+    filters: {
+      site: { slug: await getSiteSlugFromRequest() },
+      ...(contentStatus && { contentStatus }),
+    },
+    populate: { seo: "smart", localizations: true },
+  })
+}
+
+export async function fetchSeoBySlug(
+  uid: SiteScopedContentUid,
+  slug: string,
+  locale: Locale
+) {
+  return PublicStrapiClient.fetchOneBySlug(uid, slug, {
+    locale,
+    status: await getContentStatus(),
+    filters: { site: { slug: await getSiteSlugFromRequest() } },
+    populate: { seo: "smart", localizations: true },
+  })
 }
 
 // ------ Redirect fetching functions
@@ -182,7 +315,8 @@ export async function fetchRedirects() {
     const response = await PublicStrapiClient.fetchAll(
       "api::redirect.redirect",
       {
-        status: "published",
+        status: await getContentStatus(),
+        filters: { site: { slug: await getSiteSlugFromRequest() } },
       },
       {
         // Redirects are cached in-process by `src/lib/redirects.ts`. Avoid

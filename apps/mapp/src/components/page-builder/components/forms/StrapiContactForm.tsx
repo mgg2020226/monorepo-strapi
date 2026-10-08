@@ -1,19 +1,19 @@
 import "server-only"
 
+import { Container } from "@repo/design-system/elementary/Container"
+import { Typography } from "@repo/design-system/typography"
 import type { Data } from "@repo/strapi-types"
 
-import { Container } from "@repo/design-system/elementary/Container"
 import { ContactForm } from "@/components/elementary/forms/ContactForm"
-import { Typography } from "@repo/design-system/typography"
-import { removeThisWhenYouNeedMe } from "@/lib/general-helpers"
+import { getSiteSlugFromRequest } from "@/lib/site-server"
 import type { PageBuilderComponentProps } from "@/types/general"
 
-export function StrapiContactForm({
+export async function StrapiContactForm({
   component,
 }: PageBuilderComponentProps & {
   component: Data.Component<"forms.contact-form">
 }) {
-  removeThisWhenYouNeedMe("StrapiContactForm")
+  const siteSlug = await getSiteSlugFromRequest()
 
   return (
     <div id="form-section">
@@ -30,6 +30,7 @@ export function StrapiContactForm({
         </div>
         <div className="mx-auto flex w-full max-w-180 flex-1">
           <ContactForm
+            siteSlug={siteSlug}
             gdpr={{
               href: component.gdpr?.href ?? undefined,
               label: component.gdpr?.label ?? undefined,

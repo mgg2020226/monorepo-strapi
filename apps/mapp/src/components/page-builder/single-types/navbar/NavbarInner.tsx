@@ -1,30 +1,29 @@
 import "server-only"
 
+import { Container } from "@repo/design-system/elementary/Container"
+import StrapiLink from "@repo/sections/utilities/StrapiLink"
 import type { Data } from "@repo/strapi-types"
 import type { Locale } from "next-intl"
 
-import { Container } from "@repo/design-system/elementary/Container"
 import LocaleSwitcher from "@/components/elementary/LocaleSwitcher"
-import { StrapiBasicImage } from "@repo/sections/utilities/StrapiBasicImage"
-import StrapiImageWithLink from "@repo/sections/utilities/StrapiImageWithLink"
-import StrapiLink from "@repo/sections/utilities/StrapiLink"
 import { NavbarAuthSection } from "@/components/page-builder/single-types/navbar/NavbarAuthSection"
 import {
   NavbarMobileNavigation,
   NavbarMobileProvider,
   NavbarMobileToggle,
 } from "@/components/page-builder/single-types/navbar/NavbarMobileControls"
+import { SiteLogo } from "@/components/page-builder/single-types/SiteLogo"
 import type { BetterAuthSessionWithStrapi } from "@/types/better-auth"
 
 import { DesktopNavigation } from "./DesktopNavigation"
 
 export function NavbarInner({
   locale,
-  navbarData,
+  siteData,
   session,
 }: {
   readonly locale: Locale
-  readonly navbarData?: Data.ContentType<"api::navbar.navbar">
+  readonly siteData?: Data.ContentType<"api::site.site"> | null
   readonly session?: BetterAuthSessionWithStrapi | null
 }) {
   return (
@@ -35,37 +34,35 @@ export function NavbarInner({
             {/* LEFT SIDE */}
             <div className="flex items-center gap-2">
               {/* Logo */}
-              {navbarData?.logoImage?.image && navbarData.logoImage.link ? (
-                <StrapiImageWithLink component={navbarData.logoImage} />
-              ) : null}
-              {navbarData?.logoImage?.image && !navbarData.logoImage.link ? (
-                <StrapiBasicImage
-                  component={navbarData.logoImage.image}
-                  width={80}
-                  height={30}
-                  className="h-7.5 w-20 shrink-0 object-contain"
-                />
-              ) : null}
+              <SiteLogo logo={siteData?.logo} siteName={siteData?.name ?? ""} />
               {/* Desktop Navigation */}
-              <DesktopNavigation navbarItems={navbarData?.navbarItems} />
+              <DesktopNavigation
+                siteNavigationItems={siteData?.header?.navigation ?? undefined}
+              />
             </div>
 
             {/* RIGHT SIDE */}
             <div className="hidden h-full items-center gap-2 pl-4 lg:flex">
               <NavbarAuthSection sessionSSR={session} />
-              <LocaleSwitcher locale={locale} />
+              {siteData?.header?.showLanguageSwitcher !== false && (
+                <LocaleSwitcher locale={locale} />
+              )}
               <div className="flex h-8 w-px flex-1 bg-black/70" />
-              {navbarData?.primaryButtons?.map((button) => (
-                <StrapiLink key={button.id} component={button} />
-              ))}
+              {siteData?.header?.showCta && siteData.header.cta ? (
+                <StrapiLink component={siteData.header.cta} />
+              ) : null}
             </div>
             <NavbarMobileToggle />
           </Container>
         </div>
       </header>
       <NavbarMobileNavigation
-        navbarItems={navbarData?.navbarItems}
-        primaryButtons={navbarData?.primaryButtons}
+        siteNavigationItems={siteData?.header?.navigation ?? undefined}
+        primaryButtons={
+          siteData?.header?.showCta && siteData.header.cta
+            ? [siteData.header.cta]
+            : undefined
+        }
         session={session}
         locale={locale}
       />

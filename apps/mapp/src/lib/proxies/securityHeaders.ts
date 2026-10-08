@@ -1,8 +1,8 @@
 import type { NextRequest, NextResponse } from "next/server"
 
 /**
- * Public security headers. The app intentionally has no CMS preview
- * or draft-mode iframe flow, so frame ancestors remain disabled everywhere.
+ * Public security headers. Draft-mode responses may be embedded by Strapi
+ * so editors can review content in the admin preview iframe.
  */
 export function withSecurityHeaders(
   req: NextRequest,
@@ -15,6 +15,11 @@ export function withSecurityHeaders(
 
   const localStrapiOrigin =
     isDevelopment || isLocalhost ? " http://127.0.0.1:1337" : ""
+  const isDraftPreview = req.cookies.has("__prerender_bypass")
+  const frameAncestors =
+    isDraftPreview && process.env.STRAPI_URL
+      ? `'self' ${process.env.STRAPI_URL}`
+      : "'none'"
 
   res.headers.set(
     "Content-Security-Policy",
@@ -29,12 +34,17 @@ export function withSecurityHeaders(
       "worker-src 'self' blob:",
       `media-src 'self' blob: https:${localStrapiOrigin}`,
       "object-src 'none'",
-      "frame-ancestors 'none'",
+      `frame-ancestors ${frameAncestors}`,
       "base-uri 'self'",
       "form-action 'self'",
     ].join("; ")
   )
   res.headers.set("X-Frame-Options", "DENY")
+
+  if (isDraftPreview) {
+    res.headers.set("Cache-Control", "private, no-store")
+    res.headers.delete("X-Frame-Options")
+  }
 
   return res
 }

@@ -4,11 +4,9 @@ import { useLocale } from "next-intl"
 import { useEffect } from "react"
 
 import { authClient } from "@/lib/auth-client"
-import { removeThisWhenYouNeedMe } from "@/lib/general-helpers"
 import { redirect, useRouter } from "@/lib/navigation"
 
 export default function SignOutPage() {
-  removeThisWhenYouNeedMe("SignOutPage")
 
   const { data: session, isPending } = authClient.useSession()
   const locale = useLocale()

@@ -1,25 +1,27 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useTranslations } from "next-intl"
-import { useForm } from "react-hook-form"
-import { toast } from "sonner"
-import * as z from "zod"
-
 import AppLink from "@repo/design-system/elementary/AppLink"
 import { AppField } from "@repo/design-system/forms/AppField"
 import { AppForm } from "@repo/design-system/forms/AppForm"
 import { AppTextArea } from "@repo/design-system/forms/AppTextArea"
 import { Button } from "@repo/design-system/ui/button"
+import { useTranslations } from "next-intl"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
+import * as z from "zod"
+
 import { useContactForm } from "@/hooks/useAppForm"
 
 export function ContactForm({
   gdpr,
+  siteSlug,
 }: Readonly<{
   gdpr?: { href?: string; label?: string; newTab?: boolean }
+  siteSlug: string
 }>) {
   const t = useTranslations("contactForm")
-  const contactFormMutation = useContactForm()
+  const contactFormMutation = useContactForm(siteSlug)
 
   const form = useForm<z.infer<FormSchemaType>>({
     resolver: zodResolver(ContactFormSchema),

@@ -4,15 +4,13 @@ import { useSearchParams } from "next/navigation"
 import { useTranslations } from "next-intl"
 import { useState } from "react"
 
-import { UseSearchParamsWrapper } from "@/components/helpers/UseSearchParamsWrapper"
-import { Alert } from "@/components/ui/alert"
-import { Button } from "@/components/ui/button"
-import { removeThisWhenYouNeedMe } from "@/lib/general-helpers"
+import { UseSearchParamsWrapper } from "@repo/design-system/elementary/UseSearchParamsWrapper"
+import { Alert } from "@repo/design-system/ui/alert"
+import { Button } from "@repo/design-system/ui/button"
 
 import { SetPasswordForm } from "./_components/SetPasswordForm"
 
 function ActivateAccount() {
-  removeThisWhenYouNeedMe("ActivateAccountPage")
 
   const t = useTranslations("auth.accountActivation")
   const [formToggled, setFormToggled] = useState(false)

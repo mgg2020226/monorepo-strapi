@@ -1,6 +1,5 @@
 import type { Data } from "@repo/strapi-types"
-import Image from "next/image"
-import type { ImageLoaderProps, ImageProps } from "next/image"
+import Image, { type ImageLoaderProps, type ImageProps } from "next/image"
 
 type ImageExtendedProps = Omit<ImageProps, "src"> & {
   fallbackSrc?: string
@@ -97,7 +96,14 @@ export function StrapiBasicImage({
   }
 
   if (useImgproxy) {
-    return <Image {...imageProps} loader={imgproxyLoader} unoptimized={false} />
+    return (
+      <Image
+        {...imageProps}
+        alt={alt}
+        loader={imgproxyLoader}
+        unoptimized={false}
+      />
+    )
   }
 
   return <Image {...imageProps} alt={alt} unoptimized />
@@ -120,11 +126,13 @@ function isImgproxyEnabled() {
 }
 
 function isSvg(url: string) {
-  return new URL(url, "http://n").pathname.endsWith(".svg")
+  const parsedUrl = new URL(url, "http://n")
+
+  return parsedUrl.pathname.endsWith(".svg")
 }
 
 function formatStrapiMediaUrl(imageUrl: string | undefined | null) {
-  if (!imageUrl) return undefined
+  if (!imageUrl) return
   if (!imageUrl.startsWith("/uploads")) return imageUrl
 
   if (typeof window === "undefined") {
@@ -143,8 +151,8 @@ function imgproxyLoader({ src, width }: ImageLoaderProps) {
   if (!baseUrl || !src || isSvg(src)) return src
 
   const resolvedSource = src
-    .replace("http://127.0.0.1:", "http://host.docker.internal:")
-    .replace("http://localhost:", "http://host.docker.internal:")
+    .replace("http://127.0.0.1:", "https://host.docker.internal:")
+    .replace("http://localhost:", "https://host.docker.internal:")
 
   return `${baseUrl}/rs:fit:${width}:0/plain/${resolvedSource}@webp`
 }

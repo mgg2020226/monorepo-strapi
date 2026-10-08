@@ -1,12 +1,12 @@
 "use client"
 
+import { useNavbarMobile } from "@repo/design-system/hooks/useNavbarMobile"
+import { Button } from "@repo/design-system/ui/button"
 import type { Data } from "@repo/strapi-types"
 import { Menu, X } from "lucide-react"
 import type { Locale } from "next-intl"
 
 import { MobileNavigation } from "@/components/page-builder/single-types/navbar/MobileNavigation"
-import { Button } from "@repo/design-system/ui/button"
-import { useNavbarMobile } from "@repo/design-system/hooks/useNavbarMobile"
 import { cn } from "@/lib/styles"
 import type { BetterAuthSessionWithStrapi } from "@/types/better-auth"
 
@@ -29,13 +29,13 @@ export function NavbarMobileToggle() {
 }
 
 export function NavbarMobileNavigation({
-  navbarItems,
+  siteNavigationItems,
   primaryButtons,
   session,
   locale,
 }: {
-  readonly primaryButtons?: Data.ContentType<"api::navbar.navbar">["primaryButtons"]
-  readonly navbarItems?: Data.ContentType<"api::navbar.navbar">["navbarItems"]
+  readonly primaryButtons?: Data.Component<"ui.link">[]
+  readonly siteNavigationItems?: Data.Component<"site.navigation-item">[]
   readonly session?: BetterAuthSessionWithStrapi | null
   readonly locale: Locale
 }) {
@@ -43,7 +43,7 @@ export function NavbarMobileNavigation({
 
   return (
     <MobileNavigation
-      navbarItems={navbarItems}
+      siteNavigationItems={siteNavigationItems}
       primaryButtons={primaryButtons}
       isOpen={mobileOpen}
       setOpen={setMobileOpen}

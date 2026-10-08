@@ -1,9 +1,4 @@
-import "server-only"
-
-import type { Data } from "@repo/strapi-types"
-
 import { Container } from "@repo/design-system/elementary/Container"
-import { StrapiBasicImage } from "@repo/sections/utilities/StrapiBasicImage"
 import {
   Carousel,
   CarouselContent,
@@ -11,14 +6,16 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@repo/design-system/ui/carousel"
+import type { Data } from "@repo/strapi-types"
+
 import type { PageBuilderComponentProps } from "@repo/sections/types"
+import { StrapiBasicImage } from "@repo/sections/utilities/StrapiBasicImage"
 
 export function StrapiCarousel({
   component,
 }: PageBuilderComponentProps & {
   component: Data.Component<"sections.carousel">
 }) {
-
   return (
     <section>
       <Container className="flex justify-center px-16 py-8">

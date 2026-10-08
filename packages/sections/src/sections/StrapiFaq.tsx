@@ -1,7 +1,3 @@
-import "server-only"
-
-import type { Data } from "@repo/strapi-types"
-
 import { Container } from "@repo/design-system/elementary/Container"
 import Typography from "@repo/design-system/typography"
 import {
@@ -10,12 +6,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@repo/design-system/ui/accordion"
+import type { Data } from "@repo/strapi-types"
+
 import type { PageBuilderComponentProps } from "@repo/sections/types"
 
 export function StrapiFaq({
   component,
 }: PageBuilderComponentProps & { component: Data.Component<"sections.faq"> }) {
-
   return (
     <section>
       <Container className="py-8">
