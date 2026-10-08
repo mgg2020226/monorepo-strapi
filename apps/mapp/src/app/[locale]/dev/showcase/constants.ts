@@ -1,4 +1,4 @@
-import type { TextColor } from "@/components/typography/config"
+import type { TextColor } from "@repo/design-system/typography/config"
 
 export const themeColorPalette: Record<
   string,

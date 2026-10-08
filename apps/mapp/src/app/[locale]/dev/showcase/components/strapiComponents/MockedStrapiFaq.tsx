@@ -1,6 +1,6 @@
 import type { Data } from "@repo/strapi-types"
 
-import StrapiFaq from "@/components/page-builder/components/sections/StrapiFaq"
+import StrapiFaq from "@repo/sections/sections/StrapiFaq"
 
 const faqData = {
   id: 1,

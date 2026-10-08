@@ -1,7 +1,7 @@
 import { use } from "react"
 
 import { OAuthProvider } from "@/app/[locale]/auth/strapi-oauth/[provider]/_components/OAuthProvider"
-import { UseSearchParamsWrapper } from "@/components/helpers/UseSearchParamsWrapper"
+import { UseSearchParamsWrapper } from "@repo/design-system/elementary/UseSearchParamsWrapper"
 
 export default function StrapiOAuthCallbackPage(
   props: PageProps<"/[locale]/auth/strapi-oauth/[provider]">

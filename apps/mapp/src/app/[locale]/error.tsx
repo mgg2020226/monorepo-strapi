@@ -5,7 +5,7 @@ import * as Sentry from "@sentry/nextjs"
 import { useTranslations } from "next-intl"
 import { useEffect } from "react"
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@repo/design-system/ui/button"
 import { isDevelopment } from "@/lib/general-helpers"
 
 interface Props {

@@ -1,5 +1,5 @@
-import Typography from "@/components/typography"
-import { Checkbox } from "@/components/ui/checkbox"
+import Typography from "@repo/design-system/typography"
+import { Checkbox } from "@repo/design-system/ui/checkbox"
 
 export default function CheckboxSection() {
   return (

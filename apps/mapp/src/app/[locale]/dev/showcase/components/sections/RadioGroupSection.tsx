@@ -1,5 +1,5 @@
-import Typography from "@/components/typography"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import Typography from "@repo/design-system/typography"
+import { RadioGroup, RadioGroupItem } from "@repo/design-system/ui/radio-group"
 
 export default function RadioGroupSection() {
   return (

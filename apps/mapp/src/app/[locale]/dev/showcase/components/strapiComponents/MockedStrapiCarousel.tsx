@@ -1,7 +1,7 @@
 import type { Data } from "@repo/strapi-types"
 
 import { mockImage } from "@/app/[locale]/dev/showcase/components/StrapiMedia"
-import StrapiCarousel from "@/components/page-builder/components/sections/StrapiCarousel"
+import StrapiCarousel from "@repo/sections/sections/StrapiCarousel"
 
 const data = {
   id: 1,

@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl"
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@repo/design-system/ui/button"
 
 export function SocialButtons({ strapiUrl }: { strapiUrl: string }) {
   const t = useTranslations("auth.oauth")

@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from "react"
 
-import Typography from "@/components/typography"
-import type { TextColor } from "@/components/typography/config"
+import Typography from "@repo/design-system/typography"
+import type { TextColor } from "@repo/design-system/typography/config"
 
 interface ManualSectionProps extends ComponentPropsWithoutRef<"div"> {
   title?: string

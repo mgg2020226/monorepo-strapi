@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation"
 
 import DevNavbar from "@/app/[locale]/dev/components/DevNavbar"
-import { Container } from "@/components/elementary/Container"
+import { Container } from "@repo/design-system/elementary/Container"
 import { isProduction } from "@/lib/general-helpers"
 
 // Evaluate the production gate at request time; APP_ENV is injected at runtime,

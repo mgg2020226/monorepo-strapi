@@ -1,6 +1,6 @@
 import type { Data } from "@repo/strapi-types"
 
-import StrapiHeadingWithCTAButton from "@/components/page-builder/components/sections/StrapiHeadingWithCTAButton"
+import StrapiHeadingWithCTAButton from "@repo/sections/sections/StrapiHeadingWithCTAButton"
 
 const data = {
   id: 1,

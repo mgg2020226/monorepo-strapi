@@ -1,7 +1,7 @@
 import type { Data } from "@repo/strapi-types"
 
 import { mockIcon } from "@/app/[locale]/dev/showcase/components/StrapiMedia"
-import { StrapiFeaturesList } from "@/components/page-builder/components/sections/StrapiFeaturesList"
+import { StrapiFeaturesList } from "@repo/sections/sections/StrapiFeaturesList"
 
 const baseData = {
   id: 1,

@@ -1,7 +1,7 @@
 import type { Data } from "@repo/strapi-types"
 
 import { mockImage } from "@/app/[locale]/dev/showcase/components/StrapiMedia"
-import StrapiAnimatedLogoRow from "@/components/page-builder/components/sections/StrapiAnimatedLogoRow"
+import StrapiAnimatedLogoRow from "@repo/sections/sections/StrapiAnimatedLogoRow"
 
 const data = {
   id: 1,

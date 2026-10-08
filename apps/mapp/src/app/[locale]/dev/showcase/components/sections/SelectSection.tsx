@@ -1,11 +1,11 @@
-import Typography from "@/components/typography"
+import Typography from "@repo/design-system/typography"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@repo/design-system/ui/select"
 
 export default function SelectSection() {
   return (

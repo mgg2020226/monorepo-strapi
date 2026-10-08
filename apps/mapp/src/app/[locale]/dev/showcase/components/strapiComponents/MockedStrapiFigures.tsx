@@ -1,6 +1,6 @@
 import type { Data } from "@repo/strapi-types"
 
-import { StrapiStatistics } from "@/components/page-builder/components/sections/StrapiFigures"
+import { StrapiStatistics } from "@repo/sections/sections/StrapiFigures"
 
 const data = {
   id: 1,

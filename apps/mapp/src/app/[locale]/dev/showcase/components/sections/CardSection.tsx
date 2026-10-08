@@ -1,5 +1,5 @@
-import Typography from "@/components/typography"
-import { Button } from "@/components/ui/button"
+import Typography from "@repo/design-system/typography"
+import { Button } from "@repo/design-system/ui/button"
 import {
   Card,
   CardContent,
@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
   CardDescription,
-} from "@/components/ui/card"
+} from "@repo/design-system/ui/card"
 
 export default function CardSection() {
   return (

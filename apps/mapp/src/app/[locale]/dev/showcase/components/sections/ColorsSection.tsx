@@ -1,6 +1,6 @@
 import ColorBox from "@/app/[locale]/dev/showcase/components/ColorBox"
 import { themeColorPalette } from "@/app/[locale]/dev/showcase/constants"
-import type { TextColor } from "@/components/typography/config"
+import type { TextColor } from "@repo/design-system/typography/config"
 
 function ColorsSection() {
   return (

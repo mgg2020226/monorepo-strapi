@@ -1,10 +1,10 @@
-import Typography from "@/components/typography"
+import Typography from "@repo/design-system/typography"
 import {
   type Variant,
   type FontWeight,
   fontWeightVariants,
   variantStyles,
-} from "@/components/typography/config"
+} from "@repo/design-system/typography/config"
 
 const HEADING_VARIANTS = Object.keys(variantStyles).filter((k) =>
   k.startsWith("heading")

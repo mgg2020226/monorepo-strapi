@@ -1,5 +1,5 @@
-import Typography from "@/components/typography"
-import { Input } from "@/components/ui/input"
+import Typography from "@repo/design-system/typography"
+import { Input } from "@repo/design-system/ui/input"
 
 export default function InputSection() {
   return (

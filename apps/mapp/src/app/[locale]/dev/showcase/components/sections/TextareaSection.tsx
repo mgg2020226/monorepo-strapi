@@ -1,4 +1,4 @@
-import { Textarea } from "@/components/ui/textarea"
+import { Textarea } from "@repo/design-system/ui/textarea"
 
 export default function TextareaSection() {
   return (

@@ -1,5 +1,5 @@
 import ManualItem from "@/app/[locale]/dev/showcase/components/ManualItem"
-import Typography from "@/components/typography"
+import Typography from "@repo/design-system/typography"
 
 function FontFamiliesSection() {
   return (

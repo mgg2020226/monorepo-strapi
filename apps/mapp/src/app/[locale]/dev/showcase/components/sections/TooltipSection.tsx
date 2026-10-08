@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@repo/design-system/ui/button"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
+} from "@repo/design-system/ui/tooltip"
 
 export default function TooltipSection() {
   return (

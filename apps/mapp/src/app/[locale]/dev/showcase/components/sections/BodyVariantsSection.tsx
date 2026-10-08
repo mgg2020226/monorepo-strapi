@@ -1,11 +1,11 @@
 import ManualItem from "@/app/[locale]/dev/showcase/components/ManualItem"
-import Typography from "@/components/typography"
+import Typography from "@repo/design-system/typography"
 import {
   type variantStyles,
   type Variant,
   type FontWeight,
   fontWeightVariants,
-} from "@/components/typography/config"
+} from "@repo/design-system/typography/config"
 
 const BODY_VARIANTS = [
   "small",

@@ -1,8 +1,8 @@
 import { PlusIcon } from "lucide-react"
 
 import { BUTTON_SHOWCASE } from "@/app/[locale]/dev/showcase/constants"
-import Typography from "@/components/typography"
-import { Button } from "@/components/ui/button"
+import Typography from "@repo/design-system/typography"
+import { Button } from "@repo/design-system/ui/button"
 
 function ButtonsSection() {
   return (

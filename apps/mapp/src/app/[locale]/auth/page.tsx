@@ -2,7 +2,7 @@ import { headers } from "next/headers"
 import type { Locale } from "next-intl"
 import { setRequestLocale } from "next-intl/server"
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@repo/design-system/ui/button"
 import {
   Card,
   CardContent,
@@ -10,7 +10,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@repo/design-system/ui/card"
 import { getSessionSSR } from "@/lib/auth"
 import { Link } from "@/lib/navigation"
 

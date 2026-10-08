@@ -1,7 +1,7 @@
 "use client"
 
-import AppLink from "@/components/elementary/AppLink"
-import { Container } from "@/components/elementary/Container"
+import AppLink from "@repo/design-system/elementary/AppLink"
+import { Container } from "@repo/design-system/elementary/Container"
 import { usePathname } from "@/lib/navigation"
 
 export default function DevNavbar() {

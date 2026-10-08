@@ -1,5 +1,10 @@
-import Typography from "@/components/typography"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Typography from "@repo/design-system/typography"
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@repo/design-system/ui/tabs"
 
 export default function TabsSection() {
   return (

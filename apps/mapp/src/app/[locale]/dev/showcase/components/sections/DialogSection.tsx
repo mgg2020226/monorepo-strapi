@@ -1,5 +1,5 @@
-import Typography from "@/components/typography"
-import { Button } from "@/components/ui/button"
+import Typography from "@repo/design-system/typography"
+import { Button } from "@repo/design-system/ui/button"
 import {
   Dialog,
   DialogContent,
@@ -8,7 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@repo/design-system/ui/dialog"
 
 export default function DialogSection() {
   return (

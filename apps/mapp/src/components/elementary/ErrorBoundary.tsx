@@ -7,7 +7,11 @@ import { useTranslations } from "next-intl"
 import { useState } from "react"
 import { ErrorBoundary as ErrorBoundaryComp } from "react-error-boundary"
 
-import { Alert, AlertDescription, AlertTitle } from "@repo/design-system/ui/alert"
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+} from "@repo/design-system/ui/alert"
 import { Button } from "@repo/design-system/ui/button"
 import { isDevelopment } from "@/lib/general-helpers"
 

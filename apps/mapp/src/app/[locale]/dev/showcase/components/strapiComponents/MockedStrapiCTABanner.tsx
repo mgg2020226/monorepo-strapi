@@ -1,6 +1,6 @@
 import type { Data } from "@repo/strapi-types"
 
-import StrapiCTABanner from "@/components/page-builder/components/sections/StrapiCTABanner"
+import StrapiCTABanner from "@repo/sections/sections/StrapiCTABanner"
 
 const data = {
   id: 1,

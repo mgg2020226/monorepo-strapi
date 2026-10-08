@@ -1,10 +1,10 @@
-import Typography from "@/components/typography"
+import Typography from "@repo/design-system/typography"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
+} from "@repo/design-system/ui/accordion"
 
 export default function AccordionSection() {
   return (

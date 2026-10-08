@@ -1,5 +1,5 @@
-import Typography from "@/components/typography"
-import type { TextColor } from "@/components/typography/config"
+import Typography from "@repo/design-system/typography"
+import type { TextColor } from "@repo/design-system/typography/config"
 import { cn } from "@/lib/styles"
 
 interface ColorBoxProps {

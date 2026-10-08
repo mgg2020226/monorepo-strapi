@@ -4,7 +4,7 @@ import { AnchorButton } from "@/app/[locale]/dev/showcase/components/AnchorButto
 import ManualItem from "@/app/[locale]/dev/showcase/components/ManualItem"
 import ManualSection from "@/app/[locale]/dev/showcase/components/ManualSection"
 import showcaseItems from "@/app/[locale]/dev/showcase/showcaseItems"
-import Typography from "@/components/typography"
+import Typography from "@repo/design-system/typography"
 
 function ShowcasePage() {
   return (

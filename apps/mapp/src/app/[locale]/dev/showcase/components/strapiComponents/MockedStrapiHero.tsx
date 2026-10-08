@@ -1,6 +1,6 @@
 import type { Data } from "@repo/strapi-types"
 
-import StrapiHero from "@/components/page-builder/components/sections/StrapiHero"
+import StrapiHero from "@repo/sections/sections/StrapiHero"
 
 const data = {
   id: 1,

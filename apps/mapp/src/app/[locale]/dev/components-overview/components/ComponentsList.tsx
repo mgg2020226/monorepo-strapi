@@ -2,9 +2,9 @@
 
 import { useState } from "react"
 
-import AppLink from "@/components/elementary/AppLink"
-import Typography from "@/components/typography"
-import { Button } from "@/components/ui/button"
+import AppLink from "@repo/design-system/elementary/AppLink"
+import Typography from "@repo/design-system/typography"
+import { Button } from "@repo/design-system/ui/button"
 
 export default function ComponentsList({
   components,
