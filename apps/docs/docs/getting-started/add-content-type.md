@@ -125,9 +125,7 @@ The Next.js `BaseStrapiClient` maps content-type UIDs to URL paths — see [Stra
 ```ts
 export const API_ENDPOINTS: Partial<Record<UID.ContentType, string>> = {
   "api::page.page": "/pages",
-  "api::footer.footer": "/footer",
-  "api::navbar.navbar": "/navbar",
-  "api::subscriber.subscriber": "/subscribers",
+  "api::site.site": "/sites",
   "api::product.product": "/products", // ← add this
 } as const
 ```

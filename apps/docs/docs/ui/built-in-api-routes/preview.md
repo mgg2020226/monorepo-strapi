@@ -12,16 +12,15 @@ File:
 apps/mapp/src/app/api/preview/route.ts
 ```
 
-This route is used by Strapi preview links.
+This route is used by preview links configured in Strapi or another editorial tool.
 
 It:
 
 1. Validates `secret` against `STRAPI_PREVIEW_SECRET`.
 2. Enables or disables Next.js `draftMode()`.
-3. Rewrites the `__prerender_bypass` cookie with `sameSite: "none"`.
-4. Redirects to the requested localized URL.
+3. Redirects to a same-origin localized URL.
 
-The `sameSite: "none"` cookie rewrite is required for Strapi's iframe-embedded preview. Without it, draft mode may silently fall back to published content.
+The browser must accept Next.js draft-mode cookies. If Strapi embeds the preview in an iframe, configure the deployment cookie policy and CSP accordingly; the route does not rewrite the cookie.
 
 :::warning Secret required
 Preview requests return an error unless `STRAPI_PREVIEW_SECRET` is configured and the `secret` query param matches it.
@@ -37,8 +36,7 @@ Expected query params:
 | -------- | -------------------------------------------------- |
 | `secret` | Must match `STRAPI_PREVIEW_SECRET`.                |
 | `url`    | Page URL to open.                                  |
-| `status` | `draft` or `published`; defaults to `published`.   |
-| `locale` | Frontend locale; falls back to the default locale. |
+| `status` | `draft` or `published`; defaults to `draft`.       |
 
 Related docs:
 

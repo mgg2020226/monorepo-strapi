@@ -53,6 +53,8 @@ The mapping between Strapi component UIDs and React components is defined in:
 
 **`apps/mapp/src/components/page-builder/index.tsx`**
 
+The registry is app composition. Shared renderers are exported by [`@repo/sections`](../reference/packages/sections.md); Mapp-specific forms and single types remain under `apps/mapp`.
+
 ```ts
 export const PageContentComponents: {
   [K in UID.Component]?: React.ComponentType<any>
@@ -68,7 +70,6 @@ export const PageContentComponents: {
 
   // Forms
   "forms.contact-form": StrapiContactForm,
-  "forms.newsletter-form": StrapiNewsletterForm,
   // ...
 }
 ```
@@ -83,7 +84,7 @@ Components are grouped by category (matching Strapi's component folder structure
 | Strapi schema file    | `{name}.json`                              | `apps/strapi/src/components/sections/hero.json`                            |
 | Strapi collectionName | `components_{category}_{name_underscored}` | `components_sections_hero`                                                 |
 | React component       | `Strapi{PascalCase}`                       | `StrapiHero`                                                               |
-| React file            | `Strapi{PascalCase}.tsx`                   | `apps/mapp/src/components/page-builder/components/sections/StrapiHero.tsx` |
+| React file            | `Strapi{PascalCase}.tsx`                   | `packages/sections/src/sections/StrapiHero.tsx`                             |
 
 Keep design, CMS, and code names aligned. The design-system naming guidance lives in [CMS And Components](/docs/design-system/cms-and-components#naming-across-design-code-and-cms).
 

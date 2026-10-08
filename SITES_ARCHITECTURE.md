@@ -9,10 +9,11 @@ Implementación inicial basada en [strapi-next-monorepo-starter](https://github.
 - Docusaurus conservado en `apps/docs`.
 - `apps/mapp` fue renombrada a `apps/mapp`.
 - Mapp es el único sitio migrado en esta etapa.
-- El dominio no participa todavía en la resolución del sitio; se usa `SITE_SLUG=mapp`.
-- No hay estrategia de preview ni draft mode en el frontend.
+- El dominio resuelve el sitio mediante `SITE_DOMAIN_MAP`; cada host debe apuntar a un `Site.slug`.
+- El preview usa `GET /api/preview` con `STRAPI_PREVIEW_SECRET`; activa `draftMode()` y evita indexación/caché compartida.
 - No hay registro de usuarios públicos.
-- `FormSubmission` no se implementa; los formularios son stateless y envían correo.
+- Los formularios son stateless en el frontend; Strapi valida cada envío, lo registra en `Subscriber` y notifica por correo a la empresa.
+- `Navbar` y `Footer` se leen desde `Site.header` y `Site.footer`; `Redirect` se relaciona con `Site` y se filtra por el dominio resuelto.
 
 ## Modelo de contenido
 
@@ -28,6 +29,7 @@ Implementación inicial basada en [strapi-next-monorepo-starter](https://github.
 | `PortfolioProject` | Proyecto o caso de éxito          | `title`, `slug`, `summary`, `content`, `coverImage`, `gallery`, `site`, `externalUrl`, `featured`, `order`, `seo`                                                              |
 | `LegalPage`        | Política o página legal           | `title`, `slug`, `content`, `site`, `legalType`, `version`, `effectiveDate`, `seo`, `contentStatus`                                                                            |
 | `FormDefinition`   | Definición de formulario          | `name`, `slug`, `site`, `title`, `description`, `fields`, `submitLabel`, `successMessage`, `errorMessage`, `recipientEmail`, `active`, `honeypotEnabled`, `rateLimitPerMinute` |
+| `Subscriber`       | Registro de envíos               | `site`, `formSlug`, `name`, `email`, `message`, `submissionData`                                                                                                                 |
 | `CmsUserAccess`    | Alcance administrativo            | `adminUserId`, `email`, `displayName`, `role`, `sites`, `permissions`, `active`, `notes`                                                                                       |
 
 ### Single type
@@ -75,7 +77,7 @@ El campo `content` de `Page` mantiene los componentes existentes del starter y a
 - `sections.cta`
 - `forms.dynamic-form`
 
-Los componentes de Mapp se consolidarán progresivamente en `apps/mapp/src/components` y `packages/sections`. Las primitivas visuales se basan en shadcn/ui, CVA, Tailwind CSS y Radix.
+La composición, las rutas y la lógica específica de Mapp viven en `apps/mapp`. Los componentes visuales reutilizables viven en `packages/design-system`, y las secciones y utilidades del page builder en `packages/sections`. Las primitivas visuales se basan en shadcn/ui, CVA, Tailwind CSS y Radix.
 
 Cada sección debe ser mobile-first, usar tokens de la paleta del sitio y respetar `prefers-reduced-motion`. El CMS guarda presets permitidos; no guarda CSS ni JavaScript arbitrario.
 
@@ -151,7 +153,7 @@ Y las acciones:
 read, create, update, delete, publish, unpublish
 ```
 
-La relación `sites` define en qué empresas puede trabajar cada usuario. Los roles nativos de Strapi siguen controlando las capacidades globales; `CmsUserAccess` define el alcance por sitio.
+La relación `sites` documenta en qué empresas puede trabajar cada usuario, pero todavía no restringe por sí sola los CRUD de Strapi. Antes de activar varios equipos editoriales debe añadirse una policy/middleware de alcance por sitio; mientras tanto, el aislamiento administrativo no se considera garantizado.
 
 ## Seguridad
 
@@ -174,9 +176,10 @@ El archivo `.env.example` de Strapi y `.env.local.example` de Mapp contienen los
 
 ## Pendientes explícitos
 
-- Dominio y resolución multi-dominio.
 - Proveedor SMTP definitivo de producción.
 - Traducción editorial final al inglés.
+- Revisión de SEO/canonical, sitemap y breadcrumbs en ambos locales.
+- Policy/middleware de alcance por `CmsUserAccess` para los CRUD administrativos.
 - Valores de marca definitivos de cada sitio.
 - Migración de los otros sitios.
 - Retención futura de envíos si se requiere `FormSubmission`.

@@ -4,20 +4,19 @@ sidebar_position: 2
 
 # Project Structure
 
-The UI app follows the Next.js App Router layout. Page-specific code should stay close to the route that owns it; shared code lives under `src/components`, `src/lib`, or `src/hooks`.
+The UI app follows the Next.js App Router layout. Page-specific code should stay close to the route that owns it; reusable UI and page-builder renderers live in workspace packages.
 
 Base path: `apps/mapp/src`
 
 | Path                      | Purpose                                                                                                                                     |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | `app`                     | App Router. Page-specific components belong under `app/<route>/_components`, not in shared folders.                                         |
-| `components/elementary`   | Standalone primitives reusable anywhere, such as `Container`, `ErrorBoundary`.                                                              |
-| `components/forms`        | Form wrappers and field types, such as `AppField`, `AppCheckbox`.                                                                           |
-| `components/page-builder` | Strapi page-builder mapping, such as `StrapiBasicImage`, `StrapiHero`. See [Page Builder](../page-builder/introduction.md).                 |
+| `components/elementary`   | Mapp-specific primitives and adapters, such as `ErrorBoundary`, `LocaleSwitcher`, and media components.                                     |
+| `components/page-builder` | Mapp composition: registry, navigation/footer, and business-specific forms. Shared sections live in [`@repo/sections`](../reference/packages/sections.md). |
 | `components/providers`    | Global context providers, such as `ClientProviders`, `TrackingScripts`.                                                                     |
-| `components/typography`   | Heading/paragraph/blockquote elements, such as `Typography`.                                                                                |
-| `components/ui`           | shadcn/ui wrappers around Radix, such as `Button`, `Card`. Managed by shadcn CLI.                                                           |
-| `hooks`                   | React hooks.                                                                                                                                |
+| `packages/design-system`  | Shared UI primitives, forms, typography, editor renderers, and reusable UI hooks.                                                           |
+| `packages/sections`       | Shared Strapi page-builder sections and CMS rendering utilities.                                                                             |
+| `hooks`                   | Mapp-only hooks that depend on auth or Mapp API clients.                                                                                     |
 | `lib`                     | Shared helpers such as auth, env vars, i18n, dates, navigation, reCAPTCHA, styles, etc.                                                     |
 | `lib/logging`             | Server-side structured logging wrapper around `@repo/logging`. See [Logging](#logging).                                                     |
 | `lib/metadata`            | Strapi SEO to Next.js `Metadata` helpers.                                                                                                   |
@@ -71,10 +70,10 @@ Config lives in `apps/mapp/components.json`. Theme tokens live in `apps/mapp/src
 
 For shared tokens and global styling rules, see [Tokens And Global Styles](/docs/design-system/tokens-and-global-styles). For reusable component variants and states, see [CMS And Components](/docs/design-system/cms-and-components).
 
-Use `cn()` from `apps/mapp/src/lib/styles.ts` when merging Tailwind classes:
+Use `cn()` from `@repo/design-system/utils` when merging Tailwind classes:
 
 ```tsx
-import { cn } from "@/lib/styles"
+import { cn } from "@repo/design-system/utils"
 
 return <div className={cn("flex items-center", className)} />
 ```

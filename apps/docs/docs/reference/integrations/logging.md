@@ -144,6 +144,5 @@ in the browser.**
   `strapi-api/base.ts`) — the logger: it's structured on the server and degrades
   to `console` in the browser, so error logging stays uniform.
 - **Purely client-side, hot, or dev-only spots** (React component dev warnings,
-  the `removeThisWhenYouNeedMe` helper, small client helpers like
-  `general-helpers.ts`) — plain `console.*`. It renders cleanly, adds no bundle
+  small client helpers like `general-helpers.ts`) — plain `console.*`. It renders cleanly, adds no bundle
   weight, and Sentry still captures it.

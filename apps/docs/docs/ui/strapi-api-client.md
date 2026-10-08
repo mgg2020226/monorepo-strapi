@@ -27,7 +27,7 @@ flowchart LR
   end
 
   subgraph Strapi["Strapi CMS"]
-    PublicContent["Public CMS content<br/>pages, navbar, footer"]
+    PublicContent["Public CMS content<br/>pages, site chrome, SEO"]
     UserContent["End-user content<br/>profile, account data"]
   end
 
@@ -83,7 +83,7 @@ Add every fetchable content type to `API_ENDPOINTS`:
 // apps/mapp/src/lib/strapi-api/base.ts
 export const API_ENDPOINTS: { [key in UID.ContentType]?: string } = {
   "api::page.page": "/pages",
-  "api::footer.footer": "/footer",
+  "api::site.site": "/sites",
   "api::your-new-type.your-new-type": "/your-new-types", // add here
 }
 ```
@@ -111,10 +111,10 @@ Fetch a single document by ID (collection types) or without ID (single types).
 
 ```typescript
 // Single type (no ID)
-const navbar = await PublicStrapiClient.fetchOne(
-  "api::navbar.navbar",
-  undefined,
-  { locale, populate: { links: true } }
+const site = await PublicStrapiClient.fetchOne(
+  "api::site.site",
+  documentId,
+  { locale, populate: { header: true, footer: true } }
 )
 
 // Collection type (with ID)

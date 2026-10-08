@@ -30,21 +30,19 @@ ISR lets public pages serve cached output and refresh in the background. The mai
 apps/mapp/src/app/[locale]/[[...rest]]/page.tsx
 ```
 
-This catch-all route renders individual Strapi pages by `fullPath`. Known paths can be generated during build; unknown paths can be generated on first request through `dynamicParams`. Each generated page is then cached and revalidated by ISR.
+This catch-all route renders individual Strapi pages by `fullPath`. The host determines the Strapi site, and the navbar also reads request-time authentication headers, so the route is rendered per request rather than through ISR.
 
 This route uses:
 
 | Setting         | Purpose                                                                    |
 | --------------- | -------------------------------------------------------------------------- |
-| `force-static`  | Keeps the route eligible for the Full Route Cache and ISR.                 |
-| `dynamicParams` | Allows paths not returned by `generateStaticParams()` to render on demand. |
-| `revalidate`    | Sets the page regeneration interval to 300 seconds.                        |
+| `force-dynamic` | Keeps host-based site resolution and request-time authentication correct. |
 
 :::warning CDN cache headers
-The `revalidate` value also affects the HTTP cache headers emitted by Next.js. A CDN in front of the app reads those headers to decide how long it can reuse a cached response before checking for fresh content — so it inherits this route's freshness window. See [CDN](../reference/integrations/cdn.md) for how that works and the optional incident-time purge.
+This route does not emit ISR freshness for the rendered page. A CDN can still cache static assets and explicit API responses, but it must not reuse a rendered response across hosts. See [CDN](../reference/integrations/cdn.md) for the cache policy and optional incident-time purge.
 :::
 
-The route uses `force-static` because the root layout includes request-time behavior from auth and the navbar. `force-static` keeps the public Strapi pages eligible for ISR even though those dynamic APIs exist higher in the tree.
+The route uses `force-dynamic` because the host selects the site and the navbar uses request-time authentication. This prevents one domain's page or authenticated navbar state from being reused for another request.
 
 :::tip Strict static routes
 In an application without auth or request-aware navbar behavior, the stricter option is `export const dynamic = "error"` so accidental dynamic APIs fail during build.

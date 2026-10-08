@@ -113,7 +113,6 @@ heroku config:set -a "$app_name" NODE_ENV=production
 heroku config:set -a "$app_name" STRAPI_REVALIDATE_SECRET="$(openssl rand -base64 32)"
 
 # Optional - uncomment when needed
-# heroku config:set -a "$app_name" STRAPI_PREVIEW_ENABLED=true
 # heroku config:set -a "$app_name" STRAPI_PREVIEW_SECRET="$(openssl rand -base64 32)"
 # heroku config:set -a "$app_name" STRAPI_CDN_PURGE_SECRET="$(openssl rand -base64 32)"
 # heroku config:set -a "$app_name" AUTO_SEED_ENABLED=true

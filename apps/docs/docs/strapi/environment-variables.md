@@ -66,8 +66,7 @@ table td:first-child code {
 | `OTEL_SERVICE_NAME`                       | No                                          | OpenTelemetry service name on logs/spans (default `strapi`).                                                                                   |
 | `APPLICATIONINSIGHTS_CONNECTION_STRING`   | When Azure Monitor is used                  | Enables the Azure Monitor telemetry provider. Inert when unset.                                                                                |
 | `CLIENT_URL`                              | Preview and frontend links                  | Frontend base URL; preview links; admin CORS allowed origin.                                                                                   |
-| `STRAPI_PREVIEW_ENABLED`                  | No                                          | Enables Strapi Preview button configuration.                                                                                                   |
-| `STRAPI_PREVIEW_SECRET`                   | When preview is enabled                     | Shared secret for Strapi Preview and the UI preview route. See [Strapi Preview](./strapi-preview.md).                                          |
+| `STRAPI_PREVIEW_SECRET`                   | When preview is enabled                     | Shared secret for preview links and the UI preview route. See [Strapi Preview](./strapi-preview.md).                                          |
 | `CLIENT_ACCOUNT_ACTIVATION_URL`           | When account activation emails are used     | Frontend account activation link in backend email templates.                                                                                   |
 | `ADMIN_PANEL_CONFIG_API_AUTH_TOKEN`       | When admin runtime config injection is used | Protects the custom admin panel config endpoint.                                                                                               |
 

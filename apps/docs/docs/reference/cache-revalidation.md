@@ -8,12 +8,12 @@ How Strapi content updates become visible on the Next.js frontend without a rebu
 
 ## How It Works (automatically)
 
-Strapi-driven pages use ISR. The static page route has its own `revalidate` window, and individual Strapi fetches can also define Data Cache windows. Visitors receive cached content immediately, and stale entries regenerate in the background.
+Strapi-driven page requests are dynamic because the resolved host and authentication-aware navbar can use request headers. Shared Strapi fetches still use tagged Data Cache windows where safe; draft previews bypass shared caching.
 
 On publish/update/delete, a Strapi **Document Service middleware** calls the `api::revalidate.revalidate` service. The service POSTs to the UI route `POST /api/strapi-revalidate`, which marks the matching cache entries stale through:
 
 - `revalidatePath` for page-like paths such as pages and redirects
-- `revalidateTag(tag, "max")` for shared content such as navbar and footer
+- `revalidateTag(tag, "max")` for shared content such as the site header and footer
 
 The next request re-renders with fresh Strapi data without waiting for the normal TTL to expire.
 
@@ -51,10 +51,10 @@ flowchart TD
 
 | Cache layer                    | Interval | Notes                                                                             |
 | ------------------------------ | -------- | --------------------------------------------------------------------------------- |
-| Static Strapi page route       | 300s     | `apps/mapp/src/app/[locale]/[[...rest]]/page.tsx` exports `revalidate = 300`.     |
+| Page route                    | request  | `apps/mapp/src/app/[locale]/[[...rest]]/page.tsx` is dynamic to resolve host/site. |
 | `fetchPage`                    | 120s     | Strapi page-data fetch window. Path-revalidated on publish.                       |
 | Base Strapi client fetches     | 60s      | Default Data Cache fallback when a fetch does not override `next.revalidate`.     |
-| `fetchNavbar`, `fetchFooter`   | 600s     | Shared content tagged with `strapi:<uid>`; TTL is the backstop after tag updates. |
+| `fetchSite`                    | 600s     | Site header/footer tagged with `strapi:api::site.site`; TTL is the backstop.       |
 | Development Strapi API fetches | 0s       | `next dev` skips the Data Cache, so cache invalidation is not fully observable.   |
 
 :::info TTL is the backstop
@@ -67,16 +67,15 @@ On-demand revalidation handles fresh publishes immediately. The `revalidate` int
 | ------------------------ | --------------------------------- | ------------------------ |
 | `api::page.page`         | path (`fullPath`)                 | publish/unpublish/delete |
 | `api::redirect.redirect` | path (`source`)                   | publish/unpublish/delete |
-| `api::navbar.navbar`     | tag (`strapi:api::navbar.navbar`) | create/update/delete     |
-| `api::footer.footer`     | tag (`strapi:api::footer.footer`) | create/update/delete     |
+| `api::site.site`         | tag (`strapi:api::site.site`)     | create/update/delete     |
 
 :::important Enable automatic revalidation
 `REVALIDATE_COLLECTIONS` in `apps/strapi/src/documentMiddlewares/revalidate.ts` is the allowlist for automatic revalidation. Add a content type there before expecting its publish/update/delete events to invalidate the UI cache.
 :::
 
-For tag-based invalidation, also tag the matching fetch in `apps/mapp/src/lib/strapi-api/content/server.ts`.
+For tag-based invalidation, also tag the matching fetch in `apps/mapp/src/lib/strapi-api/content/server.ts`. Draft-mode requests must not reuse public cache entries.
 
-Tag revalidation handles cross-page invalidation automatically. For example, every route that renders a fetch tagged with `strapi:api::navbar.navbar` becomes stale when the navbar tag is revalidated.
+Tag revalidation handles cross-page invalidation automatically. For example, every route that renders a fetch tagged with `strapi:api::site.site` becomes stale when the site header/footer is revalidated.
 
 ## Trigger Policy
 
@@ -109,7 +108,7 @@ Strapi stores canonical paths, while the UI serves default-locale and unprefixed
 ## Manual Revalidation
 
 :::info Fallback action
-Editors can force-revalidate a single entry from the **Revalidate cache** button in the page/navbar/footer edit view. The button is hidden by default and appears only with `?showRevalidateCache=true` because automatic revalidation should handle normal publish/update/delete flows. Treat the button as a fallback for debugging or recovery.
+Editors can force-revalidate a single entry from the **Revalidate cache** button in the page/site edit view. The button is hidden by default and appears only with `?showRevalidateCache=true` because automatic revalidation should handle normal publish/update/delete flows. Treat the button as a fallback for debugging or recovery.
 
 If the project needs this action always visible, remove the `showRevalidateCache` query-parameter guard from `apps/strapi/src/admin/extensions/DataRevalidate/DataRevalidateButton.tsx`.
 :::
