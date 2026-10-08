@@ -17,7 +17,6 @@ export function AppFormLabel({
   required,
   className,
 }: Props) {
-
   if (label == null) {
     return null
   }

@@ -31,7 +31,6 @@ export function AppCheckbox({
   description,
   ...nativeProps
 }: Props) {
-
   const { control } = useFormContext()
 
   return (

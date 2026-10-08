@@ -591,7 +591,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         "sections.faq",
         "sections.carousel",
         "sections.animated-logo-row",
-        "forms.newsletter-form",
         "forms.contact-form",
         "utilities.ck-editor-content",
         "sections.statistics",

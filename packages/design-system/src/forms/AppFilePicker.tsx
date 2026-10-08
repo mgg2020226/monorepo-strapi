@@ -36,7 +36,6 @@ export function AppFilePicker({
   label,
   required,
 }: Props) {
-
   const [isDraggingOver, setIsDraggingOver] = useState(false)
 
   const fileInputRef = useRef<HTMLInputElement | null>(null)

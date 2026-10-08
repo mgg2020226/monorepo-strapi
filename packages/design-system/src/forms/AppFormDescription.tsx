@@ -7,7 +7,6 @@ type Props = {
 }
 
 export function AppFormDescription({ description }: Props) {
-
   if (description == null) {
     return null
   }

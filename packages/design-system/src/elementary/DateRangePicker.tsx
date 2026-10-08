@@ -23,7 +23,6 @@ type Props = React.HTMLAttributes<HTMLDivElement> & {
 }
 
 export function DateRangePicker({ className, date, setDate }: Props) {
-
   const t = useTranslations("comps.dateRangePicker")
 
   const selectedDate = useMemo(() => {

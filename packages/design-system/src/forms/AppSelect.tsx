@@ -43,7 +43,6 @@ export function AppSelect({
   description,
   ...nativeProps
 }: Props) {
-
   const { control } = useFormContext()
 
   return (

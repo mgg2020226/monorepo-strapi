@@ -8,7 +8,6 @@ import {
   FormProvider,
 } from "react-hook-form"
 
-
 interface Props<T extends FieldValues = FieldValues> {
   readonly form: UseFormReturn<T>
   readonly onSubmit: (
@@ -34,7 +33,6 @@ export function AppForm<T extends FieldValues = FieldValues>({
   form,
   disabled,
 }: Props<T>) {
-
   const { handleSubmit } = form
 
   return (

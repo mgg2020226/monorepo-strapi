@@ -24,7 +24,6 @@ interface Props<TData> {
 }
 
 export function DataTablePagination<TData>({ table, simple }: Props<TData>) {
-
   const t = useTranslations("tables")
 
   if (simple) {

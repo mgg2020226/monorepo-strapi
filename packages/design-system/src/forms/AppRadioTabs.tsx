@@ -11,7 +11,12 @@ import {
   FormItem,
   FormMessage,
 } from "@repo/design-system/ui/form"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@repo/design-system/ui/tabs"
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@repo/design-system/ui/tabs"
 import { cn } from "@repo/design-system/utils"
 
 type Props = {
@@ -39,7 +44,6 @@ export function AppRadioTabs({
   tabListProps,
   required,
 }: Props) {
-
   const { control } = useFormContext()
 
   return (

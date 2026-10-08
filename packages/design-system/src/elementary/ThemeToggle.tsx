@@ -7,7 +7,6 @@ import { useTheme } from "next-themes"
 import { Button } from "@repo/design-system/ui/button"
 
 export function ThemeToggle({ className }: { className?: string }) {
-
   const { setTheme, theme } = useTheme()
   const t = useTranslations()
 

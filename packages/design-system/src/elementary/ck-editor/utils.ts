@@ -36,5 +36,8 @@ const processLinkHrefAttribute = (
     ? href
     : `/${locale}${href.startsWith("/") ? "" : "/"}${href}`
 
-const hrefIncludesLocale = (href: string, locales: readonly string[]) =>
-  new RegExp(`^/(${locales.join("|")})`).test(href)
+const hrefIncludesLocale = (href: string, locales: readonly string[]) => {
+  const localePattern = new RegExp(`^/(${locales.join("|")})`)
+
+  return localePattern.test(href)
+}

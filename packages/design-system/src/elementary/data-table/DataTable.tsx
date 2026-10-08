@@ -44,7 +44,6 @@ export function DataTable<TData, TValue>({
   pagination,
   searchAdornment,
 }: Props<TData, TValue>) {
-
   const t = useTranslations()
 
   const [sorting, setSorting] = useState<SortingState>([])

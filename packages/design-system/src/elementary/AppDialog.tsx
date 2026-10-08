@@ -53,7 +53,6 @@ export function AppDialog({
   confirmDialogClose,
   dialogCloseCallback,
 }: Props) {
-
   const t = useTranslations("comps.dialog")
   const [open, setOpen] = useState<boolean>(false)
   const [confirmClose, setConfirmClose] = useState<boolean>(

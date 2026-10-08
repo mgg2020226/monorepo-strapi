@@ -30,7 +30,6 @@ export function DataTableColumnHeader<TData, TValue>({
   className,
   withDropdown,
 }: Props<TData, TValue>) {
-
   const t = useTranslations("tables")
 
   let content = <div className={cn(className)}>{title}</div>

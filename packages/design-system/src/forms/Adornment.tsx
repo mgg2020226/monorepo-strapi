@@ -1,8 +1,6 @@
 import { CheckIcon, CrossIcon } from "lucide-react"
 
-
 export function AdornmentSuccess() {
-
   return (
     <span>
       <CheckIcon height="1.5rem" width="1.5rem" />
@@ -11,7 +9,6 @@ export function AdornmentSuccess() {
 }
 
 export function AdornmentError() {
-
   return (
     <span>
       <CrossIcon height="1.5rem" width="1.5rem" />

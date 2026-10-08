@@ -19,7 +19,6 @@ export function DatePicker({
 }: {
   readonly defaultDate?: Date
 }) {
-
   const [date, setDate] = useState<Date | undefined>(defaultDate)
   const t = useTranslations("comps.datePicker")
 

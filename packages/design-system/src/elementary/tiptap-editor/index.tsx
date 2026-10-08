@@ -14,14 +14,6 @@ import type { Node as TiptapNode } from "prosemirror-model"
 import type { ReactNode } from "react"
 
 import AppLink from "@repo/design-system/elementary/AppLink"
-import {
-  HeadingWithSEOTag,
-  StrapiImage,
-} from "./extensions"
-import {
-  imageAlignClassName,
-  textAlignClassName,
-} from "./utils"
 import Typography from "@repo/design-system/typography"
 import type {
   FontWeight,
@@ -30,6 +22,9 @@ import type {
 } from "@repo/design-system/typography/config"
 import Element from "@repo/design-system/typography/element"
 import { cn } from "@repo/design-system/utils"
+
+import { HeadingWithSEOTag, StrapiImage } from "./extensions"
+import { imageAlignClassName, textAlignClassName } from "./utils"
 
 function safeJSONParse<T>(json: string): T {
   try {
@@ -40,7 +35,7 @@ function safeJSONParse<T>(json: string): T {
 }
 
 function formatStrapiMediaUrl(imageUrl: string | undefined | null) {
-  if (!imageUrl) return undefined
+  if (!imageUrl) return
   if (imageUrl.startsWith("/uploads")) {
     const origin =
       typeof window === "undefined"
@@ -48,8 +43,10 @@ function formatStrapiMediaUrl(imageUrl: string | undefined | null) {
         : ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname)
           ? "http://127.0.0.1:1337"
           : undefined
+
     return origin ? `${origin}${imageUrl}` : imageUrl
   }
+
   return imageUrl
 }
 
@@ -309,7 +306,6 @@ export function TiptapRichText({
           // text-* class covers the inline (unaligned) case.
           return (
             <figure id={id} className={textAlignClassName(align)}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={src}
                 alt={alt}

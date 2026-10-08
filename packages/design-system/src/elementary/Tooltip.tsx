@@ -14,7 +14,6 @@ interface Props {
 }
 
 export function Tooltip({ children, content, contentProps }: Props) {
-
   return (
     <TooltipProvider>
       <RadixTooltip>

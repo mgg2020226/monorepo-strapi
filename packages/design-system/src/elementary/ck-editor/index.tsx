@@ -1,10 +1,11 @@
 import { type Locale, useLocale } from "next-intl"
 
+import { cn } from "@repo/design-system/utils"
+
 import {
   processLinksInHtmlContent,
   removeEmptyImagesFromContent,
 } from "./utils"
-import { cn } from "@repo/design-system/utils"
 
 function CkEditorRenderer({
   htmlContent,
