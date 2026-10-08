@@ -848,7 +848,6 @@ export interface SiteNavigationItem extends Struct.ComponentSchema {
     icon: "link"
   }
   attributes: {
-    children: Schema.Attribute.Component<"site.navigation-item", true>
     href: Schema.Attribute.String & Schema.Attribute.Required
     label: Schema.Attribute.String &
       Schema.Attribute.Required &

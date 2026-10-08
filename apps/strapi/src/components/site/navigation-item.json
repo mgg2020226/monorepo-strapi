@@ -6,7 +6,6 @@
     "label": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
     "href": { "type": "string", "required": true },
     "target": { "type": "enumeration", "enum": ["_self", "_blank"], "default": "_self" },
-    "order": { "type": "integer", "default": 0 },
-    "children": { "type": "component", "component": "site.navigation-item", "repeatable": true }
+    "order": { "type": "integer", "default": 0 }
   }
 }
