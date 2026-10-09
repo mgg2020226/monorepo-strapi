@@ -16,7 +16,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
       await (locale === "en"
         ? // When using Turbopack, this will enable HMR for `en`
           import("../../locales/en.json")
-        : import(`../../locales/${locale}.json`))
+        : import("../../locales/es.json"))
     ).default,
     timeZone: "America/Bogota",
   }

@@ -88,7 +88,7 @@
       "label": "Cambiar tema"
     },
     "dialog": {
-      "confirmCerrar": "Do you want to close the dialog? You will lose all unsaved changes."
+      "confirmClose": "¿Desea cerrar el diálogo? Perderá todos los cambios sin guardar."
     }
   },
 

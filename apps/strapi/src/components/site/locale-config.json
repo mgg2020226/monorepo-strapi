@@ -3,7 +3,7 @@
   "info": { "displayName": "Locale config", "icon": "language" },
   "options": {},
   "attributes": {
-    "locale": { "type": "enumeration", "enum": ["es", "en"], "required": true },
+    "locale": { "type": "enumeration", "enum": ["es", "en", "es-CO"], "required": true },
     "enabled": { "type": "boolean", "default": true },
     "isDefault": { "type": "boolean", "default": false }
   }

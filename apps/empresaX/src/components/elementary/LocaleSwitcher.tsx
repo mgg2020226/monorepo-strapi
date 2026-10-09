@@ -18,6 +18,7 @@ import { routing, usePathname, useRouter } from "@/lib/navigation"
 const localeTranslation = {
   en: "English",
   es: "Spanish",
+  "es-CO": "Español (Colombia)",
 }
 
 function LocaleSwitcher({ locale }: { locale: Locale }) {
