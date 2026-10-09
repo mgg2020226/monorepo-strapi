@@ -13,6 +13,14 @@ export { StrapiHeroStandard } from "./sections/StrapiHeroStandard"
 export { StrapiImageWithCTAButton } from "./sections/StrapiImageWithCTAButton"
 export { StrapiCta } from "./sections/StrapiCta"
 export { StrapiVideo } from "./sections/StrapiVideo"
+export { DynamicForm } from "./forms/DynamicForm"
+export type {
+  DynamicFormDefinition,
+  DynamicFormField,
+  DynamicFormFieldType,
+  DynamicFormOption,
+  DynamicFormValues,
+} from "./forms/types"
 export { StrapiStructuredData } from "./seo-utilities/StrapiStructuredData"
 export { StrapiBasicImage } from "./utilities/StrapiBasicImage"
 export { StrapiCkEditorContent } from "./utilities/StrapiCkEditorContent"

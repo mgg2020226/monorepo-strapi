@@ -1,7 +1,7 @@
 {
   "copy": [
     "apps/strapi/.env",
-    "apps/mapp/.env.local",
+    "apps/empresaX/.env.local",
     ".env"
   ],
   "symlink": [],

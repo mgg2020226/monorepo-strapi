@@ -80,7 +80,7 @@ The generated types come from the Strapi schemas and are shared through `package
 Add every fetchable content type to `API_ENDPOINTS`:
 
 ```typescript
-// apps/mapp/src/lib/strapi-api/base.ts
+// apps/empresaX/src/lib/strapi-api/base.ts
 export const API_ENDPOINTS: { [key in UID.ContentType]?: string } = {
   "api::page.page": "/pages",
   "api::site.site": "/sites",
@@ -95,7 +95,7 @@ Keep `API_ENDPOINTS` in sync with Strapi content types. The client uses this map
 Add the endpoint to the proxy allowlist when it needs to be fetched from browser-side code, usually through a client component using a proxy route:
 
 ```typescript
-// apps/mapp/src/lib/strapi-api/request-auth.ts
+// apps/empresaX/src/lib/strapi-api/request-auth.ts
 const ALLOWED_STRAPI_ENDPOINTS = {
   GET: [
     "api/your-new-types", // add here
@@ -111,11 +111,10 @@ Fetch a single document by ID (collection types) or without ID (single types).
 
 ```typescript
 // Single type (no ID)
-const site = await PublicStrapiClient.fetchOne(
-  "api::site.site",
-  documentId,
-  { locale, populate: { header: true, footer: true } }
-)
+const site = await PublicStrapiClient.fetchOne("api::site.site", documentId, {
+  locale,
+  populate: { header: true, footer: true },
+})
 
 // Collection type (with ID)
 const page = await PublicStrapiClient.fetchOne("api::page.page", documentId, {
@@ -183,7 +182,7 @@ const page = await PublicStrapiClient.fetchOneByFullPath(
 ### Server Component
 
 ```typescript
-// apps/mapp/src/lib/strapi-api/content/server.ts
+// apps/empresaX/src/lib/strapi-api/content/server.ts
 import { PublicStrapiClient } from "@/lib/strapi-api"
 
 export async function fetchPage(fullPath: string, locale: Locale) {

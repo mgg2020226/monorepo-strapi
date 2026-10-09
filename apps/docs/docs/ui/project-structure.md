@@ -6,26 +6,26 @@ sidebar_position: 2
 
 The UI app follows the Next.js App Router layout. Page-specific code should stay close to the route that owns it; reusable UI and page-builder renderers live in workspace packages.
 
-Base path: `apps/mapp/src`
+Base path: `apps/empresaX/src`
 
-| Path                      | Purpose                                                                                                                                     |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`                     | App Router. Page-specific components belong under `app/<route>/_components`, not in shared folders.                                         |
-| `components/elementary`   | Mapp-specific primitives and adapters, such as `ErrorBoundary`, `LocaleSwitcher`, and media components.                                     |
-| `components/page-builder` | Mapp composition: registry, navigation/footer, and business-specific forms. Shared sections live in [`@repo/sections`](../reference/packages/sections.md). |
-| `components/providers`    | Global context providers, such as `ClientProviders`, `TrackingScripts`.                                                                     |
-| `packages/design-system`  | Shared UI primitives, forms, typography, editor renderers, and reusable UI hooks.                                                           |
-| `packages/sections`       | Shared Strapi page-builder sections and CMS rendering utilities.                                                                             |
-| `hooks`                   | Mapp-only hooks that depend on auth or Mapp API clients.                                                                                     |
-| `lib`                     | Shared helpers such as auth, env vars, i18n, dates, navigation, reCAPTCHA, styles, etc.                                                     |
-| `lib/logging`             | Server-side structured logging wrapper around `@repo/logging`. See [Logging](#logging).                                                     |
-| `lib/metadata`            | Strapi SEO to Next.js `Metadata` helpers.                                                                                                   |
-| `lib/proxies`             | Next.js request proxy functions, such as `basicAuth`, `dynamicRewrite`. See [Proxies](./next-proxies.md).                                   |
-| `lib/strapi-api`          | Strapi clients, typed fetch helpers, and app-level content fetches in `content/server.ts`. See [Strapi API Client](./strapi-api-client.md). |
-| `lib/telemetry`           | Pluggable telemetry provider registry (Azure Monitor, Sentry). See [Logging](#logging).                                                     |
-| `styles`                  | Global styles.                                                                                                                              |
-| `types`                   | Type definitions.                                                                                                                           |
-| `../locales`              | next-intl message catalogs.                                                                                                                 |
+| Path                      | Purpose                                                                                                                                                        |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`                     | App Router. Page-specific components belong under `app/<route>/_components`, not in shared folders.                                                            |
+| `components/elementary`   | EmpresaX-specific primitives and adapters, such as `ErrorBoundary`, `LocaleSwitcher`, and media components.                                                    |
+| `components/page-builder` | EmpresaX composition: registry, navigation/footer, and business-specific forms. Shared sections live in [`@repo/sections`](../reference/packages/sections.md). |
+| `components/providers`    | Global context providers, such as `ClientProviders`, `TrackingScripts`.                                                                                        |
+| `packages/design-system`  | Shared UI primitives, forms, typography, editor renderers, and reusable UI hooks.                                                                              |
+| `packages/sections`       | Shared Strapi page-builder sections and CMS rendering utilities.                                                                                               |
+| `hooks`                   | EmpresaX-only hooks that depend on auth or EmpresaX API clients.                                                                                               |
+| `lib`                     | Shared helpers such as auth, env vars, i18n, dates, navigation, reCAPTCHA, styles, etc.                                                                        |
+| `lib/logging`             | Server-side structured logging wrapper around `@repo/logging`. See [Logging](#logging).                                                                        |
+| `lib/metadata`            | Strapi SEO to Next.js `Metadata` helpers.                                                                                                                      |
+| `lib/proxies`             | Next.js request proxy functions, such as `basicAuth`, `dynamicRewrite`. See [Proxies](./next-proxies.md).                                                      |
+| `lib/strapi-api`          | Strapi clients, typed fetch helpers, and app-level content fetches in `content/server.ts`. See [Strapi API Client](./strapi-api-client.md).                    |
+| `lib/telemetry`           | Pluggable telemetry provider registry (Azure Monitor, Sentry). See [Logging](#logging).                                                                        |
+| `styles`                  | Global styles.                                                                                                                                                 |
+| `types`                   | Type definitions.                                                                                                                                              |
+| `../locales`              | next-intl message catalogs.                                                                                                                                    |
 
 ## Strapi API
 
@@ -66,7 +66,7 @@ Add new components with:
 pnpm dlx shadcn@latest add accordion
 ```
 
-Config lives in `apps/mapp/components.json`. Theme tokens live in `apps/mapp/src/styles/globals.css` and `@repo/design-system/theme.css`.
+Config lives in `apps/empresaX/components.json`. Theme tokens live in `apps/empresaX/src/styles/globals.css` and `@repo/design-system/theme.css`.
 
 For shared tokens and global styling rules, see [Tokens And Global Styles](/docs/design-system/tokens-and-global-styles). For reusable component variants and states, see [CMS And Components](/docs/design-system/cms-and-components).
 

@@ -9,7 +9,7 @@ Route: `/dynamic/[[...rest]]`
 File:
 
 ```txt
-apps/mapp/src/app/[locale]/dynamic/[[...rest]]/page.tsx
+apps/empresaX/src/app/[locale]/dynamic/[[...rest]]/page.tsx
 ```
 
 This catch-all route renders the same Strapi page-builder content as the static route, but it is `force-dynamic` and receives `searchParams` at request time.

@@ -9,7 +9,7 @@ reCAPTCHA v3 is a spam and abuse protection service that scores form submissions
 reCAPTCHA helpers are pre-configured in:
 
 ```txt
-apps/mapp/src/lib/recaptcha.ts
+apps/empresaX/src/lib/recaptcha.ts
 ```
 
 Required env vars:

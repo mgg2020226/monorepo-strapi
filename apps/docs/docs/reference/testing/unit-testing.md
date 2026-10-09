@@ -6,10 +6,10 @@ sidebar_position: 2
 
 Unit and integration tests use Vitest. Run them from the monorepo root.
 
-| Area   | Tooling | Location                 |
-| ------ | ------- | ------------------------ |
-| Strapi | Vitest  | `apps/strapi/tests`      |
-| UI     | Vitest  | `apps/mapp/**/*.test.ts` |
+| Area   | Tooling | Location                     |
+| ------ | ------- | ---------------------------- |
+| Strapi | Vitest  | `apps/strapi/tests`          |
+| UI     | Vitest  | `apps/empresaX/**/*.test.ts` |
 
 ## Commands
 
@@ -17,12 +17,12 @@ Unit and integration tests use Vitest. Run them from the monorepo root.
 pnpm test          # Vitest in all apps
 pnpm test:ci       # Vitest in all apps except Strapi
 pnpm test:strapi   # Vitest in Strapi
-pnpm test:mapp     # Vitest in Next.js Mapp
+pnpm test:empresax     # Vitest in Next.js EmpresaX
 ```
 
 ## UI Tests
 
-UI tests are discovered by the `apps/mapp/vitest.config.ts` include pattern:
+UI tests are discovered by the `apps/empresaX/vitest.config.ts` include pattern:
 
 ```ts
 include: ["src/**/*.test.ts"]

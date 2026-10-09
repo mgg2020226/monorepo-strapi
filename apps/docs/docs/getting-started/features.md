@@ -8,11 +8,11 @@ This starter is built around a Strapi-managed page builder, reusable AI skills, 
 
 ## Stack
 
-| App           | Stack                                                                   | Entry                                   |
-| ------------- | ----------------------------------------------------------------------- | --------------------------------------- |
-| `apps/strapi` | Strapi 5 with PostgreSQL                                                | `apps/strapi/src/index.ts`              |
-| `apps/mapp`   | Next.js 16 App Router, React 19, Better Auth, next-intl, TailwindCSS v4 | `apps/mapp/src/app/[locale]/layout.tsx` |
-| `apps/docs`   | Docusaurus 3                                                            | `apps/docs/docusaurus.config.ts`        |
+| App             | Stack                                                                   | Entry                                       |
+| --------------- | ----------------------------------------------------------------------- | ------------------------------------------- |
+| `apps/strapi`   | Strapi 5 with PostgreSQL                                                | `apps/strapi/src/index.ts`                  |
+| `apps/empresaX` | Next.js 16 App Router, React 19, Better Auth, next-intl, TailwindCSS v4 | `apps/empresaX/src/app/[locale]/layout.tsx` |
+| `apps/docs`     | Docusaurus 3                                                            | `apps/docs/docusaurus.config.ts`            |
 
 Shared code lives in [`packages/*`](../reference/packages/overview.md).
 

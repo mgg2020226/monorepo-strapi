@@ -6,6 +6,6 @@
   "link": {
     "type": "generated-index",
     "title": "Built-in API routes",
-    "description": "Next.js route handlers shipped with apps/mapp for auth, Strapi proxying, preview, assets, and health checks."
+    "description": "Next.js route handlers shipped with apps/empresaX for auth, Strapi proxying, preview, assets, and health checks."
   }
 }

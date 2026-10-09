@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Vercel
 
-Vercel is supported for the Next.js UI app only. Deploy `apps/mapp` to Vercel and run Strapi somewhere else, such as [Heroku](./heroku.md) or [Strapi Cloud](https://strapi.io/cloud).
+Vercel is supported for the Next.js UI app only. Deploy `apps/empresaX` to Vercel and run Strapi somewhere else, such as [Heroku](./heroku.md) or [Strapi Cloud](https://strapi.io/cloud).
 
 :::warning Strapi is not supported on Vercel
 Do not deploy `apps/strapi` to Vercel. Strapi needs a long-running Node.js server, persistent database access, writable/runtime storage decisions, and admin/API behavior that does not fit Vercel's serverless frontend deployment model for this starter.
@@ -12,11 +12,11 @@ Do not deploy `apps/strapi` to Vercel. Strapi needs a long-running Node.js serve
 
 ## App Layout
 
-| App           | Vercel support | Notes                                                            |
-| ------------- | -------------- | ---------------------------------------------------------------- |
-| `apps/mapp`   | Yes            | Next.js App Router frontend.                                     |
-| `apps/strapi` | No             | Host Strapi separately and point the UI to it with `STRAPI_URL`. |
-| `apps/docs`   | Optional       | Usually deployed through GitHub Pages in this starter.           |
+| App             | Vercel support | Notes                                                            |
+| --------------- | -------------- | ---------------------------------------------------------------- |
+| `apps/empresaX` | Yes            | Next.js App Router frontend.                                     |
+| `apps/strapi`   | No             | Host Strapi separately and point the UI to it with `STRAPI_URL`. |
+| `apps/docs`     | Optional       | Usually deployed through GitHub Pages in this starter.           |
 
 ## Create The Vercel Project
 
@@ -25,18 +25,18 @@ Create a new Vercel project from the repository and configure it for the UI work
 | Setting          | Value                            |
 | ---------------- | -------------------------------- |
 | Framework preset | Next.js                          |
-| Root directory   | `apps/mapp`                      |
+| Root directory   | `apps/empresaX`                  |
 | Install command  | `pnpm install --frozen-lockfile` |
 | Build command    | `pnpm build`                     |
 | Output directory | Leave default for Next.js        |
 
 :::tip Monorepo root
-Even though the Vercel project root directory is `apps/mapp`, Vercel still detects the repository and lockfile. Keep `pnpm-lock.yaml` committed at the monorepo root.
+Even though the Vercel project root directory is `apps/empresaX`, Vercel still detects the repository and lockfile. Keep `pnpm-lock.yaml` committed at the monorepo root.
 :::
 
 ## Environment Variables
 
-Configure required UI environment variables in Vercel Project Settings. Start from `apps/mapp/.env.local.example` and the [UI Environment Variables](../../ui/environment-variables.md) reference.
+Configure required UI environment variables in Vercel Project Settings. Start from `apps/empresaX/.env.local.example` and the [UI Environment Variables](../../ui/environment-variables.md) reference.
 
 Minimum production-like setup:
 
@@ -74,7 +74,7 @@ For most Vercel deployments, leave `NEXT_OUTPUT` unset. Use `NEXT_OUTPUT=export`
 
 1. Deploy Strapi to a supported backend host.
 2. Configure Strapi database, upload provider, CORS, preview, auth providers, and `CLIENT_URL`.
-3. Create the Vercel project for `apps/mapp`.
+3. Create the Vercel project for `apps/empresaX`.
 4. Add UI environment variables in Vercel.
 5. Deploy the Vercel project.
 6. Verify that server-side UI requests can reach `STRAPI_URL`.

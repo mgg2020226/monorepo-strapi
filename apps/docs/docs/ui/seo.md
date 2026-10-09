@@ -6,7 +6,7 @@ sidebar_position: 11
 
 The UI generates SEO output at runtime from Strapi content and app config.
 
-Base path: `apps/mapp/src`
+Base path: `apps/empresaX/src`
 
 | Output                    | File                                                 |
 | ------------------------- | ---------------------------------------------------- |

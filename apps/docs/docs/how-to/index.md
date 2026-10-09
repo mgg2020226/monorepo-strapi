@@ -27,7 +27,7 @@ See [Strapi Environment Variables](../strapi/environment-variables.md).
 <details>
 <summary>How to start the project locally?</summary>
 
-Run commands from the monorepo root, not from `apps/mapp` or `apps/strapi`:
+Run commands from the monorepo root, not from `apps/empresaX` or `apps/strapi`:
 
 ```bash
 pnpm dev
@@ -37,7 +37,7 @@ For separate terminals:
 
 ```bash
 pnpm dev:strapi
-pnpm dev:mapp
+pnpm dev:empresax
 ```
 
 `pnpm dev:strapi` connects to the PostgreSQL service configured in `apps/strapi/.env` and runs the seed check before Strapi starts.
@@ -49,7 +49,7 @@ See [Quick Start](../getting-started/quick-start.md) and [Commands Reference](..
 <details>
 <summary>How to fix UI errors about missing `STRAPI_URL` or Strapi API token?</summary>
 
-Set the UI Strapi connection values in `apps/mapp/.env.local`:
+Set the UI Strapi connection values in `apps/empresaX/.env.local`:
 
 ```env
 STRAPI_URL=http://localhost:1337
@@ -58,7 +58,7 @@ STRAPI_REST_READONLY_API_KEY=<read-only-token>
 
 Generate the token in Strapi admin: Settings -> API Tokens -> open the seeded **Read Only** token -> **Regenerate**.
 
-The token is displayed once. If you lose it, regenerate it again and replace the value in `apps/mapp/.env.local`.
+The token is displayed once. If you lose it, regenerate it again and replace the value in `apps/empresaX/.env.local`.
 
 See [Quick Start: Regenerate the Strapi API token](../getting-started/quick-start.md#2-regenerate-the-strapi-api-token) and [UI Environment Variables](../ui/environment-variables.md#strapi-api-tokens).
 
@@ -67,7 +67,7 @@ See [Quick Start: Regenerate the Strapi API token](../getting-started/quick-star
 <details>
 <summary>How to fix a 404 or empty homepage after first setup?</summary>
 
-First check that `apps/mapp/.env.local` has a valid read-only Strapi API token:
+First check that `apps/empresaX/.env.local` has a valid read-only Strapi API token:
 
 ```env
 STRAPI_REST_READONLY_API_KEY=<read-only-token>
@@ -124,7 +124,7 @@ Use the short checklist:
 
 1. Add the Strapi schema, route, controller, and service.
 2. Restart Strapi so the content type is loaded.
-3. Add the UID and REST path to `API_ENDPOINTS` in `apps/mapp/src/lib/strapi-api/base.ts`.
+3. Add the UID and REST path to `API_ENDPOINTS` in `apps/empresaX/src/lib/strapi-api/base.ts`.
 4. Fetch it in a Server Component or Route Handler with `PublicStrapiClient` for public CMS content.
 
 Server-side fetch example:
@@ -177,13 +177,13 @@ For a public CMS site, remove the UI end-user auth surface and keep Strapi Admin
 
 Use this checklist:
 
-1. Remove auth pages under `apps/mapp/src/app/[locale]/auth`.
+1. Remove auth pages under `apps/empresaX/src/app/[locale]/auth`.
 2. Remove `/api/auth/[...all]` and `/api/private-proxy/[...slug]` if no authenticated browser requests remain.
-3. Remove `authGuard` from `apps/mapp/src/proxy.ts`.
+3. Remove `authGuard` from `apps/empresaX/src/proxy.ts`.
 4. Remove navbar session reads and auth UI components, such as `NavbarAuthSection`, `LoggedUserMenu`, and `getSessionSSR()` usage in `StrapiNavbar`.
 5. Replace `PrivateStrapiClient` usage with `PublicStrapiClient` where the data is public CMS content.
 6. Remove Better Auth client/server helpers and related user mutation hooks when nothing imports them anymore.
-7. Uninstall unused auth packages from `apps/mapp/package.json`.
+7. Uninstall unused auth packages from `apps/empresaX/package.json`.
 8. Remove unused auth environment variables such as `BETTER_AUTH_SECRET`.
 
 See [Authentication](../auth/index.md), [UI Authentication](../auth/ui/authentication.md), [Auth Pages](../ui/built-in-pages/auth-pages.md), and [Private Strapi Proxy](../ui/built-in-api-routes/private-proxy.md).
@@ -195,7 +195,7 @@ See [Authentication](../auth/index.md), [UI Authentication](../auth/ui/authentic
 
 Do not call Strapi directly from the browser with `STRAPI_URL` or API tokens. Use the UI proxy routes.
 
-Add the endpoint path to `ALLOWED_STRAPI_ENDPOINTS` in `apps/mapp/src/lib/strapi-api/request-auth.ts` for the HTTP methods the browser needs:
+Add the endpoint path to `ALLOWED_STRAPI_ENDPOINTS` in `apps/empresaX/src/lib/strapi-api/request-auth.ts` for the HTTP methods the browser needs:
 
 ```ts
 const ALLOWED_STRAPI_ENDPOINTS = {
@@ -243,7 +243,7 @@ See [Commands Reference: Cleanup scripts](../reference/commands.md#cleanup-scrip
 Use the narrowest command that covers the change:
 
 ```bash
-pnpm test:mapp     # Next.js unit tests
+pnpm test:empresax     # Next.js unit tests
 pnpm test:strapi   # Strapi unit tests
 pnpm test          # all Vitest tests
 pnpm typecheck     # TypeScript across the repo
@@ -262,7 +262,7 @@ For the normal production Docker flow, use the UI Docker build and `NEXT_OUTPUT=
 For local static export experiments:
 
 ```bash
-pnpm build:mapp:static
+pnpm build:empresax:static
 ```
 
 Static export is not supported out of the box. It fails unless dynamic features such as Better Auth routes, POST handlers, and other runtime-only behavior are removed or reworked.

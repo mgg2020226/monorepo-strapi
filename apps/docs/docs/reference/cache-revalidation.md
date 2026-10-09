@@ -49,13 +49,13 @@ flowchart TD
 
 ## Revalidate Windows
 
-| Cache layer                    | Interval | Notes                                                                             |
-| ------------------------------ | -------- | --------------------------------------------------------------------------------- |
-| Page route                    | request  | `apps/mapp/src/app/[locale]/[[...rest]]/page.tsx` is dynamic to resolve host/site. |
-| `fetchPage`                    | 120s     | Strapi page-data fetch window. Path-revalidated on publish.                       |
-| Base Strapi client fetches     | 60s      | Default Data Cache fallback when a fetch does not override `next.revalidate`.     |
-| `fetchSite`                    | 600s     | Site header/footer tagged with `strapi:api::site.site`; TTL is the backstop.       |
-| Development Strapi API fetches | 0s       | `next dev` skips the Data Cache, so cache invalidation is not fully observable.   |
+| Cache layer                    | Interval | Notes                                                                                  |
+| ------------------------------ | -------- | -------------------------------------------------------------------------------------- |
+| Page route                     | request  | `apps/empresaX/src/app/[locale]/[[...rest]]/page.tsx` is dynamic to resolve host/site. |
+| `fetchPage`                    | 120s     | Strapi page-data fetch window. Path-revalidated on publish.                            |
+| Base Strapi client fetches     | 60s      | Default Data Cache fallback when a fetch does not override `next.revalidate`.          |
+| `fetchSite`                    | 600s     | Site header/footer tagged with `strapi:api::site.site`; TTL is the backstop.           |
+| Development Strapi API fetches | 0s       | `next dev` skips the Data Cache, so cache invalidation is not fully observable.        |
 
 :::info TTL is the backstop
 On-demand revalidation handles fresh publishes immediately. The `revalidate` intervals still matter when a webhook fails, a collection is not configured for automatic revalidation, or a cached entry has no matching tag/path.
@@ -63,17 +63,17 @@ On-demand revalidation handles fresh publishes immediately. The `revalidate` int
 
 ## What Gets Revalidated
 
-| Content type             | Mode                              | Trigger                  |
-| ------------------------ | --------------------------------- | ------------------------ |
-| `api::page.page`         | path (`fullPath`)                 | publish/unpublish/delete |
-| `api::redirect.redirect` | path (`source`)                   | publish/unpublish/delete |
-| `api::site.site`         | tag (`strapi:api::site.site`)     | create/update/delete     |
+| Content type             | Mode                          | Trigger                  |
+| ------------------------ | ----------------------------- | ------------------------ |
+| `api::page.page`         | path (`fullPath`)             | publish/unpublish/delete |
+| `api::redirect.redirect` | path (`source`)               | publish/unpublish/delete |
+| `api::site.site`         | tag (`strapi:api::site.site`) | create/update/delete     |
 
 :::important Enable automatic revalidation
 `REVALIDATE_COLLECTIONS` in `apps/strapi/src/documentMiddlewares/revalidate.ts` is the allowlist for automatic revalidation. Add a content type there before expecting its publish/update/delete events to invalidate the UI cache.
 :::
 
-For tag-based invalidation, also tag the matching fetch in `apps/mapp/src/lib/strapi-api/content/server.ts`. Draft-mode requests must not reuse public cache entries.
+For tag-based invalidation, also tag the matching fetch in `apps/empresaX/src/lib/strapi-api/content/server.ts`. Draft-mode requests must not reuse public cache entries.
 
 Tag revalidation handles cross-page invalidation automatically. For example, every route that renders a fetch tagged with `strapi:api::site.site` becomes stale when the site header/footer is revalidated.
 
@@ -142,8 +142,8 @@ See [CDN](./integrations/cdn.md) for the purge flow, provider setup, and Azure F
 Use `next dev` to check that endpoints and Strapi middleware fire. Use a production UI build to test the real Data Cache behavior and the full revalidation lifecycle.
 
 ```bash
-pnpm build:mapp
-pnpm start:mapp
+pnpm build:empresax
+pnpm start:empresax
 ```
 
 Useful checks:

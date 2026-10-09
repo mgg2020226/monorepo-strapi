@@ -17,7 +17,7 @@ packages/design-system/src/theme.css
 The frontend imports the shared theme from:
 
 ```text
-apps/mapp/src/styles/globals.css
+apps/empresaX/src/styles/globals.css
 ```
 
 ```css
@@ -57,7 +57,7 @@ Treat this file as the single source of truth for reusable visual values.
 
 ## Global CSS
 
-Use `apps/mapp/src/styles/globals.css` for application-wide styling:
+Use `apps/empresaX/src/styles/globals.css` for application-wide styling:
 
 - Global resets and base element styles.
 - Tailwind compatibility patches.
@@ -71,7 +71,7 @@ Keep project-specific global behavior here. Keep shared design tokens in `packag
 
 ### Next.js
 
-Import the shared theme and custom styles from `apps/mapp/src/styles/globals.css`:
+Import the shared theme and custom styles from `apps/empresaX/src/styles/globals.css`:
 
 ```css
 @import "@repo/design-system/theme.css";

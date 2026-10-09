@@ -13,7 +13,7 @@ Official docs:
 
 ## Default Strapi Request Cache
 
-Default fetch options live in `apps/mapp/src/lib/strapi-api/base.ts`.
+Default fetch options live in `apps/empresaX/src/lib/strapi-api/base.ts`.
 
 | Environment | Default                                                                           |
 | ----------- | --------------------------------------------------------------------------------- |
@@ -27,15 +27,15 @@ Callers can override this through `requestInit.next.revalidate`.
 ISR lets public pages serve cached output and refresh in the background. The main Strapi page route is:
 
 ```txt
-apps/mapp/src/app/[locale]/[[...rest]]/page.tsx
+apps/empresaX/src/app/[locale]/[[...rest]]/page.tsx
 ```
 
 This catch-all route renders individual Strapi pages by `fullPath`. The host determines the Strapi site, and the navbar also reads request-time authentication headers, so the route is rendered per request rather than through ISR.
 
 This route uses:
 
-| Setting         | Purpose                                                                    |
-| --------------- | -------------------------------------------------------------------------- |
+| Setting         | Purpose                                                                   |
+| --------------- | ------------------------------------------------------------------------- |
 | `force-dynamic` | Keeps host-based site resolution and request-time authentication correct. |
 
 :::warning CDN cache headers
@@ -50,7 +50,7 @@ In an application without auth or request-aware navbar behavior, the stricter op
 
 ## On-Demand Revalidation
 
-Beyond TTL-based ISR, Strapi invalidates cached content immediately when publishing via the revalidation pipeline: page/redirect paths through `revalidatePath`, and shared content (navbar, footer) through `revalidateTag`. Fetchers in `apps/mapp/src/lib/strapi-api/content/server.ts` tag shared content with `strapi:api::<uid>` so a publish can target it precisely.
+Beyond TTL-based ISR, Strapi invalidates cached content immediately when publishing via the revalidation pipeline: page/redirect paths through `revalidatePath`, and shared content (navbar, footer) through `revalidateTag`. Fetchers in `apps/empresaX/src/lib/strapi-api/content/server.ts` tag shared content with `strapi:api::<uid>` so a publish can target it precisely.
 
 See [Cache Revalidation](../reference/cache-revalidation.md) for the full Strapi → UI flow, and [CDN](../reference/integrations/cdn.md) for optional CDN cache purging.
 
@@ -59,7 +59,7 @@ See [Cache Revalidation](../reference/cache-revalidation.md) for the full Strapi
 Pages that need query string values cannot use the static catch-all route because `searchParams` are only available at request time. The [Dynamic Rewrite proxy](./next-proxies.md#dynamic-rewrite) rewrites requests with search params to:
 
 ```txt
-apps/mapp/src/app/[locale]/dynamic/[[...rest]]/page.tsx
+apps/empresaX/src/app/[locale]/dynamic/[[...rest]]/page.tsx
 ```
 
 That route is `force-dynamic`, receives `searchParams`, and renders on every request. This keeps normal content pages cached while preserving runtime behavior for pages that depend on query params, filters, form state, tracking params, or other request-specific inputs.

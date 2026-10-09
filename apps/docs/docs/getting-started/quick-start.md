@@ -8,7 +8,7 @@ Get both apps running locally and rendering a page in under 10 minutes. Assumes 
 
 :::important Run from monorepo root
 
-All app commands run from the **monorepo root** via Turbo (`pnpm dev:strapi`, `pnpm dev:mapp`, etc.). Don't `cd` into individual apps — Turbo orchestrates dependencies, env loading, and task ordering across the workspace.
+All app commands run from the **monorepo root** via Turbo (`pnpm dev:strapi`, `pnpm dev:empresax`, etc.). Don't `cd` into individual apps — Turbo orchestrates dependencies, env loading, and task ordering across the workspace.
 
 :::
 
@@ -47,7 +47,7 @@ Open [Strapi admin → Settings → API Tokens](http://localhost:1337/admin/sett
 
 ## 3. Configure the UI app
 
-Open `apps/mapp/.env.local` (already created by `pnpm install`). Set:
+Open `apps/empresaX/.env.local` (already created by `pnpm install`). Set:
 
 ```env
 STRAPI_URL=http://localhost:1337
@@ -58,7 +58,7 @@ Other variables are optional for first-run. See [UI → Environment Variables](.
 
 :::warning Write operations need a separate token
 
-For write operations (`POST`, `PUT`, `DELETE`), set a Custom token in `STRAPI_REST_CUSTOM_API_KEY`. See `apps/mapp/README.md#custom-api-token`.
+For write operations (`POST`, `PUT`, `DELETE`), set a Custom token in `STRAPI_REST_CUSTOM_API_KEY`. See `apps/empresaX/README.md#custom-api-token`.
 
 :::
 
@@ -67,7 +67,7 @@ For write operations (`POST`, `PUT`, `DELETE`), set a Custom token in `STRAPI_RE
 In a second terminal, from monorepo root:
 
 ```bash
-pnpm dev:mapp
+pnpm dev:empresax
 ```
 
 UI runs on [http://localhost:3000](http://localhost:3000) — open it.

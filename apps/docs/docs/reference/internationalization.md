@@ -8,7 +8,7 @@ Internationalization has two layers:
 
 | Layer      | What                                               | Source                               |
 | ---------- | -------------------------------------------------- | ------------------------------------ |
-| UI strings | `next-intl` hardcoded JSON message catalogs        | `apps/mapp/locales/*`                |
+| UI strings | `next-intl` hardcoded JSON message catalogs        | `apps/empresaX/locales/*`            |
 | Content    | Strapi i18n plugin; locale forwarded as `?locale=` | fetching through Strapi API clientch |
 
 ## Localization
@@ -17,18 +17,18 @@ The UI is ready for localization through [`next-intl`](https://next-intl.dev/doc
 
 Relevant files:
 
-| File                              | Purpose                                                          |
-| --------------------------------- | ---------------------------------------------------------------- |
-| `apps/mapp/src/lib/i18n.ts`       | Request config that loads the active message catalog.            |
-| `apps/mapp/src/proxy.ts`          | Runs `next-intl` middleware after the app proxy chain.           |
-| `apps/mapp/next.config.mjs`       | Registers the `next-intl` plugin.                                |
-| `apps/mapp/locales`               | JSON message catalogs.                                           |
-| `apps/mapp/src/types/global.d.ts` | Augmented `next-intl` types for messages and locale unions.      |
-| `apps/mapp/src/lib/navigation.ts` | Locale-aware `Link`, `redirect`, `usePathname`, and `useRouter`. |
+| File                                  | Purpose                                                          |
+| ------------------------------------- | ---------------------------------------------------------------- |
+| `apps/empresaX/src/lib/i18n.ts`       | Request config that loads the active message catalog.            |
+| `apps/empresaX/src/proxy.ts`          | Runs `next-intl` middleware after the app proxy chain.           |
+| `apps/empresaX/next.config.mjs`       | Registers the `next-intl` plugin.                                |
+| `apps/empresaX/locales`               | JSON message catalogs.                                           |
+| `apps/empresaX/src/types/global.d.ts` | Augmented `next-intl` types for messages and locale unions.      |
+| `apps/empresaX/src/lib/navigation.ts` | Locale-aware `Link`, `redirect`, `usePathname`, and `useRouter`. |
 
 ## Routing
 
-Routing config is in `apps/mapp/src/lib/navigation.ts`:
+Routing config is in `apps/empresaX/src/lib/navigation.ts`:
 
 ```ts
 defineRouting({
@@ -44,9 +44,9 @@ Navigation utilities are wrapped with `createNavigation()` so `Link`, `redirect`
 
 ## Messages
 
-Request config loads the matching JSON catalog in `apps/mapp/src/lib/i18n.ts`. The default timezone is `Europe/Prague`.
+Request config loads the matching JSON catalog in `apps/empresaX/src/lib/i18n.ts`. The default timezone is `Europe/Prague`.
 
-Message keys are typed through `apps/mapp/src/types/global.d.ts`, using `apps/mapp/locales/en.json` as the source shape. This gives autocomplete for `useTranslations()` and `getTranslations()`.
+Message keys are typed through `apps/empresaX/src/types/global.d.ts`, using `apps/empresaX/locales/en.json` as the source shape. This gives autocomplete for `useTranslations()` and `getTranslations()`.
 
 The same augmentation also types `Locale` from `next-intl` to the configured locales in `routing.locales`, so app code can use `Locale` directly instead of defining a separate app-specific locale type.
 
@@ -135,7 +135,7 @@ The UI receives the active locale from the `[locale]` route segment and uses `Lo
 App-level Strapi fetches live in:
 
 ```txt
-apps/mapp/src/lib/strapi-api/content/server.ts
+apps/empresaX/src/lib/strapi-api/content/server.ts
 ```
 
 These helpers pass `locale` to `PublicStrapiClient`, for example:

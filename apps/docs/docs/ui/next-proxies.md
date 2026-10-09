@@ -7,20 +7,20 @@ sidebar_position: 8
 Next.js request proxy logic lives in:
 
 ```txt
-apps/mapp/src/proxy.ts
+apps/empresaX/src/proxy.ts
 ```
 
 It composes small proxy functions from:
 
 ```txt
-apps/mapp/src/lib/proxies
+apps/empresaX/src/lib/proxies
 ```
 
 Each proxy handles one concern and can either return a `NextResponse` to stop the chain or return `null` to let the next proxy run.
 
 ## Execution Order
 
-`apps/mapp/src/proxy.ts` runs proxies from `apps/mapp/src/lib/proxies` in this order:
+`apps/empresaX/src/proxy.ts` runs proxies from `apps/empresaX/src/lib/proxies` in this order:
 
 | Order | Proxy           | File                | Purpose                                                                          |
 | ----- | --------------- | ------------------- | -------------------------------------------------------------------------------- |
@@ -64,7 +64,7 @@ How it works:
 
 - It acts only on real navigations (`GET`/`HEAD`) and ignores Next.js link prefetches, so background prefetching never triggers a redirect lookup.
 - The published redirect list is kept in memory for 2 minutes instead of being fetched from Strapi on every request. While that cache is fresh, lookups are instant; once it expires, the proxy keeps serving the last known list and refreshes in the background, so visitors never wait on Strapi. The one exception: if an expired cache has _no_ match for the requested path, the proxy refreshes and waits — the path might be a brand-new redirect that a fronting CDN has already started routing here, and serving a miss would let the CDN cache the wrong response.
-- Because of that cache, a newly published redirect goes live within ~2 minutes (per running instance). Publishing in Strapi cannot clear this cache instantly — the proxy runs separately from the rest of the app — so the cache lifetime is the activation window. Lower `REDIRECTS_CACHE_TTL_MS` (`apps/mapp/src/lib/redirects.ts`) for faster activation.
+- Because of that cache, a newly published redirect goes live within ~2 minutes (per running instance). Publishing in Strapi cannot clear this cache instantly — the proxy runs separately from the rest of the app — so the cache lifetime is the activation window. Lower `REDIRECTS_CACHE_TTL_MS` (`apps/empresaX/src/lib/redirects.ts`) for faster activation.
 
 :::info Why a TTL instead of Strapi-triggered revalidation
 The proxy is Next.js **middleware**, which runs in its own runtime — separate from the **server runtime** that renders pages and route handlers — and the redirect list lives as a plain in-memory value inside it. Next's on-demand revalidation (`revalidateTag` / `revalidatePath`, what the Strapi publish pipeline calls) only invalidates the server runtime's Data Cache and rendered routes. There is no API to reach into middleware memory, and middleware cannot subscribe to those revalidation events — so a publish refreshes pages but cannot clear this cache. A time-based TTL is the only invalidation the middleware has, and each running instance holds its own copy (hence "per instance").
@@ -110,13 +110,13 @@ Use this for route-level authentication before the request reaches the App Route
 `dynamicRewrite` rewrites public page requests with search params to the dynamic route:
 
 ```txt
-apps/mapp/src/app/[locale]/dynamic/[[...rest]]/page.tsx
+apps/empresaX/src/app/[locale]/dynamic/[[...rest]]/page.tsx
 ```
 
 This is needed because the static catch-all page route cannot read `searchParams`. Requests without search params continue to the static/ISR page route:
 
 ```txt
-apps/mapp/src/app/[locale]/[[...rest]]/page.tsx
+apps/empresaX/src/app/[locale]/[[...rest]]/page.tsx
 ```
 
 The proxy ignores `/api`, `/dev`, and `/auth`, and blocks direct access to the bare `/dynamic` path.
@@ -125,7 +125,7 @@ The proxy ignores `/api`, `/dev`, and `/auth`, and blocks direct access to the b
 
 Security headers are split by how they are computed:
 
-- **Static headers** — set in `apps/mapp/next.config.mjs` via `headers()` for every route, because they are build-time constants:
+- **Static headers** — set in `apps/empresaX/next.config.mjs` via `headers()` for every route, because they are build-time constants:
 
   | Header                      | Value                                          |
   | --------------------------- | ---------------------------------------------- |
@@ -134,7 +134,7 @@ Security headers are split by how they are computed:
   | `Referrer-Policy`           | `strict-origin-when-cross-origin`              |
   | `Permissions-Policy`        | `camera=(), microphone=(), geolocation=()`     |
 
-- **Runtime headers** — set in `apps/mapp/src/lib/proxies/securityHeaders.ts`, because they depend on request/runtime state:
+- **Runtime headers** — set in `apps/empresaX/src/lib/proxies/securityHeaders.ts`, because they depend on request/runtime state:
   - `Content-Security-Policy` — its `frame-ancestors` is derived from the runtime `STRAPI_URL` (unavailable at build time, so it cannot live in `next.config`).
   - `X-Frame-Options: DENY` — sent only when framing is disallowed (modern browsers honor `frame-ancestors` and ignore `X-Frame-Options`).
 
@@ -152,4 +152,4 @@ By default `frame-ancestors` is `'none'`. After a valid `/api/preview` flow, the
 
 ## Adding A Proxy
 
-Create a focused proxy function in `apps/mapp/src/lib/proxies`, then register it in `apps/mapp/src/proxy.ts` in the correct order.
+Create a focused proxy function in `apps/empresaX/src/lib/proxies`, then register it in `apps/empresaX/src/proxy.ts` in the correct order.

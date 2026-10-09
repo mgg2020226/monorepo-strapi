@@ -120,7 +120,7 @@ Permissions live in the database, not in code. They travel via the seed export �
 
 ## Step 4 — Add the UID to `API_ENDPOINTS`
 
-The Next.js `BaseStrapiClient` maps content-type UIDs to URL paths — see [Strapi API Client](../ui/strapi-api-client.md#adding-new-endpoints) for the full client surface. New types must be added to `apps/mapp/src/lib/strapi-api/base.ts:17`:
+The Next.js `BaseStrapiClient` maps content-type UIDs to URL paths — see [Strapi API Client](../ui/strapi-api-client.md#adding-new-endpoints) for the full client surface. New types must be added to `apps/empresaX/src/lib/strapi-api/base.ts:17`:
 
 ```ts
 export const API_ENDPOINTS: Partial<Record<UID.ContentType, string>> = {
@@ -134,7 +134,7 @@ Without this entry, `PublicStrapiClient.fetchMany("api::product.product", ...)` 
 
 ## Step 5 — Expose the endpoint to the browser (optional)
 
-Only required if the UI will call this content type **from the client**, not from Server Components. The proxy routes have an allow-list at `apps/mapp/src/lib/strapi-api/request-auth.ts:3`:
+Only required if the UI will call this content type **from the client**, not from Server Components. The proxy routes have an allow-list at `apps/empresaX/src/lib/strapi-api/request-auth.ts:3`:
 
 ```ts
 const ALLOWED_STRAPI_ENDPOINTS: Record<string, string[]> = {
@@ -173,7 +173,7 @@ For flat schemas (like the `product` example above), this step is unnecessary �
 Server Component example. Both server and client return fully typed responses thanks to the generic UID parameter.
 
 ```tsx
-// apps/mapp/src/app/[locale]/products/page.tsx
+// apps/empresaX/src/app/[locale]/products/page.tsx
 import type { Locale } from "next-intl"
 
 import { PublicStrapiClient } from "@/lib/strapi-api"

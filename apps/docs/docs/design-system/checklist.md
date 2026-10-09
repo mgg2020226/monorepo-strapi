@@ -17,16 +17,16 @@ Use this checklist when creating a task for initial design-system setup or a lar
 - [ ] Confirm OKLCH, hex, RGB, or another color format with the designer and keep it consistent.
 - [ ] Define container widths, breakpoints, max widths, spacing, paddings, shadows, and animation tokens.
 - [ ] Use scalable token names such as `--radius-sm`, `--radius-md`, and `--radius-lg`.
-- [ ] Keep shared design tokens in `theme.css`, and app-specific global styles in `apps/mapp/src/styles/globals.css`.
+- [ ] Keep shared design tokens in `theme.css`, and app-specific global styles in `apps/empresaX/src/styles/globals.css`.
 - [ ] Confirm `globals.css` imports `@repo/design-system/theme.css` and `@repo/design-system/custom-styles.css`.
 - [ ] Rebuild `@repo/design-system` when generated Strapi or editor outputs need to be updated.
 - [ ] Treat exported design-system tokens, typography classes, and editor config outputs as shared utilities.
 
 ## Fonts And Typography
 
-- [ ] Import all required font weights and styles in `apps/mapp/src/lib/fonts.ts`.
+- [ ] Import all required font weights and styles in `apps/empresaX/src/lib/fonts.ts`.
 - [ ] For file-based fonts, define the font variable in `packages/design-system/src/theme.css` and export it through the design-system build output.
-- [ ] Attach font variables in `apps/mapp/src/app/[locale]/layout.tsx`.
+- [ ] Attach font variables in `apps/empresaX/src/app/[locale]/layout.tsx`.
 - [ ] Collect all typography variants before component implementation starts.
 - [ ] Define `.typo-*` classes in `packages/design-system/src/custom-styles.css`.
 - [ ] Map typography variants in `packages/design-system/src/typography/config.ts`.

@@ -31,7 +31,7 @@ jobs:
       - name: Prepare Environment Variables
         run: |
           cp apps/strapi/.env.example apps/strapi/.env
-          cp apps/mapp/.env.local.example apps/mapp/.env.local
+          cp apps/empresaX/.env.local.example apps/empresaX/.env.local
 
       - name: Run linter
         run: pnpm lint
@@ -42,10 +42,10 @@ jobs:
       - name: Run unit tests
         run: pnpm test:ci
 
-      - name: Build Mapp
+      - name: Build EmpresaX
         run: |
-          rm -rf apps/mapp/.next
-          pnpm build:mapp
+          rm -rf apps/empresaX/.next
+          pnpm build:empresax
 
       - name: Build Strapi
         run: pnpm build:strapi

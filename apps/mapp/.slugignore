@@ -1,5 +1,0 @@
-.turbo
-**/.turbo
-.next/cache
-**/.next/cache
-**/node_modules/.cache

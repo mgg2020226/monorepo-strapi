@@ -9,7 +9,7 @@ Route: `/api/private-proxy/[...slug]`
 File:
 
 ```txt
-apps/mapp/src/app/api/private-proxy/[...slug]/route.ts
+apps/empresaX/src/app/api/private-proxy/[...slug]/route.ts
 ```
 
 This route proxies authenticated, user-specific Strapi requests from the browser. It hides `STRAPI_URL`, forwards the user's authorization header, and rejects paths that are not allowed by `isStrapiEndpointAllowed()`.
@@ -31,7 +31,7 @@ This proxy keeps the backend URL hidden while allowing authenticated UI flows to
 `isStrapiEndpointAllowed()` lives in:
 
 ```txt
-apps/mapp/src/lib/strapi-api/request-auth.ts
+apps/empresaX/src/lib/strapi-api/request-auth.ts
 ```
 
 It checks the requested Strapi path against `ALLOWED_STRAPI_ENDPOINTS` for the current HTTP method.

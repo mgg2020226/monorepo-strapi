@@ -6,7 +6,7 @@ sidebar_position: 2
 
 Small runtime package for code shared by the UI and Strapi apps.
 
-Use it for values, functions, and constants that must behave the same in both runtimes. Anything that is safe to share between `apps/mapp` and `apps/strapi` can be exported from here.
+Use it for values, functions, and constants that must behave the same in both runtimes. Anything that is safe to share between `apps/empresaX` and `apps/strapi` can be exported from here.
 
 This avoids duplicating small but important behavior, for example path normalization used by both page hierarchy logic and UI navigation.
 

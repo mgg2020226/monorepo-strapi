@@ -5,10 +5,10 @@ Implementación inicial basada en [strapi-next-monorepo-starter](https://github.
 ## Estado de la implementación
 
 - Strapi central en `apps/strapi`.
-- Frontend inicial de Mapp en `apps/mapp`.
+- Frontend inicial de EmpresaX en `apps/empresaX`.
 - Docusaurus conservado en `apps/docs`.
-- `apps/mapp` fue renombrada a `apps/mapp`.
-- Mapp es el único sitio migrado en esta etapa.
+- El frontend se mantiene como plantilla genérica y usa `EmpresaX` como nombre de ejemplo.
+- EmpresaX es el único sitio migrado en esta etapa.
 - El dominio resuelve el sitio mediante `SITE_DOMAIN_MAP`; cada host debe apuntar a un `Site.slug`.
 - El preview usa `GET /api/preview` con `STRAPI_PREVIEW_SECRET`; activa `draftMode()` y evita indexación/caché compartida.
 - No hay registro de usuarios públicos.
@@ -29,7 +29,7 @@ Implementación inicial basada en [strapi-next-monorepo-starter](https://github.
 | `PortfolioProject` | Proyecto o caso de éxito          | `title`, `slug`, `summary`, `content`, `coverImage`, `gallery`, `site`, `externalUrl`, `featured`, `order`, `seo`                                                              |
 | `LegalPage`        | Política o página legal           | `title`, `slug`, `content`, `site`, `legalType`, `version`, `effectiveDate`, `seo`, `contentStatus`                                                                            |
 | `FormDefinition`   | Definición de formulario          | `name`, `slug`, `site`, `title`, `description`, `fields`, `submitLabel`, `successMessage`, `errorMessage`, `recipientEmail`, `active`, `honeypotEnabled`, `rateLimitPerMinute` |
-| `Subscriber`       | Registro de envíos               | `site`, `formSlug`, `name`, `email`, `message`, `submissionData`                                                                                                                 |
+| `Subscriber`       | Registro de envíos                | `site`, `formSlug`, `name`, `email`, `message`, `submissionData`                                                                                                               |
 | `CmsUserAccess`    | Alcance administrativo            | `adminUserId`, `email`, `displayName`, `role`, `sites`, `permissions`, `active`, `notes`                                                                                       |
 
 ### Single type
@@ -77,7 +77,7 @@ El campo `content` de `Page` mantiene los componentes existentes del starter y a
 - `sections.cta`
 - `forms.dynamic-form`
 
-La composición, las rutas y la lógica específica de Mapp viven en `apps/mapp`. Los componentes visuales reutilizables viven en `packages/design-system`, y las secciones y utilidades del page builder en `packages/sections`. Las primitivas visuales se basan en shadcn/ui, CVA, Tailwind CSS y Radix.
+La composición, las rutas y la lógica específica de EmpresaX viven en `apps/empresaX`. Los componentes visuales reutilizables viven en `packages/design-system`, y las secciones y utilidades del page builder en `packages/sections`. Las primitivas visuales se basan en shadcn/ui, CVA, Tailwind CSS y Radix.
 
 Cada sección debe ser mobile-first, usar tokens de la paleta del sitio y respetar `prefers-reduced-motion`. El CMS guarda presets permitidos; no guarda CSS ni JavaScript arbitrario.
 
@@ -165,14 +165,14 @@ La implementación sigue la matriz de [OWASP Top 10:2025](https://top10.owasp.or
 pnpm install
 pnpm --filter @repo/strapi generate:types
 pnpm dev:strapi
-pnpm dev:mapp
+pnpm dev:empresax
 pnpm typecheck
 pnpm lint
 ```
 
 Strapi usa PostgreSQL directamente. Debe existir una instancia accesible antes de ejecutar `pnpm dev:strapi`; la conexión se configura con `DATABASE_URL` o con `DATABASE_HOST`, `DATABASE_PORT`, `DATABASE_NAME`, `DATABASE_USERNAME`, `DATABASE_PASSWORD` y las variables opcionales de SSL. La configuración de Strapi no incluye Docker ni SQLite.
 
-El archivo `.env.example` de Strapi y `.env.local.example` de Mapp contienen los valores necesarios para el primer entorno local.
+El archivo `.env.example` de Strapi y `.env.local.example` de EmpresaX contienen los valores necesarios para el primer entorno local.
 
 ## Pendientes explícitos
 

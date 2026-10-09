@@ -8,8 +8,8 @@ Define typography before section components are implemented. The goal is to keep
 
 Relevant files in this repository:
 
-- `apps/mapp/src/lib/fonts.ts`
-- `apps/mapp/src/app/[locale]/layout.tsx`
+- `apps/empresaX/src/lib/fonts.ts`
+- `apps/empresaX/src/app/[locale]/layout.tsx`
 - `packages/design-system/src/typography/index.tsx`
 - `packages/design-system/src/typography/config.ts`
 - `apps/strapi/src/admin/ckeditor/headings.ts`
@@ -47,7 +47,7 @@ Do not assume every `h2` must look the same everywhere. If the design uses the s
 Font imports are defined in:
 
 ```text
-apps/mapp/src/lib/fonts.ts
+apps/empresaX/src/lib/fonts.ts
 ```
 
 Current example:
@@ -111,7 +111,7 @@ Attach font variables at the root layout level:
 In this repository this happens in:
 
 ```text
-apps/mapp/src/app/[locale]/layout.tsx
+apps/empresaX/src/app/[locale]/layout.tsx
 ```
 
 Use both:

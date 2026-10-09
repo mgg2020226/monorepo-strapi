@@ -40,7 +40,7 @@ from the wrapper, never from `@repo/logging` directly:
 
 | App    | Wrapper                            | Import                                            |
 | ------ | ---------------------------------- | ------------------------------------------------- |
-| UI     | `apps/mapp/src/lib/logging.ts`     | `import { logger } from "@/lib/logging"`          |
+| UI     | `apps/empresaX/src/lib/logging.ts` | `import { logger } from "@/lib/logging"`          |
 | Strapi | `apps/strapi/src/utils/logging.ts` | `import { logger } from "../../../utils/logging"` |
 
 ## API

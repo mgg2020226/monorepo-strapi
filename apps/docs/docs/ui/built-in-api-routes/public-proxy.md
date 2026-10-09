@@ -9,7 +9,7 @@ Route: `/api/public-proxy/[...slug]`
 File:
 
 ```txt
-apps/mapp/src/app/api/public-proxy/[...slug]/route.ts
+apps/empresaX/src/app/api/public-proxy/[...slug]/route.ts
 ```
 
 This route proxies browser-safe requests to Strapi while hiding `STRAPI_URL` and server-side API tokens from the client.
@@ -29,7 +29,7 @@ The public proxy is useful for browser-side reads and selected browser-side writ
 `isStrapiEndpointAllowed()` lives in:
 
 ```txt
-apps/mapp/src/lib/strapi-api/request-auth.ts
+apps/empresaX/src/lib/strapi-api/request-auth.ts
 ```
 
 It checks the requested Strapi path against `ALLOWED_STRAPI_ENDPOINTS` for the current HTTP method.

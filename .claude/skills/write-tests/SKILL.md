@@ -77,7 +77,7 @@ Run only the relevant package, not the whole monorepo, while iterating.
 
 | Test                       | Command                                                             |
 | -------------------------- | ------------------------------------------------------------------- |
-| UI unit (all)              | `pnpm test:mapp`                                                    |
+| UI unit (all)              | `pnpm test:empresax`                                                |
 | Strapi unit (all)          | `pnpm test:strapi`                                                  |
 | Single Vitest file         | `pnpm --filter @repo/ui exec vitest run <path>` (or `@repo/strapi`) |
 | Vitest watch               | `pnpm --filter @repo/ui test:watch`                                 |

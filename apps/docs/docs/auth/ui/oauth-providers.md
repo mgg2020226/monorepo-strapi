@@ -14,7 +14,7 @@ For the underlying auth architecture see [UI Authentication](./authentication.md
 sequenceDiagram
   autonumber
   participant U as User (browser)
-  participant N as Next.js (apps/mapp)
+  participant N as Next.js (apps/empresaX)
   participant S as Strapi (apps/strapi)
   participant P as OAuth provider (e.g. GitHub)
 
@@ -29,7 +29,7 @@ sequenceDiagram
   N-->>U: Session cookie set, authenticated
 ```
 
-The callback page is `apps/mapp/src/app/[locale]/auth/strapi-oauth/[provider]/page.tsx`. The Better Auth plugin handling the exchange is `strapiOAuthPlugin` in `apps/mapp/src/lib/auth.ts:334`.
+The callback page is `apps/empresaX/src/app/[locale]/auth/strapi-oauth/[provider]/page.tsx`. The Better Auth plugin handling the exchange is `strapiOAuthPlugin` in `apps/empresaX/src/lib/auth.ts:334`.
 
 ## Setup
 
@@ -53,7 +53,7 @@ Copy generated Client ID + Secret into the Strapi admin (step 1).
 
 If you previously used `/auth/strapi-oauth/callback`, update both the Strapi provider settings and the provider developer console to the per-provider callback path.
 
-No UI code changes needed — `SignInForm` already routes to `/api/connect/<provider>` on button click. To add a new provider button, extend `apps/mapp/src/app/[locale]/auth/signin/_components/SocialButtons.tsx`.
+No UI code changes needed — `SignInForm` already routes to `/api/connect/<provider>` on button click. To add a new provider button, extend `apps/empresaX/src/app/[locale]/auth/signin/_components/SocialButtons.tsx`.
 
 ## Local Development with ngrok
 

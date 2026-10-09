@@ -22,11 +22,11 @@ Use the shared setup action when adding new workflows so pnpm, Node, and depende
 
 ## Workflows
 
-| Workflow                    | File                            | Trigger                                      | Purpose                                                      |
-| --------------------------- | ------------------------------- | -------------------------------------------- | ------------------------------------------------------------ |
-| CI                          | `.github/workflows/ci.yml`      | Pull requests to `principal`                 | Lint, format-check, unit test, build Mapp, and build Strapi. |
-| Deploy Docs to GitHub Pages | `.github/workflows/docs.yml`    | Push to `principal` touching docs, or manual | Build Docusaurus and deploy docs to GitHub Pages.            |
-| Release                     | `.github/workflows/release.yml` | Push to `principal`                          | Run semantic-release and publish a GitHub release.           |
+| Workflow                    | File                            | Trigger                                      | Purpose                                                          |
+| --------------------------- | ------------------------------- | -------------------------------------------- | ---------------------------------------------------------------- |
+| CI                          | `.github/workflows/ci.yml`      | Pull requests to `principal`                 | Lint, format-check, unit test, build EmpresaX, and build Strapi. |
+| Deploy Docs to GitHub Pages | `.github/workflows/docs.yml`    | Push to `principal` touching docs, or manual | Build Docusaurus and deploy docs to GitHub Pages.                |
+| Release                     | `.github/workflows/release.yml` | Push to `principal`                          | Run semantic-release and publish a GitHub release.               |
 
 ## CI
 
@@ -41,14 +41,14 @@ copy example env files
 pnpm lint
 pnpm format:check
 pnpm test:ci
-pnpm build:mapp
+pnpm build:empresax
 pnpm build:strapi
 ```
 
 The workflow sets `NPM_CONFIG_IGNORE_SCRIPTS=true` and `CI=true`. It also cancels older in-progress CI runs for the same pull request branch.
 
 :::info Static UI export
-The CI workflow contains a commented `pnpm build:mapp:static` step. Enable it only if the project intentionally deploys the UI with `NEXT_OUTPUT=export`.
+The CI workflow contains a commented `pnpm build:empresax:static` step. Enable it only if the project intentionally deploys the UI with `NEXT_OUTPUT=export`.
 :::
 
 ## Release

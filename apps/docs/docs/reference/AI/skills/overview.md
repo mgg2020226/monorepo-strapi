@@ -17,7 +17,7 @@ See the [Workflows](#workflows) section below for diagrams of how these chain to
 | --------------------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------------ |
 | [add-content-type](./add-content-type.md)                       | Stack-coupled     | Scaffold a Strapi v5 collection or single type + UI wiring.                                |
 | [add-locale](./add-locale.md)                                   | Stack-coupled     | Wire a new locale into Strapi i18n + Next.js routing.                                      |
-| [add-ui-component](./add-ui-component.md)                       | Stack-coupled     | Add a Next.js / shadcn UI component under `apps/mapp` (includes shadcn CLI + fixup).       |
+| [add-ui-component](./add-ui-component.md)                       | Stack-coupled     | Add a Next.js / shadcn UI component under `apps/empresaX` (includes shadcn CLI + fixup).   |
 | [create-content-component](./create-content-component.md)       | Stack-coupled     | Build a page-builder section across Strapi + Next.js.                                      |
 | [copy-component](./copy-component.md)                           | Stack-coupled     | Replicate a section from a description, screenshot, or code snippet.                       |
 | [find-component](./find-component.md)                           | Stack-coupled     | Find an existing page-builder component by description or screenshot.                      |

@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # UI Authentication
 
-End-user authentication for the Next.js app (`apps/mapp`). Dual-layer: **Better Auth** owns the session cookie; **Strapi Users-Permissions** issues a JWT used for per-user API calls.
+End-user authentication for the Next.js app (`apps/empresaX`). Dual-layer: **Better Auth** owns the session cookie; **Strapi Users-Permissions** issues a JWT used for per-user API calls.
 
 :::info Scope
 This page covers authentication of **end-users of your application** (people who visit the site, sign in, register, reset password). For admin-panel SSO (CMS editors logging into Strapi itself), see [Strapi Admin SSO](../strapi-admin/microsoft-sso.md).
@@ -42,12 +42,12 @@ sequenceDiagram
 
 ## Key Files
 
-| File                                           | Purpose                                    |
-| ---------------------------------------------- | ------------------------------------------ |
-| `apps/mapp/src/lib/auth.ts`                    | Better Auth server config + Strapi plugins |
-| `apps/mapp/src/lib/auth-client.ts`             | Better Auth client hooks                   |
-| `apps/mapp/src/types/better-auth.ts`           | TypeScript interfaces for sessions         |
-| `apps/mapp/src/lib/strapi-api/request-auth.ts` | Auth header utilities                      |
+| File                                               | Purpose                                    |
+| -------------------------------------------------- | ------------------------------------------ |
+| `apps/empresaX/src/lib/auth.ts`                    | Better Auth server config + Strapi plugins |
+| `apps/empresaX/src/lib/auth-client.ts`             | Better Auth client hooks                   |
+| `apps/empresaX/src/types/better-auth.ts`           | TypeScript interfaces for sessions         |
+| `apps/empresaX/src/lib/strapi-api/request-auth.ts` | Auth header utilities                      |
 
 ## Better Auth Plugins
 

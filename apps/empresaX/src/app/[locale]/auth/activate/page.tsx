@@ -1,0 +1,52 @@
+"use client"
+
+import { UseSearchParamsWrapper } from "@repo/design-system/elementary/UseSearchParamsWrapper"
+import { Alert } from "@repo/design-system/ui/alert"
+import { Button } from "@repo/design-system/ui/button"
+import { useSearchParams } from "next/navigation"
+import { useTranslations } from "next-intl"
+import { useState } from "react"
+
+import { SetPasswordForm } from "./_components/SetPasswordForm"
+
+function ActivateAccount() {
+  const t = useTranslations("auth.accountActivation")
+  const [formToggled, setFormToggled] = useState(false)
+  const params = useSearchParams()
+
+  const code = params.get("code") as string
+
+  if (formToggled) {
+    return <SetPasswordForm code={code} accountActivation />
+  }
+
+  const name = params.get("name") as string
+  const email = params.get("email") as string
+  const title = [t("welcome"), name].join(", ")
+
+  return (
+    <div className="flex w-full flex-col items-center justify-center gap-12">
+      {code == null ? (
+        <div>
+          <Alert variant="destructive">{t("invalidLink")}</Alert>
+        </div>
+      ) : (
+        <div>
+          <h4 className="text-2xl">{title}!</h4>
+          <p className="mb-4 text-base">{t("activateAccount", { email })}</p>
+          <Button variant="default" onClick={() => setFormToggled(true)}>
+            {t("activate")}
+          </Button>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default function ActivateAccountPage() {
+  return (
+    <UseSearchParamsWrapper>
+      <ActivateAccount />
+    </UseSearchParamsWrapper>
+  )
+}

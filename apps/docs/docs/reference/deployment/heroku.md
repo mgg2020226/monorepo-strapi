@@ -12,10 +12,10 @@ If the project does not deploy to Heroku, remove Heroku-specific files such as `
 
 ## Recommended App Layout
 
-| Heroku app | Workspace      | Runtime                 |
-| ---------- | -------------- | ----------------------- |
-| Strapi app | `@repo/strapi` | CMS API and admin panel |
-| UI app     | `@repo/mapp`   | Next.js frontend        |
+| Heroku app | Workspace        | Runtime                 |
+| ---------- | ---------------- | ----------------------- |
+| Strapi app | `@repo/strapi`   | CMS API and admin panel |
+| UI app     | `@repo/empresax` | Next.js frontend        |
 
 Use the `heroku-24` stack or newer for both apps. Connect both apps to the GitHub repository from the Heroku Deploy tab and configure automatic deploys from the branch that matches the environment.
 
@@ -147,11 +147,11 @@ Set these Heroku config vars:
 
 ```env
 APP=ui
-WORKSPACE=@repo/mapp
+WORKSPACE=@repo/empresax
 NEXT_OUTPUT=standalone
 ```
 
-Also configure the required UI environment variables from `apps/mapp/.env.local.example`. See [UI Environment Variables](../../ui/environment-variables.md).
+Also configure the required UI environment variables from `apps/empresaX/.env.local.example`. See [UI Environment Variables](../../ui/environment-variables.md).
 
 Recommended buildpack order:
 
@@ -194,7 +194,7 @@ app_url=$(heroku info -a "$app_name" -s | grep web_url | cut -d= -f2 | sed 's/\/
 
 # Required variables for buildpacks
 heroku config:set -a "$app_name" APP=ui
-heroku config:set -a "$app_name" WORKSPACE="@repo/mapp"
+heroku config:set -a "$app_name" WORKSPACE="@repo/empresax"
 heroku config:set -a "$app_name" NEXT_OUTPUT=standalone
 # This version must match the version of Turbo used in the monorepo
 heroku config:set -a "$app_name" TURBO_VERSION=2.9.18

@@ -1,19 +1,19 @@
 # Strapi + Next.js Monorepo
 
-Monorepo starter with Strapi v5 CMS, Next.js 16 Mapp frontend, Docusaurus docs, pnpm workspaces, and Turborepo.
+Monorepo starter with Strapi v5 CMS, Next.js 16 EmpresaX frontend, Docusaurus docs, pnpm workspaces, and Turborepo.
 
 ## Workspaces
 
-| Path                     | Description                                                             |
-| ------------------------ | ----------------------------------------------------------------------- |
-| `apps/mapp`              | Next.js 16 App Router, React 19, TailwindCSS v4, shadcn/ui              |
-| `apps/strapi`            | Strapi v5 CMS with PostgreSQL                                           |
-| `apps/docs`              | Docusaurus documentation site (port 3300)                               |
-| `packages/strapi-types`  | Auto-generated TypeScript types from Strapi schemas                     |
+| Path                     | Description                                                                   |
+| ------------------------ | ----------------------------------------------------------------------------- |
+| `apps/empresaX`          | Next.js 16 App Router, React 19, TailwindCSS v4, shadcn/ui                    |
+| `apps/strapi`            | Strapi v5 CMS with PostgreSQL                                                 |
+| `apps/docs`              | Docusaurus documentation site (port 3300)                                     |
+| `packages/strapi-types`  | Auto-generated TypeScript types from Strapi schemas                           |
 | `packages/design-system` | Shared visual components, form controls, hooks, typography, and editor styles |
-| `packages/sections`      | Reusable page-builder sections and Strapi rendering utilities          |
-| `packages/shared-data`   | Shared constants and types                                              |
-| `packages/logging`       | Structured pino logging + OpenTelemetry trace context (`@repo/logging`) |
+| `packages/sections`      | Reusable page-builder sections and Strapi rendering utilities                 |
+| `packages/shared-data`   | Shared constants and types                                                    |
+| `packages/logging`       | Structured pino logging + OpenTelemetry trace context (`@repo/logging`)       |
 
 Config-only workspaces (`@repo/eslint-config`, `@repo/typescript-config`, `@repo/semantic-release-config`) are omitted from the table.
 
@@ -24,7 +24,7 @@ Run commands from the monorepo root unless a docs page says otherwise.
 ```bash
 pnpm dev              # Start all apps
 pnpm dev:strapi       # Start Strapi only
-pnpm dev:mapp         # Start Next.js only
+pnpm dev:empresax     # Start EmpresaX only
 pnpm dev:docs         # Start Docusaurus only on port 3300
 pnpm build            # Build all
 pnpm lint             # ESLint all packages
@@ -82,4 +82,4 @@ Reusable agent instructions live in [`.claude/skills/`](./.claude/skills/) — t
 
 See [`.claude/skills/README.md`](./.claude/skills/README.md) for the authoring guide and full catalog, and the [AI → Skills docs](apps/docs/docs/reference/AI/skills/overview.md) (with [workflow diagrams](apps/docs/docs/reference/AI/skills/overview.md#workflows)) for what each skill does and how they chain. Worktree-based isolation is wired through the `start-work` skill.
 
-This file (`CLAUDE.md`) is mirrored as `AGENTS.md` (a symlink) for non-Claude agents; the same pairing exists in `apps/mapp` and `apps/strapi`.
+This file (`CLAUDE.md`) is mirrored as `AGENTS.md` (a symlink) for non-Claude agents.

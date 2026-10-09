@@ -9,7 +9,7 @@ Route: `/[[...rest]]`
 File:
 
 ```txt
-apps/mapp/src/app/[locale]/[[...rest]]/page.tsx
+apps/empresaX/src/app/[locale]/[[...rest]]/page.tsx
 ```
 
 This catch-all route renders Strapi-managed pages through the page builder. It resolves the current URL to a Strapi `page.fullPath`, fetches metadata and content, then renders `StrapiPageView`.

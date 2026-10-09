@@ -7,10 +7,10 @@ slug: /auth
 
 The starter has two separate authentication surfaces:
 
-| Surface                                             | Users                           | App           | Purpose                                                                                     |
-| --------------------------------------------------- | ------------------------------- | ------------- | ------------------------------------------------------------------------------------------- |
-| [UI Authentication](./ui/authentication.md)         | End-users of the website or app | `apps/mapp`   | Sign in, register, reset password, OAuth login, and access user-specific frontend features. |
-| [Strapi Admin SSO](./strapi-admin/microsoft-sso.md) | CMS editors and administrators  | `apps/strapi` | Sign in to the Strapi admin panel to manage content and CMS settings.                       |
+| Surface                                             | Users                           | App             | Purpose                                                                                     |
+| --------------------------------------------------- | ------------------------------- | --------------- | ------------------------------------------------------------------------------------------- |
+| [UI Authentication](./ui/authentication.md)         | End-users of the website or app | `apps/empresaX` | Sign in, register, reset password, OAuth login, and access user-specific frontend features. |
+| [Strapi Admin SSO](./strapi-admin/microsoft-sso.md) | CMS editors and administrators  | `apps/strapi`   | Sign in to the Strapi admin panel to manage content and CMS settings.                       |
 
 :::warning Keep these separate
 End-user authentication is not Strapi admin authentication. A visitor account in the UI does not grant access to the CMS admin panel, and a Strapi admin user is not the same as an end-user account.

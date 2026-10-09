@@ -9,7 +9,7 @@ Route: `/api/health`
 File:
 
 ```txt
-apps/mapp/src/app/api/health/route.ts
+apps/empresaX/src/app/api/health/route.ts
 ```
 
 This route returns `200 OK` with `{ "data": "OK" }` when the Next.js server is running.

@@ -9,7 +9,7 @@ Route: `/api/asset/[...slug]`
 File:
 
 ```txt
-apps/mapp/src/app/api/asset/[...slug]/route.ts
+apps/empresaX/src/app/api/asset/[...slug]/route.ts
 ```
 
 This route lets client-side components load Strapi assets without knowing the private Strapi origin URL.

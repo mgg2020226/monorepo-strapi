@@ -31,7 +31,7 @@ Use the Showcase together with the [Design System docs](/docs/design-system) whe
 1. Create a mock component in:
 
 ```txt
-apps/mapp/src/app/[locale]/dev/showcase/components/strapiComponents
+apps/empresaX/src/app/[locale]/dev/showcase/components/strapiComponents
 ```
 
 2. Render the real `Strapi*` component with mock data.
@@ -44,7 +44,7 @@ When adding mocked variants, keep the options aligned with [CMS And Components](
 Mock media helpers are available in:
 
 ```txt
-apps/mapp/src/app/[locale]/dev/showcase/components/StrapiMedia.tsx
+apps/empresaX/src/app/[locale]/dev/showcase/components/StrapiMedia.tsx
 ```
 
 ## Related Pages

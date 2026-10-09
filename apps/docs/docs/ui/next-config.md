@@ -7,7 +7,7 @@ sidebar_position: 4
 The UI Next.js config lives in:
 
 ```txt
-apps/mapp/next.config.mjs
+apps/empresaX/next.config.mjs
 ```
 
 It is the central place for framework-level behavior such as output mode, React Compiler, image optimization, package transpilation, Sentry wrapping, and Next Intl setup.
@@ -40,7 +40,7 @@ See [Image Optimization](./images.md) for the full pipeline and component rules.
 | `undefined`  | Default `.next` build. Use for `next start` or hosting providers such as Vercel.                                                             |
 | `export`     | Static HTML/CSS/JS. Not supported out-of-box because Better Auth, the POST auth API route, and other dynamic features must be removed first. |
 
-`pnpm build:mapp:static` triggers `output: "export"` but fails unless dynamic features are removed.
+`pnpm build:empresax:static` triggers `output: "export"` but fails unless dynamic features are removed.
 
 See [Environment Variables](./environment-variables.md), [Docker Build](./docker-build.md), and [Caching](./caching.md) for the deployment tradeoffs.
 

@@ -9,7 +9,7 @@ Route: `/api/preview`
 File:
 
 ```txt
-apps/mapp/src/app/api/preview/route.ts
+apps/empresaX/src/app/api/preview/route.ts
 ```
 
 This route is used by preview links configured in Strapi or another editorial tool.
@@ -32,11 +32,11 @@ Draft previews depend on Next.js draft mode cookies. The route adjusts the draft
 
 Expected query params:
 
-| Param    | Purpose                                            |
-| -------- | -------------------------------------------------- |
-| `secret` | Must match `STRAPI_PREVIEW_SECRET`.                |
-| `url`    | Page URL to open.                                  |
-| `status` | `draft` or `published`; defaults to `draft`.       |
+| Param    | Purpose                                      |
+| -------- | -------------------------------------------- |
+| `secret` | Must match `STRAPI_PREVIEW_SECRET`.          |
+| `url`    | Page URL to open.                            |
+| `status` | `draft` or `published`; defaults to `draft`. |
 
 Related docs:
 

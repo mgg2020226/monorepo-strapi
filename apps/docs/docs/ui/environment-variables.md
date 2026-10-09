@@ -7,9 +7,9 @@ sidebar_position: 3
 UI environment config lives in:
 
 ```txt
-apps/mapp/.env.local
-apps/mapp/src/env.mjs
-apps/mapp/src/lib/env-vars.ts
+apps/empresaX/.env.local
+apps/empresaX/src/env.mjs
+apps/empresaX/src/lib/env-vars.ts
 ```
 
 All variables are optional in `src/env.mjs`: the schema uses [`@t3-oss/env-nextjs`](https://env.t3.gg/) and intentionally allows building without secrets baked in. Runtime code must still check that required values exist where they are used.
@@ -27,7 +27,7 @@ Use `getEnvVar()` from `src/lib/env-vars.ts` instead of reading `process.env` di
 `SITE_DOMAIN_MAP` maps each request hostname to a Strapi `Site.slug`. Use JSON, including wildcard hosts when needed:
 
 ```env
-SITE_DOMAIN_MAP={"www.example.com":"mapp","*.tenant.example.com":"tenant"}
+SITE_DOMAIN_MAP={"www.example.com":"empresax","*.tenant.example.com":"tenant"}
 ```
 
 The catch-all page route and form submissions resolve the site from the request host; the client must not choose a different site slug.
@@ -124,7 +124,7 @@ Permissions are scoped manually per content type. Strapi currently does not prov
       <td><code>SITE_DOMAIN_MAP</code></td>
       <td>server</td>
       <td>No</td>
-      <td>JSON map from request hostnames to Strapi <code>Site.slug</code>; localhost defaults to <code>mapp</code>.</td>
+      <td>JSON map from request hostnames to Strapi <code>Site.slug</code>; localhost defaults to <code>empresax</code>.</td>
     </tr>
     <tr>
       <td><code>STRAPI_REST_READONLY_API_KEY</code></td>
@@ -279,7 +279,7 @@ window.CSR_CONFIG
 `getEnvVar()` reads from `window.CSR_CONFIG` on the client. Configure the allowlist via `CSR_ENVs` in:
 
 ```txt
-apps/mapp/src/app/[locale]/layout.tsx
+apps/empresaX/src/app/[locale]/layout.tsx
 ```
 
 :::danger Never inject secrets

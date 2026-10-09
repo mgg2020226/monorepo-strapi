@@ -8,7 +8,7 @@ The starter intentionally **disables** Next.js's global image optimizer. Self-ho
 
 ## Pipelines
 
-Base path: `apps/mapp/src/components`
+Base path: `apps/empresaX/src/components`
 
 | Source              | Component              | Optimizer                | When               |
 | ------------------- | ---------------------- | ------------------------ | ------------------ |
@@ -115,7 +115,7 @@ IMGPROXY_URL=http://localhost:8080
 
 ## Configuration Reference
 
-Image settings in `apps/mapp/next.config.mjs`:
+Image settings in `apps/empresaX/next.config.mjs`:
 
 | Setting           | Value                          | Purpose                                                |
 | ----------------- | ------------------------------ | ------------------------------------------------------ |

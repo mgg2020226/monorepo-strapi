@@ -9,16 +9,16 @@ Shared workspace code lives in `packages`. Packages are wired through `pnpm-work
 
 ## Active Packages
 
-| Package                                                         | Role                                                       | Consumers                  |
-| --------------------------------------------------------------- | ---------------------------------------------------------- | -------------------------- |
-| [`@repo/shared-data`](./shared-data.md)                         | Runtime constants and path helpers shared by Strapi and UI | `apps/mapp`, `apps/strapi` |
-| [`@repo/logging`](./logging.md)                                 | Server-side structured logging (pino + OpenTelemetry)      | `apps/mapp`, `apps/strapi` |
-| [`@repo/design-system`](./design-system.md)                     | Tailwind theme, compiled CSS, editor style exports         | `apps/mapp`, `apps/strapi` |
-| [`@repo/sections`](./sections.md)                               | Shared Strapi page-builder sections and rendering utilities | `apps/mapp`                |
-| [`@repo/strapi-types`](./strapi-types.md)                       | Strapi schema types and typed query helpers                | `apps/mapp`                |
-| [`@repo/eslint-config`](./eslint-config.md)                     | Shared flat ESLint config                                  | root ESLint config         |
-| [`@repo/typescript-config`](./typescript-config.md)             | Shared `tsconfig` presets                                  | apps and packages          |
-| [`@repo/semantic-release-config`](./semantic-release-config.md) | Shared semantic-release config                             | root release pipeline      |
+| Package                                                         | Role                                                        | Consumers                      |
+| --------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------ |
+| [`@repo/shared-data`](./shared-data.md)                         | Runtime constants and path helpers shared by Strapi and UI  | `apps/empresaX`, `apps/strapi` |
+| [`@repo/logging`](./logging.md)                                 | Server-side structured logging (pino + OpenTelemetry)       | `apps/empresaX`, `apps/strapi` |
+| [`@repo/design-system`](./design-system.md)                     | Tailwind theme, compiled CSS, editor style exports          | `apps/empresaX`, `apps/strapi` |
+| [`@repo/sections`](./sections.md)                               | Shared Strapi page-builder sections and rendering utilities | `apps/empresaX`                |
+| [`@repo/strapi-types`](./strapi-types.md)                       | Strapi schema types and typed query helpers                 | `apps/empresaX`                |
+| [`@repo/eslint-config`](./eslint-config.md)                     | Shared flat ESLint config                                   | root ESLint config             |
+| [`@repo/typescript-config`](./typescript-config.md)             | Shared `tsconfig` presets                                   | apps and packages              |
+| [`@repo/semantic-release-config`](./semantic-release-config.md) | Shared semantic-release config                              | root release pipeline          |
 
 Empty placeholders: `packages/prettier-config/` and `packages/strapi-plugin-tiptap-editor/`.
 

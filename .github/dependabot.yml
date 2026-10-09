@@ -43,7 +43,7 @@ updates:
     # (they must stay on React 18), so they are intentionally excluded here.
     directories:
       - "/"
-      - "/apps/mapp"
+      - "/apps/empresaX"
       - "/packages/*"
     schedule:
       interval: "daily"
@@ -91,7 +91,7 @@ updates:
   # ─────────────────────────────────────────────
   # React-18-pinned apps (Strapi v5 admin + Docusaurus 3)
   # Separate npm entry so the React-major ignore below is scoped ONLY to
-  # these apps — apps/mapp (handled above) keeps receiving React 19+ updates.
+  # these apps — apps/empresaX (handled above) keeps receiving React 19+ updates.
   # ─────────────────────────────────────────────
   - package-ecosystem: "npm"
     target-branch: "principal"
@@ -150,12 +150,12 @@ updates:
       - "ready-for-review"
 
   # ─────────────────────────────────────────────
-  # Docker base images (apps/mapp, apps/strapi)
+  # Docker base images (apps/empresaX, apps/strapi)
   # ─────────────────────────────────────────────
   - package-ecosystem: "docker"
     target-branch: "principal"
     directories:
-      - "/apps/mapp"
+      - "/apps/empresaX"
       - "/apps/strapi"
     schedule:
       interval: "daily"

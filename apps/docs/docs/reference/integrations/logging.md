@@ -28,7 +28,7 @@ Insights through the `@repo/logging/azure` exporter. It is **inert until**
 
 Provider files:
 
-- `apps/mapp/src/lib/telemetry/providers/azure-monitor.ts` (Node runtime only)
+- `apps/empresaX/src/lib/telemetry/providers/azure-monitor.ts` (Node runtime only)
 - `apps/strapi/src/telemetry/providers/azure-monitor.ts`
 
 :::info OpenTelemetry-based
@@ -54,12 +54,12 @@ In this starter, browser errors are otherwise handled by [Sentry](#sentry).
 
 The monorepo has two Sentry integrations:
 
-- Next.js UI error tracking in `apps/mapp`
+- Next.js UI error tracking in `apps/empresaX`
 - Strapi CMS error tracking through `@strapi/plugin-sentry` in `apps/strapi`
 
 ### Next.js UI
 
-Sentry is wired as a UI telemetry provider. Server and edge initialization live in `apps/mapp/src/lib/telemetry/providers/sentry.ts`, which stays inert until `NEXT_PUBLIC_SENTRY_DSN` is set. Browser initialization stays in `sentry.client.config.ts` (loaded automatically by the Sentry SDK).
+Sentry is wired as a UI telemetry provider. Server and edge initialization live in `apps/empresaX/src/lib/telemetry/providers/sentry.ts`, which stays inert until `NEXT_PUBLIC_SENTRY_DSN` is set. Browser initialization stays in `sentry.client.config.ts` (loaded automatically by the Sentry SDK).
 
 `error.tsx` and the `<ErrorBoundary />` component report caught errors by calling `Sentry.captureException()` directly. The exported Next config is also wrapped with `withSentryConfig()` for source-map upload and build-time integration.
 
@@ -82,10 +82,10 @@ try {
 
 Relevant UI files:
 
-- `apps/mapp/src/lib/telemetry/providers/sentry.ts` (server + edge init)
-- `apps/mapp/sentry.client.config.ts` (browser init)
-- `apps/mapp/src/instrumentation.ts`
-- `apps/mapp/next.config.mjs`
+- `apps/empresaX/src/lib/telemetry/providers/sentry.ts` (server + edge init)
+- `apps/empresaX/sentry.client.config.ts` (browser init)
+- `apps/empresaX/src/instrumentation.ts`
+- `apps/empresaX/next.config.mjs`
 
 ### Strapi
 

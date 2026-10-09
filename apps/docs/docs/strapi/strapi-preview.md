@@ -28,7 +28,7 @@ Required variables:
 STRAPI_PREVIEW_SECRET=
 ```
 
-`STRAPI_PREVIEW_SECRET` must be configured in Mapp and in the system that creates preview links. The `url` must be same-origin with Mapp.
+`STRAPI_PREVIEW_SECRET` must be configured in EmpresaX and in the system that creates preview links. The `url` must be same-origin with EmpresaX.
 
 ## Fetching Draft Content
 

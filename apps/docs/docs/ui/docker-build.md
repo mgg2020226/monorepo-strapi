@@ -7,7 +7,7 @@ sidebar_position: 13
 The UI Dockerfile builds Next.js in `standalone` mode for a smaller runtime image. `NEXT_OUTPUT=standalone` is set in:
 
 ```txt
-apps/mapp/Dockerfile
+apps/empresaX/Dockerfile
 ```
 
 :::info Production runtime image
@@ -25,12 +25,12 @@ Choose a build strategy based on when pages should render and where environment 
 No env vars are passed at build time. Pages render at runtime, so the same image can be used for staging and production.
 
 ```bash
-docker build -t starter-ui:latest -f apps/mapp/Dockerfile .
+docker build -t starter-ui:latest -f apps/empresaX/Dockerfile .
 ```
 
 :::tip Remove build-time env wiring
 
-For this strategy, remove the optional build-time env block from `apps/mapp/Dockerfile` so secrets and environment-specific URLs are not baked into the image:
+For this strategy, remove the optional build-time env block from `apps/empresaX/Dockerfile` so secrets and environment-specific URLs are not baked into the image:
 
 ```dockerfile
 # Optionally, pass all required information at build time to prebuild pages
@@ -51,7 +51,7 @@ Provide these values at container runtime instead.
 Pass Strapi connection values as build args so pages can be pre-rendered during the image build. This gives a faster first request, but the image is tied to that environment and bakes the read-only Strapi API key into the image.
 
 ```bash
-docker build -t starter-ui:latest -f apps/mapp/Dockerfile \
+docker build -t starter-ui:latest -f apps/empresaX/Dockerfile \
   --build-arg STRAPI_URL="http://host.docker.internal:1337" \
   --build-arg STRAPI_REST_READONLY_API_KEY="your-readonly-api-key" \
   --build-arg APP_PUBLIC_URL="http://localhost:3000" \
@@ -63,5 +63,5 @@ docker build -t starter-ui:latest -f apps/mapp/Dockerfile \
 
 ```bash
 docker run -it --rm --name starter-ui -p 3000:3000 \
-  --env-file apps/mapp/.env.local starter-ui:latest
+  --env-file apps/empresaX/.env.local starter-ui:latest
 ```

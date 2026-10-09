@@ -18,7 +18,7 @@ This starter is deployment-provider agnostic. The repository includes GitHub Act
 
 ## General Checklist
 
-1. Decide where each app runs: `apps/mapp`, `apps/strapi`, and optionally `apps/docs`.
+1. Decide where each app runs: `apps/empresaX`, `apps/strapi`, and optionally `apps/docs`.
 2. Configure environment variables for each runtime.
 3. Use managed PostgreSQL or another persistent database for Strapi.
 4. Use external object storage for uploaded media in hosted environments.
