@@ -1,5 +1,5 @@
 import type { UID } from "@repo/strapi-types"
-import { mergeWith } from "lodash"
+import mergeWith from "lodash/mergeWith"
 import type { Metadata } from "next"
 import { draftMode } from "next/headers"
 import type { Locale } from "next-intl"

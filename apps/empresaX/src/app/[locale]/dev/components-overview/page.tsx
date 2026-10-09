@@ -1,5 +1,5 @@
 import Typography from "@repo/design-system/typography"
-import { uniq } from "lodash"
+import uniq from "lodash/uniq"
 import type { Locale } from "next-intl"
 import { setRequestLocale } from "next-intl/server"
 
