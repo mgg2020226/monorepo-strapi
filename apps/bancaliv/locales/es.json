@@ -1,0 +1,280 @@
+{
+  "seo": {
+    "metaTitle": "SEO-TITLE",
+    "metaDescription": "SEO-DESCRIPTION",
+    "metaImage": "SEO-IMAGE",
+    "metaRobots": "SEO-ROBOTS",
+    "keywords": "SEO-KEYWORDS",
+    "applicationName": "SEO-APPLICATION-NAME",
+    "og": {
+      "title": "SEO-OG-TITLE",
+      "description": "SEO-OG-DESCRIPTION",
+      "url": "SEO-OG-URL",
+      "siteName": "SEO-OG-SITE-NAME",
+      "image": "SEO-OG-IMAGE"
+    },
+    "twitter": {
+      "card": "SEO-TWITTER-CARD",
+      "title": "SEO-TWITTER-TITLE",
+      "description": "SEO-TWITTER-DESCRIPTION",
+      "siteId": "SEO-TWITTER-SITE-ID",
+      "creator": "SEO-TWITTER-CREATOR",
+      "creatorId": "SEO-TWITTER-CREATOR-ID",
+      "imageUrl": "SEO-TWITTER-IMAGE-URL"
+    }
+  },
+
+  "general": {
+    "noOptionsAvailable": "No hay opciones disponibles",
+    "search": "Buscar",
+    "loading": "Cargando",
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "submitForm": "Enviar",
+    "saveChanges": "Guardar cambios",
+    "back": "Atrás"
+  },
+
+  "content": {
+    "blog": "Blog",
+    "events": "Eventos",
+    "portfolio": "Portafolio",
+    "legal": "Información legal",
+    "readMore": "Leer más",
+    "backToBlog": "Volver al blog",
+    "backToEvents": "Volver a eventos",
+    "backToPortfolio": "Volver al portafolio",
+    "backToLegal": "Volver a la información legal"
+  },
+
+  "tables": {
+    "previousPage": "Página anterior",
+    "nextPage": "Página siguiente",
+    "lastPage": "Última página",
+    "firstPage": "Primera página",
+    "rowsPerPage": "Filas por página",
+    "pageXOfY": "Page {x} of {y}",
+    "ascending": "Ascendente",
+    "descending": "Descendente",
+    "noData": "Sin datos"
+  },
+
+  "navbar": {
+    "account": "Cuenta",
+    "actions": {
+      "profile": "Perfil",
+      "signOut": "Cerrar sesión",
+      "changeContraseña": "Cambiar contraseña",
+      "signIn": "Iniciar sesión"
+    }
+  },
+
+  "comps": {
+    "fileInput": {
+      "label": "Seleccionar archivo",
+      "dragAndDrop": "Add file by dragging or select by clicking",
+      "validFileTypes": "File must be in {validFileTypes} format",
+      "wrongFileType": "This file type is not supported",
+      "selectedFile": "Selected file: {fileName}",
+      "removeFile": "Remove file"
+    },
+    "datePicker": {
+      "label": "Seleccionar fecha"
+    },
+    "dateRangePicker": {
+      "label": "Seleccionar fecha range"
+    },
+    "themeToggle": {
+      "label": "Cambiar tema"
+    },
+    "dialog": {
+      "confirmCerrar": "Do you want to close the dialog? You will lose all unsaved changes."
+    }
+  },
+
+  "errors": {
+    "global": {
+      "title": "Ocurrió un error desconocido",
+      "tryAgain": "Intentar de nuevo",
+      "invalidContent": "This content could not be displayed",
+      "somethingWentWrong": "Algo salió mal 🥺"
+    },
+
+    "notFound": {
+      "title": "Página no encontrada",
+      "description": "No se encontró la página solicitada.",
+      "solution": "Please check if you have entered the correct URL or return to the home page.",
+      "redirect": "Ir al inicio"
+    },
+
+    "forms": {
+      "errorsInForm": "El formulario contiene errores",
+      "checkFormForErrors": "Comprueba si faltan valores"
+    },
+
+    "zodValidation": {
+      "invalid_type": "Expected type is {expected}, but received {received}",
+      "invalid_type_received_undefined": "Field is required",
+      "invalid_literal": "Invalid value, expected {expected}",
+      "invalid_union": "Invalid value",
+
+      "invalid_string": {
+        "regex": "Invalid format"
+      },
+      "too_small": {
+        "string": {
+          "exact": "String must be exactly {minimum} characters",
+          "inclusive": "String must be at least {minimum} characters",
+          "not_inclusive": "String must be more than {minimum} characters"
+        },
+        "number": {
+          "exact": "Value must be exactly {minimum}",
+          "inclusive": "Minimum value is {minimum}",
+          "not_inclusive": "Number must be greater than {minimum}"
+        }
+      },
+      "too_big": {
+        "string": {
+          "exact": "String must be exactly {maximum} characters",
+          "inclusive": "String must be at most {maximum} characters",
+          "not_inclusive": "String must be less than {maximum} characters"
+        },
+        "number": {
+          "exact": "Value must be exactly {maximum}",
+          "inclusive": "Maximum value is {maximum}",
+          "not_inclusive": "Number must be less than {maximum}"
+        }
+      },
+      "custom": {
+        "password": "Contraseñas do not match",
+        "passwordWithNumber": "String must contain at least 1 number",
+        "phoneNumber": "This field must contain 9 numbers"
+      }
+    }
+  },
+
+  "contactForm": {
+    "name": "Nombre y apellidos",
+    "namePlaceholder": "John Doe",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "john.doe@gmail.com",
+    "message": "Mensaje",
+    "gdpr": "I agree to the processing of personal data",
+    "submit": "Enviar",
+    "success": "El formulario se envió correctamente.",
+    "error": "No se pudo enviar el formulario. Inténtalo más tarde.",
+    "gdprLink": "Read more about the processing of personal data"
+  },
+
+  "auth": {
+    "signIn": {
+      "status": {
+        "fail": "Iniciar sesión failed",
+        "success": "Iniciar sesión successful",
+        "checkCredentials": "Please check your login credentials"
+      },
+      "errors": {
+        "CredentialsSignin": "You have entered incorrect login credentials.",
+        "unexpectedError": "Iniciar sesión failed. Please try again later."
+      },
+      "header": "Iniciar sesión",
+      "description": "Enter your login details.",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "submit": "Iniciar sesión",
+      "signingIn": "Signing you in...",
+      "forgotContraseña": "Olvidé mi contraseña",
+      "createCuenta": "Crear una cuenta"
+    },
+
+    "register": {
+      "status": {
+        "fail": "Registro failed",
+        "success": "Registro successful",
+        "checkCredentials": "Please check your credentials"
+      },
+      "errors": {
+        "credentials": "Incorrect credentials provided",
+        "unexpectedError": "Registro failed. Please try again later.",
+        "emailUsernameTaken": "Correo electrónico is already taken. Please choose another one."
+      },
+      "header": "Registro",
+      "description": "Crear una cuenta to access the system.",
+      "email": "E-mail address",
+      "password": "Crear contraseña",
+      "checkContraseña": "Confirmar contraseña",
+      "submit": "Create account",
+      "forgotContraseña": "Already have an account? Iniciar sesión.",
+      "checkCorreo electrónico": "Follow instructions in your email to confirm your email address.",
+      "signInLinkLinkDescription": "Already have an account?",
+      "signInLink": "Iniciar sesión"
+    },
+
+    "changeContraseña": {
+      "errors": {
+        "invalidCurrentContraseña": "Contraseña actual does not match",
+        "unexpectedError": "An unexpected error occurred. Please try again later.",
+        "newContraseñaSameAsCurrent": "Nueva contraseña must be different from the current password"
+      },
+      "successfullyChanged": "Contraseña successfully changed",
+      "header": "Cambiar contraseña",
+      "description": "Choose a new password to use for logging in.",
+      "currentContraseña": "Contraseña actual",
+      "password": "Nueva contraseña",
+      "confirmContraseña": "Confirmar nueva contraseña",
+      "submit": "Cambiar contraseña"
+    },
+
+    "accountActivation": {
+      "successfullySet": "Cuenta successfully activated. You can now sign in.",
+      "errors": {
+        "incorrectCodeProvided": "An incorrect link was generated for you. Contact support."
+      },
+      "welcome": "Bienvenido",
+      "activateCuenta": "A new account has been created with the email {email}.",
+      "invalidLink": "This link is not valid.",
+      "activate": "Activate account",
+      "header": "Set password",
+      "description": "Choose a password to use for logging in.",
+      "submit": "Activate account",
+      "password": "Nueva contraseña",
+      "confirmContraseña": "Confirmar contraseña"
+    },
+
+    "resetContraseña": {
+      "successfullySet": "Contraseña successfully changed.",
+      "header": "Reset password",
+      "description": "Choose a new password to use for logging in.",
+      "submit": "Set password",
+      "password": "Nueva contraseña",
+      "confirmContraseña": "Confirmar contraseña",
+      "errors": {
+        "incorrectCodeProvided": "Código inválido o vencido. Solicita de nuevo el restablecimiento de contraseña."
+      }
+    },
+
+    "forgotContraseña": {
+      "passwordChangeCorreo electrónicoSent": "An email with password reset instructions has been sent to you.",
+      "header": "Olvidé mi contraseña",
+      "description": "Enter the email you usually use to sign in. We will send instructions to reset your password to this email.",
+      "email": "Correo electrónico",
+      "submit": "Recuperar cuenta",
+      "errors": {
+        "failedToEnviarContraseñaResetCorreo electrónico": "Failed to send password reset email"
+      }
+    },
+
+    "oauth": {
+      "orContinueWith": "Or continue with",
+      "signingIn": "Signing you in...",
+      "signedInSuccessfully": "Signed in successfully",
+      "redirecting": "Redirecting...",
+      "errors": {
+        "signInFailed": "OAuth sign-in failed"
+      },
+      "withGithub": "Iniciar sesión with GitHub"
+    }
+  }
+}
+
+
