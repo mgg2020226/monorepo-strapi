@@ -67,6 +67,15 @@ export async function POST(
     }
   )
 
+  if (!response.ok) {
+    const responseBody = await response.text()
+
+    return new NextResponse(responseBody, {
+      status: response.status,
+      headers: { "Content-Type": "application/json" },
+    })
+  }
+
   const responseBody = await response.text()
 
   return new NextResponse(responseBody, {
