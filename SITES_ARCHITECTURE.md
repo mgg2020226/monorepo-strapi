@@ -9,7 +9,7 @@ Implementación inicial basada en [strapi-next-monorepo-starter](https://github.
 - Docusaurus conservado en `apps/docs`.
 - El frontend se mantiene como plantilla genérica y usa `EmpresaX` como nombre de ejemplo.
 - EmpresaX es el único sitio migrado en esta etapa.
-- El dominio resuelve el sitio mediante `SITE_DOMAIN_MAP`; cada host debe apuntar a un `Site.slug`.
+- El dominio resuelve el sitio mediante `SITE_DOMAIN`; cada host debe apuntar a un `Site.slug`.
 - El preview usa `GET /api/preview` con `STRAPI_PREVIEW_SECRET`; activa `draftMode()` y evita indexación/caché compartida.
 - No hay registro de usuarios públicos.
 - Los formularios son stateless en el frontend; Strapi valida cada envío, lo registra en `Subscriber` y notifica por correo a la empresa.

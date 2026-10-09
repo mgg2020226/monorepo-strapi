@@ -24,10 +24,10 @@ Use `getEnvVar()` from `src/lib/env-vars.ts` instead of reading `process.env` di
 
 ## Multi-site host resolution
 
-`SITE_DOMAIN_MAP` maps each request hostname to a Strapi `Site.slug`. Use JSON, including wildcard hosts when needed:
+`SITE_DOMAIN` maps each request hostname to a Strapi `Site.slug`. Use JSON, including wildcard hosts when needed:
 
 ```env
-SITE_DOMAIN_MAP={"www.example.com":"empresax","*.tenant.example.com":"tenant"}
+SITE_DOMAIN={"www.example.com":"empresax","*.tenant.example.com":"tenant"}
 ```
 
 The catch-all page route and form submissions resolve the site from the request host; the client must not choose a different site slug.
@@ -121,7 +121,7 @@ Permissions are scoped manually per content type. Strapi currently does not prov
       <td>Strapi base URL; Strapi clients; proxy routes. Required at build if pre-rendering ISR pages.</td>
     </tr>
     <tr>
-      <td><code>SITE_DOMAIN_MAP</code></td>
+      <td><code>SITE_DOMAIN</code></td>
       <td>server</td>
       <td>No</td>
       <td>JSON map from request hostnames to Strapi <code>Site.slug</code>; localhost defaults to <code>empresax</code>.</td>

@@ -66,10 +66,10 @@ Set meaningful alternative text for informative images and logos. Decorative ima
 In `apps/empresaX/.env.local`, map the local frontend host to the Bancaliv Site slug:
 
 ```env
-SITE_DOMAIN_MAP={"localhost":"bancaliv","127.0.0.1":"bancaliv","::1":"bancaliv"}
+SITE_DOMAIN={"localhost":"bancaliv","127.0.0.1":"bancaliv","::1":"bancaliv"}
 ```
 
-Keep existing Strapi URLs and server-side API tokens unchanged; never expose tokens in browser config or commit `.env.local`. `SITE_DOMAIN_MAP` chooses which Strapi Site the frontend requests. The Site must be active, and its Pages must be published to appear outside preview mode.
+Keep existing Strapi URLs and server-side API tokens unchanged; never expose tokens in browser config or commit `.env.local`. `SITE_DOMAIN` chooses which Strapi Site the frontend requests. The Site must be active, and its Pages must be published to appear outside preview mode.
 
 After Strapi reloads the schemas, use the admin Content Manager to create the Site and home Page, populate each block with approved Bancaliv content and uploaded media, save the page as a draft, and verify it in the frontend preview. No sample records or mock content are included. Publish only after reviewing text, media, links, responsive layouts, and legal/financial claims.
 

@@ -1,4 +1,4 @@
-const DEFAULT_SITE_DOMAIN_MAP: SiteDomainMap = {
+const DEFAULT_SITE_DOMAIN: SiteDomainMap = {
   "127.0.0.1": "empresax",
   "::1": "empresax",
   localhost: "empresax",
@@ -11,7 +11,7 @@ export function parseSiteDomainMap(value: string): SiteDomainMap {
     const parsed: unknown = JSON.parse(value)
 
     if (parsed == null || typeof parsed !== "object" || Array.isArray(parsed)) {
-      throw new Error("SITE_DOMAIN_MAP must be a JSON object")
+      throw new Error("SITE_DOMAIN must be a JSON object")
     }
 
     const entries = Object.entries(parsed).filter(
@@ -26,7 +26,7 @@ export function parseSiteDomainMap(value: string): SiteDomainMap {
     )
   } catch (error) {
     throw new Error(
-      `Invalid SITE_DOMAIN_MAP: ${error instanceof Error ? error.message : String(error)}`,
+      `Invalid SITE_DOMAIN: ${error instanceof Error ? error.message : String(error)}`,
       { cause: error }
     )
   }
@@ -37,7 +37,7 @@ export function resolveSiteSlugFromHostname(
   domainMap?: SiteDomainMap
 ): string {
   const normalizedHostname = normalizeHostname(hostname)
-  const configuredMap = domainMap ?? DEFAULT_SITE_DOMAIN_MAP
+  const configuredMap = domainMap ?? DEFAULT_SITE_DOMAIN
   const exactMatch = configuredMap[normalizedHostname]
 
   if (exactMatch) {

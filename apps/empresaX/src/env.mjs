@@ -20,7 +20,7 @@ export const env = createEnv({
     DEBUG_STRAPI_CLIENT_API_CALLS: optionalZodBoolean(),
     STRAPI_URL: z.string().url().optional(),
     STRAPI_PREVIEW_SECRET: z.string().optional(),
-    SITE_DOMAIN_MAP: z
+    SITE_DOMAIN: z
       .string()
       .default('{"localhost":"empresax","127.0.0.1":"empresax","::1":"empresax"}'),
     STRAPI_REST_READONLY_API_KEY: z.string().optional(),
@@ -94,7 +94,7 @@ export const env = createEnv({
     SHOW_NON_BLOCKING_ERRORS: process.env.SHOW_NON_BLOCKING_ERRORS,
     STRAPI_URL: process.env.STRAPI_URL,
     STRAPI_PREVIEW_SECRET: process.env.STRAPI_PREVIEW_SECRET,
-    SITE_DOMAIN_MAP: process.env.SITE_DOMAIN_MAP,
+    SITE_DOMAIN: process.env.SITE_DOMAIN,
     STRAPI_REST_READONLY_API_KEY: process.env.STRAPI_REST_READONLY_API_KEY,
     STRAPI_REST_CUSTOM_API_KEY: process.env.STRAPI_REST_CUSTOM_API_KEY,
     STRAPI_REVALIDATE_SECRET: process.env.STRAPI_REVALIDATE_SECRET,

@@ -19,6 +19,6 @@ export function getSiteSlugFromHeaders(requestHeaders: Headers): string {
 
   return resolveSiteSlugFromHostname(
     hostname,
-    parseSiteDomainMap(getEnvVar("SITE_DOMAIN_MAP", true)!)
+    parseSiteDomainMap(getEnvVar("SITE_DOMAIN", true)!)
   )
 }

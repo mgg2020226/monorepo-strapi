@@ -4,7 +4,7 @@
   "globalEnv": [
     "APP_PUBLIC_URL",
     "STRAPI_URL",
-    "SITE_DOMAIN_MAP",
+    "SITE_DOMAIN",
     "STRAPI_REST_READONLY_API_KEY",
     "NEXT_OUTPUT",
     "WEBPACK_CACHE_TYPE",

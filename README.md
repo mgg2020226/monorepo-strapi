@@ -47,7 +47,7 @@ pnpm --filter @repo/strapi generate:types
 
 El modelo `Site` representa una empresa/marca, y las páginas, formularios, artículos, eventos y demás contenido se relacionan con ese sitio. Hay dos formas de operar:
 
-1. **Otra empresa con la misma experiencia:** crear otro registro `Site`, asociarle su contenido y mapear su dominio a su `slug` en `SITE_DOMAIN_MAP`. Un despliegue de EmpresaX puede resolver varios dominios.
+1. **Otra empresa con la misma experiencia:** crear otro registro `Site`, asociarle su contenido y mapear su dominio a su `slug` en `SITE_DOMAIN`. Un despliegue de EmpresaX puede resolver varios dominios.
 2. **Frontend o configuración independiente:** desplegar el mismo workspace EmpresaX con variables propias para la empresa. Si se necesitan diferencias de código mantenibles, crear otro workspace y reutilizar `@repo/design-system`, `@repo/sections` y `@repo/shared-data`; no copiar el monorepo como fork.
 
 La primera opción comparte proceso y configuración del frontend. Hoy `APP_PUBLIC_URL` y los locales (`es`, `en`) son configuración global del despliegue, y la paleta guardada en `Site` aún no constituye un sistema completo de tema dinámico por empresa. Además, `CmsUserAccess.sites` documenta alcance, pero no impone aislamiento de los CRUD del panel. Si distintas empresas no deben acceder entre sí, hay que implementar autorización por sitio o separar instancias/credenciales antes de dar acceso editorial.

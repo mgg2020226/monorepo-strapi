@@ -29,16 +29,16 @@ pnpm dev:empresax
 
 El workspace se identifica como `@repo/empresax`; los comandos específicos son `pnpm dev:empresax`, `pnpm build:empresax`, `pnpm test:empresax` y `pnpm typecheck:empresax`.
 
-Copia `apps/empresaX/.env.local.example` como `apps/empresaX/.env.local`. Configura como mínimo `APP_PUBLIC_URL`, `STRAPI_URL`, `SITE_DOMAIN_MAP`, `STRAPI_REST_READONLY_API_KEY` y los secretos requeridos para los flujos que vayas a probar. Configura la base de datos y secretos propios de Strapi en `apps/strapi/.env`; ver [guía de Strapi](../strapi/README.md).
+Copia `apps/empresaX/.env.local.example` como `apps/empresaX/.env.local`. Configura como mínimo `APP_PUBLIC_URL`, `STRAPI_URL`, `SITE_DOMAIN`, `STRAPI_REST_READONLY_API_KEY` y los secretos requeridos para los flujos que vayas a probar. Configura la base de datos y secretos propios de Strapi en `apps/strapi/.env`; ver [guía de Strapi](../strapi/README.md).
 
 ```env
 APP_PUBLIC_URL=http://localhost:3000
 STRAPI_URL=http://127.0.0.1:1337
 STRAPI_REST_READONLY_API_KEY=token-de-solo-lectura
-SITE_DOMAIN_MAP={"localhost":"empresax","127.0.0.1":"empresax","::1":"empresax"}
+SITE_DOMAIN={"localhost":"empresax","127.0.0.1":"empresax","::1":"empresax"}
 ```
 
-Los valores del mapa deben corresponder a slugs existentes en `Site`. El slug no se cambia automáticamente al renombrar el workspace: actualiza el registro `Site` existente a `empresax` en Strapi o conserva su slug actual en `SITE_DOMAIN_MAP` hasta completar esa migración.
+Los valores del mapa deben corresponder a slugs existentes en `Site`. El slug no se cambia automáticamente al renombrar el workspace: actualiza el registro `Site` existente a `empresax` en Strapi o conserva su slug actual en `SITE_DOMAIN` hasta completar esa migración.
 
 El token debe tener únicamente los permisos de lectura necesarios y permanecer del lado servidor: no usar prefijo `NEXT_PUBLIC_` ni publicarlo en el navegador o en Git. La guía de variables completa está en `.env.local.example`.
 
@@ -48,15 +48,15 @@ El token debe tener únicamente los permisos de lectura necesarios y permanecer 
 
 1. Crear en Strapi un registro `Site` con `slug` único y completar marca, estado y contenido.
 2. Relacionar las páginas y demás registros con ese `Site`.
-3. Añadir el dominio en `SITE_DOMAIN_MAP`, apuntando al mismo slug, por ejemplo:
+3. Añadir el dominio en `SITE_DOMAIN`, apuntando al mismo slug, por ejemplo:
 
    ```env
-   SITE_DOMAIN_MAP={"empresax.example.com":"empresax","empresa.example.com":"empresa-x"}
+   SITE_DOMAIN={"empresax.example.com":"empresax","empresa.example.com":"empresa-x"}
    ```
 
 4. Configurar DNS/proxy para que ambos dominios lleguen al despliegue de EmpresaX. Validar URLs canónicas, sitemap, assets, idioma y caché antes de publicar.
 
-`SITE_DOMAIN_MAP` selecciona el slug; por sí solo no configura DNS ni un dominio. Para otra empresa que requiera `APP_PUBLIC_URL` propio, usar un despliegue independiente del frontend y configurar sus variables de entorno. Un despliegue tiene un solo `APP_PUBLIC_URL` canónico.
+`SITE_DOMAIN` selecciona el slug; por sí solo no configura DNS ni un dominio. Para otra empresa que requiera `APP_PUBLIC_URL` propio, usar un despliegue independiente del frontend y configurar sus variables de entorno. Un despliegue tiene un solo `APP_PUBLIC_URL` canónico.
 
 ### Experiencia distinta
 

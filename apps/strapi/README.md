@@ -21,10 +21,10 @@ Para una nueva empresa con el esquema y la experiencia existentes:
 1. En `Content Manager` → `Site`, crear el sitio y definir un `slug` único. Completar estado, paleta, idiomas, metadatos, cabecera, pie y datos de contacto.
 2. Crear las páginas y registros relacionados seleccionando ese `Site`; no reutilizar registros que pertenezcan a otra empresa.
 3. Para cada idioma habilitado, crear/revisar la localización de los contenidos traducibles. El frontend actualmente soporta globalmente `es` y `en`; la configuración `Site.locales` del CMS no activa idiomas adicionales en Next.js.
-4. Añadir el dominio al `SITE_DOMAIN_MAP` del despliegue EmpresaX para que resuelva al slug creado. Ver [replicación multiempresa en EmpresaX](../empresaX/README.md#replicar-para-otras-empresas).
+4. Añadir el dominio al `SITE_DOMAIN` del despliegue EmpresaX para que resuelva al slug creado. Ver [replicación multiempresa en EmpresaX](../empresaX/README.md#replicar-para-otras-empresas).
 5. Revisar permisos de lectura API, publicación, medios y entrega de contenido antes de activar el sitio.
 
-El `Site` no crea automáticamente páginas ni configura el dominio. Los slugs deben coincidir exactamente entre el registro CMS y `SITE_DOMAIN_MAP`.
+El `Site` no crea automáticamente páginas ni configura el dominio. Los slugs deben coincidir exactamente entre el registro CMS y `SITE_DOMAIN`.
 
 ## API y tokens
 
