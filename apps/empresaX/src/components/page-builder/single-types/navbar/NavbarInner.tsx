@@ -6,25 +6,21 @@ import type { Data } from "@repo/strapi-types"
 import type { Locale } from "next-intl"
 
 import LocaleSwitcher from "@/components/elementary/LocaleSwitcher"
-import { NavbarAuthSection } from "@/components/page-builder/single-types/navbar/NavbarAuthSection"
 import {
   NavbarMobileNavigation,
   NavbarMobileProvider,
   NavbarMobileToggle,
 } from "@/components/page-builder/single-types/navbar/NavbarMobileControls"
 import { SiteLogo } from "@/components/page-builder/single-types/SiteLogo"
-import type { BetterAuthSessionWithStrapi } from "@/types/better-auth"
 
 import { DesktopNavigation } from "./DesktopNavigation"
 
 export function NavbarInner({
   locale,
   siteData,
-  session,
 }: {
   readonly locale: Locale
   readonly siteData?: Data.ContentType<"api::site.site"> | null
-  readonly session?: BetterAuthSessionWithStrapi | null
 }) {
   return (
     <NavbarMobileProvider>
@@ -43,7 +39,6 @@ export function NavbarInner({
 
             {/* RIGHT SIDE */}
             <div className="hidden h-full items-center gap-2 pl-4 lg:flex">
-              <NavbarAuthSection sessionSSR={session} />
               {siteData?.header?.showLanguageSwitcher !== false && (
                 <LocaleSwitcher locale={locale} />
               )}
@@ -63,7 +58,6 @@ export function NavbarInner({
             ? [siteData.header.cta]
             : undefined
         }
-        session={session}
         locale={locale}
       />
     </NavbarMobileProvider>

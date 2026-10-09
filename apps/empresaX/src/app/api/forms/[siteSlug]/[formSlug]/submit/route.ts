@@ -52,7 +52,6 @@ export async function POST(
   const strapiUrl = getEnvVar("STRAPI_URL", true)
   const authHeader = await createStrapiAuthHeader({
     isReadOnly: false,
-    isPrivate: false,
   })
   const response = await fetch(
     `${strapiUrl}/api/forms/${encodeURIComponent(siteSlug)}/${encodeURIComponent(formSlug)}/submit`,

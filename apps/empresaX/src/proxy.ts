@@ -2,7 +2,6 @@ import type { NextRequest, NextResponse } from "next/server"
 import createMiddleware from "next-intl/middleware"
 
 import { routing } from "@/lib/navigation"
-import { authGuard } from "@/lib/proxies/authGuard"
 import { authSitemap } from "@/lib/proxies/authSitemap"
 import { basicAuth } from "@/lib/proxies/basicAuth"
 import { dynamicRewrite } from "@/lib/proxies/dynamicRewrite"
@@ -22,7 +21,6 @@ const proxies: ((
   httpsRedirect,
   authSitemap,
   redirectsProxy,
-  (req) => authGuard(req, intlProxy),
   (req) => dynamicRewrite(req, intlProxy),
 ]
 

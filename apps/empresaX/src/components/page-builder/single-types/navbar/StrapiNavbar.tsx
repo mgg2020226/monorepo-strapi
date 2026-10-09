@@ -1,11 +1,9 @@
 import "server-only"
 
-import { headers } from "next/headers"
 import type { Locale } from "next-intl"
 import { use } from "react"
 
 import NavbarInner from "@/components/page-builder/single-types/navbar/NavbarInner"
-import { getSessionSSR } from "@/lib/auth"
 import { fetchSite } from "@/lib/strapi-api/content/server"
 
 export function StrapiNavbar({ locale }: { readonly locale: Locale }) {
@@ -16,10 +14,7 @@ export function StrapiNavbar({ locale }: { readonly locale: Locale }) {
     return null
   }
 
-  const requestHeaders = use(headers())
-  const session = use(getSessionSSR(requestHeaders))
-
-  return <NavbarInner locale={locale} siteData={site} session={session} />
+  return <NavbarInner locale={locale} siteData={site} />
 }
 StrapiNavbar.displayName = "StrapiNavbar"
 

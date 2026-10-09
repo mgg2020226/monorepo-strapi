@@ -37,8 +37,6 @@ export const env = createEnv({
 
     NEXT_OUTPUT: z.string().optional(),
 
-    BETTER_AUTH_SECRET: z.string().optional(),
-
     SENTRY_AUTH_TOKEN: z.string().optional(),
     SENTRY_ORG: z.string().optional(),
     SENTRY_PROJECT: z.string().optional(),
@@ -108,8 +106,6 @@ export const env = createEnv({
     IDENTITY_HEADER: process.env.IDENTITY_HEADER,
 
     NEXT_OUTPUT: process.env.NEXT_OUTPUT,
-
-    BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,
 
     SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
     SENTRY_ORG: process.env.SENTRY_ORG,

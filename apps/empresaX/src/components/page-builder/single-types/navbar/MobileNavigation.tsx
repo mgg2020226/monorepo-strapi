@@ -7,16 +7,13 @@ import { X } from "lucide-react"
 import type { Locale } from "next-intl"
 
 import LocaleSwitcher from "@/components/elementary/LocaleSwitcher"
-import { NavbarAuthSection } from "@/components/page-builder/single-types/navbar/NavbarAuthSection"
 import { cn } from "@/lib/styles"
-import type { BetterAuthSessionWithStrapi } from "@/types/better-auth"
 
 interface MobileNavigationProps {
   isOpen: boolean
   setOpen: (open: boolean) => void
   primaryButtons?: Data.Component<"ui.link">[]
   siteNavigationItems?: Data.Component<"site.navigation-item">[]
-  session?: BetterAuthSessionWithStrapi | null
   locale?: Locale
 }
 
@@ -25,7 +22,6 @@ export function MobileNavigation({
   primaryButtons,
   isOpen,
   setOpen,
-  session,
   locale,
 }: MobileNavigationProps) {
   if (!siteNavigationItems?.length) return null
@@ -70,12 +66,7 @@ export function MobileNavigation({
       </div>
       {/* FOOTER */}
       <div className="mt-auto space-y-4 border-t px-6 py-4">
-        {/* Auth + Locale */}
-        {/* TO DO: these components should be changed to mobile view in the future */}
-        <div className="flex w-full items-center justify-between gap-2">
-          <NavbarAuthSection sessionSSR={session} />
-          {locale ? <LocaleSwitcher locale={locale} /> : null}
-        </div>
+        {locale ? <LocaleSwitcher locale={locale} /> : null}
         {primaryButtons?.length ? (
           <div className="space-y-2">
             {primaryButtons.map((button) => (

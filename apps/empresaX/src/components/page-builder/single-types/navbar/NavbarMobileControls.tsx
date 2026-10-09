@@ -8,7 +8,6 @@ import type { Locale } from "next-intl"
 
 import { MobileNavigation } from "@/components/page-builder/single-types/navbar/MobileNavigation"
 import { cn } from "@/lib/styles"
-import type { BetterAuthSessionWithStrapi } from "@/types/better-auth"
 
 export { NavbarMobileProvider } from "@repo/design-system/hooks/useNavbarMobile"
 
@@ -31,12 +30,10 @@ export function NavbarMobileToggle() {
 export function NavbarMobileNavigation({
   siteNavigationItems,
   primaryButtons,
-  session,
   locale,
 }: {
   readonly primaryButtons?: Data.Component<"ui.link">[]
   readonly siteNavigationItems?: Data.Component<"site.navigation-item">[]
-  readonly session?: BetterAuthSessionWithStrapi | null
   readonly locale: Locale
 }) {
   const [mobileOpen, setMobileOpen] = useNavbarMobile()
@@ -47,7 +44,6 @@ export function NavbarMobileNavigation({
       primaryButtons={primaryButtons}
       isOpen={mobileOpen}
       setOpen={setMobileOpen}
-      session={session}
       locale={locale}
     />
   )
