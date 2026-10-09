@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_security_points",
+  "info": { "displayName": "Security point", "icon": "shield" },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "description": { "type": "text" },
+    "icon": {
+      "type": "enumeration",
+      "enum": ["eye", "shield-check", "search-check", "badge-check"],
+      "default": "shield-check"
+    }
+  }
+}

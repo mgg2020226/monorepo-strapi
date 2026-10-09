@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sections_product_grids",
+  "info": { "displayName": "Product grid", "icon": "grid" },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "description": { "type": "text" },
+    "products": {
+      "type": "component",
+      "component": "shared.product-card",
+      "repeatable": true,
+      "required": true
+    }
+  }
+}

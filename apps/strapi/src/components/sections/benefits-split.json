@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_sections_benefits_splits",
+  "info": { "displayName": "Benefits split", "icon": "layout" },
+  "options": {},
+  "attributes": {
+    "panels": {
+      "type": "component",
+      "component": "shared.benefit-panel",
+      "repeatable": true,
+      "required": true
+    }
+  }
+}

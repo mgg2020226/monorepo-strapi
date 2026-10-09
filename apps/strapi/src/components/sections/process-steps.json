@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sections_process_steps",
+  "info": { "displayName": "Process steps", "icon": "bulletList" },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "description": { "type": "text" },
+    "steps": {
+      "type": "component",
+      "component": "shared.process-step",
+      "repeatable": true,
+      "required": true
+    }
+  }
+}

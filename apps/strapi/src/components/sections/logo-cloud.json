@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_logo_clouds",
+  "info": { "displayName": "Logo cloud", "icon": "picture" },
+  "options": {},
+  "attributes": {
+    "eyebrow": { "type": "string" },
+    "title": { "type": "string", "required": true },
+    "description": { "type": "text" },
+    "logos": {
+      "type": "component",
+      "component": "shared.logo-item",
+      "repeatable": true,
+      "required": true
+    },
+    "layout": {
+      "type": "enumeration",
+      "enum": ["strip", "grid"],
+      "default": "grid"
+    }
+  }
+}

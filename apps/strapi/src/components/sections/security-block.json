@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_security_blocks",
+  "info": { "displayName": "Security block", "icon": "shield" },
+  "options": {},
+  "attributes": {
+    "eyebrow": { "type": "string" },
+    "title": { "type": "string", "required": true },
+    "description": { "type": "text" },
+    "supportingTitle": { "type": "string" },
+    "image": {
+      "type": "component",
+      "component": "utilities.basic-image",
+      "repeatable": false
+    },
+    "points": {
+      "type": "component",
+      "component": "shared.security-point",
+      "repeatable": true
+    }
+  }
+}

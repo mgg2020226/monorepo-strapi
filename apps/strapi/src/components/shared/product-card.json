@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_product_cards",
+  "info": { "displayName": "Product card", "icon": "cube" },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "description": { "type": "text" },
+    "image": {
+      "type": "component",
+      "component": "utilities.basic-image",
+      "repeatable": false
+    },
+    "action": {
+      "type": "component",
+      "component": "ui.link",
+      "repeatable": false
+    }
+  }
+}

@@ -5,6 +5,8 @@
   },
   "options": {},
   "attributes": {
+    "title": { "type": "string" },
+    "description": { "type": "text" },
     "figures": {
       "type": "component",
       "component": "shared.figure",

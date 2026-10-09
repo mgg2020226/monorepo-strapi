@@ -198,6 +198,18 @@ export interface SectionsAnimatedLogoRow extends Struct.ComponentSchema {
   }
 }
 
+export interface SectionsBenefitsSplit extends Struct.ComponentSchema {
+  collectionName: "components_sections_benefits_splits"
+  info: {
+    displayName: "Benefits split"
+    icon: "layout"
+  }
+  attributes: {
+    panels: Schema.Attribute.Component<"shared.benefit-panel", true> &
+      Schema.Attribute.Required
+  }
+}
+
 export interface SectionsCarousel extends Struct.ComponentSchema {
   collectionName: "components_sections_carousels"
   info: {
@@ -493,6 +505,22 @@ export interface SectionsHero extends Struct.ComponentSchema {
   }
 }
 
+export interface SectionsHeroFeatured extends Struct.ComponentSchema {
+  collectionName: "components_sections_hero_featureds"
+  info: {
+    displayName: "Featured hero"
+    icon: "landscape"
+  }
+  attributes: {
+    actions: Schema.Attribute.Component<"ui.link", true>
+    description: Schema.Attribute.Text
+    eyebrow: Schema.Attribute.String
+    image: Schema.Attribute.Component<"utilities.basic-image", false>
+    perks: Schema.Attribute.Component<"shared.hero-perk", true>
+    title: Schema.Attribute.String & Schema.Attribute.Required
+  }
+}
+
 export interface SectionsHeroStandard extends Struct.ComponentSchema {
   collectionName: "components_sections_hero_standards"
   info: {
@@ -542,13 +570,90 @@ export interface SectionsImageWithCtaButton extends Struct.ComponentSchema {
   }
 }
 
+export interface SectionsLogoCloud extends Struct.ComponentSchema {
+  collectionName: "components_sections_logo_clouds"
+  info: {
+    displayName: "Logo cloud"
+    icon: "picture"
+  }
+  attributes: {
+    description: Schema.Attribute.Text
+    eyebrow: Schema.Attribute.String
+    layout: Schema.Attribute.Enumeration<["strip", "grid"]> &
+      Schema.Attribute.DefaultTo<"grid">
+    logos: Schema.Attribute.Component<"shared.logo-item", true> &
+      Schema.Attribute.Required
+    title: Schema.Attribute.String & Schema.Attribute.Required
+  }
+}
+
+export interface SectionsProcessSteps extends Struct.ComponentSchema {
+  collectionName: "components_sections_process_steps"
+  info: {
+    displayName: "Process steps"
+    icon: "bulletList"
+  }
+  attributes: {
+    description: Schema.Attribute.Text
+    steps: Schema.Attribute.Component<"shared.process-step", true> &
+      Schema.Attribute.Required
+    title: Schema.Attribute.String & Schema.Attribute.Required
+  }
+}
+
+export interface SectionsProductGrid extends Struct.ComponentSchema {
+  collectionName: "components_sections_product_grids"
+  info: {
+    displayName: "Product grid"
+    icon: "grid"
+  }
+  attributes: {
+    description: Schema.Attribute.Text
+    products: Schema.Attribute.Component<"shared.product-card", true> &
+      Schema.Attribute.Required
+    title: Schema.Attribute.String & Schema.Attribute.Required
+  }
+}
+
+export interface SectionsSecurityBlock extends Struct.ComponentSchema {
+  collectionName: "components_sections_security_blocks"
+  info: {
+    displayName: "Security block"
+    icon: "shield"
+  }
+  attributes: {
+    description: Schema.Attribute.Text
+    eyebrow: Schema.Attribute.String
+    image: Schema.Attribute.Component<"utilities.basic-image", false>
+    points: Schema.Attribute.Component<"shared.security-point", true>
+    supportingTitle: Schema.Attribute.String
+    title: Schema.Attribute.String & Schema.Attribute.Required
+  }
+}
+
 export interface SectionsStatistics extends Struct.ComponentSchema {
   collectionName: "components_sections_statistics"
   info: {
     displayName: "Statistics"
   }
   attributes: {
+    description: Schema.Attribute.Text
     figures: Schema.Attribute.Component<"shared.figure", true>
+    title: Schema.Attribute.String
+  }
+}
+
+export interface SectionsTestimonials extends Struct.ComponentSchema {
+  collectionName: "components_sections_testimonials"
+  info: {
+    displayName: "Testimonials"
+    icon: "discuss"
+  }
+  attributes: {
+    description: Schema.Attribute.Text
+    items: Schema.Attribute.Component<"shared.testimonial", true> &
+      Schema.Attribute.Required
+    title: Schema.Attribute.String & Schema.Attribute.Required
   }
 }
 
@@ -699,6 +804,21 @@ export interface SeoMetadata extends Struct.ComponentSchema {
   }
 }
 
+export interface SharedBenefitPanel extends Struct.ComponentSchema {
+  collectionName: "components_shared_benefit_panels"
+  info: {
+    displayName: "Benefit panel"
+    icon: "grid"
+  }
+  attributes: {
+    benefits: Schema.Attribute.Component<"utilities.text", true>
+    description: Schema.Attribute.Text
+    eyebrow: Schema.Attribute.String
+    image: Schema.Attribute.Component<"utilities.basic-image", false>
+    title: Schema.Attribute.String & Schema.Attribute.Required
+  }
+}
+
 export interface SharedFigure extends Struct.ComponentSchema {
   collectionName: "components_shared_figures"
   info: {
@@ -715,6 +835,20 @@ export interface SharedFigure extends Struct.ComponentSchema {
     number: Schema.Attribute.BigInteger
     prefix: Schema.Attribute.String
     suffix: Schema.Attribute.String
+  }
+}
+
+export interface SharedHeroPerk extends Struct.ComponentSchema {
+  collectionName: "components_shared_hero_perks"
+  info: {
+    displayName: "Hero perk"
+    icon: "spark"
+  }
+  attributes: {
+    description: Schema.Attribute.String
+    icon: Schema.Attribute.Enumeration<["zap", "shield-check", "user-round"]> &
+      Schema.Attribute.DefaultTo<"zap">
+    title: Schema.Attribute.String & Schema.Attribute.Required
   }
 }
 
@@ -751,6 +885,76 @@ export interface SharedImageWithTitleAndDescription
           preset: "defaultCkEditor"
         }
       >
+  }
+}
+
+export interface SharedLogoItem extends Struct.ComponentSchema {
+  collectionName: "components_shared_logo_items"
+  info: {
+    displayName: "Logo item"
+    icon: "picture"
+  }
+  attributes: {
+    href: Schema.Attribute.String
+    image: Schema.Attribute.Component<"utilities.basic-image", false> &
+      Schema.Attribute.Required
+  }
+}
+
+export interface SharedProcessStep extends Struct.ComponentSchema {
+  collectionName: "components_shared_process_steps"
+  info: {
+    displayName: "Process step"
+    icon: "bulletList"
+  }
+  attributes: {
+    description: Schema.Attribute.Text
+    icon: Schema.Attribute.Component<"utilities.basic-image", false>
+    title: Schema.Attribute.String & Schema.Attribute.Required
+  }
+}
+
+export interface SharedProductCard extends Struct.ComponentSchema {
+  collectionName: "components_shared_product_cards"
+  info: {
+    displayName: "Product card"
+    icon: "cube"
+  }
+  attributes: {
+    action: Schema.Attribute.Component<"ui.link", false>
+    description: Schema.Attribute.Text
+    image: Schema.Attribute.Component<"utilities.basic-image", false>
+    title: Schema.Attribute.String & Schema.Attribute.Required
+  }
+}
+
+export interface SharedSecurityPoint extends Struct.ComponentSchema {
+  collectionName: "components_shared_security_points"
+  info: {
+    displayName: "Security point"
+    icon: "shield"
+  }
+  attributes: {
+    description: Schema.Attribute.Text
+    icon: Schema.Attribute.Enumeration<
+      ["eye", "shield-check", "search-check", "badge-check"]
+    > &
+      Schema.Attribute.DefaultTo<"shield-check">
+    title: Schema.Attribute.String & Schema.Attribute.Required
+  }
+}
+
+export interface SharedTestimonial extends Struct.ComponentSchema {
+  collectionName: "components_shared_testimonials"
+  info: {
+    displayName: "Testimonial"
+    icon: "discuss"
+  }
+  attributes: {
+    authorName: Schema.Attribute.String & Schema.Attribute.Required
+    authorRole: Schema.Attribute.String
+    avatar: Schema.Attribute.Component<"utilities.basic-image", false>
+    quote: Schema.Attribute.Text & Schema.Attribute.Required
   }
 }
 
@@ -1149,6 +1353,7 @@ declare module "@strapi/strapi" {
       "forms.dynamic-form": FormsDynamicForm
       "layout.navbar-item": LayoutNavbarItem
       "sections.animated-logo-row": SectionsAnimatedLogoRow
+      "sections.benefits-split": SectionsBenefitsSplit
       "sections.carousel": SectionsCarousel
       "sections.content-rich-text": SectionsContentRichText
       "sections.cta": SectionsCta
@@ -1160,18 +1365,31 @@ declare module "@strapi/strapi" {
       "sections.gallery": SectionsGallery
       "sections.heading-with-cta-button": SectionsHeadingWithCtaButton
       "sections.hero": SectionsHero
+      "sections.hero-featured": SectionsHeroFeatured
       "sections.hero-standard": SectionsHeroStandard
       "sections.image-with-cta-button": SectionsImageWithCtaButton
+      "sections.logo-cloud": SectionsLogoCloud
+      "sections.process-steps": SectionsProcessSteps
+      "sections.product-grid": SectionsProductGrid
+      "sections.security-block": SectionsSecurityBlock
       "sections.statistics": SectionsStatistics
+      "sections.testimonials": SectionsTestimonials
       "sections.video": SectionsVideo
       "seo-utilities.seo": SeoUtilitiesSeo
       "seo-utilities.seo-og": SeoUtilitiesSeoOg
       "seo-utilities.seo-twitter": SeoUtilitiesSeoTwitter
       "seo-utilities.social-icons": SeoUtilitiesSocialIcons
       "seo.metadata": SeoMetadata
+      "shared.benefit-panel": SharedBenefitPanel
       "shared.figure": SharedFigure
+      "shared.hero-perk": SharedHeroPerk
       "shared.image-with-config": SharedImageWithConfig
       "shared.image-with-title-and-description": SharedImageWithTitleAndDescription
+      "shared.logo-item": SharedLogoItem
+      "shared.process-step": SharedProcessStep
+      "shared.product-card": SharedProductCard
+      "shared.security-point": SharedSecurityPoint
+      "shared.testimonial": SharedTestimonial
       "site.footer-config": SiteFooterConfig
       "site.header-config": SiteHeaderConfig
       "site.locale-config": SiteLocaleConfig

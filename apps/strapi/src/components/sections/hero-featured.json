@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_sections_hero_featureds",
+  "info": { "displayName": "Featured hero", "icon": "landscape" },
+  "options": {},
+  "attributes": {
+    "eyebrow": { "type": "string" },
+    "title": { "type": "string", "required": true },
+    "description": { "type": "text" },
+    "image": {
+      "type": "component",
+      "component": "utilities.basic-image",
+      "repeatable": false
+    },
+    "actions": {
+      "type": "component",
+      "component": "ui.link",
+      "repeatable": true
+    },
+    "perks": {
+      "type": "component",
+      "component": "shared.hero-perk",
+      "repeatable": true
+    }
+  }
+}

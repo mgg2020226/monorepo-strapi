@@ -61,7 +61,14 @@
     },
     "pageType": {
       "type": "enumeration",
-      "enum": ["page", "landing", "home", "blog-index", "calendar-index", "contact"],
+      "enum": [
+        "page",
+        "landing",
+        "home",
+        "blog-index",
+        "calendar-index",
+        "contact"
+      ],
       "default": "page",
       "required": true
     },
@@ -101,14 +108,21 @@
         "sections.features-list",
         "sections.cta-banner",
         "utilities.ck-editor-text",
-        "utilities.tip-tap-rich-text"
-        ,"sections.content-rich-text"
-        ,"sections.feature-grid"
-        ,"sections.gallery"
-        ,"sections.video"
-        ,"sections.hero-standard"
-        ,"sections.cta"
-        ,"forms.dynamic-form"
+        "utilities.tip-tap-rich-text",
+        "sections.content-rich-text",
+        "sections.feature-grid",
+        "sections.gallery",
+        "sections.video",
+        "sections.hero-standard",
+        "sections.cta",
+        "forms.dynamic-form",
+        "sections.hero-featured",
+        "sections.process-steps",
+        "sections.product-grid",
+        "sections.benefits-split",
+        "sections.security-block",
+        "sections.testimonials",
+        "sections.logo-cloud"
       ]
     },
     "children": {

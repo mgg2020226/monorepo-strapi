@@ -1049,6 +1049,13 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         "sections.hero-standard",
         "sections.cta",
         "forms.dynamic-form",
+        "sections.hero-featured",
+        "sections.process-steps",
+        "sections.product-grid",
+        "sections.benefits-split",
+        "sections.security-block",
+        "sections.testimonials",
+        "sections.logo-cloud",
       ]
     > &
       Schema.Attribute.SetPluginOptions<{

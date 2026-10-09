@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_hero_perks",
+  "info": { "displayName": "Hero perk", "icon": "spark" },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "description": { "type": "string" },
+    "icon": {
+      "type": "enumeration",
+      "enum": ["zap", "shield-check", "user-round"],
+      "default": "zap"
+    }
+  }
+}
