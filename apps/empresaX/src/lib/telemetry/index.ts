@@ -25,14 +25,19 @@ export async function initializeTelemetry(
   // instrumentation, so isolate each provider and continue past failures.
   // `console` (not the pino logger) because register() also runs on the edge
   // runtime, where pino is unavailable.
-  for (const provider of providers) {
-    try {
-      await provider.initialize(runtime)
-    } catch (error) {
-      console.error(
-        `Telemetry provider "${provider.name}" failed to initialize`,
-        error
-      )
-    }
+  const results = await Promise.allSettled(
+    providers.map((provider) => provider.initialize(runtime))
+  )
+
+  for (const [index, result] of results.entries()) {
+    if (result.status !== "rejected") continue
+
+    const provider = providers[index]
+    if (!provider) continue
+
+    console.error(
+      `Telemetry provider "${provider.name}" failed to initialize`,
+      result.reason
+    )
   }
 }
