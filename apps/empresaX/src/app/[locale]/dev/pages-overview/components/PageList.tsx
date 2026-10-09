@@ -40,13 +40,8 @@ export default function PageList({
               <div className="pl-4">
                 {page?.content?.map(
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  (block: any, i: number) => (
-                    <Typography
-                      // eslint-disable-next-line react/no-array-index-key
-                      key={`${block.id ?? block.__component}-${i}`}
-                    >
-                      {block.__component}
-                    </Typography>
+                  (block: any) => (
+                    <Typography key={block.id}>{block.__component}</Typography>
                   )
                 )}
               </div>
