@@ -16,6 +16,13 @@ import {
   StrapiStatistics,
   StrapiTipTapEditorContent,
   StrapiVideo,
+  StrapiHeroFeatured,
+  StrapiProcessSteps,
+  StrapiProductGrid,
+  StrapiBenefitsSplit,
+  StrapiSecurityBlock,
+  StrapiTestimonials,
+  StrapiLogoCloud,
 } from "@repo/sections"
 import type { UID } from "@repo/strapi-types"
 
@@ -54,6 +61,13 @@ export const PageContentComponents: Partial<
   "sections.cta": StrapiCta,
   "sections.video": StrapiVideo,
   "sections.cta-banner": StrapiCTABanner,
+  "sections.hero-featured": StrapiHeroFeatured,
+  "sections.process-steps": StrapiProcessSteps,
+  "sections.product-grid": StrapiProductGrid,
+  "sections.benefits-split": StrapiBenefitsSplit,
+  "sections.security-block": StrapiSecurityBlock,
+  "sections.testimonials": StrapiTestimonials,
+  "sections.logo-cloud": StrapiLogoCloud,
 
   // Forms
   "forms.contact-form": StrapiContactForm,

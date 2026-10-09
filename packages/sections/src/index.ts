@@ -11,6 +11,13 @@ export { StrapiHeadingWithCTAButton } from "./sections/StrapiHeadingWithCTAButto
 export { StrapiHero } from "./sections/StrapiHero"
 export { StrapiHeroStandard } from "./sections/StrapiHeroStandard"
 export { StrapiImageWithCTAButton } from "./sections/StrapiImageWithCTAButton"
+export { StrapiHeroFeatured } from "./sections/StrapiHeroFeatured"
+export { StrapiProcessSteps } from "./sections/StrapiProcessSteps"
+export { StrapiProductGrid } from "./sections/StrapiProductGrid"
+export { StrapiBenefitsSplit } from "./sections/StrapiBenefitsSplit"
+export { StrapiSecurityBlock } from "./sections/StrapiSecurityBlock"
+export { StrapiTestimonials } from "./sections/StrapiTestimonials"
+export { StrapiLogoCloud } from "./sections/StrapiLogoCloud"
 export { StrapiCta } from "./sections/StrapiCta"
 export { StrapiVideo } from "./sections/StrapiVideo"
 export { DynamicForm } from "./forms/DynamicForm"
@@ -32,6 +39,13 @@ export type { PageBuilderComponentProps } from "./types"
 
 export const sharedSectionUids = [
   "sections.hero-standard",
+  "sections.hero-featured",
+  "sections.process-steps",
+  "sections.product-grid",
+  "sections.benefits-split",
+  "sections.security-block",
+  "sections.testimonials",
+  "sections.logo-cloud",
   "sections.content-rich-text",
   "sections.feature-grid",
   "sections.gallery",

@@ -1,4 +1,5 @@
 import type { Data } from "@repo/strapi-types"
+import type { ImageProps } from "next/image"
 
 import { StrapiBasicImage } from "./StrapiBasicImage"
 
@@ -10,6 +11,9 @@ export function StrapiMediaImage({
   className,
   fill,
   height,
+  loading,
+  priority,
+  sizes,
   width,
 }: {
   readonly media?: BasicImage["media"] | null
@@ -17,6 +21,9 @@ export function StrapiMediaImage({
   readonly className?: string
   readonly fill?: boolean
   readonly height?: number
+  readonly loading?: ImageProps["loading"]
+  readonly priority?: ImageProps["priority"]
+  readonly sizes?: ImageProps["sizes"]
   readonly width?: number
 }) {
   if (!media) return null
@@ -28,6 +35,9 @@ export function StrapiMediaImage({
       fill={fill}
       height={height}
       width={width}
+      loading={loading}
+      priority={priority}
+      sizes={sizes}
     />
   )
 }
