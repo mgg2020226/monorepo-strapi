@@ -1,6 +1,7 @@
 "use client"
 
-import { DynamicForm, type DynamicFormDefinition } from "@repo/sections"
+import { DynamicForm } from "@repo/sections/forms/DynamicForm"
+import type { DynamicFormDefinition } from "@repo/sections/forms/types"
 
 import { useDynamicForm } from "@/hooks/useAppForm"
 

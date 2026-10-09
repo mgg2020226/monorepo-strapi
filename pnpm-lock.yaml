@@ -571,43 +571,46 @@ importers:
         version: 8.21.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@tiptap/core':
         specifier: 3.20.6
-        version: 3.20.6(@tiptap/pm@3.26.1)
+        version: 3.20.6(@tiptap/pm@3.20.6)
       '@tiptap/extension-color':
         specifier: 3.20.6
-        version: 3.20.6(@tiptap/extension-text-style@3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1)))
+        version: 3.20.6(@tiptap/extension-text-style@3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.20.6)))
       '@tiptap/extension-heading':
         specifier: 3.20.6
-        version: 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))
+        version: 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))
       '@tiptap/extension-highlight':
         specifier: 3.20.6
-        version: 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))
+        version: 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))
       '@tiptap/extension-image':
         specifier: 3.20.6
-        version: 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))
+        version: 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))
       '@tiptap/extension-subscript':
         specifier: 3.20.6
-        version: 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))(@tiptap/pm@3.26.1)
+        version: 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))(@tiptap/pm@3.20.6)
       '@tiptap/extension-superscript':
         specifier: 3.20.6
-        version: 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))(@tiptap/pm@3.26.1)
+        version: 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))(@tiptap/pm@3.20.6)
       '@tiptap/extension-table':
         specifier: 3.20.6
-        version: 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))(@tiptap/pm@3.26.1)
+        version: 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))(@tiptap/pm@3.20.6)
       '@tiptap/extension-text-align':
         specifier: 3.20.6
-        version: 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))
+        version: 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))
       '@tiptap/extension-text-style':
         specifier: 3.20.6
-        version: 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))
+        version: 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))
+      '@tiptap/pm':
+        specifier: 3.20.6
+        version: 3.20.6
       '@tiptap/react':
         specifier: 3.20.6
-        version: 3.20.6(@floating-ui/dom@1.8.0)(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))(@tiptap/pm@3.26.1)(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        version: 3.20.6(@floating-ui/dom@1.8.0)(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))(@tiptap/pm@3.20.6)(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@tiptap/starter-kit':
         specifier: 3.20.6
         version: 3.20.6
       '@tiptap/static-renderer':
         specifier: 3.20.6
-        version: 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))(@tiptap/pm@3.26.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        version: 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))(@tiptap/pm@3.20.6)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       class-variance-authority:
         specifier: 0.7.1
         version: 0.7.1
@@ -8021,9 +8024,6 @@ packages:
   '@tiptap/pm@3.20.6':
     resolution: {integrity: sha512-EufaPxYlwC93RKKLQERMj1I2YSxK4lMh4A0j0Y+pHzGiVCtBSHvH4eq6RE+opOOUGehSXWa4jh4/6OXj9/HZiA==}
 
-  '@tiptap/pm@3.26.1':
-    resolution: {integrity: sha512-48cJQRbvr9Ux0+IgM1BR5vOLU5hkC+n+uerdQy2JjrIRKpYE/huU8fQFm6PoRppoKYfilklzb29elsQ+n2TA+g==}
-
   '@tiptap/react@3.20.6':
     resolution: {integrity: sha512-r6DuFlysLHmmf3Srm4axwiGMzNqwmGrOyJwYJcDNQCu/tmALiynremyjiy677uP0OkkzJOBWqAWp/O+aoUQFOw==}
     peerDependencies:
@@ -15246,14 +15246,8 @@ packages:
       prosemirror-state: ^1.4.2
       prosemirror-view: ^1.33.8
 
-  prosemirror-transform@1.11.0:
-    resolution: {integrity: sha512-4I7Ce4KpygXb9bkiPS3hTEk4dSHorfRw8uI0pE8IhxlK2GXsqv5tIA7JUSxtSu7u8APVOTtbUBxTmnHIxVkIJw==}
-
   prosemirror-transform@1.12.2:
     resolution: {integrity: sha512-PE/aY0HEY4zczvmqrilgkUK/WautF0chvMqkmM/iN5/aPHvwrCWaQZjS6CIZp+K84YrvPFqrL+YArrfJX8xX7g==}
-
-  prosemirror-view@1.41.6:
-    resolution: {integrity: sha512-mxpcDG4hNQa/CPtzxjdlir5bJFDlm0/x5nGBbStB2BWX+XOQ9M8ekEG+ojqB5BcVu2Rc80/jssCMZzSstJuSYg==}
 
   prosemirror-view@1.42.6:
     resolution: {integrity: sha512-3g25f6hKV2bBxo3puH3EcYWmmVNSH0iWmNsMVT7sugDSpA025jgpOLarcDWr39SdzPjYMaiYtRdNtXialPSjEQ==}
@@ -29673,10 +29667,6 @@ snapshots:
     dependencies:
       '@tiptap/pm': 3.20.6
 
-  '@tiptap/core@3.20.6(@tiptap/pm@3.26.1)':
-    dependencies:
-      '@tiptap/pm': 3.26.1
-
   '@tiptap/extension-blockquote@3.26.1(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))':
     dependencies:
       '@tiptap/core': 3.20.6(@tiptap/pm@3.20.6)
@@ -29690,13 +29680,6 @@ snapshots:
       '@floating-ui/dom': 1.8.0
       '@tiptap/core': 3.20.6(@tiptap/pm@3.20.6)
       '@tiptap/pm': 3.20.6
-    optional: true
-
-  '@tiptap/extension-bubble-menu@3.26.1(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))(@tiptap/pm@3.26.1)':
-    dependencies:
-      '@floating-ui/dom': 1.8.0
-      '@tiptap/core': 3.20.6(@tiptap/pm@3.26.1)
-      '@tiptap/pm': 3.26.1
     optional: true
 
   '@tiptap/extension-bullet-list@3.26.1(@tiptap/extension-list@3.26.1(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))(@tiptap/pm@3.20.6))':
@@ -29716,10 +29699,6 @@ snapshots:
     dependencies:
       '@tiptap/extension-text-style': 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))
 
-  '@tiptap/extension-color@3.20.6(@tiptap/extension-text-style@3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1)))':
-    dependencies:
-      '@tiptap/extension-text-style': 3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))
-
   '@tiptap/extension-document@3.26.1(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))':
     dependencies:
       '@tiptap/core': 3.20.6(@tiptap/pm@3.20.6)
@@ -29735,13 +29714,6 @@ snapshots:
       '@tiptap/pm': 3.20.6
     optional: true
 
-  '@tiptap/extension-floating-menu@3.26.1(@floating-ui/dom@1.8.0)(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))(@tiptap/pm@3.26.1)':
-    dependencies:
-      '@floating-ui/dom': 1.8.0
-      '@tiptap/core': 3.20.6(@tiptap/pm@3.26.1)
-      '@tiptap/pm': 3.26.1
-    optional: true
-
   '@tiptap/extension-gapcursor@3.26.1(@tiptap/extensions@3.26.1(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))(@tiptap/pm@3.20.6))':
     dependencies:
       '@tiptap/extensions': 3.26.1(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))(@tiptap/pm@3.20.6)
@@ -29754,17 +29726,9 @@ snapshots:
     dependencies:
       '@tiptap/core': 3.20.6(@tiptap/pm@3.20.6)
 
-  '@tiptap/extension-heading@3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))':
-    dependencies:
-      '@tiptap/core': 3.20.6(@tiptap/pm@3.26.1)
-
   '@tiptap/extension-highlight@3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))':
     dependencies:
       '@tiptap/core': 3.20.6(@tiptap/pm@3.20.6)
-
-  '@tiptap/extension-highlight@3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))':
-    dependencies:
-      '@tiptap/core': 3.20.6(@tiptap/pm@3.26.1)
 
   '@tiptap/extension-horizontal-rule@3.26.1(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))(@tiptap/pm@3.20.6)':
     dependencies:
@@ -29774,10 +29738,6 @@ snapshots:
   '@tiptap/extension-image@3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))':
     dependencies:
       '@tiptap/core': 3.20.6(@tiptap/pm@3.20.6)
-
-  '@tiptap/extension-image@3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))':
-    dependencies:
-      '@tiptap/core': 3.20.6(@tiptap/pm@3.26.1)
 
   '@tiptap/extension-italic@3.26.1(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))':
     dependencies:
@@ -29819,46 +29779,23 @@ snapshots:
       '@tiptap/core': 3.20.6(@tiptap/pm@3.20.6)
       '@tiptap/pm': 3.20.6
 
-  '@tiptap/extension-subscript@3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))(@tiptap/pm@3.26.1)':
-    dependencies:
-      '@tiptap/core': 3.20.6(@tiptap/pm@3.26.1)
-      '@tiptap/pm': 3.26.1
-
   '@tiptap/extension-superscript@3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))(@tiptap/pm@3.20.6)':
     dependencies:
       '@tiptap/core': 3.20.6(@tiptap/pm@3.20.6)
       '@tiptap/pm': 3.20.6
-
-  '@tiptap/extension-superscript@3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))(@tiptap/pm@3.26.1)':
-    dependencies:
-      '@tiptap/core': 3.20.6(@tiptap/pm@3.26.1)
-      '@tiptap/pm': 3.26.1
 
   '@tiptap/extension-table@3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))(@tiptap/pm@3.20.6)':
     dependencies:
       '@tiptap/core': 3.20.6(@tiptap/pm@3.20.6)
       '@tiptap/pm': 3.20.6
 
-  '@tiptap/extension-table@3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))(@tiptap/pm@3.26.1)':
-    dependencies:
-      '@tiptap/core': 3.20.6(@tiptap/pm@3.26.1)
-      '@tiptap/pm': 3.26.1
-
   '@tiptap/extension-text-align@3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))':
     dependencies:
       '@tiptap/core': 3.20.6(@tiptap/pm@3.20.6)
 
-  '@tiptap/extension-text-align@3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))':
-    dependencies:
-      '@tiptap/core': 3.20.6(@tiptap/pm@3.26.1)
-
   '@tiptap/extension-text-style@3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))':
     dependencies:
       '@tiptap/core': 3.20.6(@tiptap/pm@3.20.6)
-
-  '@tiptap/extension-text-style@3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))':
-    dependencies:
-      '@tiptap/core': 3.20.6(@tiptap/pm@3.26.1)
 
   '@tiptap/extension-text@3.26.1(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))':
     dependencies:
@@ -29896,23 +29833,7 @@ snapshots:
       prosemirror-schema-list: 1.5.1
       prosemirror-state: 1.4.4
       prosemirror-tables: 1.8.5
-      prosemirror-trailing-node: 3.0.0(prosemirror-model@1.25.4)(prosemirror-state@1.4.4)(prosemirror-view@1.41.6)
-      prosemirror-transform: 1.11.0
-      prosemirror-view: 1.41.6
-
-  '@tiptap/pm@3.26.1':
-    dependencies:
-      prosemirror-changeset: 2.4.0
-      prosemirror-commands: 1.7.1
-      prosemirror-dropcursor: 1.8.2
-      prosemirror-gapcursor: 1.4.0
-      prosemirror-history: 1.5.0
-      prosemirror-inputrules: 1.5.1
-      prosemirror-keymap: 1.2.3
-      prosemirror-model: 1.25.12
-      prosemirror-schema-list: 1.5.1
-      prosemirror-state: 1.4.4
-      prosemirror-tables: 1.8.5
+      prosemirror-trailing-node: 3.0.0(prosemirror-model@1.25.4)(prosemirror-state@1.4.4)(prosemirror-view@1.42.6)
       prosemirror-transform: 1.12.2
       prosemirror-view: 1.42.6
 
@@ -29930,23 +29851,6 @@ snapshots:
     optionalDependencies:
       '@tiptap/extension-bubble-menu': 3.26.1(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))(@tiptap/pm@3.20.6)
       '@tiptap/extension-floating-menu': 3.26.1(@floating-ui/dom@1.8.0)(@tiptap/core@3.20.6(@tiptap/pm@3.20.6))(@tiptap/pm@3.20.6)
-    transitivePeerDependencies:
-      - '@floating-ui/dom'
-
-  '@tiptap/react@3.20.6(@floating-ui/dom@1.8.0)(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))(@tiptap/pm@3.26.1)(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
-    dependencies:
-      '@tiptap/core': 3.20.6(@tiptap/pm@3.26.1)
-      '@tiptap/pm': 3.26.1
-      '@types/react': 19.2.18
-      '@types/react-dom': 19.2.4(@types/react@19.2.18)
-      '@types/use-sync-external-store': 0.0.6
-      fast-equals: 5.4.0
-      react: 19.3.0
-      react-dom: 19.3.0(react@19.3.0)
-      use-sync-external-store: 1.6.0(react@19.3.0)
-    optionalDependencies:
-      '@tiptap/extension-bubble-menu': 3.26.1(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))(@tiptap/pm@3.26.1)
-      '@tiptap/extension-floating-menu': 3.26.1(@floating-ui/dom@1.8.0)(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))(@tiptap/pm@3.26.1)
     transitivePeerDependencies:
       - '@floating-ui/dom'
 
@@ -29981,13 +29885,6 @@ snapshots:
     dependencies:
       '@tiptap/core': 3.20.6(@tiptap/pm@3.20.6)
       '@tiptap/pm': 3.20.6
-      react: 19.3.0
-      react-dom: 19.3.0(react@19.3.0)
-
-  '@tiptap/static-renderer@3.20.6(@tiptap/core@3.20.6(@tiptap/pm@3.26.1))(@tiptap/pm@3.26.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
-    dependencies:
-      '@tiptap/core': 3.20.6(@tiptap/pm@3.26.1)
-      '@tiptap/pm': 3.26.1
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
 
@@ -38229,7 +38126,7 @@ snapshots:
 
   prosemirror-changeset@2.4.0:
     dependencies:
-      prosemirror-transform: 1.11.0
+      prosemirror-transform: 1.12.2
 
   prosemirror-collab@1.3.1:
     dependencies:
@@ -38239,32 +38136,32 @@ snapshots:
     dependencies:
       prosemirror-model: 1.25.4
       prosemirror-state: 1.4.4
-      prosemirror-transform: 1.11.0
+      prosemirror-transform: 1.12.2
 
   prosemirror-dropcursor@1.8.2:
     dependencies:
       prosemirror-state: 1.4.4
-      prosemirror-transform: 1.11.0
-      prosemirror-view: 1.41.6
+      prosemirror-transform: 1.12.2
+      prosemirror-view: 1.42.6
 
   prosemirror-gapcursor@1.4.0:
     dependencies:
       prosemirror-keymap: 1.2.3
       prosemirror-model: 1.25.4
       prosemirror-state: 1.4.4
-      prosemirror-view: 1.41.6
+      prosemirror-view: 1.42.6
 
   prosemirror-history@1.5.0:
     dependencies:
       prosemirror-state: 1.4.4
-      prosemirror-transform: 1.11.0
-      prosemirror-view: 1.41.6
+      prosemirror-transform: 1.12.2
+      prosemirror-view: 1.42.6
       rope-sequence: 1.3.4
 
   prosemirror-inputrules@1.5.1:
     dependencies:
       prosemirror-state: 1.4.4
-      prosemirror-transform: 1.11.0
+      prosemirror-transform: 1.12.2
 
   prosemirror-keymap@1.2.3:
     dependencies:
@@ -38300,43 +38197,33 @@ snapshots:
     dependencies:
       prosemirror-model: 1.25.4
       prosemirror-state: 1.4.4
-      prosemirror-transform: 1.11.0
+      prosemirror-transform: 1.12.2
 
   prosemirror-state@1.4.4:
     dependencies:
       prosemirror-model: 1.25.4
-      prosemirror-transform: 1.11.0
-      prosemirror-view: 1.41.6
+      prosemirror-transform: 1.12.2
+      prosemirror-view: 1.42.6
 
   prosemirror-tables@1.8.5:
     dependencies:
       prosemirror-keymap: 1.2.3
       prosemirror-model: 1.25.4
       prosemirror-state: 1.4.4
-      prosemirror-transform: 1.11.0
-      prosemirror-view: 1.41.6
+      prosemirror-transform: 1.12.2
+      prosemirror-view: 1.42.6
 
-  prosemirror-trailing-node@3.0.0(prosemirror-model@1.25.4)(prosemirror-state@1.4.4)(prosemirror-view@1.41.6):
+  prosemirror-trailing-node@3.0.0(prosemirror-model@1.25.4)(prosemirror-state@1.4.4)(prosemirror-view@1.42.6):
     dependencies:
       '@remirror/core-constants': 3.0.0
       escape-string-regexp: 4.0.0
       prosemirror-model: 1.25.4
       prosemirror-state: 1.4.4
-      prosemirror-view: 1.41.6
-
-  prosemirror-transform@1.11.0:
-    dependencies:
-      prosemirror-model: 1.25.4
+      prosemirror-view: 1.42.6
 
   prosemirror-transform@1.12.2:
     dependencies:
       prosemirror-model: 1.25.4
-
-  prosemirror-view@1.41.6:
-    dependencies:
-      prosemirror-model: 1.25.4
-      prosemirror-state: 1.4.4
-      prosemirror-transform: 1.11.0
 
   prosemirror-view@1.42.6:
     dependencies:

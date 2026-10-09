@@ -183,8 +183,8 @@
       "password": "Contraseña",
       "submit": "Iniciar sesión",
       "signingIn": "Signing you in...",
-      "forgotContraseña": "Olvidé mi contraseña",
-      "createCuenta": "Crear una cuenta"
+      "forgotPassword": "Olvidé mi contraseña",
+      "createAccount": "Crear una cuenta"
     },
 
     "register": {
@@ -202,26 +202,26 @@
       "description": "Crear una cuenta to access the system.",
       "email": "E-mail address",
       "password": "Crear contraseña",
-      "checkContraseña": "Confirmar contraseña",
+      "checkPassword": "Confirmar contraseña",
       "submit": "Create account",
-      "forgotContraseña": "Already have an account? Iniciar sesión.",
-      "checkCorreo electrónico": "Follow instructions in your email to confirm your email address.",
+      "forgotPassword": "¿Ya tienes una cuenta? Inicia sesión.",
+      "checkEmail": "Sigue las instrucciones de tu correo electrónico para confirmarlo.",
       "signInLinkLinkDescription": "Already have an account?",
       "signInLink": "Iniciar sesión"
     },
 
-    "changeContraseña": {
+    "changePassword": {
       "errors": {
-        "invalidCurrentContraseña": "Contraseña actual does not match",
+        "invalidCurrentPassword": "La contraseña actual no coincide",
         "unexpectedError": "An unexpected error occurred. Please try again later.",
-        "newContraseñaSameAsCurrent": "Nueva contraseña must be different from the current password"
+        "newPasswordSameAsCurrent": "La nueva contraseña debe ser diferente de la actual"
       },
       "successfullyChanged": "Contraseña successfully changed",
       "header": "Cambiar contraseña",
       "description": "Choose a new password to use for logging in.",
-      "currentContraseña": "Contraseña actual",
+      "currentPassword": "Contraseña actual",
       "password": "Nueva contraseña",
-      "confirmContraseña": "Confirmar nueva contraseña",
+      "confirmPassword": "Confirmar nueva contraseña",
       "submit": "Cambiar contraseña"
     },
 
@@ -231,36 +231,36 @@
         "incorrectCodeProvided": "An incorrect link was generated for you. Contact support."
       },
       "welcome": "Bienvenido",
-      "activateCuenta": "A new account has been created with the email {email}.",
+      "activateAccount": "Se creó una cuenta nueva con el correo {email}.",
       "invalidLink": "This link is not valid.",
       "activate": "Activate account",
       "header": "Set password",
       "description": "Choose a password to use for logging in.",
       "submit": "Activate account",
       "password": "Nueva contraseña",
-      "confirmContraseña": "Confirmar contraseña"
+      "confirmPassword": "Confirmar contraseña"
     },
 
-    "resetContraseña": {
+    "resetPassword": {
       "successfullySet": "Contraseña successfully changed.",
       "header": "Reset password",
       "description": "Choose a new password to use for logging in.",
       "submit": "Set password",
       "password": "Nueva contraseña",
-      "confirmContraseña": "Confirmar contraseña",
+      "confirmPassword": "Confirmar contraseña",
       "errors": {
         "incorrectCodeProvided": "Código inválido o vencido. Solicita de nuevo el restablecimiento de contraseña."
       }
     },
 
-    "forgotContraseña": {
-      "passwordChangeCorreo electrónicoSent": "An email with password reset instructions has been sent to you.",
+    "forgotPassword": {
+      "passwordChangeEmailSent": "Te enviamos un correo con instrucciones para restablecer tu contraseña.",
       "header": "Olvidé mi contraseña",
       "description": "Enter the email you usually use to sign in. We will send instructions to reset your password to this email.",
       "email": "Correo electrónico",
       "submit": "Recuperar cuenta",
       "errors": {
-        "failedToEnviarContraseñaResetCorreo electrónico": "Failed to send password reset email"
+        "failedToSendPasswordResetEmail": "No se pudo enviar el correo para restablecer la contraseña"
       }
     },
 

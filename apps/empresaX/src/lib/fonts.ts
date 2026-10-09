@@ -1,7 +1,5 @@
-import { Roboto } from "next/font/google"
-
-export const fontRoboto = Roboto({
-  subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700"],
-  variable: "--font-roboto",
-})
+// Keep font loading local to the browser. `next/font/google` performs a
+// network request during the build, which makes builds depend on Google Fonts
+// being reachable. The design system already provides the Roboto font stack
+// with a system fallback in CSS.
+export const fontRoboto = { variable: "" }

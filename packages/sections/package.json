@@ -5,6 +5,8 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
+    "./forms/*": "./src/forms/*.tsx",
+    "./forms/types": "./src/forms/types.ts",
     "./sections/*": "./src/sections/*.tsx",
     "./utilities/*": "./src/utilities/*.tsx",
     "./types": "./src/types.ts"
