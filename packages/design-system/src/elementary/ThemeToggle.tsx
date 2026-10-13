@@ -1,25 +1,40 @@
 "use client"
 
+import { useTheme } from "@teispace/next-themes"
 import { Moon, SunMedium } from "lucide-react"
 import { useTranslations } from "next-intl"
-import { useTheme } from "next-themes"
+import { useSyncExternalStore } from "react"
 
 import { Button } from "@repo/design-system/ui/button"
 
 export function ThemeToggle({ className }: { className?: string }) {
-  const { setTheme, theme } = useTheme()
+  const { resolvedTheme, setTheme, theme } = useTheme()
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  )
   const t = useTranslations()
+  const label = t("comps.themeToggle.label")
 
   return (
     <Button
       variant="ghost"
       size="sm"
       className={className}
+      aria-label={label}
+      title={label}
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
-      <SunMedium className="scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-      <Moon className="absolute scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-      <span className="sr-only">{t("comps.themeToggle.label")}</span>
+      {mounted ? (
+        resolvedTheme === "dark" ? (
+          <SunMedium aria-hidden="true" />
+        ) : (
+          <Moon aria-hidden="true" />
+        )
+      ) : (
+        <span aria-hidden="true" className="size-3.5" />
+      )}
     </Button>
   )
 }

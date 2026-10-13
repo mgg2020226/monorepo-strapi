@@ -1,6 +1,7 @@
 import "@/styles/globals.css"
 
 import { Toaster } from "@repo/design-system/ui/sonner"
+import { ThemeProvider } from "@teispace/next-themes"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Script from "next/script"
@@ -87,11 +88,9 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        <Script
-          id="csr-config"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{ __html: csrConfigScript }}
-        />
+        <Script id="csr-config" strategy="beforeInteractive">
+          {csrConfigScript}
+        </Script>
       </head>
       <body
         className={cn(
@@ -101,27 +100,34 @@ export default async function RootLayout({
         )}
       >
         <TrackingScripts />
-        <ServerProviders>
-          <ClientProviders>
-            <div className="relative flex min-h-screen flex-col">
-              <ErrorBoundary showErrorMessage>
-                <StrapiNavbar locale={locale} />
-              </ErrorBoundary>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          storage="local"
+        >
+          <ServerProviders>
+            <ClientProviders>
+              <div className="relative flex min-h-screen flex-col">
+                <ErrorBoundary showErrorMessage>
+                  <StrapiNavbar locale={locale} />
+                </ErrorBoundary>
 
-              <div className="flex-1">
-                <div>{children}</div>
+                <div className="flex-1">
+                  <div>{children}</div>
+                </div>
+
+                <TailwindIndicator />
+
+                <Toaster />
+
+                <ErrorBoundary hideFallback>
+                  <StrapiFooter locale={locale} />
+                </ErrorBoundary>
               </div>
-
-              <TailwindIndicator />
-
-              <Toaster />
-
-              <ErrorBoundary hideFallback>
-                <StrapiFooter locale={locale} />
-              </ErrorBoundary>
-            </div>
-          </ClientProviders>
-        </ServerProviders>
+            </ClientProviders>
+          </ServerProviders>
+        </ThemeProvider>
       </body>
     </html>
   )
