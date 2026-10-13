@@ -22,7 +22,7 @@ Page content is rendered in the order of the `content` dynamic zone. Text, butto
 
 ## Homepage section map
 
-Create a `Site` with slug `bancaliv`, status `active`, Spanish locale, brand palette, logo, header, footer, contact details, and social links. Create a `Page` related to that Site with page type `home` and the root slug `/`. Add these blocks in this order:
+Create a `Site` with slug `bancaliv`, Spanish locale, brand palette, logo, header, footer, contact details, and social links. Save and publish the Site, then create a `Page` related to that Site with page type `home` and the root slug `/`. Add these blocks in this order:
 
 | Source section                     | Strapi block                 | Editable content                                                                        |
 | ---------------------------------- | ---------------------------- | --------------------------------------------------------------------------------------- |
@@ -69,10 +69,10 @@ In `apps/empresaX/.env.local`, map the local frontend host to the Bancaliv Site 
 SITE_DOMAIN={"localhost":"bancaliv","127.0.0.1":"bancaliv","::1":"bancaliv"}
 ```
 
-Keep existing Strapi URLs and server-side API tokens unchanged; never expose tokens in browser config or commit `.env.local`. `SITE_DOMAIN` chooses which Strapi Site the frontend requests. The Site must be active, and its Pages must be published to appear outside preview mode.
+Keep existing Strapi URLs and server-side API tokens unchanged; never expose tokens in browser config or commit `.env.local`. `SITE_DOMAIN` chooses which Strapi Site the frontend requests. The Site and its Pages must be published to appear outside preview mode.
 
 After Strapi reloads the schemas, use the admin Content Manager to create the Site and home Page, populate each block with approved Bancaliv content and uploaded media, save the page as a draft, and verify it in the frontend preview. No sample records or mock content are included. Publish only after reviewing text, media, links, responsive layouts, and legal/financial claims.
 
 ## Known rollout constraint
 
-The frontend resolves the Site by hostname and the page renderer filters by the resolved Site slug. The separate `CmsUserAccess.sites` relation should not be treated as complete editorial isolation until its permissions are verified; do not grant a new editor restricted-to-Bancaliv access based on that relation alone.
+The frontend resolves the Site by hostname and the page renderer filters by the resolved Site slug. That frontend filter is not an editorial authorization boundary; use Strapi roles and permissions or a tested site-scoped policy before granting access to multiple companies in one instance.

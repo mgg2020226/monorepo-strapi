@@ -32,7 +32,7 @@ STRAPI_PREVIEW_SECRET=
 
 ## Fetching Draft Content
 
-Page and editorial-content fetching reads `draftMode().isEnabled`. When draft mode is active, requests send `status: "draft"` to Strapi and do not force `contentStatus: "published"`.
+Page and editorial-content fetching reads `draftMode().isEnabled`. When draft mode is active, requests send `status: "draft"` to Strapi; otherwise they send `status: "published"`. Publication is controlled exclusively by Strapi's native Draft & Publish workflow.
 
 This keeps the same public page renderer while changing which Strapi document status is fetched.
 

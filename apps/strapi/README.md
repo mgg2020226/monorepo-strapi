@@ -36,7 +36,7 @@ Una API token de solo lectura no es por sí misma un límite de tenant. El front
 
 ## Panel editorial y aislamiento
 
-`CmsUserAccess` guarda el usuario, los sitios asignados y permisos previstos. Actualmente la relación `sites` documenta el alcance, pero no impone por sí misma restricciones sobre los CRUD del Content Manager. Por ello, no se debe afirmar que los equipos de diferentes empresas están aislados en un Strapi compartido.
+El acceso administrativo usa los usuarios, roles y permisos nativos de Strapi. El filtrado del frontend por `Site.slug` no impone por sí mismo restricciones sobre los CRUD del Content Manager.
 
 Antes de dar acceso a editores de varias empresas, implementar y probar una policy/middleware que limite lectura, creación, actualización, borrado y publicación por sitio, incluyendo relaciones, medios y endpoints personalizados. Si se necesita aislamiento inmediato o fuerte, desplegar instancias de Strapi y bases de datos separadas por empresa.
 
@@ -75,7 +75,7 @@ Para publicar contenido: crear/editar el registro, asociarlo al `Site`, verifica
 
 ## Pendientes de plataforma
 
-- Autorización efectiva por sitio para los equipos editoriales; `CmsUserAccess` todavía no la aplica.
+- Autorización efectiva por sitio para los equipos editoriales, si se necesita aislamiento entre empresas.
 - Proveedor SMTP y almacenamiento definitivo para producción, más validación de credenciales y permisos.
 - Alinear idiomas habilitados por sitio con routing/locales del frontend si cada marca debe tener configuraciones distintas.
 - Validar tema dinámico basado en `Site.palette` en EmpresaX.

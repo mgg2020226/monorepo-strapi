@@ -303,14 +303,18 @@ export default factories.createCoreService(
       try {
         const existing = await strapi
           .documents("api::hierarchy.hierarchy")
-          .findFirst()
+          .findFirst({ status: "draft" })
 
         await (existing
           ? strapi.documents("api::hierarchy.hierarchy").update({
               documentId: existing.documentId,
+              status: "draft",
               data,
             })
-          : strapi.documents("api::hierarchy.hierarchy").create({ data }))
+          : strapi.documents("api::hierarchy.hierarchy").create({
+              status: "draft",
+              data,
+            }))
       } catch (error) {
         strapi.log.error(
           `Hierarchy: failed to stamp lastRecalculationAt: ${(error as Error).message}`

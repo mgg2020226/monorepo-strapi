@@ -452,7 +452,7 @@ export interface ApiBlogCategoryBlogCategory
     singularName: "blog-category"
   }
   options: {
-    draftAndPublish: false
+    draftAndPublish: true
   }
   pluginOptions: {
     i18n: {
@@ -535,11 +535,6 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
           localized: true
         }
       }>
-    contentStatus: Schema.Attribute.Enumeration<
-      ["draft", "published", "archived"]
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<"draft">
     coverImage: Schema.Attribute.Media<"images">
     createdAt: Schema.Attribute.DateTime
     createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
@@ -609,15 +604,10 @@ export interface ApiCalendarEventCalendarEvent
     }
   }
   attributes: {
-    contentStatus: Schema.Attribute.Enumeration<
-      ["draft", "published", "cancelled"]
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<"draft">
     createdAt: Schema.Attribute.DateTime
     createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
       Schema.Attribute.Private
-    description: Schema.Attribute.RichText &
+    description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true
@@ -669,49 +659,6 @@ export interface ApiCalendarEventCalendarEvent
   }
 }
 
-export interface ApiCmsUserAccessCmsUserAccess
-  extends Struct.CollectionTypeSchema {
-  collectionName: "cms_user_access"
-  info: {
-    displayName: "CMS user access"
-    pluralName: "cms-user-accesses"
-    singularName: "cms-user-access"
-  }
-  options: {
-    draftAndPublish: false
-  }
-  attributes: {
-    active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>
-    adminUserId: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique
-    createdAt: Schema.Attribute.DateTime
-    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-    displayName: Schema.Attribute.String & Schema.Attribute.Required
-    email: Schema.Attribute.Email & Schema.Attribute.Required
-    locale: Schema.Attribute.String & Schema.Attribute.Private
-    localizations: Schema.Attribute.Relation<
-      "oneToMany",
-      "api::cms-user-access.cms-user-access"
-    > &
-      Schema.Attribute.Private
-    notes: Schema.Attribute.Text
-    permissions: Schema.Attribute.Component<"admin.permission", true> &
-      Schema.Attribute.Required
-    publishedAt: Schema.Attribute.DateTime
-    role: Schema.Attribute.Enumeration<
-      ["platform-admin", "site-manager", "editor", "reviewer"]
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<"editor">
-    sites: Schema.Attribute.Relation<"manyToMany", "api::site.site">
-    updatedAt: Schema.Attribute.DateTime
-    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-  }
-}
-
 export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   collectionName: "footers"
   info: {
@@ -721,7 +668,7 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
     singularName: "footer"
   }
   options: {
-    draftAndPublish: false
+    draftAndPublish: true
   }
   pluginOptions: {
     i18n: {
@@ -774,7 +721,7 @@ export interface ApiFormDefinitionFormDefinition
     singularName: "form-definition"
   }
   options: {
-    draftAndPublish: false
+    draftAndPublish: true
   }
   pluginOptions: {
     i18n: {
@@ -865,7 +812,7 @@ export interface ApiHierarchyHierarchy extends Struct.SingleTypeSchema {
     singularName: "hierarchy"
   }
   options: {
-    draftAndPublish: false
+    draftAndPublish: true
   }
   attributes: {
     createdAt: Schema.Attribute.DateTime
@@ -908,11 +855,6 @@ export interface ApiLegalPageLegalPage extends Struct.CollectionTypeSchema {
           localized: true
         }
       }>
-    contentStatus: Schema.Attribute.Enumeration<
-      ["draft", "published", "archived"]
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<"draft">
     createdAt: Schema.Attribute.DateTime
     createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
       Schema.Attribute.Private
@@ -965,7 +907,7 @@ export interface ApiNavbarNavbar extends Struct.SingleTypeSchema {
     singularName: "navbar"
   }
   options: {
-    draftAndPublish: false
+    draftAndPublish: true
   }
   pluginOptions: {
     i18n: {
@@ -1127,7 +1069,7 @@ export interface ApiPlatformSettingsPlatformSettings
     singularName: "platform-settings"
   }
   options: {
-    draftAndPublish: false
+    draftAndPublish: true
   }
   attributes: {
     availableLocales: Schema.Attribute.JSON &
@@ -1270,7 +1212,7 @@ export interface ApiSiteSite extends Struct.CollectionTypeSchema {
     singularName: "site"
   }
   options: {
-    draftAndPublish: false
+    draftAndPublish: true
   }
   attributes: {
     address: Schema.Attribute.Text
@@ -1285,10 +1227,6 @@ export interface ApiSiteSite extends Struct.CollectionTypeSchema {
     calendarEvents: Schema.Attribute.Relation<
       "oneToMany",
       "api::calendar-event.calendar-event"
-    >
-    cmsUsers: Schema.Attribute.Relation<
-      "manyToMany",
-      "api::cms-user-access.cms-user-access"
     >
     contactEmail: Schema.Attribute.Email
     contactPhone: Schema.Attribute.String
@@ -1343,9 +1281,6 @@ export interface ApiSiteSite extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.Unique
     socialLinks: Schema.Attribute.Component<"site.social-link", true>
-    status: Schema.Attribute.Enumeration<["draft", "active", "archived"]> &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<"draft">
     subscribers: Schema.Attribute.Relation<
       "oneToMany",
       "api::subscriber.subscriber"
@@ -1365,7 +1300,7 @@ export interface ApiSubscriberSubscriber extends Struct.CollectionTypeSchema {
     singularName: "subscriber"
   }
   options: {
-    draftAndPublish: false
+    draftAndPublish: true
   }
   attributes: {
     content: Schema.Attribute.Text &
@@ -1907,7 +1842,6 @@ declare module "@strapi/strapi" {
       "api::blog-category.blog-category": ApiBlogCategoryBlogCategory
       "api::blog-post.blog-post": ApiBlogPostBlogPost
       "api::calendar-event.calendar-event": ApiCalendarEventCalendarEvent
-      "api::cms-user-access.cms-user-access": ApiCmsUserAccessCmsUserAccess
       "api::footer.footer": ApiFooterFooter
       "api::form-definition.form-definition": ApiFormDefinitionFormDefinition
       "api::hierarchy.hierarchy": ApiHierarchyHierarchy

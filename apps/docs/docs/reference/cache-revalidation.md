@@ -81,8 +81,7 @@ Tag revalidation handles cross-page invalidation automatically. For example, eve
 
 The document middleware derives its default policy from Strapi Draft & Publish:
 
-- `draftAndPublish: true` → revalidate publish, unpublish, delete, and published-status updates
-- `draftAndPublish: false` → revalidate every write because saves are immediately public
+- All application content types use `draftAndPublish: true`, so the middleware revalidates on publish, unpublish, delete, and published-status updates.
 
 :::caution Internal writes are skipped by middleware
 The hierarchy recalculation writes documents with `updatedBy: null`. The document middleware skips those writes to avoid duplicate calls; the hierarchy service revalidates the affected paths once per batch instead.

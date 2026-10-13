@@ -722,7 +722,6 @@ export interface SeoUtilitiesSeo extends Struct.ComponentSchema {
         maxLength: 60
       }>
     og: Schema.Attribute.Component<"seo-utilities.seo-og", false>
-    structuredData: Schema.Attribute.JSON
     twitter: Schema.Attribute.Component<"seo-utilities.seo-twitter", false>
   }
 }
@@ -825,13 +824,7 @@ export interface SharedFigure extends Struct.ComponentSchema {
     displayName: "Figure"
   }
   attributes: {
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        "plugin::ckeditor5.CKEditor",
-        {
-          preset: "defaultCkEditor"
-        }
-      >
+    description: Schema.Attribute.String
     number: Schema.Attribute.BigInteger
     prefix: Schema.Attribute.String
     suffix: Schema.Attribute.String

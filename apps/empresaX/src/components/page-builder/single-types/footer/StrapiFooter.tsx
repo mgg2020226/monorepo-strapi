@@ -26,11 +26,11 @@ export function StrapiFooter({ locale }: { readonly locale: Locale }) {
   return (
     <div className="bg-primary/10 w-full border-t shadow-sm backdrop-blur transition-colors duration-300">
       <Container className="pt-8 pb-4">
-        <div className="flex flex-col justify-between gap-10 lg:flex-row">
+        <div className="grid gap-10 lg:grid-cols-[minmax(14rem,1fr)_minmax(0,2fr)_auto]">
           <div className="flex flex-col items-center justify-center space-y-4 md:items-start md:justify-start">
             <SiteLogo logo={site.logo} siteName={site.name ?? ""} />
             {footer.description && (
-              <Typography className="max-w-80 text-center md:text-left">
+              <Typography className="max-w-80 text-center text-sm md:text-left">
                 {footer.description}
               </Typography>
             )}
@@ -38,7 +38,7 @@ export function StrapiFooter({ locale }: { readonly locale: Locale }) {
 
           <div
             className={cn(
-              "grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
+              "grid min-w-0 grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
             )}
           >
             {footer.columns?.map((section) => (
@@ -46,7 +46,9 @@ export function StrapiFooter({ locale }: { readonly locale: Locale }) {
                 className="flex flex-col items-center md:items-start"
                 key={section.id}
               >
-                <h3 className="pb-2 text-lg font-bold">{section.title}</h3>
+                <h3 className="footer-column-title pb-2 font-semibold">
+                  {section.title}
+                </h3>
 
                 {section.links?.map((link) => (
                   <StrapiLink
@@ -58,7 +60,9 @@ export function StrapiFooter({ locale }: { readonly locale: Locale }) {
               </div>
             ))}
           </div>
-          <ThemeToggle className="absolute top-6 right-6 lg:flex" />
+          <div className="flex items-start justify-center lg:justify-end">
+            <ThemeToggle className="shrink-0" />
+          </div>
         </div>
 
         <div className="flex flex-col-reverse justify-between gap-4 lg:flex-row lg:items-center">

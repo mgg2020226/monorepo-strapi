@@ -21,20 +21,21 @@ Implementación inicial basada en [strapi-next-monorepo-starter](https://github.
 
 | Tipo               | Propósito                         | Campos principales                                                                                                                                                             |
 | ------------------ | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Site`             | Empresa o marca                   | `name`, `slug`, `status`, `logo`, `favicon`, `palette`, `locales`, `header`, `footer`, `socialLinks`, `searchEnabled`, `typesenseCollection`                                   |
+| `Site`             | Empresa o marca                   | `name`, `slug`, `logo`, `favicon`, `palette`, `locales`, `header`, `footer`, `socialLinks`, `searchEnabled`, `typesenseCollection`                                             |
 | `Page`             | Página, landing o página especial | `title`, `slug`, `fullPath`, `site`, `pageType`, `content`, `parent`, `children`, `seo`, `showInNavigation`, `navigationLabel`, `navigationOrder`                              |
-| `BlogPost`         | Artículo de blog                  | `title`, `slug`, `excerpt`, `content`, `coverImage`, `site`, `category`, `tags`, `authorName`, `publishedAt`, `readingTimeMinutes`, `contentStatus`, `seo`, `featured`         |
+| `BlogPost`         | Artículo de blog                  | `title`, `slug`, `excerpt`, `content`, `coverImage`, `site`, `category`, `tags`, `authorName`, `publishedAt`, `readingTimeMinutes`, `seo`, `featured`                          |
 | `BlogCategory`     | Categoría y filtro administrable  | `name`, `slug`, `description`, `color`, `site`, `order`, `active`                                                                                                              |
-| `CalendarEvent`    | Evento                            | `title`, `slug`, `description`, `site`, `startDate`, `startTime`, `endDate`, `endTime`, `location`, `registrationUrl`, `image`, `contentStatus`, `seo`                         |
+| `CalendarEvent`    | Evento                            | `title`, `slug`, `description`, `site`, `startDate`, `startTime`, `endDate`, `endTime`, `location`, `registrationUrl`, `image`, `seo`                                          |
 | `PortfolioProject` | Proyecto o caso de éxito          | `title`, `slug`, `summary`, `content`, `coverImage`, `gallery`, `site`, `externalUrl`, `featured`, `order`, `seo`                                                              |
-| `LegalPage`        | Política o página legal           | `title`, `slug`, `content`, `site`, `legalType`, `version`, `effectiveDate`, `seo`, `contentStatus`                                                                            |
+| `LegalPage`        | Política o página legal           | `title`, `slug`, `content`, `site`, `legalType`, `version`, `effectiveDate`, `seo`                                                                                             |
 | `FormDefinition`   | Definición de formulario          | `name`, `slug`, `site`, `title`, `description`, `fields`, `submitLabel`, `successMessage`, `errorMessage`, `recipientEmail`, `active`, `honeypotEnabled`, `rateLimitPerMinute` |
 | `Subscriber`       | Registro de envíos                | `site`, `formSlug`, `name`, `email`, `message`, `submissionData`                                                                                                               |
-| `CmsUserAccess`    | Alcance administrativo            | `adminUserId`, `email`, `displayName`, `role`, `sites`, `permissions`, `active`, `notes`                                                                                       |
 
 ### Single type
 
 `PlatformSettings` contiene solo configuración global: `defaultLocale`, `availableLocales`, `globalRobotsPolicy`, `securityContactEmail`, `maintenanceMode` y `maintenanceMessage`.
+
+Todos los collection types y single types de la aplicación usan el flujo nativo Draft & Publish de Strapi. Los componentes no tienen publicación independiente: se publican junto con el registro que los contiene. No se mantiene ningún campo editorial personalizado como `status` o `contentStatus`.
 
 Las credenciales de AWS, SMTP y Typesense nunca se almacenan en Strapi.
 
@@ -138,22 +139,7 @@ Los índices iniciales son páginas y artículos. Los documentos incluyen sitio 
 
 ## Acceso administrativo
 
-`CmsUserAccess` no crea un sistema de autenticación paralelo. `adminUserId` vincula cada registro con el usuario administrativo nativo de Strapi.
-
-Los permisos usan los recursos:
-
-```text
-site, page, blog-post, blog-category, calendar-event,
-portfolio-project, legal-page, form-definition, media
-```
-
-Y las acciones:
-
-```text
-read, create, update, delete, publish, unpublish
-```
-
-La relación `sites` documenta en qué empresas puede trabajar cada usuario, pero todavía no restringe por sí sola los CRUD de Strapi. Antes de activar varios equipos editoriales debe añadirse una policy/middleware de alcance por sitio; mientras tanto, el aislamiento administrativo no se considera garantizado.
+El acceso administrativo usa los usuarios, roles y permisos nativos de Strapi. El filtrado multiempresa del frontend por `Site.slug` no sustituye una política de autorización del panel; si se requiere aislamiento fuerte entre empresas, se deben separar las instancias, credenciales o implementar una policy de Strapi.
 
 ## Seguridad
 
@@ -179,7 +165,7 @@ El archivo `.env.example` de Strapi y `.env.local.example` de EmpresaX contienen
 - Proveedor SMTP definitivo de producción.
 - Traducción editorial final al inglés.
 - Revisión de SEO/canonical, sitemap y breadcrumbs en ambos locales.
-- Policy/middleware de alcance por `CmsUserAccess` para los CRUD administrativos.
+- Policy/middleware de alcance por sitio para los CRUD administrativos, si se requiere aislamiento multiempresa.
 - Valores de marca definitivos de cada sitio.
 - Migración de los otros sitios.
 - Retención futura de envíos si se requiere `FormSubmission`.

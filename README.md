@@ -50,7 +50,7 @@ El modelo `Site` representa una empresa/marca, y las páginas, formularios, art�
 1. **Otra empresa con la misma experiencia:** crear otro registro `Site`, asociarle su contenido y mapear su dominio a su `slug` en `SITE_DOMAIN`. Un despliegue de EmpresaX puede resolver varios dominios.
 2. **Frontend o configuración independiente:** desplegar el mismo workspace EmpresaX con variables propias para la empresa. Si se necesitan diferencias de código mantenibles, crear otro workspace y reutilizar `@repo/design-system`, `@repo/sections` y `@repo/shared-data`; no copiar el monorepo como fork.
 
-La primera opción comparte proceso y configuración del frontend. Hoy `APP_PUBLIC_URL` y los locales (`es`, `en`) son configuración global del despliegue, y la paleta guardada en `Site` aún no constituye un sistema completo de tema dinámico por empresa. Además, `CmsUserAccess.sites` documenta alcance, pero no impone aislamiento de los CRUD del panel. Si distintas empresas no deben acceder entre sí, hay que implementar autorización por sitio o separar instancias/credenciales antes de dar acceso editorial.
+La primera opción comparte proceso y configuración del frontend. Hoy `APP_PUBLIC_URL` y los locales (`es`, `en`) son configuración global del despliegue, y la paleta guardada en `Site` aún no constituye un sistema completo de tema dinámico por empresa. Si distintas empresas no deben acceder entre sí, hay que implementar autorización por sitio o separar instancias/credenciales antes de dar acceso editorial.
 
 Consulta los pasos operativos y límites en [EmpresaX](./apps/empresaX/README.md) y [Strapi](./apps/strapi/README.md).
 

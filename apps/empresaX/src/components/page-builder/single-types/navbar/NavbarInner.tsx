@@ -44,7 +44,10 @@ export function NavbarInner({
               )}
               <div className="flex h-8 w-px flex-1 bg-black/70" />
               {siteData?.header?.showCta && siteData.header.cta ? (
-                <StrapiLink component={siteData.header.cta} />
+                <StrapiLink
+                  component={siteData.header.cta}
+                  className="h-auto min-h-8 w-fit px-4 py-1.5"
+                />
               ) : null}
             </div>
             <NavbarMobileToggle />

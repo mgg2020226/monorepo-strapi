@@ -18,7 +18,6 @@ declare module "@strapi/strapi" {
       "api::blog-category.blog-category": ProjectCollectionType
       "api::blog-post.blog-post": ProjectCollectionType
       "api::calendar-event.calendar-event": ProjectCollectionType
-      "api::cms-user-access.cms-user-access": ProjectCollectionType
       "api::form-definition.form-definition": ProjectCollectionType
       "api::legal-page.legal-page": ProjectCollectionType
       "api::platform-settings.platform-settings": ProjectCollectionType

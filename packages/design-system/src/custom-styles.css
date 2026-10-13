@@ -1,3 +1,11 @@
+.app-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+}
+
 .ck-editor__main .image,
 .ck-content .image {
   @apply mb-0!;

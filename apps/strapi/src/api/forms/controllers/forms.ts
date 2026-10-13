@@ -26,9 +26,10 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
     const form = (await strapi
       .documents("api::form-definition.form-definition")
       .findFirst({
+        status: "published",
         filters: {
           slug: formSlug,
-          site: { slug: siteSlug, status: "active" },
+          site: { slug: siteSlug },
         },
         populate: {
           fields: { populate: { options: true } },

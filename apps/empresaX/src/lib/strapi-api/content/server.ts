@@ -14,10 +14,6 @@ async function getContentStatus() {
   return (await draftMode()).isEnabled ? "draft" : "published"
 }
 
-async function getPublishedContentStatusFilter() {
-  return (await draftMode()).isEnabled ? undefined : "published"
-}
-
 // ------ Page fetching functions
 export async function fetchPage(
   fullPath: string,
@@ -98,6 +94,7 @@ export async function fetchSeo(
   try {
     return await PublicStrapiClient.fetchOneByFullPath(uid, fullPath, {
       locale,
+      status: await getContentStatus(),
       filters: { site: { slug: await getSiteSlugFromRequest() } },
       populate: {
         seo: "smart",
@@ -123,10 +120,8 @@ export async function fetchSite(locale: Locale) {
       "api::site.site",
       {
         locale,
-        filters: {
-          slug: await getSiteSlugFromRequest(),
-          status: "active",
-        },
+        status: await getContentStatus(),
+        filters: { slug: await getSiteSlugFromRequest() },
         populate: {
           logo: true,
           header: "smart",
@@ -160,15 +155,10 @@ type SiteScopedContentUid =
   | "api::legal-page.legal-page"
 
 export async function fetchBlogPosts(locale: Locale) {
-  const contentStatus = await getPublishedContentStatusFilter()
-
   return PublicStrapiClient.fetchAll("api::blog-post.blog-post", {
     locale,
     status: await getContentStatus(),
-    filters: {
-      site: { slug: await getSiteSlugFromRequest() },
-      ...(contentStatus && { contentStatus }),
-    },
+    filters: { site: { slug: await getSiteSlugFromRequest() } },
     populate: {
       seo: "smart",
       coverImage: "smart",
@@ -180,15 +170,10 @@ export async function fetchBlogPosts(locale: Locale) {
 }
 
 export async function fetchBlogPost(slug: string, locale: Locale) {
-  const contentStatus = await getPublishedContentStatusFilter()
-
   return PublicStrapiClient.fetchOneBySlug("api::blog-post.blog-post", slug, {
     locale,
     status: await getContentStatus(),
-    filters: {
-      site: { slug: await getSiteSlugFromRequest() },
-      ...(contentStatus && { contentStatus }),
-    },
+    filters: { site: { slug: await getSiteSlugFromRequest() } },
     populate: {
       seo: "smart",
       coverImage: "smart",
@@ -200,33 +185,23 @@ export async function fetchBlogPost(slug: string, locale: Locale) {
 }
 
 export async function fetchCalendarEvents(locale: Locale) {
-  const contentStatus = await getPublishedContentStatusFilter()
-
   return PublicStrapiClient.fetchAll("api::calendar-event.calendar-event", {
     locale,
     status: await getContentStatus(),
-    filters: {
-      site: { slug: await getSiteSlugFromRequest() },
-      ...(contentStatus && { contentStatus }),
-    },
+    filters: { site: { slug: await getSiteSlugFromRequest() } },
     populate: { seo: "smart", image: "smart" },
     sort: { startDate: "asc", startTime: "asc" },
   })
 }
 
 export async function fetchCalendarEvent(slug: string, locale: Locale) {
-  const contentStatus = await getPublishedContentStatusFilter()
-
   return PublicStrapiClient.fetchOneBySlug(
     "api::calendar-event.calendar-event",
     slug,
     {
       locale,
       status: await getContentStatus(),
-      filters: {
-        site: { slug: await getSiteSlugFromRequest() },
-        ...(contentStatus && { contentStatus }),
-      },
+      filters: { site: { slug: await getSiteSlugFromRequest() } },
       populate: { seo: "smart", image: "smart", localizations: true },
     }
   )
@@ -264,30 +239,20 @@ export async function fetchPortfolioProject(slug: string, locale: Locale) {
 }
 
 export async function fetchLegalPages(locale: Locale) {
-  const contentStatus = await getPublishedContentStatusFilter()
-
   return PublicStrapiClient.fetchAll("api::legal-page.legal-page", {
     locale,
     status: await getContentStatus(),
-    filters: {
-      site: { slug: await getSiteSlugFromRequest() },
-      ...(contentStatus && { contentStatus }),
-    },
+    filters: { site: { slug: await getSiteSlugFromRequest() } },
     populate: { seo: "smart" },
     sort: { legalType: "asc", title: "asc" },
   })
 }
 
 export async function fetchLegalPage(slug: string, locale: Locale) {
-  const contentStatus = await getPublishedContentStatusFilter()
-
   return PublicStrapiClient.fetchOneBySlug("api::legal-page.legal-page", slug, {
     locale,
     status: await getContentStatus(),
-    filters: {
-      site: { slug: await getSiteSlugFromRequest() },
-      ...(contentStatus && { contentStatus }),
-    },
+    filters: { site: { slug: await getSiteSlugFromRequest() } },
     populate: { seo: "smart", localizations: true },
   })
 }
@@ -301,6 +266,7 @@ export async function fetchFormDefinition(formSlug: string, locale: Locale) {
       formSlug,
       {
         locale,
+        status: await getContentStatus(),
         filters: {
           active: true,
           site: { slug: await getSiteSlugFromRequest() },

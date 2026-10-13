@@ -32,7 +32,7 @@ export function AppLink({
   ...props
 }: AppLinkProps) {
   const combinedClassName = cn(
-    "group flex flex-row items-center gap-2",
+    "app-link group flex-row items-center justify-center gap-2 text-center leading-normal",
     buttonVariants({ variant, size }),
     className
   )
