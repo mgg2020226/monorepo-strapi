@@ -20,7 +20,7 @@ export function DesktopNavigation({
 
   return (
     <NavigationMenu viewport={false} className="hidden lg:flex">
-      <NavigationMenuList className="flex items-center gap-2">
+      <NavigationMenuList className="[margin:0] flex items-center gap-2 [padding:0] [list-style:none]">
         {siteNavigationItems?.map((item) => (
           <NavigationMenuItem key={item.id} className="relative">
             <StrapiLink
