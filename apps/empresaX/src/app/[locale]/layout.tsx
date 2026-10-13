@@ -4,9 +4,9 @@ import { Toaster } from "@repo/design-system/ui/sonner"
 import { ThemeProvider } from "@teispace/next-themes"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import Script from "next/script"
 import { setRequestLocale } from "next-intl/server"
 
+import { CsrConfigScript } from "@/components/elementary/CsrConfigScript"
 import { ErrorBoundary } from "@/components/elementary/ErrorBoundary"
 import { TailwindIndicator } from "@/components/elementary/TailwindIndicator"
 import StrapiFooter from "@/components/page-builder/single-types/footer/StrapiFooter"
@@ -87,11 +87,6 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <head>
-        <Script id="csr-config" strategy="beforeInteractive">
-          {csrConfigScript}
-        </Script>
-      </head>
       <body
         className={cn(
           "min-h-screen antialiased",
@@ -99,6 +94,7 @@ export default async function RootLayout({
           fontRoboto.variable
         )}
       >
+        <CsrConfigScript content={csrConfigScript} />
         <TrackingScripts />
         <ThemeProvider
           attribute="class"
