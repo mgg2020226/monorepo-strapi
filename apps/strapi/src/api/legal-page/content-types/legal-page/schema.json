@@ -12,7 +12,6 @@
     "legalType": { "type": "enumeration", "enum": ["privacy", "cookies", "terms", "accessibility", "other"], "required": true },
     "version": { "type": "string" },
     "effectiveDate": { "type": "date" },
-    "seo": { "type": "component", "component": "seo.metadata", "repeatable": false, "pluginOptions": { "i18n": { "localized": true } } },
-    "contentStatus": { "type": "enumeration", "enum": ["draft", "published", "archived"], "default": "draft", "required": true }
+    "seo": { "type": "component", "component": "seo.metadata", "repeatable": false, "pluginOptions": { "i18n": { "localized": true } } }
   }
 }

@@ -58,9 +58,6 @@
         "nosnippet",
         "max-snippet"
       ]
-    },
-    "structuredData": {
-      "type": "json"
     }
   }
 }

@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "form_definitions",
   "info": { "singularName": "form-definition", "pluralName": "form-definitions", "displayName": "Form definition" },
-  "options": { "draftAndPublish": false },
+  "options": { "draftAndPublish": true },
   "pluginOptions": { "i18n": { "localized": true } },
   "attributes": {
     "name": { "type": "string", "required": true },

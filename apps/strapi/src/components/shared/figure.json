@@ -15,11 +15,7 @@
       "type": "string"
     },
     "description": {
-      "type": "customField",
-      "customField": "plugin::ckeditor5.CKEditor",
-      "options": {
-        "preset": "defaultCkEditor"
-      }
+      "type": "string"
     }
   },
   "config": {}

@@ -67,7 +67,7 @@ Si otra empresa necesita una identidad o comportamiento realmente diferente, cre
 - El mapeo de dominios y el filtrado de contenido por slug están implementados.
 - `APP_PUBLIC_URL` y los idiomas soportados por Next (`es`, `en`) son globales al despliegue; `Site.locales` no crea rutas Next dinámicamente por marca.
 - `Site.palette` existe en el CMS, pero el tema del frontend todavía no se deriva íntegramente de esa paleta.
-- El filtro por `Site` en las consultas del frontend no sustituye autorización del panel. `CmsUserAccess.sites` aún no restringe por sí mismo las operaciones CRUD de Strapi.
+- El filtro por `Site` en las consultas del frontend no sustituye autorización del panel. Las operaciones CRUD de Strapi usan sus roles y permisos nativos.
 - El tipo de datos generado (`@repo/strapi-types`) representa el esquema de la instancia Strapi del monorepo. Si se separan instancias con esquemas divergentes, hay que planear y generar tipos para cada contrato.
 
 No conceder acceso a equipos de empresas diferentes en una instancia compartida hasta implementar y probar el alcance por sitio. Para aislamiento fuerte, usar instancias separadas de Strapi y bases de datos/credenciales separadas.

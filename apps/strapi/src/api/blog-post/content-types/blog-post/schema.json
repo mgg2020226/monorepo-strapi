@@ -16,7 +16,6 @@
     "authorName": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
     "publishedAt": { "type": "datetime", "required": true },
     "readingTimeMinutes": { "type": "integer" },
-    "contentStatus": { "type": "enumeration", "enum": ["draft", "published", "archived"], "default": "draft", "required": true },
     "seo": { "type": "component", "component": "seo.metadata", "repeatable": false, "pluginOptions": { "i18n": { "localized": true } } },
     "featured": { "type": "boolean", "default": false }
   }

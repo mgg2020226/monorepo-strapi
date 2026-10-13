@@ -7,7 +7,7 @@
     "displayName": "Subscriber"
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {

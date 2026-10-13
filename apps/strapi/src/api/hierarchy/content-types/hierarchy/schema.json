@@ -8,7 +8,7 @@
     "description": "Page hierarchy management: lists pending fullPath changes and applies them together with redirects."
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "attributes": {
     "lastRecalculationAt": {

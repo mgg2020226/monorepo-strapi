@@ -5,6 +5,18 @@
 
 @plugin "tailwindcss-animate";
 
+.footer-column-title {
+  margin-bottom: 0.5rem !important;
+  font-size: 1rem !important;
+  line-height: 1.25 !important;
+}
+
+@media (width >= 40rem) {
+  .footer-column-title {
+    font-size: 1.125rem !important;
+  }
+}
+
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
