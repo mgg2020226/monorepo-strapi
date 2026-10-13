@@ -5,6 +5,77 @@
 
 @plugin "tailwindcss-animate";
 
+.site-theme {
+  color-scheme: light;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--site-font-body, var(--font-roboto, var(--font-sans)));
+}
+
+.dark .site-theme,
+.site-theme[data-contrast-mode="dark"] {
+  color-scheme: dark;
+  --color-background: #000000 !important;
+  --color-foreground: #ffffff !important;
+  --color-card: #000000 !important;
+  --color-card-foreground: #ffffff !important;
+  --color-popover: #000000 !important;
+  --color-popover-foreground: #ffffff !important;
+  --color-primary: #ffffff !important;
+  --color-primary-foreground: #000000 !important;
+  --color-secondary: #000000 !important;
+  --color-secondary-foreground: #ffffff !important;
+  --color-accent: #ffffff !important;
+  --color-accent-foreground: #000000 !important;
+  --color-muted: #000000 !important;
+  --color-muted-foreground: #ffffff !important;
+  --color-destructive: #ffffff !important;
+  --color-destructive-foreground: #000000 !important;
+  --color-border: #ffffff !important;
+  --color-input: #000000 !important;
+  --color-ring: #ffffff !important;
+}
+
+.dark .site-theme :is(
+    [class*="text-gray-"],
+    [class*="text-red-"],
+    [class~="text-black"],
+    [class*="dark:text-black"],
+    [class*="text-white/"],
+    [class*="text-black/"],
+    [class*="text-primary/"],
+    [class*="text-secondary/"],
+    [class*="text-accent/"],
+    [class*="text-destructive/"],
+    [class*="text-muted-foreground/"]
+  ),
+.site-theme[data-contrast-mode="dark"] :is(
+    [class*="text-gray-"],
+    [class*="text-red-"],
+    [class~="text-black"],
+    [class*="dark:text-black"],
+    [class*="text-white/"],
+    [class*="text-black/"],
+    [class*="text-primary/"],
+    [class*="text-secondary/"],
+    [class*="text-accent/"],
+    [class*="text-destructive/"],
+    [class*="text-muted-foreground/"]
+  ) {
+  color: var(--color-foreground) !important;
+}
+
+.site-theme[data-contrast-mode="auto"] {
+  color-scheme: light dark;
+}
+
+.site-theme :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(
+    --site-font-heading,
+    var(--site-font-body, var(--font-roboto, var(--font-sans)))
+  );
+}
+
 .footer-column-title {
   margin-bottom: 0.5rem !important;
   font-size: 1rem !important;

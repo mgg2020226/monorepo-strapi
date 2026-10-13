@@ -4,16 +4,16 @@ import { Container } from "@repo/design-system/elementary/Container"
 import { ThemeToggle } from "@repo/design-system/elementary/ThemeToggle"
 import Typography from "@repo/design-system/typography"
 import StrapiLink from "@repo/sections/utilities/StrapiLink"
-import type { Locale } from "next-intl"
-import { use } from "react"
+import type { Data } from "@repo/strapi-types"
 
 import { SiteLogo } from "@/components/page-builder/single-types/SiteLogo"
-import { fetchSite } from "@/lib/strapi-api/content/server"
 import { cn } from "@/lib/styles"
 
-export function StrapiFooter({ locale }: { readonly locale: Locale }) {
-  const response = use(fetchSite(locale))
-  const site = response?.data?.[0]
+export function StrapiFooter({
+  site,
+}: {
+  readonly site: Data.ContentType<"api::site.site"> | null
+}) {
   const footer = site?.footer
 
   if (site == null || footer == null) {

@@ -46,7 +46,7 @@ export function NavbarInner({
               {siteData?.header?.showCta && siteData.header.cta ? (
                 <StrapiLink
                   component={siteData.header.cta}
-                  className="h-auto min-h-8 w-fit px-4 py-1.5 text-white"
+                  className="text-primary-foreground h-auto min-h-8 w-fit px-4 py-1.5"
                 />
               ) : null}
             </div>

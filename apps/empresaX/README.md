@@ -66,7 +66,7 @@ Si otra empresa necesita una identidad o comportamiento realmente diferente, cre
 
 - El mapeo de dominios y el filtrado de contenido por slug están implementados.
 - `APP_PUBLIC_URL` y los idiomas soportados por Next (`es`, `en`) son globales al despliegue; `Site.locales` no crea rutas Next dinámicamente por marca.
-- `Site.palette` existe en el CMS, pero el tema del frontend todavía no se deriva íntegramente de esa paleta.
+- `Site.palette` se aplica como variables CSS del sitio para colores, contraste de texto en botones, radios y familias tipográficas. En modo oscuro, la interfaz usa únicamente negro y blanco, incluidos los roles primary, secondary, accent y destructive; en modo claro se conserva la paleta del CMS. `contrastMode` ajusta `color-scheme`. Los nombres de fuente deben estar disponibles para el navegador; el CMS no descarga fuentes automáticamente.
 - El filtro por `Site` en las consultas del frontend no sustituye autorización del panel. Las operaciones CRUD de Strapi usan sus roles y permisos nativos.
 - El tipo de datos generado (`@repo/strapi-types`) representa el esquema de la instancia Strapi del monorepo. Si se separan instancias con esquemas divergentes, hay que planear y generar tipos para cada contrato.
 

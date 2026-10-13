@@ -124,6 +124,7 @@ export async function fetchSite(locale: Locale) {
         filters: { slug: await getSiteSlugFromRequest() },
         populate: {
           logo: true,
+          palette: true,
           header: "smart",
           footer: "smart",
           socialLinks: "smart",

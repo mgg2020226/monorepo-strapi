@@ -1,6 +1,7 @@
 import "@/styles/globals.css"
 
 import { Toaster } from "@repo/design-system/ui/sonner"
+import type { Data } from "@repo/strapi-types"
 import { ThemeProvider } from "@teispace/next-themes"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
@@ -17,6 +18,8 @@ import TrackingScripts from "@/components/providers/TrackingScripts"
 import { debugStaticParams } from "@/lib/build"
 import { fontRoboto } from "@/lib/fonts"
 import { isValidLocale, routing } from "@/lib/navigation"
+import { createSiteThemeStyle } from "@/lib/site-theme"
+import { fetchSite } from "@/lib/strapi-api/content/server"
 import { cn } from "@/lib/styles"
 
 export function generateStaticParams() {
@@ -51,6 +54,12 @@ export default async function RootLayout({
   // Enable static rendering
   // https://next-intl-docs.vercel.app/docs/getting-started/app-router/with-i18n-routing#static-rendering
   setRequestLocale(locale)
+  const siteResponse = await fetchSite(locale)
+  const siteData = siteResponse?.data?.[0] as
+    | Data.ContentType<"api::site.site">
+    | undefined
+  const palette = siteData?.palette
+  const themeStyle = createSiteThemeStyle(palette)
 
   /**
    * This allows you to make following env variables RUNTIME.
@@ -104,9 +113,13 @@ export default async function RootLayout({
         >
           <ServerProviders>
             <ClientProviders>
-              <div className="relative flex min-h-screen flex-col">
+              <div
+                className="site-theme text-foreground relative flex min-h-screen flex-col"
+                data-contrast-mode={palette?.contrastMode ?? "light"}
+                style={themeStyle}
+              >
                 <ErrorBoundary showErrorMessage>
-                  <StrapiNavbar locale={locale} />
+                  <StrapiNavbar locale={locale} siteData={siteData ?? null} />
                 </ErrorBoundary>
 
                 <div className="flex-1">
@@ -118,7 +131,7 @@ export default async function RootLayout({
                 <Toaster />
 
                 <ErrorBoundary hideFallback>
-                  <StrapiFooter locale={locale} />
+                  <StrapiFooter site={siteData ?? null} />
                 </ErrorBoundary>
               </div>
             </ClientProviders>
