@@ -1003,7 +1003,7 @@ export interface SiteLocaleConfig extends Struct.ComponentSchema {
   attributes: {
     enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>
     isDefault: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
-    locale: Schema.Attribute.Enumeration<["es", "en", "es-CO"]> &
+    locale: Schema.Attribute.Enumeration<["es", "en"]> &
       Schema.Attribute.Required
   }
 }

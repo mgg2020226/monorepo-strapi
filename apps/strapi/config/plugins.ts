@@ -32,7 +32,7 @@ export default ({ env }) => {
       enabled: true,
       config: {
         defaultLocale: "es",
-        locales: ["es", "en", "es-CO"],
+        locales: ["es", "en"],
       },
     },
 

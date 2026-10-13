@@ -1074,11 +1074,11 @@ export interface ApiPlatformSettingsPlatformSettings
   attributes: {
     availableLocales: Schema.Attribute.JSON &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<["es", "en", "es-CO"]>
+      Schema.Attribute.DefaultTo<["es", "en"]>
     createdAt: Schema.Attribute.DateTime
     createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
       Schema.Attribute.Private
-    defaultLocale: Schema.Attribute.Enumeration<["es", "en", "es-CO"]> &
+    defaultLocale: Schema.Attribute.Enumeration<["es", "en"]> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<"es">
     globalRobotsPolicy: Schema.Attribute.Enumeration<["index", "noindex"]> &
