@@ -95,7 +95,8 @@ export default async function RootLayout({
       </head>
       <body
         className={cn(
-          "min-h-screen font-sans antialiased",
+          "min-h-screen antialiased",
+          fontRoboto.className,
           fontRoboto.variable
         )}
       >
