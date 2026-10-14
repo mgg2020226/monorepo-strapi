@@ -11,33 +11,9 @@
       "component": "utilities.link",
       "repeatable": true
     },
-    "description": {
-      "type": "customField",
-      "customField": "plugin::ckeditor5.CKEditor",
-      "options": {
-        "preset": "defaultCkEditor"
-      }
-    },
-    "tag": {
-      "type": "customField",
-      "customField": "plugin::ckeditor5.CKEditor",
-      "options": {
-        "preset": "defaultCkEditor"
-      }
-    },
-    "note": {
-      "type": "customField",
-      "customField": "plugin::ckeditor5.CKEditor",
-      "options": {
-        "preset": "defaultCkEditor"
-      }
-    },
-    "title": {
-      "type": "customField",
-      "customField": "plugin::ckeditor5.CKEditor",
-      "options": {
-        "preset": "defaultCkEditor"
-      }
-    }
+    "description":  { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "tag":  { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "note":  { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "title":  { "type": "text", "pluginOptions": { "i18n": { "localized": true } } }
   }
 }
