@@ -3,8 +3,17 @@
   "info": { "displayName": "Dynamic form", "icon": "forms" },
   "options": {},
   "attributes": {
+    "anchor": { "type": "string" },
     "formSlug": { "type": "string", "required": true },
-    "style": { "type": "component", "component": "ui.style", "repeatable": false },
-    "motion": { "type": "component", "component": "ui.motion", "repeatable": false }
+    "style": {
+      "type": "component",
+      "component": "ui.style",
+      "repeatable": false
+    },
+    "motion": {
+      "type": "component",
+      "component": "ui.motion",
+      "repeatable": false
+    }
   }
 }

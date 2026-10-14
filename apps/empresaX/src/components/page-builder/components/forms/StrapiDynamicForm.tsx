@@ -30,6 +30,8 @@ export async function StrapiDynamicForm({
 
   if (!form) return null
 
+  const anchor = normalizeFormAnchor(component.anchor)
+
   const definition: DynamicFormDefinition = {
     title: form.title,
     description: form.description,
@@ -41,7 +43,7 @@ export async function StrapiDynamicForm({
   }
 
   return (
-    <div id={`form-section-${formSlug}`}>
+    <div id={anchor ?? `form-section-${formSlug}`}>
       <Container className="flex flex-col gap-10 lg:gap-20">
         <div className="flex flex-1">
           <div className="mx-auto flex max-w-100 flex-col gap-4 text-center">
@@ -72,4 +74,10 @@ function normalizeFields(fields: DynamicFormField[] | null | undefined) {
     ...field,
     options: field.options ?? [],
   }))
+}
+
+function normalizeFormAnchor(anchor: string | null | undefined) {
+  const normalizedAnchor = anchor?.trim().replace(/^#/, "")
+
+  return normalizedAnchor || undefined
 }

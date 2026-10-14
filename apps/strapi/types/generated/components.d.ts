@@ -161,6 +161,7 @@ export interface FormsDynamicForm extends Struct.ComponentSchema {
     icon: "forms"
   }
   attributes: {
+    anchor: Schema.Attribute.String
     formSlug: Schema.Attribute.String & Schema.Attribute.Required
     motion: Schema.Attribute.Component<"ui.motion", false>
     style: Schema.Attribute.Component<"ui.style", false>
@@ -473,35 +474,31 @@ export interface SectionsHero extends Struct.ComponentSchema {
     displayName: "Hero"
   }
   attributes: {
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        "plugin::ckeditor5.CKEditor",
-        {
-          preset: "defaultCkEditor"
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
         }
-      >
+      }>
     links: Schema.Attribute.Component<"utilities.link", true>
-    note: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        "plugin::ckeditor5.CKEditor",
-        {
-          preset: "defaultCkEditor"
+    note: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
         }
-      >
-    tag: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        "plugin::ckeditor5.CKEditor",
-        {
-          preset: "defaultCkEditor"
+      }>
+    tag: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
         }
-      >
-    title: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        "plugin::ckeditor5.CKEditor",
-        {
-          preset: "defaultCkEditor"
+      }>
+    title: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
         }
-      >
+      }>
   }
 }
 

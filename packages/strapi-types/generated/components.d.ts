@@ -161,6 +161,7 @@ export interface FormsDynamicForm extends Struct.ComponentSchema {
     icon: "forms"
   }
   attributes: {
+    anchor: Schema.Attribute.String
     formSlug: Schema.Attribute.String & Schema.Attribute.Required
     motion: Schema.Attribute.Component<"ui.motion", false>
     style: Schema.Attribute.Component<"ui.style", false>
