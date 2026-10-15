@@ -50,8 +50,7 @@
           "localized": true
         }
       },
-      "required": false,
-      "unique": true
+      "required": false
     },
     "site": {
       "type": "relation",
