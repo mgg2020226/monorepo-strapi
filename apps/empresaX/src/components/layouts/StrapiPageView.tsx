@@ -41,13 +41,15 @@ export default function StrapiPageView({ params, searchParams }: Props) {
       <StrapiStructuredData structuredData={data?.seo?.structuredData} />
 
       <main className={cn("flex w-full flex-col overflow-hidden")}>
-        <Container className="mb-10 md:mb-20">
-          <Breadcrumbs
-            breadcrumbs={response?.meta?.breadcrumbs}
-            className="mt-6 mb-6"
-            locale={locale}
-          />
-        </Container>
+        {params.rest?.length ? (
+          <Container className="mb-10 md:mb-20">
+            <Breadcrumbs
+              breadcrumbs={response?.meta?.breadcrumbs}
+              className="mt-6 mb-6"
+              locale={locale}
+            />
+          </Container>
+        ) : null}
 
         {content
           .filter((comp) => comp != null)
