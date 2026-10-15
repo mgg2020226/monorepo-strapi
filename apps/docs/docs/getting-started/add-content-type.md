@@ -223,7 +223,7 @@ So other developers see the same example without re-typing. Create sample produc
 pnpm seed:export
 ```
 
-Commit the new `seed/exports/strapi-export-YYYY-MM-DD-HHmmss.tar.gz` alongside the schema. New developers will receive the data the next time they run `pnpm dev` (the seed runner auto-imports when baseline content is missing). See [Data Seeding](../strapi/data-seeding.md).
+Commit the new `seed/exports/strapi-export-YYYY-MM-DD-HHmmss.tar.gz` alongside the schema. Developers can import it manually with `pnpm seed:import`. See [Data Seeding](../strapi/data-seeding.md).
 
 ## Related Documentation
 

@@ -170,11 +170,9 @@ Common package-only scripts:
 ```bash
 pnpm -F @repo/strapi config:dump        # Dump Strapi configuration to dump.json
 pnpm -F @repo/strapi config:restore     # Restore Strapi configuration from dump.json
-pnpm -F @repo/strapi develop            # Start Strapi through the seed runner
-pnpm -F @repo/strapi develop:plain      # Start plain strapi develop
+pnpm -F @repo/strapi develop            # Start Strapi in develop mode
 pnpm -F @repo/strapi develop:watch      # Start Strapi and watch admin changes
 pnpm -F @repo/strapi generate           # Run Strapi generator
-pnpm -F @repo/strapi start:plain        # Start plain strapi start
 pnpm -F @repo/strapi strapi             # Run Strapi CLI
 pnpm -F @repo/strapi test:watch         # Vitest watch mode for Strapi
 pnpm -F @repo/empresax preview                # Build and start Next.js

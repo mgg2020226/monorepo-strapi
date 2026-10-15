@@ -40,7 +40,7 @@ pnpm dev:strapi
 pnpm dev:empresax
 ```
 
-`pnpm dev:strapi` connects to the PostgreSQL service configured in `apps/strapi/.env` and runs the seed check before Strapi starts.
+`pnpm dev:strapi` connects to the PostgreSQL service configured in `apps/strapi/.env`. It does not import seed data automatically; use `pnpm seed:import` from the repository root when needed.
 
 See [Quick Start](../getting-started/quick-start.md) and [Commands Reference](../reference/commands.md).
 

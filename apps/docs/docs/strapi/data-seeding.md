@@ -4,9 +4,9 @@ sidebar_position: 4
 
 # Data Seeding
 
-Data seeding gives every developer a working Strapi database without rebuilding the same pages, navigation, footer, roles, and demo content by hand.
+Data seeding lets developers share Strapi pages, navigation, footer, roles, and demo content.
 
-The starter stores Strapi exports in the repository and can import the latest one automatically when baseline content is missing. This keeps local development close to the expected UI state: pages resolve, page-builder components have example content, and shared single types such as Navbar and Footer exist.
+The starter stores Strapi exports in the repository. Imports are manual and can be used to initialize or refresh a development database.
 
 Use seed exports when a change needs content or configuration to travel with the code. Typical examples are new page-builder components, changed component schemas, updated demo pages, or baseline content required by the UI.
 
@@ -22,18 +22,7 @@ apps/strapi/seed/exports/strapi-export-YYYY-MM-DD-HHmmss.tar.gz
 
 The newest timestamped export is treated as the current seed. There is no separate promotion step.
 
-When Strapi starts through the default scripts, `scripts/seed-runner.mjs` can run before the Strapi server starts:
-
-1. Load `.env`.
-2. Run `scripts/seed-check.mjs`.
-3. Load a Strapi instance without starting the HTTP server.
-4. Check whether baseline content exists through the Documents API:
-   - `Page`
-   - `Navbar`
-   - `Footer`
-5. If required content is missing, run `scripts/seed-import.sh`.
-6. Import the latest timestamped export.
-7. Start Strapi normally.
+Strapi starts without checking or importing seed data. To inspect whether baseline content exists, run `pnpm seed:check`; to import the latest export, run `pnpm seed:import` explicitly.
 
 ## Commands
 
@@ -42,38 +31,16 @@ All commands run from the **monorepo root** via Turbo.
 Seed import and export scripts require `bash`. On Windows, use WSL, Git Bash, or another shell with Bash available.
 
 ```bash
-pnpm seed:check   # Check whether Page, Navbar, and Footer content exists
+pnpm seed:check   # Check whether Page and Site content exists
 pnpm seed:import  # Import the latest timestamped seed export
 pnpm seed:export  # Create a new timestamped seed export
 ```
 
 `seed:export` keeps only the latest 5 exports.
 
-## Auto Seed Configuration
-
-Automatic seeding is controlled by:
-
-```bash
-AUTO_SEED_ENABLED=true
-AUTO_SEED_MODE=empty
-```
-
-`AUTO_SEED_ENABLED` defaults to `true` for `strapi develop` and `false` for `strapi start` when the variable is not set.
-
-Available modes:
-
-- `empty` - import the latest seed export only when page, navbar, or footer content is missing
-- `prompt` - ask before importing or overwriting content in an interactive terminal
-- `force` - always import the latest seed export; this overwrites existing data
-- `skip` - never import
-
-For deployed environments, usually keep `AUTO_SEED_ENABLED=false` unless the environment should self-initialize (`empty` mode) or refilled (`force` mode).
-
 ## Local Development Workflow
 
-For normal development, start Strapi with `dev` script.
-
-On startup, Strapi imports the newest seed export if baseline content is missing. This gives new developers a working local database without manual content setup.
+For normal development, start Strapi with `pnpm dev:strapi`. When you need the shared content, run `pnpm seed:import` manually. Imports overwrite existing Strapi data, so export or otherwise preserve local work first.
 
 ## PR Workflow
 
@@ -90,13 +57,11 @@ When a PR creates or changes Strapi collections, components, single types, or co
 3. Commit the new `seed/exports/strapi-export-YYYY-MM-DD-HHmmss.tar.gz`.
 4. Open the PR with the schema/type/content changes and the new seed export together.
 
-Other developers will pick up the new export when they pull the branch. On the next Strapi start, their local database will be seeded automatically if baseline content is missing. If they already have local content and need to apply the new export, they can run from root:
+Other developers can import the new export after pulling the branch by running from root:
 
 ```bash
 pnpm seed:import
 ```
-
-Or they can start Strapi with `AUTO_SEED_MODE=force` to automatically import the new seed on startup.
 
 Importing a Strapi export **overwrites existing data**, so developers should export or otherwise preserve local work before importing over it.
 

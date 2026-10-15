@@ -55,9 +55,9 @@ Antes de dar acceso a editores de varias empresas, implementar y probar una poli
 
 Variables mínimas: `APP_KEYS`, `API_TOKEN_SALT`, `ADMIN_JWT_SECRET`, `JWT_SECRET`, `DATABASE_CLIENT=postgres`, `DATABASE_HOST`, `DATABASE_PORT`, `DATABASE_NAME`, `DATABASE_USERNAME` y `DATABASE_PASSWORD`. También puede usarse `DATABASE_URL`.
 
-### Importante sobre seed y registros manuales
+### Seed y registros manuales
 
-El comando de desarrollo del workspace ejecuta el seed runner. En el ejemplo, `AUTO_SEED_ENABLED=true` y `AUTO_SEED_MODE=empty`: se importa el seed cuando faltan contenidos iniciales (página/navbar/footer). Para una instalación ya inicializada, los registros se pueden crear desde el panel; evita `AUTO_SEED_MODE=force`, porque puede sobrescribir contenido al iniciar. En producción, revisa explícitamente las variables y usa `pnpm start` según el procedimiento de despliegue.
+Strapi no importa seeds automáticamente al iniciar. Si necesitas los datos de ejemplo, impórtalos manualmente desde la raíz con `pnpm seed:import`. La importación reemplaza los datos de Strapi; exporta o respalda el contenido local antes de usarla. También puedes crear los registros desde el panel.
 
 Los `.env` son locales y no deben añadirse al control de versiones. Las variables opcionales de email, almacenamiento, Typesense, observabilidad y revalidación están descritas en `.env.example`.
 

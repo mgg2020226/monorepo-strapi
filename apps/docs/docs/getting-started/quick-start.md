@@ -18,12 +18,7 @@ All app commands run from the **monorepo root** via Turbo (`pnpm dev:strapi`, `p
 pnpm dev:strapi
 ```
 
-This:
-
-    1. Connects to the PostgreSQL instance configured in `apps/strapi/.env`.
-
-2. Auto-imports the latest seed export when baseline content (`Page`, `Navbar`, `Footer`) is missing. See [Data Seeding](../strapi/data-seeding.md).
-3. Starts Strapi in develop mode with hot reload.
+This connects to the PostgreSQL instance configured in `apps/strapi/.env` and starts Strapi in develop mode with hot reload. Seed data must be imported manually when needed; see [Data Seeding](../strapi/data-seeding.md).
 
 Default endpoints:
 

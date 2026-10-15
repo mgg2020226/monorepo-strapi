@@ -115,8 +115,6 @@ heroku config:set -a "$app_name" STRAPI_REVALIDATE_SECRET="$(openssl rand -base6
 # Optional - uncomment when needed
 # heroku config:set -a "$app_name" STRAPI_PREVIEW_SECRET="$(openssl rand -base64 32)"
 # heroku config:set -a "$app_name" STRAPI_CDN_PURGE_SECRET="$(openssl rand -base64 32)"
-# heroku config:set -a "$app_name" AUTO_SEED_ENABLED=true
-# heroku config:set -a "$app_name" AUTO_SEED_MODE=empty
 
 # Optionally set the client app URL, e.g. for forgot-password emails,
 # confirmation emails, and links from Strapi to the UI.
@@ -132,13 +130,13 @@ Heroku dyno filesystems are ephemeral. Use [S3](../../strapi/plugins/upload-prov
 The repository currently includes `apps/strapi/Procfile`:
 
 ```Procfile
-web: cd apps/strapi && node scripts/seed-runner.mjs start
+web: cd apps/strapi && pnpm start
 ```
 
-This starts Strapi through the seed runner. Configure seed-related variables intentionally for each environment.
+This starts Strapi directly. Seed imports are manual; run `pnpm run seed:import` from the Strapi app directory only when needed.
 
 :::tip Seed import memory
-If the dyno hits memory limits during startup seeding, increase the dyno size or disable automatic seeding. Then run the import manually by opening a Heroku dyno shell with `heroku run bash` and running `pnpm run seed:import`.
+If a seed import hits memory limits, increase the dyno size and run it manually by opening a Heroku dyno shell with `heroku run bash` and running `pnpm run seed:import` from `apps/strapi`.
 :::
 
 ## UI App
