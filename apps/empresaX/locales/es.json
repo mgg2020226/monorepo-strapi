@@ -40,6 +40,12 @@
     "events": "Eventos",
     "portfolio": "Portafolio",
     "legal": "Información legal",
+    "legalEyebrow": "Centro de documentos",
+    "legalIntro": "Consulta las políticas y documentos legales vigentes de este sitio.",
+    "legalDocument": "Documento legal",
+    "legalEmpty": "No hay documentos legales publicados por el momento.",
+    "effectiveDate": "Vigente desde",
+    "version": "Versión",
     "readMore": "Leer más",
     "backToBlog": "Volver al blog",
     "backToEvents": "Volver a eventos",
@@ -276,5 +282,3 @@
     }
   }
 }
-
-
