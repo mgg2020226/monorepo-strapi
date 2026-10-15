@@ -54,15 +54,16 @@ export function StrapiSecurityBlock({
               </div>
             )}
           </div>
-          <ul className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2" role="list">
             {component.points?.map((point) => {
               const Icon =
                 pointIcons[point.icon ?? "shield-check"] ?? ShieldCheck
 
               return (
-                <li
+                <article
                   key={point.id}
                   className="bg-background/85 rounded-2xl border p-5"
+                  role="listitem"
                 >
                   <Icon aria-hidden="true" size={30} className="text-primary" />
                   <h3 className="mt-4 font-bold">{point.title}</h3>
@@ -71,10 +72,10 @@ export function StrapiSecurityBlock({
                       {point.description}
                     </p>
                   )}
-                </li>
+                </article>
               )
             })}
-          </ul>
+          </div>
         </div>
       </section>
     </Container>
