@@ -4,6 +4,8 @@ sidebar_position: 4
 
 # Data Seeding
 
+Para crear el sitio de Bancaliv y su página de inicio a partir del contenido del proyecto fuente, sigue la [guía de carga de Bancaliv](./bancaliv-site-page.md).
+
 Data seeding lets developers share Strapi pages, navigation, footer, roles, and demo content.
 
 The starter stores Strapi exports in the repository. Imports are manual and can be used to initialize or refresh a development database.

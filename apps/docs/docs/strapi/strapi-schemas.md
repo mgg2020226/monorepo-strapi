@@ -77,6 +77,30 @@ Use enumerations for clear, bounded visual choices that editors are expected to 
 }
 ```
 
+### Section Presentation
+
+Dynamic-zone sections can expose the shared `ui.style` component. Keep content
+and structure in the section component; use `ui.style` for bounded presentation
+choices:
+
+| Field                         | Values                                                       |
+| ----------------------------- | ------------------------------------------------------------ |
+| `background`                  | `default`, `muted`, `primary`, `secondary`, `dark`, `custom` |
+| `container`                   | `none`, `narrow`, `default`, `wide`, `full`                  |
+| `alignment`                   | `left`, `center`, `right`                                    |
+| `paddingTop`, `paddingBottom` | `none`, `sm`, `md`, `lg`, `xl`                               |
+| `layout`                      | `default`, `row`, `grid`, `split`, `background-image`        |
+| `itemAppearance`              | `default`, `card`, `decorated`                               |
+
+The page-builder section components map these values to shared classes and data
+attributes. Generic components must not contain tenant-specific selectors or
+style names. Keep reusable treatments in `packages/sections`; put brand-specific
+theme tokens in the app theme, and use `ui.style` to select the available
+presentation in Strapi. `customClass` is deprecated; do not add new values to it.
+
+When adding `style` to a section schema, regenerate types with
+`pnpm generate:types`, then sync the generated files to `packages/strapi-types`.
+
 ### Media Fields
 
 ```json
