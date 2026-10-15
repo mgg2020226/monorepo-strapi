@@ -91,13 +91,17 @@ function relativeLuminance(color: string) {
   const rgb = parseRgb(color)
   if (!rgb) return
 
-  const [red, green, blue] = rgb.map((channel) => {
+  const linearize = (channel: number) => {
     const normalized = channel / 255
 
     return normalized <= 0.04045
       ? normalized / 12.92
       : ((normalized + 0.055) / 1.055) ** 2.4
-  })
+  }
+
+  const red = linearize(rgb[0])
+  const green = linearize(rgb[1])
+  const blue = linearize(rgb[2])
 
   return 0.2126 * red + 0.7152 * green + 0.0722 * blue
 }

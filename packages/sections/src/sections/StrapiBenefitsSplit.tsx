@@ -1,10 +1,16 @@
 import "server-only"
 
 import { Container } from "@repo/design-system/elementary/Container"
+import { cn } from "@repo/design-system/utils"
 import type { Data } from "@repo/strapi-types"
 import { Check } from "lucide-react"
 
 import type { PageBuilderComponentProps } from "@repo/sections/types"
+import {
+  sectionContainerClass,
+  sectionContentClass,
+  sectionStyleProps,
+} from "@repo/sections/utilities/section-style"
 import { StrapiMediaImage } from "@repo/sections/utilities/StrapiMediaImage"
 
 export function StrapiBenefitsSplit({
@@ -12,14 +18,22 @@ export function StrapiBenefitsSplit({
 }: PageBuilderComponentProps & {
   component: Data.Component<"sections.benefits-split">
 }) {
+  const styleProps = sectionStyleProps(component.style)
+
   return (
-    <Container>
-      <section className="px-4 py-10 sm:px-8 lg:py-16">
+    <Container className={sectionContainerClass(component.style)}>
+      <section
+        {...styleProps}
+        className={cn(
+          styleProps.className,
+          sectionContentClass(component.style, "px-4 sm:px-8")
+        )}
+      >
         <div className="grid gap-6 lg:grid-cols-2">
           {component.panels?.map((panel) => (
             <article
               key={panel.id}
-              className="bg-card overflow-hidden rounded-3xl border shadow-sm"
+              className="section-style-item bg-card overflow-hidden rounded-3xl border shadow-sm"
             >
               {panel.image && (
                 <div className="bg-muted relative aspect-[16/8] overflow-hidden">

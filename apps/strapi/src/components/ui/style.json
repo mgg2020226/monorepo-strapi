@@ -8,6 +8,8 @@
     "alignment": { "type": "enumeration", "enum": ["left", "center", "right"], "default": "left" },
     "paddingTop": { "type": "enumeration", "enum": ["none", "sm", "md", "lg", "xl"], "default": "lg" },
     "paddingBottom": { "type": "enumeration", "enum": ["none", "sm", "md", "lg", "xl"], "default": "lg" },
-    "customClass": { "type": "string" }
+    "layout": { "type": "enumeration", "enum": ["default", "row", "grid", "split", "background-image"], "default": "default" },
+    "itemAppearance": { "type": "enumeration", "enum": ["default", "card", "decorated"], "default": "default" },
+    "customClass": { "type": "string", "description": "Deprecated. Use the style options above instead." }
   }
 }

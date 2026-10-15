@@ -1009,7 +1009,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
       Schema.Attribute.Private
     fullPath: Schema.Attribute.String &
-      Schema.Attribute.Unique &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true

@@ -43,6 +43,10 @@
     "canonicalUrl": {
       "type": "string"
     },
+    "structuredData": {
+      "type": "json",
+      "required": false
+    },
     "metaRobots": {
       "type": "enumeration",
       "default": "all",

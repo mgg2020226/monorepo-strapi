@@ -1,7 +1,12 @@
 import { Container } from "@repo/design-system/elementary/Container"
+import { cn } from "@repo/design-system/utils"
 import type { Data } from "@repo/strapi-types"
 
 import type { PageBuilderComponentProps } from "@repo/sections/types"
+import {
+  sectionContentClass,
+  sectionStyleProps,
+} from "@repo/sections/utilities/section-style"
 import StrapiLink from "@repo/sections/utilities/StrapiLink"
 
 export function StrapiCta({
@@ -9,9 +14,20 @@ export function StrapiCta({
 }: PageBuilderComponentProps & {
   component: Data.Component<"sections.cta">
 }) {
+  const styleProps = sectionStyleProps(component.style)
+
   return (
     <Container>
-      <section className="bg-primary text-primary-foreground mx-4 rounded-3xl px-6 py-10 text-center md:px-12">
+      <section
+        {...styleProps}
+        className={cn(
+          styleProps.className,
+          sectionContentClass(
+            component.style,
+            "mx-4 rounded-3xl p-8 text-center sm:p-12 lg:p-16"
+          )
+        )}
+      >
         <h2 className="text-3xl font-semibold">{component.title}</h2>
         {component.description && (
           <p className="mx-auto mt-3 max-w-2xl opacity-90">

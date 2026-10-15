@@ -3,6 +3,7 @@
   "info": { "displayName": "Security block", "icon": "shield" },
   "options": {},
   "attributes": {
+    "style": { "type": "component", "component": "ui.style", "repeatable": false },
     "eyebrow": { "type": "string" },
     "title": { "type": "string", "required": true },
     "description": { "type": "text" },

@@ -4,6 +4,11 @@ import { Container } from "@repo/design-system/elementary/Container"
 import type { Data } from "@repo/strapi-types"
 
 import type { PageBuilderComponentProps } from "@repo/sections/types"
+import {
+  sectionContainerClass,
+  sectionContentClass,
+  sectionStyleProps,
+} from "@repo/sections/utilities/section-style"
 import StrapiLink from "@repo/sections/utilities/StrapiLink"
 import { StrapiMediaImage } from "@repo/sections/utilities/StrapiMediaImage"
 
@@ -19,11 +24,12 @@ export function StrapiProductGrid({
       : count === 3
         ? "lg:grid-cols-3"
         : "lg:grid-cols-2"
+  const styleProps = sectionStyleProps(component.style)
 
   return (
-    <section className="bg-primary/5">
-      <Container>
-        <div className="px-4 py-12 sm:px-8 lg:py-16">
+    <section {...styleProps}>
+      <Container className={sectionContainerClass(component.style)}>
+        <div className={sectionContentClass(component.style, "px-4 sm:px-8")}>
           <header className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
               {component.title}
@@ -38,7 +44,7 @@ export function StrapiProductGrid({
             {component.products?.map((product) => (
               <article
                 key={product.id}
-                className="group bg-card flex min-h-64 flex-col rounded-2xl border p-6 shadow-sm transition-transform hover:-translate-y-1 hover:shadow-lg"
+                className="section-style-item group bg-card flex min-h-64 flex-col rounded-2xl border p-6 shadow-sm transition-transform hover:-translate-y-1 hover:shadow-lg"
               >
                 {product.image && (
                   <div className="bg-primary/10 mb-5 flex size-16 items-center justify-center overflow-hidden rounded-2xl p-2">

@@ -1,9 +1,15 @@
 import "server-only"
 
 import { Container } from "@repo/design-system/elementary/Container"
+import { cn } from "@repo/design-system/utils"
 import type { Data } from "@repo/strapi-types"
 
 import type { PageBuilderComponentProps } from "@repo/sections/types"
+import {
+  sectionContainerClass,
+  sectionContentClass,
+  sectionStyleProps,
+} from "@repo/sections/utilities/section-style"
 import { StrapiMediaImage } from "@repo/sections/utilities/StrapiMediaImage"
 
 export function StrapiLogoCloud({
@@ -13,10 +19,17 @@ export function StrapiLogoCloud({
 }) {
   const layout = component.layout ?? "grid"
   const logos = component.logos ?? []
+  const styleProps = sectionStyleProps(component.style)
 
   return (
-    <Container>
-      <section className="px-4 py-10 sm:px-8 lg:py-14">
+    <Container className={sectionContainerClass(component.style)}>
+      <section
+        {...styleProps}
+        className={cn(
+          styleProps.className,
+          sectionContentClass(component.style, "px-4 sm:px-8")
+        )}
+      >
         <header className="mx-auto max-w-3xl text-center">
           {component.eyebrow && (
             <p className="text-primary text-sm font-bold tracking-[0.16em] uppercase">

@@ -8,6 +8,8 @@
     "./forms/*": "./src/forms/*.tsx",
     "./forms/types": "./src/forms/types.ts",
     "./sections/*": "./src/sections/*.tsx",
+    "./styles.css": "./src/styles/section-style.css",
+    "./utilities/section-style": "./src/utilities/section-style.ts",
     "./utilities/*": "./src/utilities/*.tsx",
     "./types": "./src/types.ts"
   },

@@ -208,6 +208,7 @@ export interface SectionsBenefitsSplit extends Struct.ComponentSchema {
   attributes: {
     panels: Schema.Attribute.Component<"shared.benefit-panel", true> &
       Schema.Attribute.Required
+    style: Schema.Attribute.Component<"ui.style", false>
   }
 }
 
@@ -474,35 +475,31 @@ export interface SectionsHero extends Struct.ComponentSchema {
     displayName: "Hero"
   }
   attributes: {
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        "plugin::ckeditor5.CKEditor",
-        {
-          preset: "defaultCkEditor"
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
         }
-      >
+      }>
     links: Schema.Attribute.Component<"utilities.link", true>
-    note: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        "plugin::ckeditor5.CKEditor",
-        {
-          preset: "defaultCkEditor"
+    note: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
         }
-      >
-    tag: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        "plugin::ckeditor5.CKEditor",
-        {
-          preset: "defaultCkEditor"
+      }>
+    tag: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
         }
-      >
-    title: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        "plugin::ckeditor5.CKEditor",
-        {
-          preset: "defaultCkEditor"
+      }>
+    title: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
         }
-      >
+      }>
   }
 }
 
@@ -518,6 +515,7 @@ export interface SectionsHeroFeatured extends Struct.ComponentSchema {
     eyebrow: Schema.Attribute.String
     image: Schema.Attribute.Component<"utilities.basic-image", false>
     perks: Schema.Attribute.Component<"shared.hero-perk", true>
+    style: Schema.Attribute.Component<"ui.style", false>
     title: Schema.Attribute.String & Schema.Attribute.Required
   }
 }
@@ -584,6 +582,7 @@ export interface SectionsLogoCloud extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<"grid">
     logos: Schema.Attribute.Component<"shared.logo-item", true> &
       Schema.Attribute.Required
+    style: Schema.Attribute.Component<"ui.style", false>
     title: Schema.Attribute.String & Schema.Attribute.Required
   }
 }
@@ -598,6 +597,7 @@ export interface SectionsProcessSteps extends Struct.ComponentSchema {
     description: Schema.Attribute.Text
     steps: Schema.Attribute.Component<"shared.process-step", true> &
       Schema.Attribute.Required
+    style: Schema.Attribute.Component<"ui.style", false>
     title: Schema.Attribute.String & Schema.Attribute.Required
   }
 }
@@ -612,6 +612,7 @@ export interface SectionsProductGrid extends Struct.ComponentSchema {
     description: Schema.Attribute.Text
     products: Schema.Attribute.Component<"shared.product-card", true> &
       Schema.Attribute.Required
+    style: Schema.Attribute.Component<"ui.style", false>
     title: Schema.Attribute.String & Schema.Attribute.Required
   }
 }
@@ -627,6 +628,7 @@ export interface SectionsSecurityBlock extends Struct.ComponentSchema {
     eyebrow: Schema.Attribute.String
     image: Schema.Attribute.Component<"utilities.basic-image", false>
     points: Schema.Attribute.Component<"shared.security-point", true>
+    style: Schema.Attribute.Component<"ui.style", false>
     supportingTitle: Schema.Attribute.String
     title: Schema.Attribute.String & Schema.Attribute.Required
   }
@@ -640,6 +642,7 @@ export interface SectionsStatistics extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.Text
     figures: Schema.Attribute.Component<"shared.figure", true>
+    style: Schema.Attribute.Component<"ui.style", false>
     title: Schema.Attribute.String
   }
 }
@@ -723,6 +726,7 @@ export interface SeoUtilitiesSeo extends Struct.ComponentSchema {
         maxLength: 60
       }>
     og: Schema.Attribute.Component<"seo-utilities.seo-og", false>
+    structuredData: Schema.Attribute.JSON
     twitter: Schema.Attribute.Component<"seo-utilities.seo-twitter", false>
   }
 }
@@ -1172,6 +1176,14 @@ export interface UiStyle extends Struct.ComponentSchema {
     > &
       Schema.Attribute.DefaultTo<"default">
     customClass: Schema.Attribute.String
+    itemAppearance: Schema.Attribute.Enumeration<
+      ["default", "card", "decorated"]
+    > &
+      Schema.Attribute.DefaultTo<"default">
+    layout: Schema.Attribute.Enumeration<
+      ["default", "row", "grid", "split", "background-image"]
+    > &
+      Schema.Attribute.DefaultTo<"default">
     paddingBottom: Schema.Attribute.Enumeration<
       ["none", "sm", "md", "lg", "xl"]
     > &

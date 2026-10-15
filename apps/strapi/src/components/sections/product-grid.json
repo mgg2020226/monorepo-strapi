@@ -3,6 +3,7 @@
   "info": { "displayName": "Product grid", "icon": "grid" },
   "options": {},
   "attributes": {
+    "style": { "type": "component", "component": "ui.style", "repeatable": false },
     "title": { "type": "string", "required": true },
     "description": { "type": "text" },
     "products": {

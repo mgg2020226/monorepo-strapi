@@ -3,6 +3,7 @@
   "info": { "displayName": "Benefits split", "icon": "layout" },
   "options": {},
   "attributes": {
+    "style": { "type": "component", "component": "ui.style", "repeatable": false },
     "panels": {
       "type": "component",
       "component": "shared.benefit-panel",

@@ -1,7 +1,10 @@
 @import "tailwindcss";
+@source "../../../../packages/sections/src";
+@source "../../../../packages/design-system/src";
 @import "@repo/design-system/theme.css";
 @import "@repo/design-system/custom-styles.css";
 @import "@repo/design-system/ckeditor-default-styles.css";
+@import "@repo/sections/styles.css";
 
 @plugin "tailwindcss-animate";
 

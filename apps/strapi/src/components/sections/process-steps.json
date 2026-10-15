@@ -3,6 +3,7 @@
   "info": { "displayName": "Process steps", "icon": "bulletList" },
   "options": {},
   "attributes": {
+    "style": { "type": "component", "component": "ui.style", "repeatable": false },
     "title": { "type": "string", "required": true },
     "description": { "type": "text" },
     "steps": {

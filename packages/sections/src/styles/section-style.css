@@ -1,0 +1,44 @@
+.section-style-content {
+  padding-block-start: var(--section-padding-top, 2.5rem);
+  padding-block-end: var(--section-padding-bottom, 2.5rem);
+}
+
+[data-section-alignment="center"] .section-style-alignable {
+  text-align: center;
+}
+
+[data-section-alignment="right"] .section-style-alignable {
+  text-align: right;
+}
+
+[data-section-layout="background-image"] .section-style-image-overlay {
+  background: linear-gradient(
+    90deg,
+    rgb(255 255 255 / 96%) 0%,
+    rgb(255 255 255 / 86%) 42%,
+    rgb(255 255 255 / 18%) 100%
+  );
+}
+
+[data-section-item-appearance="card"] .section-style-item {
+  border: 1px solid rgb(203 213 225 / 75%);
+  border-radius: 0.75rem;
+  background: var(--color-background);
+  padding: 0.75rem 1rem;
+  box-shadow: 0 4px 12px rgb(15 23 42 / 8%);
+}
+
+[data-section-item-appearance="decorated"] .section-style-dot {
+  display: block;
+}
+
+[data-section-layout="row"] .section-style-list {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+}
+
+[data-section-layout="grid"] .section-style-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+}

@@ -5,6 +5,7 @@
   },
   "options": {},
   "attributes": {
+    "style": { "type": "component", "component": "ui.style", "repeatable": false },
     "title": { "type": "string" },
     "description": { "type": "text" },
     "figures": {
