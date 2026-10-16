@@ -36,8 +36,6 @@
   },
 
   "content": {
-    "blog": "Blog",
-    "events": "Events",
     "portfolio": "Portfolio",
     "legal": "Legal information",
     "legalEyebrow": "Document center",
@@ -47,9 +45,13 @@
     "effectiveDate": "Effective since",
     "version": "Version",
     "readMore": "Read more",
-    "backToBlog": "Back to blog",
-    "backToEvents": "Back to events",
     "backToPortfolio": "Back to portfolio",
+    "projectLocation": "Location",
+    "projectArea": "Area",
+    "projectYear": "Year",
+    "projectChallenge": "Challenge",
+    "projectSolution": "Solution",
+    "projectResult": "Result",
     "backToLegal": "Back to legal information"
   },
 

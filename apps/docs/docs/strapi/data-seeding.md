@@ -6,7 +6,7 @@ sidebar_position: 4
 
 Para crear el sitio de Bancaliv y su página de inicio a partir del contenido del proyecto fuente, sigue la [guía de carga de Bancaliv](./bancaliv-site-page.md).
 
-Data seeding lets developers share Strapi pages, navigation, footer, roles, and demo content.
+Data seeding lets developers share Strapi pages, site configuration, roles, and demo content.
 
 The starter stores Strapi exports in the repository. Imports are manual and can be used to initialize or refresh a development database.
 
@@ -71,8 +71,7 @@ Importing a Strapi export **overwrites existing data**, so developers should exp
 
 If no seed export exists, create the baseline content manually in Strapi:
 
-- Create one page in `Page` collection with `fullPath` and `slug` set to `/`
-- Create `Navbar` single type content
-- Create `Footer` single type content
+- Create a `Site` entry with its header and footer configuration
+- Create one root page in `Page` collection with `slug` set to `/`; Strapi synchronizes its `fullPath` automatically on publish.
 
 The UI supports `en` and `es` by default, so enable both locales in Strapi and create localized content for both.

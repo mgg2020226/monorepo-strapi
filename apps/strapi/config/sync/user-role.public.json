@@ -6,16 +6,6 @@
   "locale": null,
   "permissions": [
     {
-      "action": "api::footer.footer.find",
-      "documentId": "fuzyl9dd9ofssliw9dg9wuka",
-      "locale": null
-    },
-    {
-      "action": "api::navbar.navbar.find",
-      "documentId": "z4zo4qe5rpjzp1xmy4no81ko",
-      "locale": null
-    },
-    {
       "action": "api::page.page.find",
       "documentId": "jo7apglsc20xvo2yx3q5usyi",
       "locale": null

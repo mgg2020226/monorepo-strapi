@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_mission_visions",
+  "info": { "displayName": "Mission and vision", "icon": "picture" },
+  "options": {},
+  "attributes": {
+    "heading": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "missionTitle": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "missionDescription": { "type": "text", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "missionImage": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "visionTitle": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "visionDescription": { "type": "text", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "visionImage": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "valuesTitle": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "values": { "type": "component", "component": "utilities.text", "repeatable": true, "pluginOptions": { "i18n": { "localized": true } } }
+  }
+}

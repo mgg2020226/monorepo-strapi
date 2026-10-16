@@ -73,18 +73,18 @@ La URL `https://app.bancaliv.com/` aparece en el código como **Soy cliente**. E
 
 Después de publicar el sitio, abre **Content Manager → Page → Create new entry** y crea la versión en español:
 
-| Campo              | Valor                                                                                         |
-| ------------------ | --------------------------------------------------------------------------------------------- |
-| `title`            | `Inicio`                                                                                      |
-| `breadcrumbTitle`  | `Inicio`                                                                                      |
-| `slug`             | `/`                                                                                           |
-| `fullPath`         | No lo escribas manualmente; usa la acción **Update hierarchy** si Strapi lo muestra pendiente |
-| `pageType`         | `home`                                                                                        |
-| `site`             | El registro `Bancaliv` creado arriba                                                          |
-| `parent`           | Sin padre                                                                                     |
-| `showInNavigation` | `false`                                                                                       |
-| `content`          | Agrega las secciones de la portada en el orden descrito abajo                                 |
-| `seo`              | Usa el título y la descripción fuente de `head()` en `src/routes/index.tsx`                   |
+| Campo              | Valor                                                                       |
+| ------------------ | --------------------------------------------------------------------------- |
+| `title`            | `Inicio`                                                                    |
+| `breadcrumbTitle`  | `Inicio`                                                                    |
+| `slug`             | `/`                                                                         |
+| `fullPath`         | Lo sincroniza Strapi automáticamente al publicar o mover la página          |
+| `pageType`         | `home`                                                                      |
+| `site`             | El registro `Bancaliv` creado arriba                                        |
+| `parent`           | Sin padre                                                                   |
+| `showInNavigation` | `false`                                                                     |
+| `content`          | Agrega las secciones de la portada en el orden descrito abajo               |
+| `seo`              | Usa el título y la descripción fuente de `head()` en `src/routes/index.tsx` |
 
 El slug `/` está reservado para la página raíz. No crees un segundo home para Bancaliv si ya existe una página raíz en ese locale; inspecciona y actualiza el registro existente, preservando su contenido ajeno a esta carga.
 
@@ -134,7 +134,7 @@ de marca siguen viniendo de la paleta del Site.
 2. Para cada `BasicImage`, carga el medio y completa un `alt` descriptivo que corresponda al uso original.
 3. Guarda y publica el `Site`.
 4. Crea o actualiza la página raíz en locale `es`, asóciala al `Site` y publica la página.
-5. Si `fullPath` no aparece como `/`, abre el single type **Hierarchy**, revisa el cambio pendiente y ejecuta **Update hierarchy**.
+5. Al publicar, Strapi sincroniza automáticamente `fullPath` desde el slug y la relación de página padre.
 6. Verifica que la página publicada tenga `slug: /`, `fullPath: /`, `pageType: home` y el `Site` Bancaliv.
 
 `seed:import` no forma parte de este procedimiento: reemplaza datos existentes de Strapi.

@@ -12,7 +12,7 @@ Strapi-driven page requests are dynamic because the resolved host and authentica
 
 On publish/update/delete, a Strapi **Document Service middleware** calls the `api::revalidate.revalidate` service. The service POSTs to the UI route `POST /api/strapi-revalidate`, which marks the matching cache entries stale through:
 
-- `revalidatePath` for page-like paths such as pages and redirects
+- `revalidatePath` for changed page paths
 - `revalidateTag(tag, "max")` for shared content such as the site header and footer
 
 The next request re-renders with fresh Strapi data without waiting for the normal TTL to expire.
@@ -34,11 +34,9 @@ flowchart TD
   nextRequest["Next matching request"]
   freshPage["Freshly rendered UI"]
 
-  hierarchyRecalc["Hierarchy fullPath recalculation"]
   adminButton["Hidden Revalidate cache action"]
 
   editor --> middleware --> service --> uiEndpoint
-  hierarchyRecalc --> service
   adminButton --> service
   uiEndpoint --> pathCache
   uiEndpoint --> tagCache
@@ -63,11 +61,10 @@ On-demand revalidation handles fresh publishes immediately. The `revalidate` int
 
 ## What Gets Revalidated
 
-| Content type             | Mode                          | Trigger                  |
-| ------------------------ | ----------------------------- | ------------------------ |
-| `api::page.page`         | path (`fullPath`)             | publish/unpublish/delete |
-| `api::redirect.redirect` | path (`source`)               | publish/unpublish/delete |
-| `api::site.site`         | tag (`strapi:api::site.site`) | create/update/delete     |
+| Content type     | Mode                          | Trigger                  |
+| ---------------- | ----------------------------- | ------------------------ |
+| `api::page.page` | path (`fullPath`)             | publish/unpublish/delete |
+| `api::site.site` | tag (`strapi:api::site.site`) | create/update/delete     |
 
 :::important Enable automatic revalidation
 `REVALIDATE_COLLECTIONS` in `apps/strapi/src/documentMiddlewares/revalidate.ts` is the allowlist for automatic revalidation. Add a content type there before expecting its publish/update/delete events to invalidate the UI cache.
@@ -75,7 +72,7 @@ On-demand revalidation handles fresh publishes immediately. The `revalidate` int
 
 For tag-based invalidation, also tag the matching fetch in `apps/empresaX/src/lib/strapi-api/content/server.ts`. Draft-mode requests must not reuse public cache entries.
 
-Tag revalidation handles cross-page invalidation automatically. For example, every route that renders a fetch tagged with `strapi:api::site.site` becomes stale when the site header/footer is revalidated.
+Tag revalidation handles cross-page invalidation automatically. Every route that renders a fetch tagged with `strapi:api::site.site` becomes stale when site configuration is revalidated.
 
 ## Trigger Policy
 
@@ -84,14 +81,12 @@ The document middleware derives its default policy from Strapi Draft & Publish:
 - All application content types use `draftAndPublish: true`, so the middleware revalidates on publish, unpublish, delete, and published-status updates.
 
 :::caution Internal writes are skipped by middleware
-The hierarchy recalculation writes documents with `updatedBy: null`. The document middleware skips those writes to avoid duplicate calls; the hierarchy service revalidates the affected paths once per batch instead.
+Automatic page-path synchronization writes `fullPath` with `updatedBy: null`. The document middleware skips those internal writes; the path synchronizer revalidates affected paths as a batch.
 :::
 
-## Bulk Hierarchy Changes
+## Automatic Page Paths
 
-Moving a page recalculates child `fullPath`s through the Hierarchy single type action, which writes with `updatedBy: null`. The document middleware skips those writes to avoid duplicate calls, so the **hierarchy service** (`applyPendingChanges` in `apps/strapi/src/api/hierarchy/services/hierarchy.ts`) revalidates the aggregated touched paths once per batch instead.
-
-Redirect sources are also batched. They are already locale-prefixed, so the revalidation service sends them without a locale override.
+When a published page is created, moved, renamed, unpublished, or deleted, the page-path middleware recalculates published `fullPath` values for affected pages in each locale. It revalidates both old and new paths in batches. There is no redirect collection, so an old URL will return not found after a path change.
 
 ## Locale Handling
 

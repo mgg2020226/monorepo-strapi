@@ -23,6 +23,11 @@ import {
   StrapiSecurityBlock,
   StrapiTestimonials,
   StrapiLogoCloud,
+  StrapiBeforeAfterSlider,
+  StrapiHeroMedia,
+  StrapiMissionVision,
+  StrapiPortfolioProjects,
+  StrapiServicesHub,
 } from "@repo/sections"
 import type { UID } from "@repo/strapi-types"
 
@@ -68,6 +73,11 @@ export const PageContentComponents: Partial<
   "sections.security-block": StrapiSecurityBlock,
   "sections.testimonials": StrapiTestimonials,
   "sections.logo-cloud": StrapiLogoCloud,
+  "sections.hero-media": StrapiHeroMedia,
+  "sections.mission-vision": StrapiMissionVision,
+  "sections.services-hub": StrapiServicesHub,
+  "sections.before-after-slider": StrapiBeforeAfterSlider,
+  "sections.portfolio-projects": StrapiPortfolioProjects,
 
   // Forms
   "forms.contact-form": StrapiContactForm,

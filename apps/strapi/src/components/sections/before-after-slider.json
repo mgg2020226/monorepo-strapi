@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sections_before_after_sliders",
+  "info": { "displayName": "Before and after slider", "icon": "picture" },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "description": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "beforeImage": { "type": "component", "component": "utilities.basic-image", "repeatable": false, "required": true },
+    "afterImage": { "type": "component", "component": "utilities.basic-image", "repeatable": false, "required": true },
+    "beforeLabel": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "afterLabel": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "hint": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "sliderLabel": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } }
+  }
+}

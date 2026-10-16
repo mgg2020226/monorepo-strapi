@@ -40,8 +40,6 @@ export async function getMetadataFromStrapi({
   uid?: Extract<
     UID.ContentType,
     | "api::page.page"
-    | "api::blog-post.blog-post"
-    | "api::calendar-event.calendar-event"
     | "api::portfolio-project.portfolio-project"
     | "api::legal-page.legal-page"
   >
@@ -110,8 +108,6 @@ async function fetchAndMapStrapiMetadata(
   uid: Extract<
     UID.ContentType,
     | "api::page.page"
-    | "api::blog-post.blog-post"
-    | "api::calendar-event.calendar-event"
     | "api::portfolio-project.portfolio-project"
     | "api::legal-page.legal-page"
   > = "api::page.page"

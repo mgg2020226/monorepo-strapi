@@ -20,4 +20,4 @@ Related docs:
 
 - [Caching](../caching.md)
 - [Page Builder](../../page-builder/introduction.md)
-- [Pages Hierarchy](../../page-builder/pages-hierarchy.md)
+- [Page paths](../../page-builder/page-paths.md)

@@ -91,7 +91,7 @@ pnpm seed:check
 
 Seed imports overwrite existing Strapi data, so preserve local CMS work before importing over it.
 
-You can also fill the data manually in Strapi admin: create the homepage in `Page`, then create the `Navbar` and `Footer` single type entries.
+You can also create the homepage in `Page` and configure the site's navigation and footer on its `Site` entry.
 
 See [Quick Start: Regenerate the Strapi API token](../getting-started/quick-start.md#2-regenerate-the-strapi-api-token), [Data Seeding](../strapi/data-seeding.md), and [Quick Start Troubleshooting](../getting-started/quick-start.md#troubleshooting).
 
@@ -160,7 +160,7 @@ See [Rich Text Editors](../design-system/rich-text-editors.md), [CKEditor](../st
 <details>
 <summary>What is the difference between Public and Private API clients?</summary>
 
-Use `PublicStrapiClient` for shared CMS content that is the same for every visitor, such as pages, navbar, footer, SEO data, and public listings. It authenticates with the server-side Strapi API token from `STRAPI_REST_READONLY_API_KEY`.
+Use `PublicStrapiClient` for shared CMS content that is the same for every visitor, such as pages, site configuration, SEO data, and public listings. It authenticates with the server-side Strapi API token from `STRAPI_REST_READONLY_API_KEY`.
 
 Use `PrivateStrapiClient` for content that depends on the signed-in end user, such as profile data, account-specific records, or protected actions. It uses the user's Strapi JWT from the Better Auth session, or a JWT passed directly in request options.
 

@@ -25,13 +25,9 @@
     "searchEnabled": { "type": "boolean", "default": false },
     "typesenseCollection": { "type": "string" },
     "pages": { "type": "relation", "relation": "oneToMany", "target": "api::page.page", "mappedBy": "site" },
-    "blogPosts": { "type": "relation", "relation": "oneToMany", "target": "api::blog-post.blog-post", "mappedBy": "site" },
-    "blogCategories": { "type": "relation", "relation": "oneToMany", "target": "api::blog-category.blog-category", "mappedBy": "site" },
-    "calendarEvents": { "type": "relation", "relation": "oneToMany", "target": "api::calendar-event.calendar-event", "mappedBy": "site" },
     "portfolioProjects": { "type": "relation", "relation": "oneToMany", "target": "api::portfolio-project.portfolio-project", "mappedBy": "site" },
     "legalPages": { "type": "relation", "relation": "oneToMany", "target": "api::legal-page.legal-page", "mappedBy": "site" },
     "forms": { "type": "relation", "relation": "oneToMany", "target": "api::form-definition.form-definition", "mappedBy": "site" },
-    "subscribers": { "type": "relation", "relation": "oneToMany", "target": "api::subscriber.subscriber", "mappedBy": "site" },
-    "redirects": { "type": "relation", "relation": "oneToMany", "target": "api::redirect.redirect", "mappedBy": "site" }
+    "subscribers": { "type": "relation", "relation": "oneToMany", "target": "api::subscriber.subscriber", "mappedBy": "site" }
   }
 }

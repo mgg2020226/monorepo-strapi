@@ -16,11 +16,7 @@ import type { AppError, CustomFetchOptions } from "@/types/general"
 // Mapping of Strapi content type UIDs to API endpoint paths.
 export const API_ENDPOINTS: Partial<Record<UID.ContentType, string>> = {
   "api::page.page": "/pages",
-  "api::redirect.redirect": "/redirects",
   "api::site.site": "/sites",
-  "api::blog-post.blog-post": "/blog-posts",
-  "api::blog-category.blog-category": "/blog-categories",
-  "api::calendar-event.calendar-event": "/calendar-events",
   "api::portfolio-project.portfolio-project": "/portfolio-projects",
   "api::legal-page.legal-page": "/legal-pages",
   "api::form-definition.form-definition": "/form-definitions",

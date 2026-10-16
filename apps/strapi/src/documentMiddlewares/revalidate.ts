@@ -20,11 +20,6 @@ const REVALIDATE_COLLECTIONS: RevalidateCollectionConfig[] = [
     pathField: "fullPath",
   },
   { uid: "api::site.site", mode: "tag-revalidate" },
-  {
-    uid: "api::redirect.redirect",
-    mode: "path-revalidate",
-    pathField: "source",
-  },
   // Add your own collections here, e.g.:
   // { uid: "api::blog-article.blog-article", mode: "path-revalidate", pathField: "fullPath" },
   // { uid: "api::announcement.announcement", mode: "tag-revalidate" },
@@ -53,14 +48,13 @@ export const registerAutoRevalidateMiddleware = ({
     const params = toRecord(context.params) ?? {}
     const data = toRecord(params.data)
 
-    // The hierarchy recalculation writes documents with `updatedBy: null`.
-    // Skip middleware-level revalidation to avoid duplicate calls — the
-    // hierarchy service revalidates the touched paths once per batch.
+    // Internal system writes set `updatedBy: null` and manage cache updates
+    // in the page-path middleware rather than editor-driven document writes.
     if (
       (context.action === "create" || context.action === "update") &&
       data?.updatedBy === null
     ) {
-      logger.debug("Auto revalidation skipped for internal hierarchy write", {
+      logger.debug("Auto revalidation skipped for internal page-path write", {
         uid,
       })
 

@@ -140,21 +140,6 @@ describe("revalidate service", () => {
     expect(findFetchCall(fetchMock, CDN_PURGE_URL)).toBeUndefined()
   })
 
-  it("does not purge Front Door for redirect changes", async () => {
-    fetchMock.mockResolvedValue(Response.json({ revalidated: true }))
-
-    const service = revalidateServiceFactory()
-    await service.run({
-      uid: "api::redirect.redirect",
-      fullPaths: ["/old-page"],
-    })
-
-    // Redirects rely on Next.js ISR refresh + Front Door TTL like the rest
-    // of the content. AFD purge propagation is always slower than the page's
-    // revalidate window, so an automatic purge would not arrive any sooner.
-    expect(findFetchCall(fetchMock, CDN_PURGE_URL)).toBeUndefined()
-  })
-
   it("throws when required configuration is missing", async () => {
     delete process.env.CLIENT_URL
 
@@ -222,35 +207,6 @@ describe("auto revalidate document middleware", () => {
     expect(result).toBe(nextResult)
   })
 
-  it("revalidates redirect source paths on publish", async () => {
-    const { middleware, runMock } = buildMiddleware()
-    const nextResult = {
-      entries: [
-        {
-          source: "/old-page",
-          destination: "/new-page",
-          status: "published",
-        },
-      ],
-    }
-
-    const result = await middleware(
-      {
-        uid: "api::redirect.redirect",
-        action: "publish",
-        contentType: { options: { draftAndPublish: true } },
-      },
-      vi.fn().mockResolvedValue(nextResult)
-    )
-
-    expect(runMock).toHaveBeenCalledWith({
-      uid: "api::redirect.redirect",
-      fullPaths: ["/old-page"],
-      locale: undefined,
-    })
-    expect(result).toBe(nextResult)
-  })
-
   it("revalidates site chrome tags on update", async () => {
     const { middleware, runMock } = buildMiddleware()
 
@@ -276,7 +232,7 @@ describe("auto revalidate document middleware", () => {
     })
   })
 
-  it("skips duplicate update revalidation from hierarchy system writes", async () => {
+  it("skips duplicate update revalidation from page path system writes", async () => {
     const { middleware, runMock } = buildMiddleware()
     const next = vi.fn().mockResolvedValue({ status: "published" })
 
@@ -284,31 +240,6 @@ describe("auto revalidate document middleware", () => {
       {
         uid: "api::page.page",
         action: "update",
-        params: {
-          data: {
-            updatedBy: null,
-          },
-        },
-        contentType: { options: { draftAndPublish: true } },
-      },
-      next
-    )
-
-    expect(next).toHaveBeenCalledTimes(1)
-    expect(runMock).not.toHaveBeenCalled()
-  })
-
-  it("skips duplicate create revalidation from internal redirect jobs", async () => {
-    const { middleware, runMock } = buildMiddleware()
-    const next = vi.fn().mockResolvedValue({
-      source: "/old-page",
-      status: "published",
-    })
-
-    await middleware(
-      {
-        uid: "api::redirect.redirect",
-        action: "create",
         params: {
           data: {
             updatedBy: null,

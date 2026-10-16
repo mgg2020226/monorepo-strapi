@@ -14,9 +14,6 @@ export interface AdminPermission extends Struct.ComponentSchema {
       [
         "site",
         "page",
-        "blog-post",
-        "blog-category",
-        "calendar-event",
         "portfolio-project",
         "legal-page",
         "form-definition",
@@ -196,6 +193,57 @@ export interface SectionsAnimatedLogoRow extends Struct.ComponentSchema {
           preset: "defaultCkEditor"
         }
       >
+  }
+}
+
+export interface SectionsBeforeAfterSlider extends Struct.ComponentSchema {
+  collectionName: "components_sections_before_after_sliders"
+  info: {
+    displayName: "Before and after slider"
+    icon: "picture"
+  }
+  attributes: {
+    afterImage: Schema.Attribute.Component<"utilities.basic-image", false> &
+      Schema.Attribute.Required
+    afterLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    beforeImage: Schema.Attribute.Component<"utilities.basic-image", false> &
+      Schema.Attribute.Required
+    beforeLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    hint: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    sliderLabel: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
   }
 }
 
@@ -520,6 +568,43 @@ export interface SectionsHeroFeatured extends Struct.ComponentSchema {
   }
 }
 
+export interface SectionsHeroMedia extends Struct.ComponentSchema {
+  collectionName: "components_sections_hero_medias"
+  info: {
+    displayName: "Hero with media"
+    icon: "landscape"
+  }
+  attributes: {
+    actions: Schema.Attribute.Component<"ui.link", true>
+    alignment: Schema.Attribute.Enumeration<["left", "center"]> &
+      Schema.Attribute.DefaultTo<"left">
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    eyebrow: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    image: Schema.Attribute.Media<"images">
+    perks: Schema.Attribute.Component<"shared.hero-perk", true>
+    poster: Schema.Attribute.Media<"images">
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    video: Schema.Attribute.Media<"videos">
+    videoUrl: Schema.Attribute.String
+  }
+}
+
 export interface SectionsHeroStandard extends Struct.ComponentSchema {
   collectionName: "components_sections_hero_standards"
   info: {
@@ -587,6 +672,96 @@ export interface SectionsLogoCloud extends Struct.ComponentSchema {
   }
 }
 
+export interface SectionsMissionVision extends Struct.ComponentSchema {
+  collectionName: "components_sections_mission_visions"
+  info: {
+    displayName: "Mission and vision"
+    icon: "picture"
+  }
+  attributes: {
+    heading: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    missionDescription: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    missionImage: Schema.Attribute.Media<"images">
+    missionTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    values: Schema.Attribute.Component<"utilities.text", true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    valuesTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    visionDescription: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    visionImage: Schema.Attribute.Media<"images">
+    visionTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface SectionsPortfolioProjects extends Struct.ComponentSchema {
+  collectionName: "components_sections_portfolio_projects"
+  info: {
+    displayName: "Portfolio projects"
+    icon: "grid"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    projects: Schema.Attribute.Relation<
+      "manyToMany",
+      "api::portfolio-project.portfolio-project"
+    > &
+      Schema.Attribute.Required
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    variant: Schema.Attribute.Enumeration<
+      ["featured", "grid", "featured-plus-grid"]
+    > &
+      Schema.Attribute.DefaultTo<"grid">
+    viewAllAction: Schema.Attribute.Component<"ui.link", false>
+  }
+}
+
 export interface SectionsProcessSteps extends Struct.ComponentSchema {
   collectionName: "components_sections_process_steps"
   info: {
@@ -631,6 +806,49 @@ export interface SectionsSecurityBlock extends Struct.ComponentSchema {
     style: Schema.Attribute.Component<"ui.style", false>
     supportingTitle: Schema.Attribute.String
     title: Schema.Attribute.String & Schema.Attribute.Required
+  }
+}
+
+export interface SectionsServicesHub extends Struct.ComponentSchema {
+  collectionName: "components_sections_services_hubs"
+  info: {
+    displayName: "Services hub"
+    icon: "cube"
+  }
+  attributes: {
+    benefitsTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    cards: Schema.Attribute.Component<"shared.service-card", true> &
+      Schema.Attribute.Required
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heading: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    relatedProjectLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    specialtiesTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
   }
 }
 
@@ -939,6 +1157,87 @@ export interface SharedSecurityPoint extends Struct.ComponentSchema {
     > &
       Schema.Attribute.DefaultTo<"shield-check">
     title: Schema.Attribute.String & Schema.Attribute.Required
+  }
+}
+
+export interface SharedServiceCard extends Struct.ComponentSchema {
+  collectionName: "components_shared_service_cards"
+  info: {
+    displayName: "Service card"
+    icon: "cube"
+  }
+  attributes: {
+    action: Schema.Attribute.Component<"ui.link", false>
+    benefits: Schema.Attribute.Component<"shared.service-label", true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    image: Schema.Attribute.Component<"utilities.basic-image", false>
+    relatedProject: Schema.Attribute.Relation<
+      "oneToOne",
+      "api::portfolio-project.portfolio-project"
+    >
+    relatedProjectLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    specialties: Schema.Attribute.Component<"shared.service-label", true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    whatWeDo: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface SharedServiceLabel extends Struct.ComponentSchema {
+  collectionName: "components_shared_service_labels"
+  info: {
+    displayName: "Service label"
+    icon: "bulletList"
+  }
+  attributes: {
+    label: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface SharedTechnology extends Struct.ComponentSchema {
+  collectionName: "components_shared_technologies"
+  info: {
+    displayName: "Technology"
+    icon: "stack"
+  }
+  attributes: {
+    label: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
   }
 }
 
@@ -1359,6 +1658,7 @@ declare module "@strapi/strapi" {
       "forms.dynamic-form": FormsDynamicForm
       "layout.navbar-item": LayoutNavbarItem
       "sections.animated-logo-row": SectionsAnimatedLogoRow
+      "sections.before-after-slider": SectionsBeforeAfterSlider
       "sections.benefits-split": SectionsBenefitsSplit
       "sections.carousel": SectionsCarousel
       "sections.content-rich-text": SectionsContentRichText
@@ -1372,12 +1672,16 @@ declare module "@strapi/strapi" {
       "sections.heading-with-cta-button": SectionsHeadingWithCtaButton
       "sections.hero": SectionsHero
       "sections.hero-featured": SectionsHeroFeatured
+      "sections.hero-media": SectionsHeroMedia
       "sections.hero-standard": SectionsHeroStandard
       "sections.image-with-cta-button": SectionsImageWithCtaButton
       "sections.logo-cloud": SectionsLogoCloud
+      "sections.mission-vision": SectionsMissionVision
+      "sections.portfolio-projects": SectionsPortfolioProjects
       "sections.process-steps": SectionsProcessSteps
       "sections.product-grid": SectionsProductGrid
       "sections.security-block": SectionsSecurityBlock
+      "sections.services-hub": SectionsServicesHub
       "sections.statistics": SectionsStatistics
       "sections.testimonials": SectionsTestimonials
       "sections.video": SectionsVideo
@@ -1395,6 +1699,9 @@ declare module "@strapi/strapi" {
       "shared.process-step": SharedProcessStep
       "shared.product-card": SharedProductCard
       "shared.security-point": SharedSecurityPoint
+      "shared.service-card": SharedServiceCard
+      "shared.service-label": SharedServiceLabel
+      "shared.technology": SharedTechnology
       "shared.testimonial": SharedTestimonial
       "site.footer-config": SiteFooterConfig
       "site.header-config": SiteHeaderConfig

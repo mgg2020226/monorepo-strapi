@@ -7,8 +7,6 @@ import { isDevelopment, isProduction } from "@/lib/general-helpers"
 import { createPublicFullPath, routing } from "@/lib/navigation"
 import {
   fetchAllPages,
-  fetchBlogPosts,
-  fetchCalendarEvents,
   fetchLegalPages,
   fetchPortfolioProjects,
 } from "@/lib/strapi-api/content/server"
@@ -34,7 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 async function generateLocalizedSitemap(
   locale: Locale
 ): Promise<MetadataRoute.Sitemap> {
-  const [pages, posts, events, projects, legalPages] = await Promise.all([
+  const [pages, projects, legalPages] = await Promise.all([
     fetchAllPages(
       "api::page.page",
       locale,
@@ -43,8 +41,6 @@ async function generateLocalizedSitemap(
         next: { revalidate: 3600, tags: [strapiCacheTag("api::page.page")] },
       }
     ),
-    fetchBlogPosts(locale),
-    fetchCalendarEvents(locale),
     fetchPortfolioProjects(locale),
     fetchLegalPages(locale),
   ])
@@ -56,20 +52,6 @@ async function generateLocalizedSitemap(
       createdAt: page.createdAt,
       seo: page.seo,
       changeFrequency: "monthly" as const,
-    })),
-    ...posts.data.map((post) => ({
-      path: `/blog/${post.slug ?? ""}`,
-      updatedAt: post.updatedAt,
-      createdAt: post.createdAt,
-      seo: post.seo,
-      changeFrequency: "weekly" as const,
-    })),
-    ...events.data.map((event) => ({
-      path: `/events/${event.slug ?? ""}`,
-      updatedAt: event.updatedAt,
-      createdAt: event.createdAt,
-      seo: event.seo,
-      changeFrequency: "weekly" as const,
     })),
     ...projects.data.map((project) => ({
       path: `/portfolio/${project.slug ?? ""}`,

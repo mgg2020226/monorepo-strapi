@@ -50,7 +50,7 @@ In an application without auth or request-aware navbar behavior, the stricter op
 
 ## On-Demand Revalidation
 
-Beyond TTL-based ISR, Strapi invalidates cached content immediately when publishing via the revalidation pipeline: page/redirect paths through `revalidatePath`, and shared content (navbar, footer) through `revalidateTag`. Fetchers in `apps/empresaX/src/lib/strapi-api/content/server.ts` tag shared content with `strapi:api::<uid>` so a publish can target it precisely.
+Beyond TTL-based ISR, Strapi invalidates cached content immediately when publishing via the revalidation pipeline: page paths through `revalidatePath`, and shared site content through `revalidateTag`. Fetchers in `apps/empresaX/src/lib/strapi-api/content/server.ts` tag shared content with `strapi:api::<uid>` so a publish can target it precisely.
 
 See [Cache Revalidation](../reference/cache-revalidation.md) for the full Strapi → UI flow, and [CDN](../reference/integrations/cdn.md) for optional CDN cache purging.
 

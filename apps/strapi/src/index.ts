@@ -3,6 +3,7 @@ import type { Core } from "@strapi/strapi"
 // Must stay first so configured telemetry exporters initialize before the rest
 // of the server is loaded.
 import "./instrumentation"
+import { registerPageFullPathSyncMiddleware } from "./documentMiddlewares/pageFullPaths"
 import { registerAutoRevalidateMiddleware } from "./documentMiddlewares/revalidate"
 import { registerAdminUserSubscriber } from "./lifeCycles/adminUser"
 import { registerUserSubscriber } from "./lifeCycles/user"
@@ -31,6 +32,7 @@ export default {
     registerUserSubscriber({ strapi })
 
     // Register automatic frontend revalidation middleware for content changes
+    registerPageFullPathSyncMiddleware({ strapi })
     registerAutoRevalidateMiddleware({ strapi })
 
     logger.info("Strapi bootstrap completed")

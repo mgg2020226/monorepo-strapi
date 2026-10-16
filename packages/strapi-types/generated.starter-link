@@ -430,135 +430,6 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   }
 }
 
-export interface ApiFooterFooter extends Struct.SingleTypeSchema {
-  collectionName: "footers"
-  info: {
-    description: ""
-    displayName: "Footer"
-    pluralName: "footers"
-    singularName: "footer"
-  }
-  options: {
-    draftAndPublish: false
-  }
-  pluginOptions: {
-    i18n: {
-      localized: true
-    }
-  }
-  attributes: {
-    copyRight: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    createdAt: Schema.Attribute.DateTime
-    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-    links: Schema.Attribute.Component<"utilities.link", true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    locale: Schema.Attribute.String
-    localizations: Schema.Attribute.Relation<"oneToMany", "api::footer.footer">
-    logoImage: Schema.Attribute.Component<"utilities.image-with-link", false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    publishedAt: Schema.Attribute.DateTime
-    sections: Schema.Attribute.Component<"elements.footer-item", true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    updatedAt: Schema.Attribute.DateTime
-    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-  }
-}
-
-export interface ApiHierarchyHierarchy extends Struct.SingleTypeSchema {
-  collectionName: "hierarchies"
-  info: {
-    description: "Page hierarchy management: lists pending fullPath changes and applies them together with redirects."
-    displayName: "Hierarchy"
-    pluralName: "hierarchies"
-    singularName: "hierarchy"
-  }
-  options: {
-    draftAndPublish: false
-  }
-  attributes: {
-    createdAt: Schema.Attribute.DateTime
-    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-    lastRecalculationAt: Schema.Attribute.DateTime
-    locale: Schema.Attribute.String & Schema.Attribute.Private
-    localizations: Schema.Attribute.Relation<
-      "oneToMany",
-      "api::hierarchy.hierarchy"
-    > &
-      Schema.Attribute.Private
-    publishedAt: Schema.Attribute.DateTime
-    updatedAt: Schema.Attribute.DateTime
-    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-  }
-}
-
-export interface ApiNavbarNavbar extends Struct.SingleTypeSchema {
-  collectionName: "navbars"
-  info: {
-    description: ""
-    displayName: "Navbar"
-    pluralName: "navbars"
-    singularName: "navbar"
-  }
-  options: {
-    draftAndPublish: false
-  }
-  pluginOptions: {
-    i18n: {
-      localized: true
-    }
-  }
-  attributes: {
-    createdAt: Schema.Attribute.DateTime
-    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-    locale: Schema.Attribute.String
-    localizations: Schema.Attribute.Relation<"oneToMany", "api::navbar.navbar">
-    logoImage: Schema.Attribute.Component<"utilities.image-with-link", false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    navbarItems: Schema.Attribute.Component<"layout.navbar-item", true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    primaryButtons: Schema.Attribute.Component<"utilities.link", true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    publishedAt: Schema.Attribute.DateTime
-    updatedAt: Schema.Attribute.DateTime
-    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-  }
-}
-
 export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: "pages"
   info: {
@@ -639,35 +510,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
           localized: true
         }
       }>
-    updatedAt: Schema.Attribute.DateTime
-    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-  }
-}
-
-export interface ApiRedirectRedirect extends Struct.CollectionTypeSchema {
-  collectionName: "redirects"
-  info: {
-    displayName: "Redirect"
-    pluralName: "redirects"
-    singularName: "redirect"
-  }
-  options: {
-    draftAndPublish: true
-  }
-  attributes: {
-    createdAt: Schema.Attribute.DateTime
-    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-    destination: Schema.Attribute.String & Schema.Attribute.Required
-    locale: Schema.Attribute.String & Schema.Attribute.Private
-    localizations: Schema.Attribute.Relation<
-      "oneToMany",
-      "api::redirect.redirect"
-    > &
-      Schema.Attribute.Private
-    publishedAt: Schema.Attribute.DateTime
-    source: Schema.Attribute.String & Schema.Attribute.Required
     updatedAt: Schema.Attribute.DateTime
     updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
       Schema.Attribute.Private
@@ -1217,11 +1059,7 @@ declare module "@strapi/strapi" {
       "admin::transfer-token": AdminTransferToken
       "admin::transfer-token-permission": AdminTransferTokenPermission
       "admin::user": AdminUser
-      "api::footer.footer": ApiFooterFooter
-      "api::hierarchy.hierarchy": ApiHierarchyHierarchy
-      "api::navbar.navbar": ApiNavbarNavbar
       "api::page.page": ApiPagePage
-      "api::redirect.redirect": ApiRedirectRedirect
       "api::subscriber.subscriber": ApiSubscriberSubscriber
       "plugin::content-releases.release": PluginContentReleasesRelease
       "plugin::content-releases.release-action": PluginContentReleasesReleaseAction

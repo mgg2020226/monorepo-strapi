@@ -124,9 +124,7 @@ In this example, `title` can be translated per locale and `internalCode` is shar
 
 In Strapi admin, create the entry in one locale first, then use the locale switcher in the content editor to create or edit another locale version of the same document.
 
-For pages, each locale can have its own `slug`, `fullPath`, parent relation, SEO fields, and page-builder content. Keep this in mind when changing hierarchy: moving or renaming a page in one locale does not automatically make the same change in every other locale. See [Pages Hierarchy](../page-builder/pages-hierarchy.md).
-
-Single types such as Navbar and Footer should also be filled for every enabled locale when the UI needs localized navigation or footer content.
+For pages, each locale can have its own `slug`, `fullPath`, parent relation, SEO fields, and page-builder content. Published page paths are synchronized for their locale when the page hierarchy changes. See [Page paths](../page-builder/page-paths.md).
 
 ### Fetching Localized Content
 

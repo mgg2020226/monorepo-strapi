@@ -150,63 +150,8 @@ export async function fetchSite(locale: Locale) {
 
 type SiteScopedContentUid =
   | "api::page.page"
-  | "api::blog-post.blog-post"
-  | "api::calendar-event.calendar-event"
   | "api::portfolio-project.portfolio-project"
   | "api::legal-page.legal-page"
-
-export async function fetchBlogPosts(locale: Locale) {
-  return PublicStrapiClient.fetchAll("api::blog-post.blog-post", {
-    locale,
-    status: await getContentStatus(),
-    filters: { site: { slug: await getSiteSlugFromRequest() } },
-    populate: {
-      seo: "smart",
-      coverImage: "smart",
-      category: "smart",
-      tags: "smart",
-    },
-    sort: { publishedAt: "desc" },
-  })
-}
-
-export async function fetchBlogPost(slug: string, locale: Locale) {
-  return PublicStrapiClient.fetchOneBySlug("api::blog-post.blog-post", slug, {
-    locale,
-    status: await getContentStatus(),
-    filters: { site: { slug: await getSiteSlugFromRequest() } },
-    populate: {
-      seo: "smart",
-      coverImage: "smart",
-      category: "smart",
-      tags: "smart",
-      localizations: true,
-    },
-  })
-}
-
-export async function fetchCalendarEvents(locale: Locale) {
-  return PublicStrapiClient.fetchAll("api::calendar-event.calendar-event", {
-    locale,
-    status: await getContentStatus(),
-    filters: { site: { slug: await getSiteSlugFromRequest() } },
-    populate: { seo: "smart", image: "smart" },
-    sort: { startDate: "asc", startTime: "asc" },
-  })
-}
-
-export async function fetchCalendarEvent(slug: string, locale: Locale) {
-  return PublicStrapiClient.fetchOneBySlug(
-    "api::calendar-event.calendar-event",
-    slug,
-    {
-      locale,
-      status: await getContentStatus(),
-      filters: { site: { slug: await getSiteSlugFromRequest() } },
-      populate: { seo: "smart", image: "smart", localizations: true },
-    }
-  )
-}
 
 export async function fetchPortfolioProjects(locale: Locale) {
   return PublicStrapiClient.fetchAll(
@@ -233,6 +178,7 @@ export async function fetchPortfolioProject(slug: string, locale: Locale) {
         seo: "smart",
         coverImage: "smart",
         gallery: "smart",
+        technologies: "smart",
         localizations: true,
       },
     }
@@ -299,42 +245,4 @@ export async function fetchSeoBySlug(
     filters: { site: { slug: await getSiteSlugFromRequest() } },
     populate: { seo: "smart", localizations: true },
   })
-}
-
-// ------ Redirect fetching functions
-
-export async function fetchRedirects() {
-  try {
-    // fetchAll paginates through every page — a redirect list capped at one
-    // page would silently drop redirects beyond the page size (easy to hit
-    // after a site migration).
-    const response = await PublicStrapiClient.fetchAll(
-      "api::redirect.redirect",
-      {
-        status: await getContentStatus(),
-        filters: { site: { slug: await getSiteSlugFromRequest() } },
-      },
-      {
-        // Redirects are cached in-process by `src/lib/redirects.ts`. Avoid
-        // stacking Next's Data Cache underneath it, because proxy refreshes
-        // should decide freshness from the local stale-while-refresh cache.
-        cache: "no-store",
-      }
-    )
-
-    return response.data
-  } catch (e: unknown) {
-    logNonBlockingError({
-      message: "Error fetching redirects",
-      error: {
-        error: e instanceof Error ? e.message : String(e),
-        stack: e instanceof Error ? e.stack : undefined,
-      },
-    })
-
-    // Rethrow instead of returning [] — the redirect cache must distinguish
-    // "no redirects exist" from "Strapi unreachable". An empty list here would
-    // be cached and wipe the last known good redirects for a full TTL.
-    throw e instanceof Error ? e : new Error(String(e))
-  }
 }

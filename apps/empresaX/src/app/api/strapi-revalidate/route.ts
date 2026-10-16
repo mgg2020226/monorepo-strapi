@@ -10,7 +10,7 @@ import { hasValidBearerToken } from "@/lib/verify-bearer-token"
 /**
  * On-demand cache revalidation endpoint triggered by Strapi.
  * Accepts fullPaths and/or tags to selectively invalidate cached Next.js
- * content after publish, unpublish, or hierarchy changes in the CMS.
+ * content after publish, unpublish, or page-path changes in the CMS.
  *
  * Front Door is not purged here. AFD purge propagation (up to 20 minutes per
  * Microsoft's documentation) is always slower than the page route's TTL, so

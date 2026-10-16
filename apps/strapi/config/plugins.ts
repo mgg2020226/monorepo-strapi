@@ -52,10 +52,6 @@ export default ({ env }) => {
             name: "pages",
             facets: ["site", "locale", "pageType"],
           },
-          "api::blog-post.blog-post": {
-            name: "blog_posts",
-            facets: ["site", "locale", "category", "tags"],
-          },
         },
       },
     },

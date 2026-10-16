@@ -62,8 +62,7 @@ function getOldPublishedPage(documentId: Modules.Documents.ID) {
  *
  * Runs on every write (draft save and publish alike), so the reserved root
  * slug can't be changed by saving a draft either — not only when publishing.
- * FullPath recalculation is not triggered here: pending changes are computed
- * on demand by the `api::hierarchy.hierarchy` service.
+ * Published fullPath changes are synchronized by the page document middleware.
  */
 async function preventRootSlugChange(event: WriteEvent) {
   const newData = event.params.data
@@ -71,9 +70,8 @@ async function preventRootSlugChange(event: WriteEvent) {
     return
   }
 
-  // Automated/system changes (e.g. hierarchy recalculation) set `updatedBy`
-  // to `null` explicitly -> skip. Regular writes that simply omit `updatedBy`
-  // (undefined) must still be guarded, so compare strictly against null.
+  // Automated/system changes set `updatedBy` to `null` explicitly -> skip.
+  // Regular writes that omit it (undefined) must still be guarded.
   if (newData.updatedBy === null) {
     return
   }

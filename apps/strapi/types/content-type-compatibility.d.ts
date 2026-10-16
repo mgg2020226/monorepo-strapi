@@ -15,12 +15,8 @@ type ProjectCollectionType = Struct.CollectionTypeSchema & {
 declare module "@strapi/strapi" {
   export namespace Public {
     export interface ContentTypeSchemas {
-      "api::blog-category.blog-category": ProjectCollectionType
-      "api::blog-post.blog-post": ProjectCollectionType
-      "api::calendar-event.calendar-event": ProjectCollectionType
       "api::form-definition.form-definition": ProjectCollectionType
       "api::legal-page.legal-page": ProjectCollectionType
-      "api::platform-settings.platform-settings": ProjectCollectionType
       "api::portfolio-project.portfolio-project": ProjectCollectionType
       "api::site.site": ProjectCollectionType
     }

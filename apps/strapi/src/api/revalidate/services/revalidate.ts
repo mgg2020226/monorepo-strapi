@@ -7,8 +7,8 @@ import {
 export default () => ({
   /**
    * Calls `revalidateNextCache`. Used by the document middleware on
-   * publish/update, by hierarchy jobs after fullPath recalculation, and by
-   * the admin "Revalidate cache" button.
+   * publish/update, by automatic page-path synchronization, and by the admin
+   * "Revalidate cache" button.
    */
   run: async (
     params: RevalidateNextCacheParams

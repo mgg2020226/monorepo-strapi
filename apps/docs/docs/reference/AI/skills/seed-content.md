@@ -19,4 +19,4 @@ Fill your local Strapi with content — pages and the shared navbar/footer — w
 
 Use the export/import flow in [Data Seeding](../../../strapi/data-seeding.md) for shared baseline content that should travel with the repo.
 
-See also: [create-content-component](./create-content-component.md), [Pages Hierarchy](../../../page-builder/pages-hierarchy.md).
+See also: [create-content-component](./create-content-component.md), [Page paths](../../../page-builder/page-paths.md).

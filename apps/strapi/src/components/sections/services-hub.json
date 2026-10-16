@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_sections_services_hubs",
+  "info": { "displayName": "Services hub", "icon": "cube" },
+  "options": {},
+  "attributes": {
+    "heading": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "description": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "specialtiesTitle": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "benefitsTitle": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "relatedProjectLabel": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "cards": { "type": "component", "component": "shared.service-card", "repeatable": true, "required": true }
+  }
+}

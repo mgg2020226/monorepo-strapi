@@ -24,8 +24,8 @@ export type RevalidationResponse = {
  * Triggers Next.js cache revalidation for the given Strapi entity by POSTing
  * to the UI's `/api/strapi-revalidate` endpoint. Normalizes the input paths,
  * collects the entity's canonical cache tag alongside any explicit tags, and
- * surfaces upstream failures as thrown errors so the caller (admin button,
- * document middleware, hierarchy batch) does not silently proceed.
+ * surfaces upstream failures as thrown errors so the caller (admin button or
+ * document middleware) does not silently proceed.
  *
  * The CDN is intentionally not purged here. CDN purge propagation (up to
  * 20 minutes) is always slower than the affected route's `revalidate` TTL,

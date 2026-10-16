@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_sections_portfolio_projects",
+  "info": { "displayName": "Portfolio projects", "icon": "grid" },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "description": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "variant": { "type": "enumeration", "enum": ["featured", "grid", "featured-plus-grid"], "default": "grid" },
+    "projects": { "type": "relation", "relation": "manyToMany", "target": "api::portfolio-project.portfolio-project", "required": true },
+    "viewAllAction": { "type": "component", "component": "ui.link", "repeatable": false }
+  }
+}

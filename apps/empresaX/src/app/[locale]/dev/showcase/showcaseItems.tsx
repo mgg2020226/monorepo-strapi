@@ -15,6 +15,7 @@ import TabsSection from "@/app/[locale]/dev/showcase/components/sections/TabsSec
 import TextareaSection from "@/app/[locale]/dev/showcase/components/sections/TextareaSection"
 import TooltipSection from "@/app/[locale]/dev/showcase/components/sections/TooltipSection"
 import MockedStrapiAnimatedLogoRow from "@/app/[locale]/dev/showcase/components/strapiComponents/MockedStrapiAnimatedLogoRow"
+import MockedStrapiBeforeAfterSlider from "@/app/[locale]/dev/showcase/components/strapiComponents/MockedStrapiBeforeAfterSlider"
 import MockedStrapiCarousel from "@/app/[locale]/dev/showcase/components/strapiComponents/MockedStrapiCarousel"
 import MockedStrapiCTABanner from "@/app/[locale]/dev/showcase/components/strapiComponents/MockedStrapiCTABanner"
 import MockedStrapiFaq from "@/app/[locale]/dev/showcase/components/strapiComponents/MockedStrapiFaq"
@@ -22,7 +23,11 @@ import MockedStrapiFeaturesList from "@/app/[locale]/dev/showcase/components/str
 import MockedStrapiFigures from "@/app/[locale]/dev/showcase/components/strapiComponents/MockedStrapiFigures"
 import MockedStrapiHeadingWithCTAButton from "@/app/[locale]/dev/showcase/components/strapiComponents/MockedStrapiHeadingWithCTAButton"
 import MockedStrapiHero from "@/app/[locale]/dev/showcase/components/strapiComponents/MockedStrapiHero"
+import MockedStrapiHeroMedia from "@/app/[locale]/dev/showcase/components/strapiComponents/MockedStrapiHeroMedia"
 import MockedStrapiImageWithCTAButton from "@/app/[locale]/dev/showcase/components/strapiComponents/MockedStrapiImageWithCTAButton"
+import MockedStrapiMissionVision from "@/app/[locale]/dev/showcase/components/strapiComponents/MockedStrapiMissionVision"
+import MockedStrapiPortfolioProjects from "@/app/[locale]/dev/showcase/components/strapiComponents/MockedStrapiPortfolioProjects"
+import MockedStrapiServicesHub from "@/app/[locale]/dev/showcase/components/strapiComponents/MockedStrapiServicesHub"
 
 export const showcaseItems = [
   // Atomic items
@@ -205,6 +210,42 @@ export const showcaseItems = [
     kind: "component",
     component: MockedStrapiImageWithCTAButton,
     description: "An image block paired with a call-to-action",
+  },
+  {
+    id: "hero-media",
+    label: "Hero with Media",
+    kind: "component",
+    component: MockedStrapiHeroMedia,
+    description: "Full-width image or video hero with actions and perks",
+  },
+  {
+    id: "mission-vision",
+    label: "Mission and Vision",
+    kind: "component",
+    component: MockedStrapiMissionVision,
+    description: "Mission, vision, and company values",
+  },
+  {
+    id: "services-hub",
+    label: "Services Hub",
+    kind: "component",
+    component: MockedStrapiServicesHub,
+    description:
+      "Service cards with specialties, benefits, and related projects",
+  },
+  {
+    id: "before-after-slider",
+    label: "Before and After Slider",
+    kind: "component",
+    component: MockedStrapiBeforeAfterSlider,
+    description: "Keyboard-accessible image comparison slider",
+  },
+  {
+    id: "portfolio-projects",
+    label: "Portfolio Projects",
+    kind: "component",
+    component: MockedStrapiPortfolioProjects,
+    description: "Featured or grid presentation of selected portfolio projects",
   },
 ] as const
 

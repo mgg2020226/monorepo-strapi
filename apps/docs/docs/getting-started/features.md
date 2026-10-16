@@ -22,8 +22,8 @@ Shared code lives in [`packages/*`](../reference/packages/overview.md).
 - **[Typed rendering](../reference/packages/strapi-types.md)** — React components receive typed Strapi component data through `@repo/strapi-types`.
 - **[Component registry](../page-builder/introduction.md)** — Strapi component UIDs map to UI components in one predictable place.
 - **[Smart population](../page-builder/introduction.md)** — small per-component populate configs are combined automatically.
-- **[Page hierarchy](../page-builder/pages-hierarchy.md)** — full paths, parent/child pages, breadcrumbs, and redirects are handled in Strapi.
-- **[Seed data](../strapi/data-seeding.md)** — baseline pages, navbar, footer, and demo content can be shared with the team.
+- **[Page paths](../page-builder/page-paths.md)** — page routes follow parent/child relationships and synchronize automatically.
+- **[Seed data](../strapi/data-seeding.md)** — baseline pages and demo content can be shared with the team.
 - **[Add content type workflow](./add-content-type.md)** — extend Strapi schemas, regenerate types, and render new data in the UI.
 
 ## UI
@@ -36,7 +36,7 @@ Shared code lives in [`packages/*`](../reference/packages/overview.md).
 - **[Caching defaults](../ui/caching.md)** — Strapi responses cache, Next.js page cache, ISR, and static export tradeoffs are documented.
 - **[Cache revalidation](../reference/cache-revalidation.md)** — Strapi publish/update/delete events can invalidate affected Next.js paths and shared data tags.
 - **[CDN cache purge](../reference/integrations/cdn.md)** — optional operator-triggered CDN eviction is available for urgent cache updates.
-- **[Next proxies](../ui/next-proxies.md)** — controlled proxy middleware handles locale redirects, HTTPS redirects, Strapi-defined redirects, basic auth, and auth guards.
+- **[Next proxies](../ui/next-proxies.md)** — controlled proxy middleware handles locale routing, HTTPS redirects, basic auth, and auth guards.
 - **[SEO helpers](../ui/seo.md)** — metadata, sitemap, robots, canonical URLs, and structured data are generated from content.
 - **[Image handling](../ui/images.md)** — Strapi media helpers and optional imgproxy support are included.
 - **[Environment variables](../ui/environment-variables.md)** — runtime config, CSR env injection, public variables, and debug flags are documented.
@@ -48,7 +48,6 @@ Shared code lives in [`packages/*`](../reference/packages/overview.md).
 - **[Local setup](../strapi/installation.md)** — PostgreSQL is configured as an external service.
 - **[Schema conventions](../strapi/strapi-schemas.md)** — content types, components, relations, lifecycle hooks, and document middlewares are documented.
 - **[Generated Strapi types](../reference/packages/strapi-types.md)** — schema-generated types are shared with the UI.
-- **[CMS redirects](../strapi/cms-redirects.md)** — editors manage `source` → `destination` redirects as content; the UI proxy applies them, and page moves create them automatically.
 - **Rich text editors** — [CKEditor](../strapi/plugins/ckeditor.md) and [Tiptap](../strapi/plugins/tiptap-editor.md) editor integrations are documented.
 - **[Upload providers](../strapi/plugins/upload-providers.md)** — local storage, Azure Blob Storage, and AWS S3 are supported.
 - **[Email providers](../strapi/plugins/email-providers.md)** — Mailgun production email and Mailtrap development email are wired through Strapi provider config.

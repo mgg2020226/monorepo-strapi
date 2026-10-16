@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_service_cards",
+  "info": { "displayName": "Service card", "icon": "cube" },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "whatWeDo": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "image": { "type": "component", "component": "utilities.basic-image", "repeatable": false },
+    "specialties": { "type": "component", "component": "shared.service-label", "repeatable": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "benefits": { "type": "component", "component": "shared.service-label", "repeatable": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "action": { "type": "component", "component": "ui.link", "repeatable": false },
+    "relatedProject": { "type": "relation", "relation": "oneToOne", "target": "api::portfolio-project.portfolio-project" },
+    "relatedProjectLabel": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } }
+  }
+}

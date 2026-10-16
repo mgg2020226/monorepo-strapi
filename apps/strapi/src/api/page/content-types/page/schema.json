@@ -64,8 +64,6 @@
         "page",
         "landing",
         "home",
-        "blog-index",
-        "calendar-index",
         "contact"
       ],
       "default": "page",
@@ -121,7 +119,12 @@
         "sections.benefits-split",
         "sections.security-block",
         "sections.testimonials",
-        "sections.logo-cloud"
+        "sections.logo-cloud",
+        "sections.hero-media",
+        "sections.mission-vision",
+        "sections.services-hub",
+        "sections.before-after-slider",
+        "sections.portfolio-projects"
       ]
     },
     "children": {

@@ -443,275 +443,6 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   }
 }
 
-export interface ApiBlogCategoryBlogCategory
-  extends Struct.CollectionTypeSchema {
-  collectionName: "blog_categories"
-  info: {
-    displayName: "Blog category"
-    pluralName: "blog-categories"
-    singularName: "blog-category"
-  }
-  options: {
-    draftAndPublish: true
-  }
-  pluginOptions: {
-    i18n: {
-      localized: true
-    }
-  }
-  attributes: {
-    active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>
-    color: Schema.Attribute.String
-    createdAt: Schema.Attribute.DateTime
-    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-    description: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    locale: Schema.Attribute.String
-    localizations: Schema.Attribute.Relation<
-      "oneToMany",
-      "api::blog-category.blog-category"
-    >
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>
-    posts: Schema.Attribute.Relation<"oneToMany", "api::blog-post.blog-post">
-    publishedAt: Schema.Attribute.DateTime
-    site: Schema.Attribute.Relation<"manyToOne", "api::site.site"> &
-      Schema.Attribute.Required
-    slug: Schema.Attribute.UID<"name"> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    updatedAt: Schema.Attribute.DateTime
-    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-  }
-}
-
-export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
-  collectionName: "blog_posts"
-  info: {
-    displayName: "Blog post"
-    pluralName: "blog-posts"
-    singularName: "blog-post"
-  }
-  options: {
-    draftAndPublish: true
-  }
-  pluginOptions: {
-    i18n: {
-      localized: true
-    }
-  }
-  attributes: {
-    authorName: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    category: Schema.Attribute.Relation<
-      "manyToOne",
-      "api::blog-category.blog-category"
-    > &
-      Schema.Attribute.Required
-    content: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    coverImage: Schema.Attribute.Media<"images">
-    createdAt: Schema.Attribute.DateTime
-    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-    excerpt: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
-    locale: Schema.Attribute.String
-    localizations: Schema.Attribute.Relation<
-      "oneToMany",
-      "api::blog-post.blog-post"
-    >
-    publishedAt: Schema.Attribute.DateTime
-    readingTimeMinutes: Schema.Attribute.Integer
-    seo: Schema.Attribute.Component<"seo.metadata", false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    site: Schema.Attribute.Relation<"manyToOne", "api::site.site"> &
-      Schema.Attribute.Required
-    slug: Schema.Attribute.UID<"title"> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    tags: Schema.Attribute.Component<"blog.tag", true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    updatedAt: Schema.Attribute.DateTime
-    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-  }
-}
-
-export interface ApiCalendarEventCalendarEvent
-  extends Struct.CollectionTypeSchema {
-  collectionName: "calendar_events"
-  info: {
-    displayName: "Calendar event"
-    pluralName: "calendar-events"
-    singularName: "calendar-event"
-  }
-  options: {
-    draftAndPublish: true
-  }
-  pluginOptions: {
-    i18n: {
-      localized: true
-    }
-  }
-  attributes: {
-    createdAt: Schema.Attribute.DateTime
-    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-    description: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    endDate: Schema.Attribute.Date
-    endTime: Schema.Attribute.Time
-    image: Schema.Attribute.Media<"images">
-    locale: Schema.Attribute.String
-    localizations: Schema.Attribute.Relation<
-      "oneToMany",
-      "api::calendar-event.calendar-event"
-    >
-    location: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    publishedAt: Schema.Attribute.DateTime
-    registrationUrl: Schema.Attribute.String
-    seo: Schema.Attribute.Component<"seo.metadata", false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    site: Schema.Attribute.Relation<"manyToOne", "api::site.site"> &
-      Schema.Attribute.Required
-    slug: Schema.Attribute.UID<"title"> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    startDate: Schema.Attribute.Date & Schema.Attribute.Required
-    startTime: Schema.Attribute.Time & Schema.Attribute.Required
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    updatedAt: Schema.Attribute.DateTime
-    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-  }
-}
-
-export interface ApiFooterFooter extends Struct.SingleTypeSchema {
-  collectionName: "footers"
-  info: {
-    description: ""
-    displayName: "Footer"
-    pluralName: "footers"
-    singularName: "footer"
-  }
-  options: {
-    draftAndPublish: true
-  }
-  pluginOptions: {
-    i18n: {
-      localized: true
-    }
-  }
-  attributes: {
-    copyRight: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    createdAt: Schema.Attribute.DateTime
-    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-    links: Schema.Attribute.Component<"utilities.link", true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    locale: Schema.Attribute.String
-    localizations: Schema.Attribute.Relation<"oneToMany", "api::footer.footer">
-    logoImage: Schema.Attribute.Component<"utilities.image-with-link", false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    publishedAt: Schema.Attribute.DateTime
-    sections: Schema.Attribute.Component<"elements.footer-item", true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    updatedAt: Schema.Attribute.DateTime
-    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-  }
-}
-
 export interface ApiFormDefinitionFormDefinition
   extends Struct.CollectionTypeSchema {
   collectionName: "form_definitions"
@@ -803,35 +534,6 @@ export interface ApiFormDefinitionFormDefinition
   }
 }
 
-export interface ApiHierarchyHierarchy extends Struct.SingleTypeSchema {
-  collectionName: "hierarchies"
-  info: {
-    description: "Page hierarchy management: lists pending fullPath changes and applies them together with redirects."
-    displayName: "Hierarchy"
-    pluralName: "hierarchies"
-    singularName: "hierarchy"
-  }
-  options: {
-    draftAndPublish: true
-  }
-  attributes: {
-    createdAt: Schema.Attribute.DateTime
-    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-    lastRecalculationAt: Schema.Attribute.DateTime
-    locale: Schema.Attribute.String & Schema.Attribute.Private
-    localizations: Schema.Attribute.Relation<
-      "oneToMany",
-      "api::hierarchy.hierarchy"
-    > &
-      Schema.Attribute.Private
-    publishedAt: Schema.Attribute.DateTime
-    updatedAt: Schema.Attribute.DateTime
-    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-  }
-}
-
 export interface ApiLegalPageLegalPage extends Struct.CollectionTypeSchema {
   collectionName: "legal_pages"
   info: {
@@ -898,53 +600,6 @@ export interface ApiLegalPageLegalPage extends Struct.CollectionTypeSchema {
   }
 }
 
-export interface ApiNavbarNavbar extends Struct.SingleTypeSchema {
-  collectionName: "navbars"
-  info: {
-    description: ""
-    displayName: "Navbar"
-    pluralName: "navbars"
-    singularName: "navbar"
-  }
-  options: {
-    draftAndPublish: true
-  }
-  pluginOptions: {
-    i18n: {
-      localized: true
-    }
-  }
-  attributes: {
-    createdAt: Schema.Attribute.DateTime
-    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-    locale: Schema.Attribute.String
-    localizations: Schema.Attribute.Relation<"oneToMany", "api::navbar.navbar">
-    logoImage: Schema.Attribute.Component<"utilities.image-with-link", false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    navbarItems: Schema.Attribute.Component<"layout.navbar-item", true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    primaryButtons: Schema.Attribute.Component<"utilities.link", true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-    publishedAt: Schema.Attribute.DateTime
-    updatedAt: Schema.Attribute.DateTime
-    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-  }
-}
-
 export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: "pages"
   info: {
@@ -998,6 +653,11 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         "sections.security-block",
         "sections.testimonials",
         "sections.logo-cloud",
+        "sections.hero-media",
+        "sections.mission-vision",
+        "sections.services-hub",
+        "sections.before-after-slider",
+        "sections.portfolio-projects",
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -1024,7 +684,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       }>
     navigationOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>
     pageType: Schema.Attribute.Enumeration<
-      ["page", "landing", "home", "blog-index", "calendar-index", "contact"]
+      ["page", "landing", "home", "contact"]
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<"page">
@@ -1059,47 +719,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
   }
 }
 
-export interface ApiPlatformSettingsPlatformSettings
-  extends Struct.SingleTypeSchema {
-  collectionName: "platform_settings"
-  info: {
-    displayName: "Platform settings"
-    pluralName: "platform-settings-config"
-    singularName: "platform-settings"
-  }
-  options: {
-    draftAndPublish: true
-  }
-  attributes: {
-    availableLocales: Schema.Attribute.JSON &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<["es", "en"]>
-    createdAt: Schema.Attribute.DateTime
-    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-    defaultLocale: Schema.Attribute.Enumeration<["es", "en"]> &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<"es">
-    globalRobotsPolicy: Schema.Attribute.Enumeration<["index", "noindex"]> &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<"index">
-    locale: Schema.Attribute.String & Schema.Attribute.Private
-    localizations: Schema.Attribute.Relation<
-      "oneToMany",
-      "api::platform-settings.platform-settings"
-    > &
-      Schema.Attribute.Private
-    maintenanceMessage: Schema.Attribute.Text
-    maintenanceMode: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<false>
-    publishedAt: Schema.Attribute.DateTime
-    securityContactEmail: Schema.Attribute.Email & Schema.Attribute.Required
-    updatedAt: Schema.Attribute.DateTime
-    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-  }
-}
-
 export interface ApiPortfolioProjectPortfolioProject
   extends Struct.CollectionTypeSchema {
   collectionName: "portfolio_projects"
@@ -1117,6 +736,24 @@ export interface ApiPortfolioProjectPortfolioProject
     }
   }
   attributes: {
+    area: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    category: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    challenge: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
     content: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1135,9 +772,27 @@ export interface ApiPortfolioProjectPortfolioProject
       "oneToMany",
       "api::portfolio-project.portfolio-project"
     >
+    location: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
     order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>
     publishedAt: Schema.Attribute.DateTime
+    result: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
     seo: Schema.Attribute.Component<"seo.metadata", false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    services: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true
@@ -1152,7 +807,27 @@ export interface ApiPortfolioProjectPortfolioProject
           localized: true
         }
       }>
+    solution: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    span: Schema.Attribute.Enumeration<["wide", "tall", "regular"]> &
+      Schema.Attribute.DefaultTo<"regular">
     summary: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    tag: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    technologies: Schema.Attribute.Component<"shared.technology", true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true
@@ -1168,37 +843,12 @@ export interface ApiPortfolioProjectPortfolioProject
     updatedAt: Schema.Attribute.DateTime
     updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
       Schema.Attribute.Private
-  }
-}
-
-export interface ApiRedirectRedirect extends Struct.CollectionTypeSchema {
-  collectionName: "redirects"
-  info: {
-    displayName: "Redirect"
-    pluralName: "redirects"
-    singularName: "redirect"
-  }
-  options: {
-    draftAndPublish: true
-  }
-  attributes: {
-    createdAt: Schema.Attribute.DateTime
-    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
-    destination: Schema.Attribute.String & Schema.Attribute.Required
-    locale: Schema.Attribute.String & Schema.Attribute.Private
-    localizations: Schema.Attribute.Relation<
-      "oneToMany",
-      "api::redirect.redirect"
-    > &
-      Schema.Attribute.Private
-    publishedAt: Schema.Attribute.DateTime
-    site: Schema.Attribute.Relation<"manyToOne", "api::site.site"> &
-      Schema.Attribute.Required
-    source: Schema.Attribute.String & Schema.Attribute.Required
-    updatedAt: Schema.Attribute.DateTime
-    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
-      Schema.Attribute.Private
+    year: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
   }
 }
 
@@ -1215,18 +865,6 @@ export interface ApiSiteSite extends Struct.CollectionTypeSchema {
   }
   attributes: {
     address: Schema.Attribute.Text
-    blogCategories: Schema.Attribute.Relation<
-      "oneToMany",
-      "api::blog-category.blog-category"
-    >
-    blogPosts: Schema.Attribute.Relation<
-      "oneToMany",
-      "api::blog-post.blog-post"
-    >
-    calendarEvents: Schema.Attribute.Relation<
-      "oneToMany",
-      "api::calendar-event.calendar-event"
-    >
     contactEmail: Schema.Attribute.Email
     contactPhone: Schema.Attribute.String
     createdAt: Schema.Attribute.DateTime
@@ -1274,7 +912,6 @@ export interface ApiSiteSite extends Struct.CollectionTypeSchema {
       "api::portfolio-project.portfolio-project"
     >
     publishedAt: Schema.Attribute.DateTime
-    redirects: Schema.Attribute.Relation<"oneToMany", "api::redirect.redirect">
     searchEnabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
     slug: Schema.Attribute.UID<"name"> &
       Schema.Attribute.Required &
@@ -1838,18 +1475,10 @@ declare module "@strapi/strapi" {
       "admin::transfer-token": AdminTransferToken
       "admin::transfer-token-permission": AdminTransferTokenPermission
       "admin::user": AdminUser
-      "api::blog-category.blog-category": ApiBlogCategoryBlogCategory
-      "api::blog-post.blog-post": ApiBlogPostBlogPost
-      "api::calendar-event.calendar-event": ApiCalendarEventCalendarEvent
-      "api::footer.footer": ApiFooterFooter
       "api::form-definition.form-definition": ApiFormDefinitionFormDefinition
-      "api::hierarchy.hierarchy": ApiHierarchyHierarchy
       "api::legal-page.legal-page": ApiLegalPageLegalPage
-      "api::navbar.navbar": ApiNavbarNavbar
       "api::page.page": ApiPagePage
-      "api::platform-settings.platform-settings": ApiPlatformSettingsPlatformSettings
       "api::portfolio-project.portfolio-project": ApiPortfolioProjectPortfolioProject
-      "api::redirect.redirect": ApiRedirectRedirect
       "api::site.site": ApiSiteSite
       "api::subscriber.subscriber": ApiSubscriberSubscriber
       "plugin::content-releases.release": PluginContentReleasesRelease

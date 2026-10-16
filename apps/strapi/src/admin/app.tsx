@@ -6,20 +6,12 @@ import "@repo/design-system/styles.css"
 
 import { defaultCkEditorConfig, simpleCkEditorConfig } from "./ckeditor/configs"
 import DataRevalidate from "./extensions/DataRevalidate"
-import Hierarchy from "./extensions/Hierarchy"
 
 export default {
   config: {
     locales: ["en"],
   },
   async bootstrap(app: StrapiApp) {
-    app
-      .getPlugin("content-manager")
-      .injectComponent("editView", "right-links", {
-        name: "Hierarchy",
-        Component: Hierarchy,
-      })
-
     app
       .getPlugin("content-manager")
       .injectComponent("editView", "right-links", {

@@ -27,10 +27,9 @@ describe("content-type schemas", () => {
     for (const [api, contentType] of [
       ["page", "page"],
       ["subscriber", "subscriber"],
-      ["navbar", "navbar"],
-      ["footer", "footer"],
-      ["redirect", "redirect"],
-      ["hierarchy", "hierarchy"],
+      ["site", "site"],
+      ["portfolio-project", "portfolio-project"],
+      ["legal-page", "legal-page"],
     ]) {
       expect(readSchema(api, contentType).attributes).toBeTypeOf("object")
     }
@@ -50,12 +49,5 @@ describe("content-type schemas", () => {
     ]) {
       expect(attributes[field]).toBeDefined()
     }
-  })
-
-  it("defines source and destination on the redirect schema", () => {
-    const { attributes } = readSchema("redirect", "redirect")
-
-    expect(attributes.source).toBeDefined()
-    expect(attributes.destination).toBeDefined()
   })
 })

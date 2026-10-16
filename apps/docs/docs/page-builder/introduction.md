@@ -173,5 +173,5 @@ Start with [Agent Skills](../reference/AI/skills/overview.md) for the full workf
 
 ## Related Documentation
 
-- [Pages Hierarchy](./pages-hierarchy.md) — URL structure and slug management
+- [Page paths](./page-paths.md) — URL structure and automatic path synchronization
 - [Strapi API Client](../ui/strapi-api-client.md) — fetching content from Strapi
