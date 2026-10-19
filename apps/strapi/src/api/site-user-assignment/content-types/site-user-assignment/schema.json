@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "site_user_assignments",
+  "info": {
+    "singularName": "site-user-assignment",
+    "pluralName": "site-user-assignments",
+    "displayName": "Site user assignment"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "site": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::site.site",
+      "inversedBy": "userAssignments",
+      "required": true
+    },
+    "adminUser": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "admin::user",
+      "required": true
+    }
+  }
+}

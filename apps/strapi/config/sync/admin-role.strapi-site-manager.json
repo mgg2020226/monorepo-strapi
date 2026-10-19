@@ -1,0 +1,759 @@
+{
+  "code": "strapi-site-manager",
+  "description": "Can manage records and site settings only for assigned sites.",
+  "name": "Site Manager",
+  "permissions": [
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "properties": {
+        "fields": [
+          "title",
+          "breadcrumbTitle",
+          "slug",
+          "fullPath",
+          "site",
+          "pageType",
+          "showInNavigation",
+          "navigationLabel",
+          "navigationOrder",
+          "content",
+          "children",
+          "parent",
+          "seo.metaTitle",
+          "seo.metaDescription",
+          "seo.metaImage",
+          "seo.keywords",
+          "seo.twitter.card",
+          "seo.twitter.title",
+          "seo.twitter.description",
+          "seo.twitter.siteId",
+          "seo.twitter.creator",
+          "seo.twitter.creatorId",
+          "seo.twitter.images",
+          "seo.og.title",
+          "seo.og.description",
+          "seo.og.url",
+          "seo.og.type",
+          "seo.og.image",
+          "seo.og.siteName",
+          "seo.applicationName",
+          "seo.canonicalUrl",
+          "seo.structuredData",
+          "seo.metaRobots"
+        ]
+      },
+      "documentId": "d9de204e25f2473f921f8bed",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::page.page"
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "properties": {
+        "fields": [
+          "title",
+          "breadcrumbTitle",
+          "slug",
+          "fullPath",
+          "site",
+          "pageType",
+          "showInNavigation",
+          "navigationLabel",
+          "navigationOrder",
+          "content",
+          "children",
+          "parent",
+          "seo.metaTitle",
+          "seo.metaDescription",
+          "seo.metaImage",
+          "seo.keywords",
+          "seo.twitter.card",
+          "seo.twitter.title",
+          "seo.twitter.description",
+          "seo.twitter.siteId",
+          "seo.twitter.creator",
+          "seo.twitter.creatorId",
+          "seo.twitter.images",
+          "seo.og.title",
+          "seo.og.description",
+          "seo.og.url",
+          "seo.og.type",
+          "seo.og.image",
+          "seo.og.siteName",
+          "seo.applicationName",
+          "seo.canonicalUrl",
+          "seo.structuredData",
+          "seo.metaRobots"
+        ]
+      },
+      "documentId": "bc635f7e4890410a9a0cb5bd",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::page.page"
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "properties": {
+        "fields": [
+          "title",
+          "breadcrumbTitle",
+          "slug",
+          "fullPath",
+          "pageType",
+          "showInNavigation",
+          "navigationLabel",
+          "navigationOrder",
+          "content",
+          "children",
+          "parent",
+          "seo.metaTitle",
+          "seo.metaDescription",
+          "seo.metaImage",
+          "seo.keywords",
+          "seo.twitter.card",
+          "seo.twitter.title",
+          "seo.twitter.description",
+          "seo.twitter.siteId",
+          "seo.twitter.creator",
+          "seo.twitter.creatorId",
+          "seo.twitter.images",
+          "seo.og.title",
+          "seo.og.description",
+          "seo.og.url",
+          "seo.og.type",
+          "seo.og.image",
+          "seo.og.siteName",
+          "seo.applicationName",
+          "seo.canonicalUrl",
+          "seo.structuredData",
+          "seo.metaRobots"
+        ]
+      },
+      "documentId": "e63bcca2cc5144c39fd91bcb",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::page.page"
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "properties": {},
+      "documentId": "c700008384604fb7bdb99856",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::page.page"
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "summary",
+          "content",
+          "category",
+          "tag",
+          "location",
+          "area",
+          "year",
+          "services",
+          "challenge",
+          "solution",
+          "result",
+          "technologies.label",
+          "span",
+          "coverImage",
+          "gallery",
+          "site",
+          "externalUrl",
+          "featured",
+          "order",
+          "seo.metaTitle",
+          "seo.metaDescription",
+          "seo.keywords",
+          "seo.shareImage",
+          "seo.canonicalUrl",
+          "seo.noIndex",
+          "seo.noFollow"
+        ]
+      },
+      "documentId": "8790ddea4cd84ec0b12a7fea",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::portfolio-project.portfolio-project"
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "summary",
+          "content",
+          "category",
+          "tag",
+          "location",
+          "area",
+          "year",
+          "services",
+          "challenge",
+          "solution",
+          "result",
+          "technologies.label",
+          "span",
+          "coverImage",
+          "gallery",
+          "site",
+          "externalUrl",
+          "featured",
+          "order",
+          "seo.metaTitle",
+          "seo.metaDescription",
+          "seo.keywords",
+          "seo.shareImage",
+          "seo.canonicalUrl",
+          "seo.noIndex",
+          "seo.noFollow"
+        ]
+      },
+      "documentId": "160a639db8074c10bf2ddd33",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::portfolio-project.portfolio-project"
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "summary",
+          "content",
+          "category",
+          "tag",
+          "location",
+          "area",
+          "year",
+          "services",
+          "challenge",
+          "solution",
+          "result",
+          "technologies.label",
+          "span",
+          "coverImage",
+          "gallery",
+          "externalUrl",
+          "featured",
+          "order",
+          "seo.metaTitle",
+          "seo.metaDescription",
+          "seo.keywords",
+          "seo.shareImage",
+          "seo.canonicalUrl",
+          "seo.noIndex",
+          "seo.noFollow"
+        ]
+      },
+      "documentId": "7118b4836cbf4b8da2ff30b7",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::portfolio-project.portfolio-project"
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "properties": {},
+      "documentId": "b1cd0761222e4964918e533a",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::portfolio-project.portfolio-project"
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "content",
+          "site",
+          "legalType",
+          "version",
+          "effectiveDate",
+          "seo.metaTitle",
+          "seo.metaDescription",
+          "seo.keywords",
+          "seo.shareImage",
+          "seo.canonicalUrl",
+          "seo.noIndex",
+          "seo.noFollow"
+        ]
+      },
+      "documentId": "6de18bb0966548d898d8a424",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::legal-page.legal-page"
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "content",
+          "site",
+          "legalType",
+          "version",
+          "effectiveDate",
+          "seo.metaTitle",
+          "seo.metaDescription",
+          "seo.keywords",
+          "seo.shareImage",
+          "seo.canonicalUrl",
+          "seo.noIndex",
+          "seo.noFollow"
+        ]
+      },
+      "documentId": "f7e099318b274cb485a316df",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::legal-page.legal-page"
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "content",
+          "legalType",
+          "version",
+          "effectiveDate",
+          "seo.metaTitle",
+          "seo.metaDescription",
+          "seo.keywords",
+          "seo.shareImage",
+          "seo.canonicalUrl",
+          "seo.noIndex",
+          "seo.noFollow"
+        ]
+      },
+      "documentId": "eacf3c0e737348a9883d7065",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::legal-page.legal-page"
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "properties": {},
+      "documentId": "7d3cc9cd5ae644ef9b008286",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::legal-page.legal-page"
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "properties": {
+        "fields": [
+          "name",
+          "slug",
+          "site",
+          "title",
+          "description",
+          "fields.name",
+          "fields.label",
+          "fields.type",
+          "fields.placeholder",
+          "fields.helpText",
+          "fields.required",
+          "fields.order",
+          "fields.options.label",
+          "fields.options.value",
+          "fields.options.order",
+          "fields.minLength",
+          "fields.maxLength",
+          "fields.minValue",
+          "fields.maxValue",
+          "fields.accept",
+          "fields.visible",
+          "submitLabel",
+          "successMessage",
+          "errorMessage",
+          "recipientEmail",
+          "active",
+          "honeypotEnabled",
+          "rateLimitPerMinute"
+        ]
+      },
+      "documentId": "66e6db636c3b4b11b97dd226",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::form-definition.form-definition"
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "properties": {
+        "fields": [
+          "name",
+          "slug",
+          "site",
+          "title",
+          "description",
+          "fields.name",
+          "fields.label",
+          "fields.type",
+          "fields.placeholder",
+          "fields.helpText",
+          "fields.required",
+          "fields.order",
+          "fields.options.label",
+          "fields.options.value",
+          "fields.options.order",
+          "fields.minLength",
+          "fields.maxLength",
+          "fields.minValue",
+          "fields.maxValue",
+          "fields.accept",
+          "fields.visible",
+          "submitLabel",
+          "successMessage",
+          "errorMessage",
+          "recipientEmail",
+          "active",
+          "honeypotEnabled",
+          "rateLimitPerMinute"
+        ]
+      },
+      "documentId": "35b641f3a3fe43749e4d7364",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::form-definition.form-definition"
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "properties": {
+        "fields": [
+          "name",
+          "slug",
+          "title",
+          "description",
+          "fields.name",
+          "fields.label",
+          "fields.type",
+          "fields.placeholder",
+          "fields.helpText",
+          "fields.required",
+          "fields.order",
+          "fields.options.label",
+          "fields.options.value",
+          "fields.options.order",
+          "fields.minLength",
+          "fields.maxLength",
+          "fields.minValue",
+          "fields.maxValue",
+          "fields.accept",
+          "fields.visible",
+          "submitLabel",
+          "successMessage",
+          "errorMessage",
+          "recipientEmail",
+          "active",
+          "honeypotEnabled",
+          "rateLimitPerMinute"
+        ]
+      },
+      "documentId": "01fca9c040964259b3acbfeb",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::form-definition.form-definition"
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "properties": {},
+      "documentId": "497c4722e981425fb9f1e931",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::form-definition.form-definition"
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "properties": {
+        "fields": [
+          "name",
+          "email",
+          "message",
+          "formSlug",
+          "submissionData",
+          "site",
+          "content"
+        ]
+      },
+      "documentId": "cc6ccddafc2e4d86a45617d2",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::subscriber.subscriber"
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "properties": {
+        "fields": [
+          "name",
+          "email",
+          "message",
+          "formSlug",
+          "submissionData",
+          "site",
+          "content"
+        ]
+      },
+      "documentId": "a8c1c8d581ec49299378d55d",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::subscriber.subscriber"
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "properties": {
+        "fields": [
+          "name",
+          "email",
+          "message",
+          "formSlug",
+          "submissionData",
+          "content"
+        ]
+      },
+      "documentId": "928f44f0f43d439485bb35ec",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::subscriber.subscriber"
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "properties": {},
+      "documentId": "c37640e60db14e44a1f5112d",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-site-records"
+      ],
+      "actionParameters": {},
+      "subject": "api::subscriber.subscriber"
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "properties": {
+        "fields": [
+          "name",
+          "slug",
+          "logo",
+          "favicon",
+          "palette.primary",
+          "palette.secondary",
+          "palette.accent",
+          "palette.background",
+          "palette.foreground",
+          "palette.muted",
+          "palette.border",
+          "palette.destructive",
+          "palette.fontHeading",
+          "palette.fontBody",
+          "palette.radius",
+          "palette.contrastMode",
+          "locales.locale",
+          "locales.enabled",
+          "locales.isDefault",
+          "defaultSeo.metaTitle",
+          "defaultSeo.metaDescription",
+          "defaultSeo.keywords",
+          "defaultSeo.shareImage",
+          "defaultSeo.canonicalUrl",
+          "defaultSeo.noIndex",
+          "defaultSeo.noFollow",
+          "header.logoVariant",
+          "header.showLanguageSwitcher",
+          "header.showSearch",
+          "header.showCta",
+          "header.cta.label",
+          "header.cta.href",
+          "header.cta.type",
+          "header.cta.target",
+          "header.cta.variant",
+          "header.cta.size",
+          "header.cta.icon",
+          "header.navigation.label",
+          "header.navigation.href",
+          "header.navigation.target",
+          "header.navigation.order",
+          "footer.description",
+          "footer.columns.title",
+          "footer.columns.links.label",
+          "footer.columns.links.href",
+          "footer.columns.links.target",
+          "footer.columns.links.order",
+          "footer.legalLinks.label",
+          "footer.legalLinks.href",
+          "footer.legalLinks.type",
+          "footer.legalLinks.target",
+          "footer.legalLinks.variant",
+          "footer.legalLinks.size",
+          "footer.legalLinks.icon",
+          "footer.copyright",
+          "footer.showSocialLinks",
+          "contactEmail",
+          "contactPhone",
+          "address",
+          "socialLinks.platform",
+          "socialLinks.label",
+          "socialLinks.url",
+          "socialLinks.icon",
+          "socialLinks.order",
+          "searchEnabled",
+          "typesenseCollection"
+        ]
+      },
+      "documentId": "96de721232f14a30bc02d1e2",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-sites"
+      ],
+      "actionParameters": {},
+      "subject": "api::site.site"
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "properties": {
+        "fields": [
+          "name",
+          "slug",
+          "logo",
+          "favicon",
+          "palette.primary",
+          "palette.secondary",
+          "palette.accent",
+          "palette.background",
+          "palette.foreground",
+          "palette.muted",
+          "palette.border",
+          "palette.destructive",
+          "palette.fontHeading",
+          "palette.fontBody",
+          "palette.radius",
+          "palette.contrastMode",
+          "locales.locale",
+          "locales.enabled",
+          "locales.isDefault",
+          "defaultSeo.metaTitle",
+          "defaultSeo.metaDescription",
+          "defaultSeo.keywords",
+          "defaultSeo.shareImage",
+          "defaultSeo.canonicalUrl",
+          "defaultSeo.noIndex",
+          "defaultSeo.noFollow",
+          "header.logoVariant",
+          "header.showLanguageSwitcher",
+          "header.showSearch",
+          "header.showCta",
+          "header.cta.label",
+          "header.cta.href",
+          "header.cta.type",
+          "header.cta.target",
+          "header.cta.variant",
+          "header.cta.size",
+          "header.cta.icon",
+          "header.navigation.label",
+          "header.navigation.href",
+          "header.navigation.target",
+          "header.navigation.order",
+          "footer.description",
+          "footer.columns.title",
+          "footer.columns.links.label",
+          "footer.columns.links.href",
+          "footer.columns.links.target",
+          "footer.columns.links.order",
+          "footer.legalLinks.label",
+          "footer.legalLinks.href",
+          "footer.legalLinks.type",
+          "footer.legalLinks.target",
+          "footer.legalLinks.variant",
+          "footer.legalLinks.size",
+          "footer.legalLinks.icon",
+          "footer.copyright",
+          "footer.showSocialLinks",
+          "contactEmail",
+          "contactPhone",
+          "address",
+          "socialLinks.platform",
+          "socialLinks.label",
+          "socialLinks.url",
+          "socialLinks.icon",
+          "socialLinks.order",
+          "searchEnabled",
+          "typesenseCollection"
+        ]
+      },
+      "documentId": "5ecee311b0bb4fbe97d79688",
+      "locale": null,
+      "conditions": [
+        "admin::assigned-sites"
+      ],
+      "actionParameters": {},
+      "subject": "api::site.site"
+    }
+  ],
+  "documentId": "1fa1c52981864b18b805c8b4",
+  "locale": null
+}

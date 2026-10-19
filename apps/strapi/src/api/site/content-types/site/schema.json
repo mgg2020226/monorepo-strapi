@@ -21,6 +21,7 @@
     "contactEmail": { "type": "email" },
     "contactPhone": { "type": "string" },
     "address": { "type": "text" },
+    "maxUsers": { "type": "integer", "min": 1 },
     "socialLinks": { "type": "component", "component": "site.social-link", "repeatable": true },
     "searchEnabled": { "type": "boolean", "default": false },
     "typesenseCollection": { "type": "string" },
@@ -28,6 +29,7 @@
     "portfolioProjects": { "type": "relation", "relation": "oneToMany", "target": "api::portfolio-project.portfolio-project", "mappedBy": "site" },
     "legalPages": { "type": "relation", "relation": "oneToMany", "target": "api::legal-page.legal-page", "mappedBy": "site" },
     "forms": { "type": "relation", "relation": "oneToMany", "target": "api::form-definition.form-definition", "mappedBy": "site" },
-    "subscribers": { "type": "relation", "relation": "oneToMany", "target": "api::subscriber.subscriber", "mappedBy": "site" }
+    "subscribers": { "type": "relation", "relation": "oneToMany", "target": "api::subscriber.subscriber", "mappedBy": "site" },
+    "userAssignments": { "type": "relation", "relation": "oneToMany", "target": "api::site-user-assignment.site-user-assignment", "mappedBy": "site" }
   }
 }
