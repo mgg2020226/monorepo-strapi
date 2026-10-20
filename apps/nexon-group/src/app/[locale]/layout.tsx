@@ -1,7 +1,11 @@
 import "@/styles/globals.css"
 
+import {
+  NexonFooter,
+  NexonHeader,
+  NexonFloatingWhatsAppButton,
+} from "@repo/design-system/nexon"
 import { Toaster } from "@repo/design-system/ui/sonner"
-import { NexonFooter, NexonHeader, NexonFloatingWhatsAppButton } from "@repo/design-system/nexon"
 import type { Data } from "@repo/strapi-types"
 import { ThemeProvider } from "@teispace/next-themes"
 import type { Metadata } from "next"
@@ -121,7 +125,10 @@ export default async function RootLayout({
               >
                 <ErrorBoundary showErrorMessage>
                   <NexonHeader
-                    links={(siteData?.header?.navigation ?? []).map((item) => ({ label: item.label ?? "", href: item.href ?? "#" }))}
+                    links={(siteData?.header?.navigation ?? []).map((item) => ({
+                      label: item.label ?? "",
+                      href: item.href ?? "#",
+                    }))}
                     cta={siteData?.header?.cta?.label ?? "Hablemos"}
                     href={siteData?.header?.cta?.href ?? "#contacto"}
                   />
@@ -131,7 +138,9 @@ export default async function RootLayout({
                   <div>{children}</div>
                 </div>
 
-                <NexonFloatingWhatsAppButton href={siteData?.header?.cta?.href ?? "#contacto"} />
+                <NexonFloatingWhatsAppButton
+                  href={siteData?.header?.cta?.href ?? "#contacto"}
+                />
 
                 <TailwindIndicator />
 
@@ -141,8 +150,15 @@ export default async function RootLayout({
                   <NexonFooter
                     data={{
                       description: siteData?.footer?.description ?? "",
-                      copyright: siteData?.footer?.copyright ?? "© {YEAR} Nexon Group. Todos los derechos reservados.",
-                      links: (siteData?.header?.navigation ?? []).map((item) => ({ label: item.label ?? "", href: item.href ?? "#" })),
+                      copyright:
+                        siteData?.footer?.copyright ??
+                        "© {YEAR} Nexon Group. Todos los derechos reservados.",
+                      links: (siteData?.header?.navigation ?? []).map(
+                        (item) => ({
+                          label: item.label ?? "",
+                          href: item.href ?? "#",
+                        })
+                      ),
                     }}
                   />
                 </ErrorBoundary>

@@ -71,7 +71,11 @@ export default function StrapiPageView({ params, searchParams }: Props) {
 
             return (
               <ErrorBoundary key={key}>
-                <div className={cn(name.startsWith("nexon.") ? "" : "mb-20 md:mb-32 lg:mb-40")}>
+                <div
+                  className={cn(
+                    name.startsWith("nexon.") ? "" : "mb-20 md:mb-32 lg:mb-40"
+                  )}
+                >
                   <Component
                     component={comp}
                     pageParams={params}

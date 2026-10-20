@@ -30,6 +30,8 @@ import {
   StrapiServicesHub,
 } from "@repo/sections"
 
+import StrapiContactForm from "@/components/page-builder/components/forms/StrapiContactForm"
+import StrapiDynamicForm from "@/components/page-builder/components/forms/StrapiDynamicForm"
 import {
   NexonAboutRenderer,
   NexonBentoServicesRenderer,
@@ -39,9 +41,6 @@ import {
   NexonHeroRenderer,
   NexonMethodologyRenderer,
 } from "@/components/page-builder/nexon/NexonSections"
-
-import StrapiContactForm from "@/components/page-builder/components/forms/StrapiContactForm"
-import StrapiDynamicForm from "@/components/page-builder/components/forms/StrapiDynamicForm"
 
 /**
  * Mapping of Strapi Component UID to React Component

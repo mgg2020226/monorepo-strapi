@@ -6,15 +6,13 @@ import {
   NexonGrowthStories,
   NexonHero,
   NexonMethodology,
-} from "@repo/design-system/nexon"
-import type {
-  NexonAboutContent,
-  NexonContactContent,
-  NexonCustomerLogosContent,
-  NexonGrowthStoriesContent,
-  NexonHeroContent,
-  NexonMethodologyContent,
-  NexonServicesContent,
+  type NexonAboutContent,
+  type NexonContactContent,
+  type NexonCustomerLogosContent,
+  type NexonGrowthStoriesContent,
+  type NexonHeroContent,
+  type NexonMethodologyContent,
+  type NexonServicesContent,
 } from "@repo/design-system/nexon"
 
 export interface NexonStrapiComponent {
@@ -30,7 +28,11 @@ export function NexonHeroRenderer({ component }: RendererProps) {
 }
 
 export function NexonCustomerLogosRenderer({ component }: RendererProps) {
-  return <NexonCustomerLogos data={component as unknown as NexonCustomerLogosContent} />
+  return (
+    <NexonCustomerLogos
+      data={component as unknown as NexonCustomerLogosContent}
+    />
+  )
 }
 
 const serviceImages: Record<string, string> = {
@@ -43,14 +45,16 @@ const serviceImages: Record<string, string> = {
 
 export function NexonBentoServicesRenderer({ component }: RendererProps) {
   const data = component as unknown as NexonServicesContent
+
   return (
     <NexonBentoServices
       data={{
         ...data,
-        services: data.services?.map((service) => ({
-          ...service,
-          image: serviceImages[service.tag] ?? undefined,
-        })) ?? [],
+        services:
+          data.services?.map((service) => ({
+            ...service,
+            image: serviceImages[service.tag] ?? undefined,
+          })) ?? [],
       }}
     />
   )
@@ -66,14 +70,16 @@ const methodologyImages: Record<string, string> = {
 
 export function NexonMethodologyRenderer({ component }: RendererProps) {
   const data = component as unknown as NexonMethodologyContent
+
   return (
     <NexonMethodology
       data={{
         ...data,
-        steps: data.steps?.map((step) => ({
-          ...step,
-          image: methodologyImages[step.number] ?? undefined,
-        })) ?? [],
+        steps:
+          data.steps?.map((step) => ({
+            ...step,
+            image: methodologyImages[step.number] ?? undefined,
+          })) ?? [],
       }}
     />
   )
@@ -84,7 +90,11 @@ export function NexonAboutRenderer({ component }: RendererProps) {
 }
 
 export function NexonGrowthStoriesRenderer({ component }: RendererProps) {
-  return <NexonGrowthStories data={component as unknown as NexonGrowthStoriesContent} />
+  return (
+    <NexonGrowthStories
+      data={component as unknown as NexonGrowthStoriesContent}
+    />
+  )
 }
 
 export function NexonContactRenderer({ component }: RendererProps) {
