@@ -1,0 +1,61 @@
+@source "./**/*.{ts,tsx}";
+
+:root {
+  --nexon-blue-cyan: #50ceff;
+  --nexon-blue-primary: #133ed8;
+  --nexon-blue-navy: #020367;
+  --nexon-black: #111111;
+  --nexon-gradient-primary: linear-gradient(135deg, #020367 0%, #133ed8 50%, #50ceff 100%);
+}
+
+.nexon-site {
+  --font-sans: var(--font-inter, "Inter"), sans-serif;
+  --font-heading: var(--font-space-grotesk, "Space Grotesk"), sans-serif;
+  font-family: var(--font-sans);
+}
+
+.nexon-site h1,
+.nexon-site h2,
+.nexon-site h3,
+.nexon-site h4,
+.nexon-site h5,
+.nexon-site h6 {
+  font-family: var(--font-heading);
+}
+
+.nexon-gradient-text {
+  background: linear-gradient(90deg, var(--nexon-blue-primary) 0%, var(--nexon-blue-cyan) 100%);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nexon-site {
+  --color-primary: #133ed8;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #50ceff;
+  --color-secondary-foreground: #020367;
+  --color-muted: #f0f4ff;
+  --color-muted-foreground: #6b7280;
+  --color-accent: #50ceff;
+  --color-accent-foreground: #020367;
+  --color-background: #ffffff;
+  --color-foreground: #020367;
+  --color-card: #ffffff;
+  --color-card-foreground: #020367;
+  --color-border: #e5e7eb;
+  --color-input: #f3f4f6;
+  --color-ring: #133ed8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nexon-site *,
+  .nexon-site *::before,
+  .nexon-site *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

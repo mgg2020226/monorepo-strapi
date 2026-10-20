@@ -124,7 +124,14 @@
         "sections.mission-vision",
         "sections.services-hub",
         "sections.before-after-slider",
-        "sections.portfolio-projects"
+          "sections.portfolio-projects",
+          "nexon.hero",
+          "nexon.customer-logos",
+          "nexon.bento-services",
+          "nexon.methodology",
+          "nexon.about",
+          "nexon.growth-stories",
+          "nexon.contact"
       ]
     },
     "children": {

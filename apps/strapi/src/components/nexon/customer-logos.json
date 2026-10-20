@@ -1,0 +1,9 @@
+{
+  "collectionName": "components_nexon_customer_logos",
+  "info": { "displayName": "Nexon — Clientes", "icon": "picture" },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "logos": { "type": "component", "component": "nexon.customer-logo", "repeatable": true, "required": true }
+  }
+}

@@ -178,6 +178,553 @@ export interface LayoutNavbarItem extends Struct.ComponentSchema {
   }
 }
 
+export interface NexonAbout extends Struct.ComponentSchema {
+  collectionName: "components_nexon_about_sections"
+  info: {
+    displayName: "Nexon \u2014 Qui\u00E9nes somos"
+    icon: "information"
+  }
+  attributes: {
+    cardDescription: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    cardTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heading: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    headingAccent: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    label: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    paragraphs: Schema.Attribute.Component<"nexon.about-paragraph", true>
+    stats: Schema.Attribute.Component<"nexon.stat", true>
+  }
+}
+
+export interface NexonAboutParagraph extends Struct.ComponentSchema {
+  collectionName: "components_nexon_about_paragraphs"
+  info: {
+    displayName: "Nexon \u2014 P\u00E1rrafo institucional"
+  }
+  attributes: {
+    highlight: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    rest: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    text: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface NexonBentoServices extends Struct.ComponentSchema {
+  collectionName: "components_nexon_bento_services"
+  info: {
+    displayName: "Nexon \u2014 Servicios Bento"
+    icon: "grid"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heading: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    headingAccent: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    label: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    services: Schema.Attribute.Component<"nexon.service", true> &
+      Schema.Attribute.Required
+  }
+}
+
+export interface NexonContact extends Struct.ComponentSchema {
+  collectionName: "components_nexon_contacts"
+  info: {
+    displayName: "Nexon \u2014 Contacto"
+    icon: "envelop"
+  }
+  attributes: {
+    companyLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    companyPlaceholder: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    emailLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    emailPlaceholder: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    errorMessage: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    formActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
+    formSlug: Schema.Attribute.String & Schema.Attribute.DefaultTo<"contact">
+    heading: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    label: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    messageLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    messagePlaceholder: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    nameLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    namePlaceholder: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    phoneLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    phonePlaceholder: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    siteSlug: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<"nexon-group">
+    submitLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    successMessage: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface NexonCustomerLogo extends Struct.ComponentSchema {
+  collectionName: "components_nexon_customer_logos_items"
+  info: {
+    displayName: "Nexon \u2014 Cliente"
+    icon: "picture"
+  }
+  attributes: {
+    assetKey: Schema.Attribute.Enumeration<
+      [
+        "cae",
+        "fiancol",
+        "lavanderia-maritima",
+        "greet-energy",
+        "kovia",
+        "wow",
+        "vertice",
+        "outliners",
+        "vittorino",
+        "netwifi",
+      ]
+    > &
+      Schema.Attribute.Required
+    name: Schema.Attribute.String & Schema.Attribute.Required
+  }
+}
+
+export interface NexonCustomerLogos extends Struct.ComponentSchema {
+  collectionName: "components_nexon_customer_logos"
+  info: {
+    displayName: "Nexon \u2014 Clientes"
+    icon: "picture"
+  }
+  attributes: {
+    logos: Schema.Attribute.Component<"nexon.customer-logo", true> &
+      Schema.Attribute.Required
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface NexonGrowthStories extends Struct.ComponentSchema {
+  collectionName: "components_nexon_growth_stories"
+  info: {
+    displayName: "Nexon \u2014 Historias de crecimiento"
+    icon: "chartBubble"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heading: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    headingAccent: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    label: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    stories: Schema.Attribute.Component<"nexon.growth-story", true> &
+      Schema.Attribute.Required
+  }
+}
+
+export interface NexonGrowthStory extends Struct.ComponentSchema {
+  collectionName: "components_nexon_growth_story_items"
+  info: {
+    displayName: "Nexon \u2014 Historia de crecimiento"
+    icon: "chartBubble"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    icon: Schema.Attribute.Enumeration<
+      ["Store", "Globe", "Rocket", "Megaphone", "BarChart2", "Handshake"]
+    > &
+      Schema.Attribute.DefaultTo<"Store">
+    link: Schema.Attribute.String
+    metric: Schema.Attribute.String
+    metricLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    visual: Schema.Attribute.Enumeration<
+      [
+        "expansion",
+        "markets",
+        "startup",
+        "marketing",
+        "intelligence",
+        "alliances",
+      ]
+    > &
+      Schema.Attribute.DefaultTo<"expansion">
+  }
+}
+
+export interface NexonHero extends Struct.ComponentSchema {
+  collectionName: "components_nexon_heroes"
+  info: {
+    displayName: "Nexon \u2014 Hero"
+    icon: "landscape"
+  }
+  attributes: {
+    ctaHref: Schema.Attribute.String & Schema.Attribute.Required
+    ctaText: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heading: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    headingAccent: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    navCta: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    navCtaHref: Schema.Attribute.String
+    particleCount: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<24>
+    watermark: Schema.Attribute.String & Schema.Attribute.DefaultTo<"NEXON">
+  }
+}
+
+export interface NexonMethodStep extends Struct.ComponentSchema {
+  collectionName: "components_nexon_method_steps"
+  info: {
+    displayName: "Nexon \u2014 Paso metodol\u00F3gico"
+    icon: "bulletList"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    icon: Schema.Attribute.Enumeration<
+      ["Search", "BarChart2", "Crosshair", "Rocket", "Target"]
+    > &
+      Schema.Attribute.DefaultTo<"Search">
+    number: Schema.Attribute.String & Schema.Attribute.Required
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface NexonMethodology extends Struct.ComponentSchema {
+  collectionName: "components_nexon_methodologies"
+  info: {
+    displayName: "Nexon \u2014 Metodolog\u00EDa"
+    icon: "bulletList"
+  }
+  attributes: {
+    bannerAccent: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    bannerStatement: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heading: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    headingAccent: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    label: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    pillars: Schema.Attribute.Component<"nexon.pillar", true>
+    steps: Schema.Attribute.Component<"nexon.method-step", true> &
+      Schema.Attribute.Required
+  }
+}
+
+export interface NexonPillar extends Struct.ComponentSchema {
+  collectionName: "components_nexon_pillars"
+  info: {
+    displayName: "Nexon \u2014 Pilar"
+    icon: "bulletList"
+  }
+  attributes: {
+    icon: Schema.Attribute.Enumeration<["Users", "Zap", "TrendingUp"]> &
+      Schema.Attribute.DefaultTo<"Users">
+    text: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface NexonService extends Struct.ComponentSchema {
+  collectionName: "components_nexon_services"
+  info: {
+    displayName: "Nexon \u2014 Servicio"
+    icon: "briefcase"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    icon: Schema.Attribute.Enumeration<
+      ["TrendingUp", "Target", "Handshake", "Zap", "Megaphone"]
+    > &
+      Schema.Attribute.DefaultTo<"TrendingUp">
+    tag: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface NexonStat extends Struct.ComponentSchema {
+  collectionName: "components_nexon_stats"
+  info: {
+    displayName: "Nexon \u2014 Indicador"
+    icon: "chartBubble"
+  }
+  attributes: {
+    icon: Schema.Attribute.Enumeration<
+      ["Building2", "BarChart3", "Target", "Globe2", "TrendingUp"]
+    > &
+      Schema.Attribute.DefaultTo<"Building2">
+    label: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    value: Schema.Attribute.String & Schema.Attribute.Required
+  }
+}
+
 export interface SectionsAnimatedLogoRow extends Struct.ComponentSchema {
   collectionName: "components_sections_animated_logo_rows"
   info: {
@@ -1657,6 +2204,20 @@ declare module "@strapi/strapi" {
       "forms.contact-form": FormsContactForm
       "forms.dynamic-form": FormsDynamicForm
       "layout.navbar-item": LayoutNavbarItem
+      "nexon.about": NexonAbout
+      "nexon.about-paragraph": NexonAboutParagraph
+      "nexon.bento-services": NexonBentoServices
+      "nexon.contact": NexonContact
+      "nexon.customer-logo": NexonCustomerLogo
+      "nexon.customer-logos": NexonCustomerLogos
+      "nexon.growth-stories": NexonGrowthStories
+      "nexon.growth-story": NexonGrowthStory
+      "nexon.hero": NexonHero
+      "nexon.method-step": NexonMethodStep
+      "nexon.methodology": NexonMethodology
+      "nexon.pillar": NexonPillar
+      "nexon.service": NexonService
+      "nexon.stat": NexonStat
       "sections.animated-logo-row": SectionsAnimatedLogoRow
       "sections.before-after-slider": SectionsBeforeAfterSlider
       "sections.benefits-split": SectionsBenefitsSplit

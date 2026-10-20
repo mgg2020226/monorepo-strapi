@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_nexon_heroes",
+  "info": { "displayName": "Nexon — Hero", "icon": "landscape" },
+  "options": {},
+  "attributes": {
+    "navCta": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "navCtaHref": { "type": "string" },
+    "heading": { "type": "text", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "headingAccent": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "description": { "type": "text", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "ctaText": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "ctaHref": { "type": "string", "required": true },
+    "watermark": { "type": "string", "default": "NEXON" },
+    "particleCount": { "type": "integer", "default": 24 }
+  }
+}

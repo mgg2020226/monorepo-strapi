@@ -1,0 +1,204 @@
+{
+  "site": {
+    "name": "Nexon Group",
+    "slug": "nexon-group",
+    "contactPhone": "+57 322 960 3465",
+    "palette": {
+      "primary": "#133ED8",
+      "secondary": "#50CEFF",
+      "accent": "#50CEFF",
+      "background": "#FFFFFF",
+      "foreground": "#020367",
+      "muted": "#F0F4FF",
+      "border": "#E5E7EB",
+      "fontHeading": "Space Grotesk",
+      "fontBody": "Inter",
+      "radius": "lg",
+      "contrastMode": "light"
+    },
+    "locales": [{ "locale": "es", "enabled": true, "isDefault": true }],
+    "defaultSeo": {
+      "title": "Nexon Group — Impulsamos el crecimiento de tu empresa",
+      "description": "Impulsamos el crecimiento estratégico de empresas y startups mediante gestión comercial, desarrollo de negocios y marketing orientado a resultados."
+    },
+    "header": {
+      "logoVariant": "light",
+      "showLanguageSwitcher": false,
+      "showSearch": false,
+      "showCta": true,
+      "cta": { "label": "Hablemos", "href": "https://api.whatsapp.com/send/?phone=573229603465&text=Hola%2C%20quiero%20conocer%20c%C3%B3mo%20Nexon%20puede%20ayudar%20a%20mi%20empresa.", "type": "external", "target": "_blank", "variant": "default", "size": "md" },
+      "navigation": [
+        { "label": "Inicio", "href": "#inicio", "target": "_self", "order": 0 },
+        { "label": "Servicios", "href": "#servicios", "target": "_self", "order": 1 },
+        { "label": "Metodología", "href": "#metodologia", "target": "_self", "order": 2 },
+        { "label": "Contacto", "href": "#contacto", "target": "_self", "order": 3 }
+      ]
+    },
+    "footer": {
+      "description": "Impulsamos crecimiento, expansión y nuevas oportunidades mediante estrategia, tecnología y desarrollo de negocios.",
+      "copyright": "© {YEAR} Nexon Group. Todos los derechos reservados.",
+      "showSocialLinks": false
+    }
+  },
+  "page": {
+    "title": "Inicio",
+    "breadcrumbTitle": "Inicio",
+    "slug": "/",
+    "fullPath": "/",
+    "pageType": "home",
+    "showInNavigation": false,
+    "seo": {
+      "metaTitle": "Nexon Group — Impulsamos el crecimiento de tu empresa",
+      "metaDescription": "Convertimos estrategia, desarrollo comercial y marketing en oportunidades reales de crecimiento.",
+      "og": {
+        "title": "Nexon Group",
+        "description": "Impulsamos crecimiento, expansión y nuevas oportunidades mediante estrategia, tecnología y desarrollo de negocios.",
+        "type": "website",
+        "siteName": "Nexon Group"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Nexon Group",
+        "description": "Impulsamos crecimiento, expansión y nuevas oportunidades mediante estrategia, tecnología y desarrollo de negocios."
+      }
+    },
+    "content": [
+      {
+        "__component": "nexon.hero",
+        "heading": "Impulsamos empresas\nque quieren crecer",
+        "headingAccent": "más rápido.",
+        "description": "Convertimos estrategia, desarrollo comercial y marketing en oportunidades reales de crecimiento.",
+        "ctaText": "Contáctanos",
+        "ctaHref": "#contacto",
+        "watermark": "NEXON",
+        "particleCount": 24
+      },
+      {
+        "__component": "nexon.customer-logos",
+        "title": "Empresas que confían en nosotros.",
+        "logos": [
+          { "name": "CAE", "assetKey": "cae" },
+          { "name": "Fiancol", "assetKey": "fiancol" },
+          { "name": "Lavandería Marítima", "assetKey": "lavanderia-maritima" },
+          { "name": "Greet Energy", "assetKey": "greet-energy" },
+          { "name": "Kovia", "assetKey": "kovia" },
+          { "name": "WOW", "assetKey": "wow" },
+          { "name": "Vértice", "assetKey": "vertice" },
+          { "name": "Outliners", "assetKey": "outliners" },
+          { "name": "Vittorino", "assetKey": "vittorino" },
+          { "name": "Netwifi", "assetKey": "netwifi" }
+        ]
+      },
+      {
+        "__component": "nexon.bento-services",
+        "label": "NUESTRA PROPUESTA",
+        "heading": "Impulsamos cada etapa",
+        "headingAccent": "de tu crecimiento",
+        "description": "Combinamos estrategia, desarrollo comercial y marketing para transformar oportunidades en resultados.",
+        "services": [
+          { "icon": "TrendingUp", "title": "Estrategia de Crecimiento", "description": "Diseñamos planes estratégicos alineados con tus objetivos para acelerar ingresos y fortalecer tu posición competitiva.", "tag": "Estrategia" },
+          { "icon": "Target", "title": "Inteligencia de Mercados", "description": "Analizamos mercados, tendencias y competencia para identificar las mejores oportunidades de expansión.", "tag": "Análisis" },
+          { "icon": "Handshake", "title": "Desarrollo de negocios", "description": "Abrimos puertas a nuevos mercados, generamos alianzas estratégicas y creamos oportunidades comerciales.", "tag": "Negocios" },
+          { "icon": "Zap", "title": "Aceleración de Ingresos", "description": "Optimizamos procesos comerciales y de ventas para convertir más oportunidades en resultados.", "tag": "Ventas" },
+          { "icon": "Megaphone", "title": "Growth marketing", "description": "Convertimos visibilidad en demanda a través de estrategias de marketing orientadas a resultados.", "tag": "Marketing" }
+        ]
+      },
+      {
+        "__component": "nexon.methodology",
+        "label": "Nuestra Metodología",
+        "heading": "Un proceso claro para",
+        "headingAccent": "alcanzar resultados",
+        "description": "Nuestro enfoque está basado en soluciones a la medida y resultados medibles.",
+        "bannerStatement": "No solo diseñamos estrategias.",
+        "bannerAccent": "Generamos crecimiento sostenible.",
+        "steps": [
+          { "number": "01", "icon": "Search", "title": "Entender el negocio", "description": "Analizamos tu modelo de negocio, mercado, operación y objetivos para comprender a fondo tu punto de partida y tus desafíos." },
+          { "number": "02", "icon": "BarChart2", "title": "Identificar oportunidades", "description": "Detectamos oportunidades reales de crecimiento basadas en datos, tendencias de mercado y ventajas competitivas." },
+          { "number": "03", "icon": "Crosshair", "title": "Diseñar la estrategia", "description": "Creamos un plan estratégico personalizado con acciones claras, prioridades definidas y métricas de éxito." },
+          { "number": "04", "icon": "Rocket", "title": "Ejecutar y acompañar", "description": "Implementamos la estrategia con tu equipo, asegurando una ejecución ágil y resultados medibles." },
+          { "number": "05", "icon": "Target", "title": "Medir resultados", "description": "Evaluamos el impacto, medimos resultados y optimizamos continuamente para escalar el crecimiento de forma sostenible." }
+        ],
+        "pillars": [
+          { "icon": "Users", "text": "Socios estratégicos, no proveedores." },
+          { "icon": "Zap", "text": "Enfoque en resultados, no en tareas." },
+          { "icon": "TrendingUp", "text": "Decisiones basadas en datos e inteligencia." }
+        ]
+      },
+      {
+        "__component": "nexon.about",
+        "label": "¿QUIÉNES SOMOS?",
+        "heading": "Impulsamos crecimiento y",
+        "headingAccent": "nuevas oportunidades",
+        "paragraphs": [
+          { "text": "En ", "highlight": "Nexon Group", "rest": " trabajamos junto a empresas, startups e inversionistas para transformar visión en ejecución." },
+          { "text": "No actuamos como proveedores externos. Nos integramos como ", "highlight": "socios estratégicos", "rest": " que acompañan cada etapa del crecimiento empresarial." }
+        ],
+        "stats": [
+          { "icon": "Building2", "value": "+50", "label": "Empresas acompañadas" },
+          { "icon": "BarChart3", "value": "+120", "label": "Proyectos ejecutados" },
+          { "icon": "Globe2", "value": "3", "label": "Países de operación" },
+          { "icon": "Target", "value": "92%", "label": "Tasa de retención" },
+          { "icon": "TrendingUp", "value": "+8", "label": "Años de experiencia" }
+        ],
+        "cardTitle": "Crecemos junto a nuestros clientes.",
+        "cardDescription": "Aportamos experiencia, conexiones y herramientas para convertir oportunidades en resultados medibles."
+      },
+      {
+        "__component": "nexon.growth-stories",
+        "label": "HISTORIAS DE CRECIMIENTO",
+        "heading": "Resultados que",
+        "headingAccent": "generamos",
+        "description": "Casos donde la estrategia y ejecución convirtieron desafíos en oportunidades de crecimiento.",
+        "stories": [
+          { "icon": "Store", "visual": "expansion", "title": "Expansión Comercial", "description": "Triplicamos la presencia comercial de una distribuidora en 8 meses, abriendo 3 nuevas regiones con ventas desde el primer trimestre.", "metric": "+147%", "metricLabel": "en ingresos", "link": "#" },
+          { "icon": "Globe", "visual": "markets", "title": "Nuevos Mercados", "description": "Identificamos y entramos en 5 mercados internacionales para una firma de servicios en menos de un año.", "metric": "5", "metricLabel": "mercados nuevos", "link": "#" },
+          { "icon": "Rocket", "visual": "startup", "title": "Escalamiento Startup", "description": "Llevamos una startup tecnológica de seed a Serie A, multiplicando su ARR por 8 en 24 meses.", "metric": "8x", "metricLabel": "en ARR", "link": "#" },
+          { "icon": "Megaphone", "visual": "marketing", "title": "Growth marketing", "description": "Rediseñamos el embudo de adquisición de una empresa B2B, reduciendo el CAC un 40% y duplicando las conversiones.", "metric": "2x", "metricLabel": "conversiones", "link": "#" },
+          { "icon": "BarChart2", "visual": "intelligence", "title": "Inteligencia Comercial", "description": "Implementamos un sistema de inteligencia comercial para decisiones basadas en datos en tiempo real, con ROI de 3.2x.", "metric": "3.2x", "metricLabel": "ROI promedio", "link": "#" },
+          { "icon": "Handshake", "visual": "alliances", "title": "Alianzas Estratégicas", "description": "Estructuramos alianzas que abrieron canales de distribución con alcance a más de 1M de clientes.", "metric": "1M+", "metricLabel": "clientes alcanzados", "link": "#" }
+        ]
+      },
+      {
+        "__component": "nexon.contact",
+        "label": "Contacto",
+        "heading": "Conversemos",
+        "description": "Conversemos sobre cómo llevar tu negocio al siguiente nivel.",
+        "nameLabel": "Nombre completo",
+        "namePlaceholder": "Tu nombre",
+        "companyLabel": "Empresa",
+        "companyPlaceholder": "Nombre de tu empresa",
+        "emailLabel": "Correo electrónico",
+        "emailPlaceholder": "tu@email.com",
+        "phoneLabel": "Teléfono",
+        "phonePlaceholder": "+57 300 000 0000",
+        "messageLabel": "Mensaje",
+        "messagePlaceholder": "Cuéntanos sobre tu proyecto, objetivos y cómo podemos ayudarte...",
+        "submitLabel": "Enviar mensaje",
+        "successMessage": "¡Mensaje enviado! Nos pondremos en contacto contigo pronto.",
+        "errorMessage": "No se pudo enviar el mensaje. Inténtalo de nuevo.",
+        "formActive": false,
+        "siteSlug": "nexon-group",
+        "formSlug": "contact"
+      }
+    ]
+  },
+  "contactForm": {
+    "name": "Contacto Nexon Group",
+    "slug": "contact",
+    "title": "Conversemos",
+    "description": "Conversemos sobre cómo llevar tu negocio al siguiente nivel.",
+    "submitLabel": "Enviar mensaje",
+    "successMessage": "¡Mensaje enviado! Nos pondremos en contacto contigo pronto.",
+    "errorMessage": "No se pudo enviar el mensaje. Inténtalo de nuevo.",
+    "active": true,
+    "honeypotEnabled": true,
+    "rateLimitPerMinute": 5,
+    "fields": [
+      { "name": "name", "label": "Nombre completo", "type": "text", "required": true, "maxLength": 100, "order": 0, "visible": true },
+      { "name": "company", "label": "Empresa", "type": "text", "required": true, "maxLength": 150, "order": 1, "visible": true },
+      { "name": "email", "label": "Correo electrónico", "type": "email", "required": true, "maxLength": 255, "order": 2, "visible": true },
+      { "name": "phone", "label": "Teléfono", "type": "tel", "required": false, "maxLength": 40, "order": 3, "visible": true },
+      { "name": "message", "label": "Mensaje", "type": "textarea", "required": true, "maxLength": 2000, "order": 4, "visible": true }
+    ]
+  }
+}

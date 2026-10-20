@@ -1,0 +1,11 @@
+{
+  "collectionName": "components_nexon_method_steps",
+  "info": { "displayName": "Nexon — Paso metodológico", "icon": "bulletList" },
+  "options": {},
+  "attributes": {
+    "number": { "type": "string", "required": true },
+    "icon": { "type": "enumeration", "enum": ["Search", "BarChart2", "Crosshair", "Rocket", "Target"], "default": "Search" },
+    "title": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "description": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } }
+  }
+}

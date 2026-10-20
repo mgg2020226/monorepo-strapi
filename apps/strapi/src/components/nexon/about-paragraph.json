@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_nexon_about_paragraphs",
+  "info": { "displayName": "Nexon — Párrafo institucional" },
+  "options": {},
+  "attributes": {
+    "text": { "type": "text", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "highlight": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "rest": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } }
+  }
+}

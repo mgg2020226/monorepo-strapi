@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_nexon_about_sections",
+  "info": { "displayName": "Nexon — Quiénes somos", "icon": "information" },
+  "options": {},
+  "attributes": {
+    "label": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "heading": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "headingAccent": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "paragraphs": { "type": "component", "component": "nexon.about-paragraph", "repeatable": true },
+    "stats": { "type": "component", "component": "nexon.stat", "repeatable": true },
+    "cardTitle": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "cardDescription": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } }
+  }
+}

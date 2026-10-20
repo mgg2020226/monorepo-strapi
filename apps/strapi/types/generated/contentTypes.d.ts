@@ -658,6 +658,13 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         "sections.services-hub",
         "sections.before-after-slider",
         "sections.portfolio-projects",
+        "nexon.hero",
+        "nexon.customer-logos",
+        "nexon.bento-services",
+        "nexon.methodology",
+        "nexon.about",
+        "nexon.growth-stories",
+        "nexon.contact",
       ]
     > &
       Schema.Attribute.SetPluginOptions<{

@@ -1,0 +1,9 @@
+{
+  "collectionName": "components_nexon_pillars",
+  "info": { "displayName": "Nexon — Pilar", "icon": "bulletList" },
+  "options": {},
+  "attributes": {
+    "icon": { "type": "enumeration", "enum": ["Users", "Zap", "TrendingUp"], "default": "Users" },
+    "text": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } }
+  }
+}

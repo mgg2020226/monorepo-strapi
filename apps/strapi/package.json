@@ -16,6 +16,7 @@
     "lint": "eslint -c ../../eslint.config.mjs .",
     "lint:fix": "pnpm lint --fix",
     "seed:check": "node scripts/seed-check.mjs",
+    "seed:nexon-group": "node scripts/seed-nexon-group.mjs",
     "seed:export": "bash scripts/seed-export.sh",
     "seed:import": "node scripts/seed-import.mjs",
     "start": "strapi start",

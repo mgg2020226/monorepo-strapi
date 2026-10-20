@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_nexon_methodologies",
+  "info": { "displayName": "Nexon — Metodología", "icon": "bulletList" },
+  "options": {},
+  "attributes": {
+    "label": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "heading": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "headingAccent": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "description": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "bannerStatement": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "bannerAccent": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "steps": { "type": "component", "component": "nexon.method-step", "repeatable": true, "required": true },
+    "pillars": { "type": "component", "component": "nexon.pillar", "repeatable": true }
+  }
+}

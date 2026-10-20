@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_nexon_growth_stories",
+  "info": { "displayName": "Nexon — Historias de crecimiento", "icon": "chartBubble" },
+  "options": {},
+  "attributes": {
+    "label": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "heading": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "headingAccent": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "description": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "stories": { "type": "component", "component": "nexon.growth-story", "repeatable": true, "required": true }
+  }
+}

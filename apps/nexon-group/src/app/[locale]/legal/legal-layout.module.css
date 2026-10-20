@@ -1,0 +1,142 @@
+.richText {
+  overflow-wrap: anywhere;
+}
+
+.richText > :global(:first-child) {
+  margin-top: 0;
+}
+
+.richText :global(p) {
+  margin-block: 0.9rem;
+  color: color-mix(in srgb, var(--color-foreground) 78%, transparent);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.richText :global(h2) {
+  margin-top: 2.75rem;
+  margin-bottom: 0.85rem;
+  color: var(--color-foreground);
+  font-size: clamp(1.3rem, 2.5vw, 1.65rem);
+  font-weight: 650;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+
+.richText :global(h3) {
+  margin-top: 1.8rem;
+  margin-bottom: 0.65rem;
+  color: var(--color-foreground);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.richText :global(h4),
+.richText :global(h5),
+.richText :global(h6) {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-foreground);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.richText :global(ul),
+.richText :global(ol) {
+  margin-block: 1rem 1.25rem;
+  padding-inline-start: 1.5rem;
+  color: color-mix(in srgb, var(--color-foreground) 82%, transparent);
+  line-height: 1.8;
+  list-style-position: outside;
+}
+
+.richText :global(li) {
+  padding-inline-start: 0.3rem;
+}
+
+.richText :global(li + li) {
+  margin-top: 0.4rem;
+}
+
+.richText :global(li::marker) {
+  color: var(--color-primary);
+}
+
+.richText :global(a) {
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: color-mix(
+    in srgb,
+    var(--color-primary) 35%,
+    transparent
+  );
+  text-underline-offset: 0.2em;
+}
+
+.richText :global(a:hover) {
+  text-decoration-color: currentColor;
+}
+
+.richText :global(strong),
+.richText :global(b) {
+  color: var(--color-foreground);
+  font-weight: 600;
+}
+
+.richText :global(blockquote) {
+  margin-block: 1.5rem;
+  border-inline-start: 3px solid var(--color-primary);
+  border-radius: 0 0.75rem 0.75rem 0;
+  background: color-mix(
+    in srgb,
+    var(--color-primary) 6%,
+    var(--color-background)
+  );
+  padding: 1rem 1.25rem;
+}
+
+.richText :global(blockquote p) {
+  margin: 0;
+  color: var(--color-foreground);
+}
+
+.richText :global(hr) {
+  margin-block: 2rem;
+  border: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.richText :global(img) {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+}
+
+.richText :global(table) {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  color: color-mix(in srgb, var(--color-foreground) 82%, transparent);
+}
+
+.richText :global(th),
+.richText :global(td) {
+  border: 1px solid var(--color-border);
+  padding: 0.65rem 0.8rem;
+  text-align: start;
+}
+
+.richText :global(th) {
+  color: var(--color-foreground);
+  font-weight: 600;
+}
+
+@media (max-width: 40rem) {
+  .richText :global(h2) {
+    margin-top: 2rem;
+  }
+}

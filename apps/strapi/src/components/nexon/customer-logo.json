@@ -1,0 +1,9 @@
+{
+  "collectionName": "components_nexon_customer_logos_items",
+  "info": { "displayName": "Nexon — Cliente", "icon": "picture" },
+  "options": {},
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "assetKey": { "type": "enumeration", "enum": ["cae", "fiancol", "lavanderia-maritima", "greet-energy", "kovia", "wow", "vertice", "outliners", "vittorino", "netwifi"], "required": true }
+  }
+}
