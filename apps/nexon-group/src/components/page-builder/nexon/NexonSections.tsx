@@ -15,6 +15,8 @@ import {
   type NexonServicesContent,
 } from "@repo/design-system/nexon"
 
+import { formatStrapiMediaUrl } from "@/lib/strapi-helpers"
+
 export interface NexonStrapiComponent {
   id?: number
   __component?: string
@@ -23,14 +25,45 @@ export interface NexonStrapiComponent {
 
 type RendererProps = { component: NexonStrapiComponent }
 
+type StrapiMediaField =
+  | string
+  | null
+  | undefined
+  | {
+      url?: string | null
+      data?: null | {
+        url?: string | null
+        attributes?: { url?: string | null }
+      }
+    }
+
+function mediaUrl(media: StrapiMediaField): string | undefined {
+  const url =
+    typeof media === "string"
+      ? media
+      : (media?.url ?? media?.data?.url ?? media?.data?.attributes?.url)
+
+  return formatStrapiMediaUrl(url)
+}
+
 export function NexonHeroRenderer({ component }: RendererProps) {
   return <NexonHero data={component as unknown as NexonHeroContent} />
 }
 
 export function NexonCustomerLogosRenderer({ component }: RendererProps) {
+  const data = component as unknown as NexonCustomerLogosContent & {
+    logos?: { image?: StrapiMediaField; assetKey?: string }[]
+  }
+
   return (
     <NexonCustomerLogos
-      data={component as unknown as NexonCustomerLogosContent}
+      data={{
+        ...data,
+        logos: (data.logos ?? []).map((logo) => ({
+          ...logo,
+          imageUrl: mediaUrl(logo.image),
+        })),
+      }}
     />
   )
 }
@@ -53,7 +86,12 @@ export function NexonBentoServicesRenderer({ component }: RendererProps) {
         services:
           data.services?.map((service) => ({
             ...service,
-            image: serviceImages[service.tag] ?? undefined,
+            image:
+              mediaUrl(
+                (service as typeof service & { image?: StrapiMediaField }).image
+              ) ??
+              serviceImages[service.tag] ??
+              undefined,
           })) ?? [],
       }}
     />
@@ -78,7 +116,12 @@ export function NexonMethodologyRenderer({ component }: RendererProps) {
         steps:
           data.steps?.map((step) => ({
             ...step,
-            image: methodologyImages[step.number] ?? undefined,
+            image:
+              mediaUrl(
+                (step as typeof step & { image?: StrapiMediaField }).image
+              ) ??
+              methodologyImages[step.number] ??
+              undefined,
           })) ?? [],
       }}
     />
@@ -86,13 +129,31 @@ export function NexonMethodologyRenderer({ component }: RendererProps) {
 }
 
 export function NexonAboutRenderer({ component }: RendererProps) {
-  return <NexonAbout data={component as unknown as NexonAboutContent} />
+  const data = component as unknown as NexonAboutContent & {
+    backgroundImage?: StrapiMediaField
+  }
+
+  return (
+    <NexonAbout
+      data={{ ...data, backgroundImage: mediaUrl(data.backgroundImage) }}
+    />
+  )
 }
 
 export function NexonGrowthStoriesRenderer({ component }: RendererProps) {
+  const data = component as unknown as NexonGrowthStoriesContent & {
+    stories?: { image?: StrapiMediaField }[]
+  }
+
   return (
     <NexonGrowthStories
-      data={component as unknown as NexonGrowthStoriesContent}
+      data={{
+        ...data,
+        stories: (data.stories ?? []).map((story) => ({
+          ...story,
+          image: mediaUrl(story.image),
+        })),
+      }}
     />
   )
 }

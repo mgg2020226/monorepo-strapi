@@ -23,6 +23,7 @@ import { fontInter, fontRoboto, fontSpaceGrotesk } from "@/lib/fonts"
 import { isValidLocale, routing } from "@/lib/navigation"
 import { createSiteThemeStyle } from "@/lib/site-theme"
 import { fetchSite } from "@/lib/strapi-api/content/server"
+import { formatStrapiMediaUrl } from "@/lib/strapi-helpers"
 import { cn } from "@/lib/styles"
 
 export function generateStaticParams() {
@@ -63,6 +64,9 @@ export default async function RootLayout({
     | undefined
   const palette = siteData?.palette
   const themeStyle = createSiteThemeStyle(palette)
+  const siteLogoDarkUrl = formatStrapiMediaUrl(siteData?.logo?.url)
+  const siteLogoAlt =
+    siteData?.name ?? siteData?.logo?.alternativeText ?? "Nexon Group"
 
   /**
    * This allows you to make following env variables RUNTIME.
@@ -131,6 +135,9 @@ export default async function RootLayout({
                     }))}
                     cta={siteData?.header?.cta?.label ?? "Hablemos"}
                     href={siteData?.header?.cta?.href ?? "#contacto"}
+                    logoLightUrl={siteLogoDarkUrl}
+                    logoDarkUrl={siteLogoDarkUrl}
+                    logoAlt={siteLogoAlt}
                   />
                 </ErrorBoundary>
 
@@ -153,12 +160,19 @@ export default async function RootLayout({
                       copyright:
                         siteData?.footer?.copyright ??
                         "© {YEAR} Nexon Group. Todos los derechos reservados.",
-                      links: (siteData?.header?.navigation ?? []).map(
-                        (item) => ({
+                      links: (siteData?.header?.navigation ?? [])
+                        .map((item) => ({
                           label: item.label ?? "",
                           href: item.href ?? "#",
-                        })
-                      ),
+                        }))
+                        .concat(
+                          (siteData?.footer?.legalLinks ?? []).map((item) => ({
+                            label: item.label ?? "",
+                            href: item.href ?? "#",
+                          }))
+                        ),
+                      logoLightUrl: siteLogoDarkUrl,
+                      logoAlt: siteLogoAlt,
                     }}
                   />
                 </ErrorBoundary>
