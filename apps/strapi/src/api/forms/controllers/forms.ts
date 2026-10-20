@@ -28,12 +28,11 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
       .findFirst({
         status: "published",
         filters: {
-          slug: formSlug,
-          site: { slug: siteSlug },
+          slug: { $eq: formSlug },
         },
         populate: {
           fields: { populate: { options: true } },
-          site: true,
+          site: { fields: ["documentId", "slug"] },
         },
       })) as null | {
       fields?: FormField[]
@@ -41,10 +40,13 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
       active?: boolean
       honeypotEnabled?: boolean
       rateLimitPerMinute?: number
-      site?: { documentId?: string }
+      site?: { documentId?: string; slug?: string }
     }
 
-    if (!form || form.active === false) {
+    // Resolve the form by its own unique slug, then validate its site relation.
+    // This avoids relying on a deep relation filter while still preventing a
+    // form belonging to one site from being submitted through another.
+    if (!form || form.active === false || form.site?.slug !== siteSlug) {
       return ctx.notFound("Form not found")
     }
 

@@ -52,8 +52,8 @@ export const config = {
     // Skip all paths that should not be internationalized
 
     // Keep this as a plain string literal: Next statically analyzes matchers.
-    // Excluding framework and public assets prevents next-intl from rewriting
-    // them to /es/..., where the page catch-all would return HTML instead.
+    // Excluding framework and API assets prevents next-intl from rewriting
+    // them to /es/..., where no matching static asset or API route exists.
     String.raw`/((?!_next|_vercel|api|images|robots\.txt|favicon\.ico|sitemap|.*\..*).*)`,
   ],
 }
