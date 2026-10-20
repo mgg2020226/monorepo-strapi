@@ -51,6 +51,9 @@ export const config = {
 
     // Skip all paths that should not be internationalized
 
-    "/((?!_next|_vercel|api|images|robots.txt|favicon.ico|sitemap).*)",
+    // Static files in `public/` (including Nexon assets) must bypass locale
+    // negotiation. Otherwise next-intl rewrites `/nexon/...png` to `/es/...png`
+    // and the page catch-all renders a 404 instead of serving the file.
+    String.raw`/((?!_next|_vercel|api|images|robots.txt|favicon.ico|sitemap|.*\..*).*)`,
   ],
 }
