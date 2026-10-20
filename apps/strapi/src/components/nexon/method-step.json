@@ -5,6 +5,7 @@
   "attributes": {
     "number": { "type": "string", "required": true },
     "icon": { "type": "enumeration", "enum": ["Search", "BarChart2", "Crosshair", "Rocket", "Target"], "default": "Search" },
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
     "title": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
     "description": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } }
   }

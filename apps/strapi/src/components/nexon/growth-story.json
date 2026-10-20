@@ -5,6 +5,7 @@
   "attributes": {
     "icon": { "type": "enumeration", "enum": ["Store", "Globe", "Rocket", "Megaphone", "BarChart2", "Handshake"], "default": "Store" },
     "visual": { "type": "enumeration", "enum": ["expansion", "markets", "startup", "marketing", "intelligence", "alliances"], "default": "expansion" },
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
     "title": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
     "description": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
     "metric": { "type": "string" },

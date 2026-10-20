@@ -4,6 +4,6 @@
   "options": {},
   "attributes": {
     "name": { "type": "string", "required": true },
-    "assetKey": { "type": "enumeration", "enum": ["cae", "fiancol", "lavanderia-maritima", "greet-energy", "kovia", "wow", "vertice", "outliners", "vittorino", "netwifi"], "required": true }
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] }
   }
 }

@@ -6,6 +6,7 @@
     "label": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
     "heading": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
     "headingAccent": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "backgroundImage": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
     "paragraphs": { "type": "component", "component": "nexon.about-paragraph", "repeatable": true },
     "stats": { "type": "component", "component": "nexon.stat", "repeatable": true },
     "cardTitle": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },

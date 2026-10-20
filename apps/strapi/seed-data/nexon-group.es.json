@@ -77,16 +77,16 @@
         "__component": "nexon.customer-logos",
         "title": "Empresas que confían en nosotros.",
         "logos": [
-          { "name": "CAE", "assetKey": "cae" },
-          { "name": "Fiancol", "assetKey": "fiancol" },
-          { "name": "Lavandería Marítima", "assetKey": "lavanderia-maritima" },
-          { "name": "Greet Energy", "assetKey": "greet-energy" },
-          { "name": "Kovia", "assetKey": "kovia" },
-          { "name": "WOW", "assetKey": "wow" },
-          { "name": "Vértice", "assetKey": "vertice" },
-          { "name": "Outliners", "assetKey": "outliners" },
-          { "name": "Vittorino", "assetKey": "vittorino" },
-          { "name": "Netwifi", "assetKey": "netwifi" }
+          { "name": "CAE" },
+          { "name": "Fiancol" },
+          { "name": "Lavandería Marítima" },
+          { "name": "Greet Energy" },
+          { "name": "Kovia" },
+          { "name": "WOW" },
+          { "name": "Vértice" },
+          { "name": "Outliners" },
+          { "name": "Vittorino" },
+          { "name": "Netwifi" }
         ]
       },
       {

@@ -405,20 +405,6 @@ export interface NexonCustomerLogo extends Struct.ComponentSchema {
     icon: "picture"
   }
   attributes: {
-    assetKey: Schema.Attribute.Enumeration<
-      [
-        "cae",
-        "fiancol",
-        "lavanderia-maritima",
-        "greet-energy",
-        "kovia",
-        "wow",
-        "vertice",
-        "outliners",
-        "vittorino",
-        "netwifi",
-      ]
-    >
     image: Schema.Attribute.Media<"images">
     name: Schema.Attribute.String & Schema.Attribute.Required
   }
