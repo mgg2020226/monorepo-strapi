@@ -51,11 +51,9 @@ export const config = {
 
     // Skip all paths that should not be internationalized
 
-    // Keep this as a string literal: Next statically analyzes matchers, and a
-    // String.raw expression is ignored, causing the locale proxy to run on
-    // static CSS, JavaScript, fonts, images, and other public files.
-    // Excluding those paths prevents next-intl from rewriting them to /es/...
-    // where the page catch-all returns HTML instead of the asset.
+    // Keep this as a plain string literal: Next statically analyzes matchers.
+    // Excluding framework and public assets prevents next-intl from rewriting
+    // them to /es/..., where the page catch-all would return HTML instead.
     String.raw`/((?!_next|_vercel|api|images|robots\.txt|favicon\.ico|sitemap|.*\..*).*)`,
   ],
 }
