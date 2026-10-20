@@ -30,13 +30,41 @@ function CkEditorRenderer({
     return transformers.reduce((result, transform) => transform(result), html)
   }
 
+  const renderPlainTextContent = (content: string) => {
+    const blocks = content
+      .split(/\n+/)
+      .map((block) => block.trim())
+      .filter(Boolean)
+
+    return blocks.map((block, index) => {
+      const isHeading =
+        index === 0 ||
+        /^\d+\.\s/.test(block) ||
+        block === "Responsable del tratamiento"
+
+      return isHeading ? (
+        <h2 key={`${index}-${block}`}>{block}</h2>
+      ) : (
+        <p key={`${index}-${block}`}>{block}</p>
+      )
+    })
+  }
+
+  const isHtml = htmlContent ? /<\/?[a-z][^>]*>/i.test(htmlContent) : false
+
   return htmlContent ? (
-    <div
-      className={cn(`ck-editor-rich-text-${variant}`, className)}
-      dangerouslySetInnerHTML={{
-        __html: processHtmlContent(htmlContent, locale),
-      }}
-    />
+    isHtml ? (
+      <div
+        className={cn(`ck-editor-rich-text-${variant}`, className)}
+        dangerouslySetInnerHTML={{
+          __html: processHtmlContent(htmlContent, locale),
+        }}
+      />
+    ) : (
+      <div className={cn(`ck-editor-rich-text-${variant}`, className)}>
+        {renderPlainTextContent(htmlContent)}
+      </div>
+    )
   ) : null
 }
 

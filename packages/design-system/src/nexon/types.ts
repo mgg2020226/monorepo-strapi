@@ -15,7 +15,8 @@ export interface NexonHeroContent {
 
 export interface NexonLogo {
   name: string
-  assetKey: string
+  assetKey?: string
+  imageUrl?: string
 }
 
 export interface NexonCustomerLogosContent {
@@ -81,6 +82,7 @@ export interface NexonAboutContent {
   headingAccent: string
   paragraphs: NexonAboutParagraph[]
   stats: NexonStat[]
+  backgroundImage?: string
   cardTitle?: string
   cardDescription?: string
 }
@@ -88,6 +90,7 @@ export interface NexonAboutContent {
 export interface NexonGrowthStory {
   icon: string
   visual: string
+  image?: string
   title: string
   description: string
   metric: string

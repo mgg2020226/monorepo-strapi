@@ -185,6 +185,7 @@ export interface NexonAbout extends Struct.ComponentSchema {
     icon: "information"
   }
   attributes: {
+    backgroundImage: Schema.Attribute.Media<"images">
     cardDescription: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -417,8 +418,8 @@ export interface NexonCustomerLogo extends Struct.ComponentSchema {
         "vittorino",
         "netwifi",
       ]
-    > &
-      Schema.Attribute.Required
+    >
+    image: Schema.Attribute.Media<"images">
     name: Schema.Attribute.String & Schema.Attribute.Required
   }
 }
@@ -496,6 +497,7 @@ export interface NexonGrowthStory extends Struct.ComponentSchema {
       ["Store", "Globe", "Rocket", "Megaphone", "BarChart2", "Handshake"]
     > &
       Schema.Attribute.DefaultTo<"Store">
+    image: Schema.Attribute.Media<"images">
     link: Schema.Attribute.String
     metric: Schema.Attribute.String
     metricLabel: Schema.Attribute.String &
@@ -590,6 +592,7 @@ export interface NexonMethodStep extends Struct.ComponentSchema {
       ["Search", "BarChart2", "Crosshair", "Rocket", "Target"]
     > &
       Schema.Attribute.DefaultTo<"Search">
+    image: Schema.Attribute.Media<"images">
     number: Schema.Attribute.String & Schema.Attribute.Required
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
@@ -687,6 +690,7 @@ export interface NexonService extends Struct.ComponentSchema {
       ["TrendingUp", "Target", "Handshake", "Zap", "Megaphone"]
     > &
       Schema.Attribute.DefaultTo<"TrendingUp">
+    image: Schema.Attribute.Media<"images">
     tag: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
