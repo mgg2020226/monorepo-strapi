@@ -105,12 +105,14 @@ export function NexonAbout({ data }: { data: NexonAboutContent }) {
       className="relative w-full overflow-hidden py-24"
       style={{ contain: "layout style paint" }}
     >
-      {/* Background image */}
-      <img
-        src={data.backgroundImage ?? "/nexon/backgrounds/backgrounds.png"}
-        alt=""
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+      {/* Background image supplied by the Nexon Strapi component. */}
+      {data.backgroundImage ? (
+        <img
+          src={data.backgroundImage}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : null}
       {/* Dark overlay */}
       <div
         className="absolute inset-0"

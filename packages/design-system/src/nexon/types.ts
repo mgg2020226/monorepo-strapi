@@ -15,7 +15,6 @@ export interface NexonHeroContent {
 
 export interface NexonLogo {
   name: string
-  assetKey?: string
   imageUrl?: string
 }
 

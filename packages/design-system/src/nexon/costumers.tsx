@@ -17,9 +17,7 @@ export function NexonCustomerLogos({
   className?: string
 }) {
   const logos = data.logos.map((logo) => ({
-    src:
-      logo.imageUrl ??
-      (logo.assetKey ? `/nexon/clients/logotipo-${logo.assetKey}.png` : ""),
+    src: logo.imageUrl ?? "",
     alt: logo.name,
     height: 28,
   }))

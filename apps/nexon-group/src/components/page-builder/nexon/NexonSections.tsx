@@ -52,7 +52,7 @@ export function NexonHeroRenderer({ component }: RendererProps) {
 
 export function NexonCustomerLogosRenderer({ component }: RendererProps) {
   const data = component as unknown as NexonCustomerLogosContent & {
-    logos?: { image?: StrapiMediaField; assetKey?: string }[]
+    logos?: { image?: StrapiMediaField }[]
   }
 
   return (
@@ -68,14 +68,6 @@ export function NexonCustomerLogosRenderer({ component }: RendererProps) {
   )
 }
 
-const serviceImages: Record<string, string> = {
-  Estrategia: "/nexon/services/estrategia.png",
-  Análisis: "/nexon/services/analisis.png",
-  Negocios: "/nexon/services/negocios.png",
-  Ventas: "/nexon/services/ventas.png",
-  Marketing: "/nexon/services/marketing.png",
-}
-
 export function NexonBentoServicesRenderer({ component }: RendererProps) {
   const data = component as unknown as NexonServicesContent
 
@@ -86,24 +78,13 @@ export function NexonBentoServicesRenderer({ component }: RendererProps) {
         services:
           data.services?.map((service) => ({
             ...service,
-            image:
-              mediaUrl(
-                (service as typeof service & { image?: StrapiMediaField }).image
-              ) ??
-              serviceImages[service.tag] ??
-              undefined,
+            image: mediaUrl(
+              (service as typeof service & { image?: StrapiMediaField }).image
+            ),
           })) ?? [],
       }}
     />
   )
-}
-
-const methodologyImages: Record<string, string> = {
-  "01": "/nexon/methodology/entender.png",
-  "02": "/nexon/methodology/identificar.png",
-  "03": "/nexon/methodology/diseñar.png",
-  "04": "/nexon/methodology/ejecuta.png",
-  "05": "/nexon/methodology/resultados.png",
 }
 
 export function NexonMethodologyRenderer({ component }: RendererProps) {
@@ -116,12 +97,9 @@ export function NexonMethodologyRenderer({ component }: RendererProps) {
         steps:
           data.steps?.map((step) => ({
             ...step,
-            image:
-              mediaUrl(
-                (step as typeof step & { image?: StrapiMediaField }).image
-              ) ??
-              methodologyImages[step.number] ??
-              undefined,
+            image: mediaUrl(
+              (step as typeof step & { image?: StrapiMediaField }).image
+            ),
           })) ?? [],
       }}
     />
