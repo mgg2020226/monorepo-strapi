@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_bancaliv_cards",
+  "info": { "displayName": "Bancaliv content card", "icon": "layout" },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "description": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "value": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "href": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "target": {
+      "type": "enumeration",
+      "enum": ["_self", "_blank"],
+      "default": "_self"
+    },
+    "label": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "linkLabel": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    }
+  }
+}

@@ -11,8 +11,10 @@ import StrapiLink from "@repo/sections/utilities/StrapiLink"
 
 export function StrapiCta({
   component,
+  className,
 }: PageBuilderComponentProps & {
   component: Data.Component<"sections.cta">
+  className?: string
 }) {
   const styleProps = sectionStyleProps(component.style)
 
@@ -22,6 +24,7 @@ export function StrapiCta({
         {...styleProps}
         className={cn(
           styleProps.className,
+          className,
           sectionContentClass(
             component.style,
             "mx-4 rounded-3xl p-8 text-center sm:p-12 lg:p-16"

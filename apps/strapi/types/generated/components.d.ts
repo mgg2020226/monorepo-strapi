@@ -27,6 +27,120 @@ export interface AdminPermission extends Struct.ComponentSchema {
   }
 }
 
+export interface BancalivCard extends Struct.ComponentSchema {
+  collectionName: "components_bancaliv_cards"
+  info: {
+    displayName: "Bancaliv content card"
+    icon: "layout"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    href: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    image: Schema.Attribute.Media<"images">
+    label: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    linkLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    target: Schema.Attribute.Enumeration<["_self", "_blank"]> &
+      Schema.Attribute.DefaultTo<"_self">
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    value: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface BancalivSection extends Struct.ComponentSchema {
+  collectionName: "components_bancaliv_sections"
+  info: {
+    displayName: "Bancaliv section"
+    icon: "layout"
+  }
+  attributes: {
+    anchor: Schema.Attribute.String
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    eyebrow: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    image: Schema.Attribute.Media<"images">
+    items: Schema.Attribute.Component<"bancaliv.card", true>
+    primaryActionLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    primaryActionTarget: Schema.Attribute.Enumeration<["_self", "_blank"]> &
+      Schema.Attribute.DefaultTo<"_self">
+    primaryActionUrl: Schema.Attribute.String
+    secondaryActionLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    secondaryActionTarget: Schema.Attribute.Enumeration<["_self", "_blank"]> &
+      Schema.Attribute.DefaultTo<"_self">
+    secondaryActionUrl: Schema.Attribute.String
+    sectionType: Schema.Attribute.Enumeration<
+      [
+        "hero",
+        "steps",
+        "products",
+        "benefits",
+        "security",
+        "allies",
+        "metrics",
+        "testimonials",
+        "faq",
+        "cta",
+        "content",
+      ]
+    > &
+      Schema.Attribute.Required
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
 export interface BlogTag extends Struct.ComponentSchema {
   collectionName: "components_blog_tags"
   info: {
@@ -902,6 +1016,7 @@ export interface SectionsFaq extends Struct.ComponentSchema {
   }
   attributes: {
     accordions: Schema.Attribute.Component<"utilities.accordions", true>
+    image: Schema.Attribute.Component<"utilities.basic-image", false>
     subTitle: Schema.Attribute.String
     title: Schema.Attribute.String & Schema.Attribute.Required
   }
@@ -2187,6 +2302,8 @@ declare module "@strapi/strapi" {
   export namespace Public {
     export interface ComponentSchemas {
       "admin.permission": AdminPermission
+      "bancaliv.card": BancalivCard
+      "bancaliv.section": BancalivSection
       "blog.tag": BlogTag
       "elements.footer-item": ElementsFooterItem
       "form.field": FormField

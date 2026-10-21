@@ -1,0 +1,590 @@
+.bancaliv-site {
+  --bancaliv-pink: #e5007d;
+  --bancaliv-plum: #65004f;
+  --bancaliv-purple: #6c36b8;
+  --bancaliv-ink: #241a2b;
+  --bancaliv-muted: #6f6874;
+  --bancaliv-blush: #fff4fa;
+  color: var(--bancaliv-ink);
+  font-family:
+    "Plus Jakarta Sans", var(--font-roboto), ui-sans-serif, system-ui,
+    sans-serif;
+}
+
+.bancaliv-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid rgb(36 26 43 / 9%);
+  background: rgb(255 255 255 / 92%);
+  backdrop-filter: blur(14px);
+}
+
+.bancaliv-container {
+  width: min(100% - 2rem, 1226px);
+  margin-inline: auto;
+}
+
+.bancaliv-section {
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+}
+
+.bancaliv-wash {
+  background: linear-gradient(180deg, #fff9fc 0%, #fbeaf4 100%);
+}
+
+.bancaliv-card {
+  border: 1px solid #f0dce8;
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow: 0 8px 28px rgb(65 18 49 / 7%);
+}
+
+.bancaliv-button {
+  display: inline-flex;
+  min-height: 2.9rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background: var(--bancaliv-pink);
+  padding: 0.7rem 1.15rem;
+  color: white;
+  font-weight: 700;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.bancaliv-button:hover {
+  transform: translateY(-1px);
+  background: #c8006d;
+}
+
+.bancaliv-button--outline {
+  border: 2px solid var(--bancaliv-pink);
+  background: transparent;
+  color: var(--bancaliv-pink);
+}
+
+.bancaliv-prose p + p {
+  margin-top: 1rem;
+}
+.bancaliv-prose ul {
+  margin-top: 1rem;
+  list-style: none;
+  padding: 0;
+}
+.bancaliv-prose li {
+  margin-top: 0.6rem;
+}
+.bancaliv-prose li::before {
+  content: "✓";
+  margin-right: 0.65rem;
+  color: var(--bancaliv-pink);
+  font-weight: 800;
+}
+
+/* Keep the Strapi copy readable even when the shared site theme has a dark
+   muted token, while preserving Bancaliv's light reference surface. */
+.site-theme .text-muted-foreground {
+  color: var(--bancaliv-muted) !important;
+}
+.site-theme main h2 {
+  margin-bottom: 0 !important;
+  font-size: clamp(1.65rem, 3vw, 2.5rem) !important;
+  line-height: 1.15 !important;
+}
+.site-theme main h3 {
+  margin-block: 0 !important;
+  font-size: clamp(1.125rem, 1.75vw, 1.5rem) !important;
+  line-height: 1.25 !important;
+}
+.site-theme main .section-style-content {
+  padding-inline: 0 !important;
+}
+.site-theme footer h2 {
+  margin-bottom: 0.75rem !important;
+  font-size: 1.125rem !important;
+  line-height: 1.25 !important;
+}
+.site-theme footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Separate adjacent published sections; their own internal padding remains
+   controlled by each Strapi section renderer. */
+.site-theme main > .scroll-mt-20 + .scroll-mt-20 {
+  margin-top: clamp(1.5rem, 3vw, 3rem);
+}
+
+.site-theme ol.section-style-list img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: contain;
+}
+
+/* Bancaliv benefits use a two-column editorial card: copy on the left,
+   photography on the right. */
+.site-theme article.section-style-item:has(> .relative > img) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+}
+.site-theme article.section-style-item:has(> .relative > img) > .relative {
+  grid-column: 2;
+  grid-row: 1;
+  min-height: 100%;
+  aspect-ratio: auto;
+}
+.site-theme article.section-style-item:has(> .relative > img) > .p-6 {
+  grid-column: 1;
+  grid-row: 1;
+}
+.site-theme article.section-style-item:has(> .relative > img) ul {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
+/* Trust panel based on Bancaliv's reference: white fiduciary mark on magenta,
+   with compact white feature cards in a two-column grid. */
+.site-theme main section.bancaliv-security-block {
+  border-color: #d7a0c5 !important;
+  border-radius: 1rem !important;
+  background: linear-gradient(
+    112deg,
+    #97005f 0%,
+    #b00070 58%,
+    #c0007a 100%
+  ) !important;
+  color: white !important;
+  font-family: Arial, ui-sans-serif, system-ui, sans-serif !important;
+  font-style: normal !important;
+  padding: 1em !important;
+}
+.site-theme .bancaliv-security-block * {
+  font-family: inherit !important;
+  font-style: normal !important;
+}
+.site-theme .bancaliv-security-block > div {
+  gap: clamp(2.25rem, 5vw, 4.5rem) !important;
+}
+.site-theme .bancaliv-security-block h2,
+.site-theme .bancaliv-security-block > div > div:first-child h3,
+.site-theme .bancaliv-security-block > div > div:first-child p {
+  color: white !important;
+  font-style: normal !important;
+}
+.site-theme .bancaliv-security-block h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem) !important;
+  line-height: 1.2 !important;
+}
+.site-theme .bancaliv-security-block > div > div:first-child h3 {
+  font-size: 1.125rem !important;
+  line-height: 1.5 !important;
+}
+.site-theme .bancaliv-security-block > div > div:first-child > div {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+.site-theme .bancaliv-security-block__logo img {
+  transform: scale(1.45);
+}
+.site-theme .bancaliv-security-block img {
+  object-fit: contain;
+}
+.site-theme .bancaliv-security-block article[role="listitem"] {
+  min-height: 10.5rem;
+  border: 0 !important;
+  border-radius: 0.9rem !important;
+  background: #fff !important;
+  color: var(--bancaliv-ink) !important;
+  padding: 1.25rem !important;
+  font-style: normal !important;
+}
+.bancaliv-security-block__icon {
+  display: inline-flex;
+  width: 2.75rem;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: #fbe6f2;
+  color: var(--bancaliv-pink);
+}
+.site-theme .bancaliv-security-block article[role="listitem"] h3 {
+  color: var(--bancaliv-ink) !important;
+  font-size: 0.875rem !important;
+  line-height: 1.35 !important;
+  font-style: normal !important;
+}
+.site-theme .bancaliv-security-block article[role="listitem"] p {
+  color: var(--bancaliv-muted) !important;
+  font-size: 0.75rem !important;
+  line-height: 1.55 !important;
+  font-style: normal !important;
+}
+
+.site-theme main section.bancaliv-cta-banner {
+  border: 1px solid #d7a0c5 !important;
+  border-radius: 1.25rem !important;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgb(255 255 255 / 8%),
+      transparent 35%
+    ),
+    linear-gradient(225deg, #8a005e 0%, #a6006b 35%, #b00072 70%, #c0007a 100%) !important;
+  color: white !important;
+  padding: 1em !important;
+}
+.site-theme main section.bancaliv-cta-banner h2,
+.site-theme main section.bancaliv-cta-banner p {
+  color: white !important;
+}
+.site-theme main section.bancaliv-cta-banner {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  align-items: center;
+  column-gap: 2rem;
+  text-align: left !important;
+}
+.site-theme main section.bancaliv-cta-banner h2,
+.site-theme main section.bancaliv-cta-banner p {
+  grid-column: 1;
+  text-align: left !important;
+}
+.site-theme main section.bancaliv-cta-banner p {
+  margin-inline: 0 !important;
+}
+.site-theme main section.bancaliv-cta-banner h2 {
+  grid-row: 1;
+}
+.site-theme main section.bancaliv-cta-banner p {
+  grid-row: 2;
+}
+.site-theme main section.bancaliv-cta-banner > div {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  justify-content: flex-end;
+}
+.site-theme main section.bancaliv-cta-banner .mt-7 > a:first-child {
+  border: 1px solid #fff !important;
+  background: #fff !important;
+  color: var(--bancaliv-pink) !important;
+}
+.site-theme main section.bancaliv-cta-banner .mt-7 > a:first-child:hover {
+  background: #fff4fa !important;
+}
+.site-theme main section.bancaliv-cta-banner .mt-7 > a:nth-child(2) {
+  border: 1px solid #fff !important;
+  background: transparent !important;
+  color: #fff !important;
+}
+.site-theme main section.bancaliv-cta-banner .mt-7 > a:nth-child(2):hover {
+  background: rgb(255 255 255 / 12%) !important;
+}
+
+.site-theme .bancaliv-header nav a[href="/#inicio"],
+.site-theme .bancaliv-header nav a[href="#inicio"] {
+  order: 0;
+}
+
+.site-theme ul:has(> li > a img) > li {
+  background-color: #ece7eb !important;
+  border-color: #d8cbd3 !important;
+}
+
+.bancaliv-metrics__card {
+  min-height: 10rem;
+  border: 1px solid #ded8e0;
+  border-radius: 0.75rem;
+  background: #fff;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgb(36 26 43 / 6%);
+}
+
+.bancaliv-product-card__icon {
+  background: #fce8f3;
+  color: var(--bancaliv-pink);
+}
+.bancaliv-product-card__icon--purple {
+  background: #eee6fb;
+  color: #7037bd;
+}
+
+.bancaliv-logo-cloud__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding: 0;
+  list-style: none;
+}
+.bancaliv-logo-cloud__list li {
+  display: flex;
+  min-height: 7rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d8cbd3;
+  border-radius: 1rem;
+  background: #ece7eb;
+  padding: 1.25rem;
+}
+.bancaliv-logo-cloud__list li img {
+  max-height: 4rem;
+}
+
+.bancaliv-faq__panel {
+  display: grid;
+  gap: 2rem;
+  border-radius: 2rem;
+  background: #f8f7f8;
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+.bancaliv-faq__heading h2 {
+  max-width: 15ch;
+}
+.bancaliv-faq__image {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 10rem;
+  margin-top: 2rem;
+  object-fit: contain;
+  object-position: left center;
+}
+.bancaliv-faq__items {
+  display: grid;
+  align-content: start;
+  gap: 0.75rem;
+}
+.bancaliv-faq__item {
+  overflow: hidden;
+  border: 1px solid rgb(227 0 123 / 20%);
+  border-radius: 1rem;
+  background: #fff;
+}
+.bancaliv-faq__item summary {
+  display: flex;
+  min-height: 3.5rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+}
+.bancaliv-faq__item summary::-webkit-details-marker {
+  display: none;
+}
+.bancaliv-faq__toggle {
+  position: relative;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 auto;
+  margin-left: auto;
+  border: 2px solid var(--bancaliv-pink);
+  border-radius: 999px;
+}
+.bancaliv-faq__toggle::before,
+.bancaliv-faq__toggle::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.5rem;
+  height: 2px;
+  background: var(--bancaliv-pink);
+  content: "";
+  transform: translate(-50%, -50%);
+}
+.bancaliv-faq__toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.bancaliv-faq__item[open] .bancaliv-faq__toggle::after {
+  display: none;
+}
+.bancaliv-faq__answer {
+  padding: 0 1.25rem 1.25rem 3.5rem;
+  color: var(--bancaliv-muted);
+  line-height: 1.65;
+}
+
+@media (min-width: 1024px) {
+  .bancaliv-faq__panel {
+    grid-template-columns: 40% minmax(0, 60%);
+  }
+  .bancaliv-logo-cloud__list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .bancaliv-logo-cloud__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .site-theme main section.bancaliv-cta-banner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .site-theme main section.bancaliv-cta-banner h2,
+  .site-theme main section.bancaliv-cta-banner p,
+  .site-theme main section.bancaliv-cta-banner > div {
+    grid-column: 1;
+  }
+  .site-theme main section.bancaliv-cta-banner > div {
+    grid-row: 3;
+    justify-content: flex-start;
+  }
+  .site-theme article.section-style-item:has(> .relative > img) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .site-theme article.section-style-item:has(> .relative > img) > .relative {
+    grid-column: 1;
+    grid-row: 2;
+    min-height: 13rem;
+  }
+  .site-theme article.section-style-item:has(> .relative > img) > .p-6 {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+.bancaliv-featured-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 78% 55%, rgb(229 0 125 / 9%), transparent 34%),
+    radial-gradient(ellipse at 8% 98%, rgb(108 54 184 / 8%), transparent 35%),
+    #fff;
+}
+
+.bancaliv-featured-hero__grid {
+  display: grid;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-block: clamp(3.5rem, 8vw, 7rem);
+}
+
+.bancaliv-featured-hero__content {
+  min-width: 0;
+}
+.bancaliv-featured-hero__eyebrow {
+  margin-bottom: 1rem;
+  color: var(--bancaliv-pink);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.bancaliv-featured-hero__title {
+  color: var(--bancaliv-ink);
+  font-size: clamp(2.75rem, 4.25vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 1.04;
+}
+.bancaliv-featured-hero__title span {
+  display: block;
+}
+.bancaliv-featured-hero__highlight {
+  color: var(--bancaliv-pink);
+}
+.bancaliv-featured-hero__description {
+  max-width: 38rem;
+  margin-top: 1.5rem;
+  color: var(--bancaliv-muted);
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+.bancaliv-featured-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.bancaliv-featured-hero__perks {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+  padding: 0;
+  list-style: none;
+}
+.bancaliv-featured-hero__perk {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 4.25rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid #f0dce8;
+  border-radius: 0.9rem;
+  background: rgb(255 255 255 / 94%);
+  box-shadow: 0 8px 20px rgb(65 18 49 / 10%);
+}
+.bancaliv-featured-hero__perk-icon {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 999px;
+  background: #fff0f8;
+  color: var(--bancaliv-pink);
+}
+.bancaliv-featured-hero__perk strong,
+.bancaliv-featured-hero__perk small {
+  display: block;
+}
+.bancaliv-featured-hero__perk strong {
+  font-size: 0.88rem;
+}
+.bancaliv-featured-hero__perk small {
+  margin-top: 0.15rem;
+  color: var(--bancaliv-muted);
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+.bancaliv-featured-hero__image-wrap {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+}
+.bancaliv-featured-hero__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 34rem;
+  object-fit: contain;
+}
+
+@media (min-width: 1024px) {
+  .bancaliv-featured-hero__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .bancaliv-featured-hero__perks {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bancaliv-site *,
+  .bancaliv-site *::before,
+  .bancaliv-site *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.site-theme {
+  --bancaliv-pink: #e5007d;
+  --bancaliv-plum: #65004f;
+  --bancaliv-purple: #6c36b8;
+  --bancaliv-ink: #241a2b;
+  --bancaliv-muted: #6f6874;
+  --bancaliv-blush: #fff4fa;
+}

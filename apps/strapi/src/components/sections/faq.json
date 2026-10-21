@@ -13,6 +13,11 @@
     "subTitle": {
       "type": "string"
     },
+    "image": {
+      "type": "component",
+      "component": "utilities.basic-image",
+      "repeatable": false
+    },
     "accordions": {
       "type": "component",
       "repeatable": true,

@@ -1,0 +1,63 @@
+{
+  "collectionName": "components_bancaliv_sections",
+  "info": { "displayName": "Bancaliv section", "icon": "layout" },
+  "options": {},
+  "attributes": {
+    "sectionType": {
+      "type": "enumeration",
+      "enum": [
+        "hero",
+        "steps",
+        "products",
+        "benefits",
+        "security",
+        "allies",
+        "metrics",
+        "testimonials",
+        "faq",
+        "cta",
+        "content"
+      ],
+      "required": true
+    },
+    "anchor": { "type": "string" },
+    "eyebrow": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "title": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "description": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "primaryActionLabel": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "primaryActionUrl": { "type": "string" },
+    "primaryActionTarget": {
+      "type": "enumeration",
+      "enum": ["_self", "_blank"],
+      "default": "_self"
+    },
+    "secondaryActionLabel": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "secondaryActionUrl": { "type": "string" },
+    "secondaryActionTarget": {
+      "type": "enumeration",
+      "enum": ["_self", "_blank"],
+      "default": "_self"
+    },
+    "items": {
+      "type": "component",
+      "component": "bancaliv.card",
+      "repeatable": true
+    }
+  }
+}

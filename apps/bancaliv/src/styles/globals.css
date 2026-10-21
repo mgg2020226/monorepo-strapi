@@ -1,0 +1,224 @@
+@import "tailwindcss";
+@source "../../../../packages/sections/src";
+@source "../../../../packages/design-system/src";
+@source "../../../../packages/design-system/src/bancaliv";
+@import "@repo/design-system/theme.css";
+@import "@repo/design-system/custom-styles.css";
+@import "@repo/design-system/ckeditor-default-styles.css";
+@import "@repo/sections/styles.css";
+@import "@repo/design-system/bancaliv/styles.css";
+
+@plugin "tailwindcss-animate";
+
+.site-theme {
+  color-scheme: light;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family:
+    var(--site-font-body, var(--font-roboto, var(--font-sans))),
+    var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+}
+
+.dark .site-theme,
+.site-theme[data-contrast-mode="dark"] {
+  color-scheme: dark;
+  --color-background: #000000 !important;
+  --color-foreground: #ffffff !important;
+  --color-card: #000000 !important;
+  --color-card-foreground: #ffffff !important;
+  --color-popover: #000000 !important;
+  --color-popover-foreground: #ffffff !important;
+  --color-primary: #ffffff !important;
+  --color-primary-foreground: #000000 !important;
+  --color-secondary: #000000 !important;
+  --color-secondary-foreground: #ffffff !important;
+  --color-accent: #ffffff !important;
+  --color-accent-foreground: #000000 !important;
+  --color-muted: #000000 !important;
+  --color-muted-foreground: #ffffff !important;
+  --color-destructive: #ffffff !important;
+  --color-destructive-foreground: #000000 !important;
+  --color-border: #ffffff !important;
+  --color-input: #000000 !important;
+  --color-ring: #ffffff !important;
+}
+
+.dark
+  .site-theme
+  :is(
+    [class*="text-gray-"],
+    [class*="text-red-"],
+    [class~="text-black"],
+    [class*="dark:text-black"],
+    [class*="text-white/"],
+    [class*="text-black/"],
+    [class*="text-primary/"],
+    [class*="text-secondary/"],
+    [class*="text-accent/"],
+    [class*="text-destructive/"],
+    [class*="text-muted-foreground/"]
+  ),
+.site-theme[data-contrast-mode="dark"]
+  :is(
+    [class*="text-gray-"],
+    [class*="text-red-"],
+    [class~="text-black"],
+    [class*="dark:text-black"],
+    [class*="text-white/"],
+    [class*="text-black/"],
+    [class*="text-primary/"],
+    [class*="text-secondary/"],
+    [class*="text-accent/"],
+    [class*="text-destructive/"],
+    [class*="text-muted-foreground/"]
+  ) {
+  color: var(--color-foreground) !important;
+}
+
+.site-theme[data-contrast-mode="auto"] {
+  color-scheme: light dark;
+}
+
+.site-theme :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(
+    --site-font-heading,
+    var(--site-font-body, var(--font-roboto, var(--font-sans)))
+  ), var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+}
+
+.footer-column-title {
+  margin-bottom: 0.5rem !important;
+  font-size: 1rem !important;
+  line-height: 1.25 !important;
+}
+
+@media (width >= 40rem) {
+  .footer-column-title {
+    font-size: 1.125rem !important;
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  ul {
+    list-style-type: disc;
+    list-style-position: inside;
+  }
+
+  ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* This is size of the navbar - 64px + some padding - change if needed */
+    scroll-padding-top: 72px;
+  }
+
+  /* TiptapRichText renders list items with a wrapping <p> tag but we want the bullet/number and the item text on one line */
+  .tiptap-list > li > p:first-child {
+    display: inline;
+    margin: 0;
+  }
+
+  .tiptap-unordered-list > li::marker {
+    color: black;
+  }
+}
+
+@utility no-scrollbar {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@utility container {
+  margin-inline: auto;
+  padding: 2rem;
+}
+
+/* this enabled the dark mode variant */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@keyframes scrollHorizontal {
+  to {
+    transform: translate(calc(-50% - 1.75rem));
+  }
+}
+
+.infinite-scroll-container-horizontal {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.infinite-scroll-horizontal {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scrollHorizontal 30s linear infinite;
+}
+
+.bg-gradient-slider {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 31%,
+    rgba(255, 255, 255, 0) 69.5%,
+    rgba(255, 255, 255, 0.8) 100%
+  ) !important;
+}
+
+@layer base {
+  * {
+    @apply border-gray-300 outline-purple-500/50;
+  }
+  body {
+    @apply text-black dark:text-white;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marqueeReverse {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+/* Use this when you need a hard inversion for img/svg elements that don't follow currentColor.
+     .icon--invert-on-dark: when in .dark mode, apply a filter that inverts light<->dark.
+*/
+.icon--invert-on-dark {
+  filter: none;
+}
+.dark .icon--invert-on-dark {
+  filter: invert(1) hue-rotate(180deg) brightness(0.95) contrast(1.05);
+}
