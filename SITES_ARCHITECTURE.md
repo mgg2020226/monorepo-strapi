@@ -8,7 +8,7 @@ Implementación inicial basada en [strapi-next-monorepo-starter](https://github.
 - Frontend inicial de EmpresaX en `apps/empresaX`.
 - Docusaurus conservado en `apps/docs`.
 - El frontend se mantiene como plantilla genérica y usa `EmpresaX` como nombre de ejemplo.
-- EmpresaX es el único sitio migrado en esta etapa.
+- EmpresaX, Nexon Group, Bancaliv y Vittorino Group están migrados como frontends de marca dentro del monorepo.
 - El dominio resuelve el sitio mediante `SITE_DOMAIN`; cada host debe apuntar a un `Site.slug`.
 - El preview usa `GET /api/preview` con `STRAPI_PREVIEW_SECRET`; activa `draftMode()` y evita indexación/caché compartida.
 - No hay registro de usuarios públicos.

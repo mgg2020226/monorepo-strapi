@@ -658,6 +658,21 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         "sections.services-hub",
         "sections.before-after-slider",
         "sections.portfolio-projects",
+        "nexon.hero",
+        "nexon.customer-logos",
+        "nexon.bento-services",
+        "nexon.methodology",
+        "nexon.about",
+        "nexon.growth-stories",
+        "nexon.contact",
+        "bancaliv.section",
+        "vittorino.hero",
+        "vittorino.stat-strip",
+        "vittorino.values-grid",
+        "vittorino.services-hub",
+        "vittorino.methodology",
+        "vittorino.cta",
+        "vittorino.contact",
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -852,6 +867,38 @@ export interface ApiPortfolioProjectPortfolioProject
   }
 }
 
+export interface ApiSiteUserAssignmentSiteUserAssignment
+  extends Struct.CollectionTypeSchema {
+  collectionName: "site_user_assignments"
+  info: {
+    displayName: "Site user assignment"
+    pluralName: "site-user-assignments"
+    singularName: "site-user-assignment"
+  }
+  options: {
+    draftAndPublish: false
+  }
+  attributes: {
+    adminUser: Schema.Attribute.Relation<"manyToOne", "admin::user"> &
+      Schema.Attribute.Required
+    createdAt: Schema.Attribute.DateTime
+    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
+      Schema.Attribute.Private
+    locale: Schema.Attribute.String & Schema.Attribute.Private
+    localizations: Schema.Attribute.Relation<
+      "oneToMany",
+      "api::site-user-assignment.site-user-assignment"
+    > &
+      Schema.Attribute.Private
+    publishedAt: Schema.Attribute.DateTime
+    site: Schema.Attribute.Relation<"manyToOne", "api::site.site"> &
+      Schema.Attribute.Required
+    updatedAt: Schema.Attribute.DateTime
+    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
+      Schema.Attribute.Private
+  }
+}
+
 export interface ApiSiteSite extends Struct.CollectionTypeSchema {
   collectionName: "sites"
   info: {
@@ -876,6 +923,7 @@ export interface ApiSiteSite extends Struct.CollectionTypeSchema {
           localized: true
         }
       }>
+    domain: Schema.Attribute.String
     favicon: Schema.Attribute.Media<"images">
     footer: Schema.Attribute.Component<"site.footer-config", false> &
       Schema.Attribute.SetPluginOptions<{
@@ -893,6 +941,7 @@ export interface ApiSiteSite extends Struct.CollectionTypeSchema {
           localized: true
         }
       }>
+    legalName: Schema.Attribute.String
     legalPages: Schema.Attribute.Relation<
       "oneToMany",
       "api::legal-page.legal-page"
@@ -903,6 +952,13 @@ export interface ApiSiteSite extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<"oneToMany", "api::site.site"> &
       Schema.Attribute.Private
     logo: Schema.Attribute.Media<"images">
+    maxUsers: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1
+        },
+        number
+      >
     name: Schema.Attribute.String & Schema.Attribute.Required
     pages: Schema.Attribute.Relation<"oneToMany", "api::page.page">
     palette: Schema.Attribute.Component<"site.palette", false> &
@@ -925,6 +981,10 @@ export interface ApiSiteSite extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime
     updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
       Schema.Attribute.Private
+    userAssignments: Schema.Attribute.Relation<
+      "oneToMany",
+      "api::site-user-assignment.site-user-assignment"
+    >
   }
 }
 
@@ -1479,6 +1539,7 @@ declare module "@strapi/strapi" {
       "api::legal-page.legal-page": ApiLegalPageLegalPage
       "api::page.page": ApiPagePage
       "api::portfolio-project.portfolio-project": ApiPortfolioProjectPortfolioProject
+      "api::site-user-assignment.site-user-assignment": ApiSiteUserAssignmentSiteUserAssignment
       "api::site.site": ApiSiteSite
       "api::subscriber.subscriber": ApiSubscriberSubscriber
       "plugin::content-releases.release": PluginContentReleasesRelease

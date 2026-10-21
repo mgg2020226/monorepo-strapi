@@ -27,6 +27,120 @@ export interface AdminPermission extends Struct.ComponentSchema {
   }
 }
 
+export interface BancalivCard extends Struct.ComponentSchema {
+  collectionName: "components_bancaliv_cards"
+  info: {
+    displayName: "Bancaliv content card"
+    icon: "layout"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    href: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    image: Schema.Attribute.Media<"images">
+    label: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    linkLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    target: Schema.Attribute.Enumeration<["_self", "_blank"]> &
+      Schema.Attribute.DefaultTo<"_self">
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    value: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface BancalivSection extends Struct.ComponentSchema {
+  collectionName: "components_bancaliv_sections"
+  info: {
+    displayName: "Bancaliv section"
+    icon: "layout"
+  }
+  attributes: {
+    anchor: Schema.Attribute.String
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    eyebrow: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    image: Schema.Attribute.Media<"images">
+    items: Schema.Attribute.Component<"bancaliv.card", true>
+    primaryActionLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    primaryActionTarget: Schema.Attribute.Enumeration<["_self", "_blank"]> &
+      Schema.Attribute.DefaultTo<"_self">
+    primaryActionUrl: Schema.Attribute.String
+    secondaryActionLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    secondaryActionTarget: Schema.Attribute.Enumeration<["_self", "_blank"]> &
+      Schema.Attribute.DefaultTo<"_self">
+    secondaryActionUrl: Schema.Attribute.String
+    sectionType: Schema.Attribute.Enumeration<
+      [
+        "hero",
+        "steps",
+        "products",
+        "benefits",
+        "security",
+        "allies",
+        "metrics",
+        "testimonials",
+        "faq",
+        "cta",
+        "content",
+      ]
+    > &
+      Schema.Attribute.Required
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
 export interface BlogTag extends Struct.ComponentSchema {
   collectionName: "components_blog_tags"
   info: {
@@ -175,6 +289,543 @@ export interface LayoutNavbarItem extends Struct.ComponentSchema {
     isCategoryLink: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
     label: Schema.Attribute.String
     link: Schema.Attribute.Component<"utilities.link", false>
+  }
+}
+
+export interface NexonAbout extends Struct.ComponentSchema {
+  collectionName: "components_nexon_about_sections"
+  info: {
+    displayName: "Nexon \u2014 Qui\u00E9nes somos"
+    icon: "information"
+  }
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<"images">
+    cardDescription: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    cardTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heading: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    headingAccent: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    label: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    paragraphs: Schema.Attribute.Component<"nexon.about-paragraph", true>
+    stats: Schema.Attribute.Component<"nexon.stat", true>
+  }
+}
+
+export interface NexonAboutParagraph extends Struct.ComponentSchema {
+  collectionName: "components_nexon_about_paragraphs"
+  info: {
+    displayName: "Nexon \u2014 P\u00E1rrafo institucional"
+  }
+  attributes: {
+    highlight: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    rest: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    text: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface NexonBentoServices extends Struct.ComponentSchema {
+  collectionName: "components_nexon_bento_services"
+  info: {
+    displayName: "Nexon \u2014 Servicios Bento"
+    icon: "grid"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heading: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    headingAccent: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    label: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    services: Schema.Attribute.Component<"nexon.service", true> &
+      Schema.Attribute.Required
+  }
+}
+
+export interface NexonContact extends Struct.ComponentSchema {
+  collectionName: "components_nexon_contacts"
+  info: {
+    displayName: "Nexon \u2014 Contacto"
+    icon: "envelop"
+  }
+  attributes: {
+    companyLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    companyPlaceholder: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    emailLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    emailPlaceholder: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    errorMessage: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    formActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
+    formSlug: Schema.Attribute.String & Schema.Attribute.DefaultTo<"contact">
+    heading: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    label: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    messageLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    messagePlaceholder: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    nameLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    namePlaceholder: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    phoneLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    phonePlaceholder: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    siteSlug: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<"nexon-group">
+    submitLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    successMessage: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface NexonCustomerLogo extends Struct.ComponentSchema {
+  collectionName: "components_nexon_customer_logos_items"
+  info: {
+    displayName: "Nexon \u2014 Cliente"
+    icon: "picture"
+  }
+  attributes: {
+    image: Schema.Attribute.Media<"images">
+    name: Schema.Attribute.String & Schema.Attribute.Required
+  }
+}
+
+export interface NexonCustomerLogos extends Struct.ComponentSchema {
+  collectionName: "components_nexon_customer_logos"
+  info: {
+    displayName: "Nexon \u2014 Clientes"
+    icon: "picture"
+  }
+  attributes: {
+    logos: Schema.Attribute.Component<"nexon.customer-logo", true> &
+      Schema.Attribute.Required
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface NexonGrowthStories extends Struct.ComponentSchema {
+  collectionName: "components_nexon_growth_stories"
+  info: {
+    displayName: "Nexon \u2014 Historias de crecimiento"
+    icon: "chartBubble"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heading: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    headingAccent: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    label: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    stories: Schema.Attribute.Component<"nexon.growth-story", true> &
+      Schema.Attribute.Required
+  }
+}
+
+export interface NexonGrowthStory extends Struct.ComponentSchema {
+  collectionName: "components_nexon_growth_story_items"
+  info: {
+    displayName: "Nexon \u2014 Historia de crecimiento"
+    icon: "chartBubble"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    icon: Schema.Attribute.Enumeration<
+      ["Store", "Globe", "Rocket", "Megaphone", "BarChart2", "Handshake"]
+    > &
+      Schema.Attribute.DefaultTo<"Store">
+    image: Schema.Attribute.Media<"images">
+    link: Schema.Attribute.String
+    metric: Schema.Attribute.String
+    metricLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    visual: Schema.Attribute.Enumeration<
+      [
+        "expansion",
+        "markets",
+        "startup",
+        "marketing",
+        "intelligence",
+        "alliances",
+      ]
+    > &
+      Schema.Attribute.DefaultTo<"expansion">
+  }
+}
+
+export interface NexonHero extends Struct.ComponentSchema {
+  collectionName: "components_nexon_heroes"
+  info: {
+    displayName: "Nexon \u2014 Hero"
+    icon: "landscape"
+  }
+  attributes: {
+    ctaHref: Schema.Attribute.String & Schema.Attribute.Required
+    ctaText: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heading: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    headingAccent: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    navCta: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    navCtaHref: Schema.Attribute.String
+    particleCount: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<24>
+    watermark: Schema.Attribute.String & Schema.Attribute.DefaultTo<"NEXON">
+  }
+}
+
+export interface NexonMethodStep extends Struct.ComponentSchema {
+  collectionName: "components_nexon_method_steps"
+  info: {
+    displayName: "Nexon \u2014 Paso metodol\u00F3gico"
+    icon: "bulletList"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    icon: Schema.Attribute.Enumeration<
+      ["Search", "BarChart2", "Crosshair", "Rocket", "Target"]
+    > &
+      Schema.Attribute.DefaultTo<"Search">
+    image: Schema.Attribute.Media<"images">
+    number: Schema.Attribute.String & Schema.Attribute.Required
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface NexonMethodology extends Struct.ComponentSchema {
+  collectionName: "components_nexon_methodologies"
+  info: {
+    displayName: "Nexon \u2014 Metodolog\u00EDa"
+    icon: "bulletList"
+  }
+  attributes: {
+    bannerAccent: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    bannerStatement: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heading: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    headingAccent: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    label: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    pillars: Schema.Attribute.Component<"nexon.pillar", true>
+    steps: Schema.Attribute.Component<"nexon.method-step", true> &
+      Schema.Attribute.Required
+  }
+}
+
+export interface NexonPillar extends Struct.ComponentSchema {
+  collectionName: "components_nexon_pillars"
+  info: {
+    displayName: "Nexon \u2014 Pilar"
+    icon: "bulletList"
+  }
+  attributes: {
+    icon: Schema.Attribute.Enumeration<["Users", "Zap", "TrendingUp"]> &
+      Schema.Attribute.DefaultTo<"Users">
+    text: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface NexonService extends Struct.ComponentSchema {
+  collectionName: "components_nexon_services"
+  info: {
+    displayName: "Nexon \u2014 Servicio"
+    icon: "briefcase"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    icon: Schema.Attribute.Enumeration<
+      ["TrendingUp", "Target", "Handshake", "Zap", "Megaphone"]
+    > &
+      Schema.Attribute.DefaultTo<"TrendingUp">
+    image: Schema.Attribute.Media<"images">
+    tag: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface NexonStat extends Struct.ComponentSchema {
+  collectionName: "components_nexon_stats"
+  info: {
+    displayName: "Nexon \u2014 Indicador"
+    icon: "chartBubble"
+  }
+  attributes: {
+    icon: Schema.Attribute.Enumeration<
+      ["Building2", "BarChart3", "Target", "Globe2", "TrendingUp"]
+    > &
+      Schema.Attribute.DefaultTo<"Building2">
+    label: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    value: Schema.Attribute.String & Schema.Attribute.Required
   }
 }
 
@@ -365,6 +1016,7 @@ export interface SectionsFaq extends Struct.ComponentSchema {
   }
   attributes: {
     accordions: Schema.Attribute.Component<"utilities.accordions", true>
+    image: Schema.Attribute.Component<"utilities.basic-image", false>
     subTitle: Schema.Attribute.String
     title: Schema.Attribute.String & Schema.Attribute.Required
   }
@@ -1646,10 +2298,380 @@ export interface UtilitiesTipTapRichText extends Struct.ComponentSchema {
   }
 }
 
+export interface VittorinoContact extends Struct.ComponentSchema {
+  collectionName: "components_vittorino_contacts"
+  info: {
+    displayName: "Vittorino \u2014 Formulario de contacto"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    formSlug: Schema.Attribute.String & Schema.Attribute.DefaultTo<"contacto">
+    heading: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    showOrganizationField: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>
+    showPhoneField: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>
+    submitLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    successMessage: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface VittorinoCta extends Struct.ComponentSchema {
+  collectionName: "components_vittorino_ctas"
+  info: {
+    displayName: "Vittorino \u2014 Llamado a la acci\u00F3n"
+  }
+  attributes: {
+    background: Schema.Attribute.Media<"images">
+    ctas: Schema.Attribute.Component<"ui.link", true>
+    heading: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    subheading: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface VittorinoHero extends Struct.ComponentSchema {
+  collectionName: "components_vittorino_heroes"
+  info: {
+    displayName: "Vittorino \u2014 Hero"
+  }
+  attributes: {
+    badge: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    bulletFeatures: Schema.Attribute.Component<
+      "vittorino.service-label",
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    ctas: Schema.Attribute.Component<"ui.link", true>
+    media: Schema.Attribute.Media<"images">
+    subtitle: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    title: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface VittorinoMethodStep extends Struct.ComponentSchema {
+  collectionName: "components_vittorino_method_steps"
+  info: {
+    displayName: "Vittorino \u2014 Paso de metodolog\u00EDa"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    icon: Schema.Attribute.String
+    number: Schema.Attribute.String & Schema.Attribute.Required
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface VittorinoMethodology extends Struct.ComponentSchema {
+  collectionName: "components_vittorino_methodologies"
+  info: {
+    displayName: "Vittorino \u2014 Metodolog\u00EDa"
+  }
+  attributes: {
+    bannerAccent: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    bannerStatement: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heading: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    headingAccent: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    label: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    steps: Schema.Attribute.Component<"vittorino.method-step", true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface VittorinoServiceCard extends Struct.ComponentSchema {
+  collectionName: "components_vittorino_service_cards"
+  info: {
+    displayName: "Vittorino \u2014 Tarjeta de servicio"
+  }
+  attributes: {
+    benefits: Schema.Attribute.Component<"vittorino.service-label", true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    ctaLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    href: Schema.Attribute.String
+    image: Schema.Attribute.Media<"images">
+    relatedProjectSlug: Schema.Attribute.String
+    specialties: Schema.Attribute.Component<"vittorino.service-label", true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    whatWeDo: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface VittorinoServiceLabel extends Struct.ComponentSchema {
+  collectionName: "components_vittorino_service_labels"
+  info: {
+    displayName: "Vittorino \u2014 Etiqueta de servicio"
+  }
+  attributes: {
+    label: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface VittorinoServicesHub extends Struct.ComponentSchema {
+  collectionName: "components_vittorino_services_hubs"
+  info: {
+    displayName: "Vittorino \u2014 Servicios"
+  }
+  attributes: {
+    cards: Schema.Attribute.Component<"vittorino.service-card", true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heading: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface VittorinoStat extends Struct.ComponentSchema {
+  collectionName: "components_vittorino_stats"
+  info: {
+    displayName: "Vittorino \u2014 Indicador"
+  }
+  attributes: {
+    label: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    sub: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    value: Schema.Attribute.String & Schema.Attribute.Required
+  }
+}
+
+export interface VittorinoStatStrip extends Struct.ComponentSchema {
+  collectionName: "components_vittorino_stat_strips"
+  info: {
+    displayName: "Vittorino \u2014 Cifras"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heading: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    stats: Schema.Attribute.Component<"vittorino.stat", true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface VittorinoValueItem extends Struct.ComponentSchema {
+  collectionName: "components_vittorino_value_items"
+  info: {
+    displayName: "Vittorino \u2014 Valor"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    icon: Schema.Attribute.String
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface VittorinoValuesGrid extends Struct.ComponentSchema {
+  collectionName: "components_vittorino_values_grids"
+  info: {
+    displayName: "Vittorino \u2014 Valores"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heading: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    values: Schema.Attribute.Component<"vittorino.value-item", true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
 declare module "@strapi/strapi" {
   export namespace Public {
     export interface ComponentSchemas {
       "admin.permission": AdminPermission
+      "bancaliv.card": BancalivCard
+      "bancaliv.section": BancalivSection
       "blog.tag": BlogTag
       "elements.footer-item": ElementsFooterItem
       "form.field": FormField
@@ -1657,6 +2679,20 @@ declare module "@strapi/strapi" {
       "forms.contact-form": FormsContactForm
       "forms.dynamic-form": FormsDynamicForm
       "layout.navbar-item": LayoutNavbarItem
+      "nexon.about": NexonAbout
+      "nexon.about-paragraph": NexonAboutParagraph
+      "nexon.bento-services": NexonBentoServices
+      "nexon.contact": NexonContact
+      "nexon.customer-logo": NexonCustomerLogo
+      "nexon.customer-logos": NexonCustomerLogos
+      "nexon.growth-stories": NexonGrowthStories
+      "nexon.growth-story": NexonGrowthStory
+      "nexon.hero": NexonHero
+      "nexon.method-step": NexonMethodStep
+      "nexon.methodology": NexonMethodology
+      "nexon.pillar": NexonPillar
+      "nexon.service": NexonService
+      "nexon.stat": NexonStat
       "sections.animated-logo-row": SectionsAnimatedLogoRow
       "sections.before-after-slider": SectionsBeforeAfterSlider
       "sections.benefits-split": SectionsBenefitsSplit
@@ -1723,6 +2759,18 @@ declare module "@strapi/strapi" {
       "utilities.links-with-title": UtilitiesLinksWithTitle
       "utilities.text": UtilitiesText
       "utilities.tip-tap-rich-text": UtilitiesTipTapRichText
+      "vittorino.contact": VittorinoContact
+      "vittorino.cta": VittorinoCta
+      "vittorino.hero": VittorinoHero
+      "vittorino.method-step": VittorinoMethodStep
+      "vittorino.methodology": VittorinoMethodology
+      "vittorino.service-card": VittorinoServiceCard
+      "vittorino.service-label": VittorinoServiceLabel
+      "vittorino.services-hub": VittorinoServicesHub
+      "vittorino.stat": VittorinoStat
+      "vittorino.stat-strip": VittorinoStatStrip
+      "vittorino.value-item": VittorinoValueItem
+      "vittorino.values-grid": VittorinoValuesGrid
     }
   }
 }
