@@ -1,0 +1,9 @@
+{
+  "collectionName": "components_cae_process_steps",
+  "info": { "displayName": "Paso del proceso CAE", "icon": "number" },
+  "options": {},
+  "attributes": {
+    "number": { "type": "string" },
+    "title": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } }
+  }
+}

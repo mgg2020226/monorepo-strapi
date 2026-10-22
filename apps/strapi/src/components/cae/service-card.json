@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_cae_service_cards",
+  "info": { "displayName": "Tarjeta de servicio CAE", "icon": "briefcase" },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "slug": { "type": "string", "required": true },
+    "category": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "description": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "icon": { "type": "string" },
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "featured": { "type": "boolean", "default": false }
+  }
+}

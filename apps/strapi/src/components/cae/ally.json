@@ -1,0 +1,11 @@
+{
+  "collectionName": "components_cae_allies",
+  "info": { "displayName": "Aliado CAE", "icon": "link" },
+  "options": {},
+  "attributes": {
+    "name": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "url": { "type": "string" },
+    "logo": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "darkBackground": { "type": "boolean", "default": false }
+  }
+}

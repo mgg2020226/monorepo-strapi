@@ -132,7 +132,9 @@
           "nexon.about",
           "nexon.growth-stories",
           "nexon.contact",
-          "bancaliv.section"
+          "bancaliv.section",
+          "cae.homepage",
+          "cae.service-detail"
       ]
     },
     "children": {

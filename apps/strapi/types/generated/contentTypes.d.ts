@@ -666,6 +666,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         "nexon.growth-stories",
         "nexon.contact",
         "bancaliv.section",
+        "cae.homepage",
+        "cae.service-detail",
       ]
     > &
       Schema.Attribute.SetPluginOptions<{

@@ -167,6 +167,422 @@ export interface BlogTag extends Struct.ComponentSchema {
   }
 }
 
+export interface CaeAlly extends Struct.ComponentSchema {
+  collectionName: "components_cae_allies"
+  info: {
+    displayName: "Aliado CAE"
+    icon: "link"
+  }
+  attributes: {
+    darkBackground: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
+    logo: Schema.Attribute.Media<"images">
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    url: Schema.Attribute.String
+  }
+}
+
+export interface CaeHomeAdvantage extends Struct.ComponentSchema {
+  collectionName: "components_cae_home_advantages"
+  info: {
+    displayName: "Ventaja CAE"
+    icon: "star"
+  }
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    icon: Schema.Attribute.String
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface CaeHomepage extends Struct.ComponentSchema {
+  collectionName: "components_cae_homepages"
+  info: {
+    displayName: "Portada CAE GROUP"
+    icon: "layout"
+  }
+  attributes: {
+    aboutBody: Schema.Attribute.RichText &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    aboutEyebrow: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    aboutTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    advantages: Schema.Attribute.Component<"cae.home-advantage", true>
+    advantagesEyebrow: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    advantagesTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }> &
+      Schema.Attribute.DefaultTo<"\u00BFPor qu\u00E9 elegirnos?">
+    allies: Schema.Attribute.Component<"cae.ally", true>
+    alliesDescription: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    alliesEyebrow: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    alliesTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    companySizeLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    companySizePlaceholder: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    companySizes: Schema.Attribute.Component<"cae.text-item", true>
+    contactCtaLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    contactDescription: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    contactEyebrow: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    contactTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    ctaLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heroAccent: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heroDescription: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heroEyebrow: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    heroImage: Schema.Attribute.Media<"images">
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    processEyebrow: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    processSteps: Schema.Attribute.Component<"cae.process-step", true>
+    processTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    scrollLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    serviceCardLinkLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    servicePickerLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    servicePlaceholder: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    services: Schema.Attribute.Component<"cae.service-card", true>
+    servicesDescription: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    servicesEyebrow: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    servicesTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    team: Schema.Attribute.Component<"cae.team-member", true>
+    teamEyebrow: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    teamTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    values: Schema.Attribute.Component<"cae.home-advantage", true>
+    valuesEyebrow: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    valuesTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface CaeProcessStep extends Struct.ComponentSchema {
+  collectionName: "components_cae_process_steps"
+  info: {
+    displayName: "Paso del proceso CAE"
+    icon: "number"
+  }
+  attributes: {
+    number: Schema.Attribute.String
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface CaeServiceCard extends Struct.ComponentSchema {
+  collectionName: "components_cae_service_cards"
+  info: {
+    displayName: "Tarjeta de servicio CAE"
+    icon: "briefcase"
+  }
+  attributes: {
+    category: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
+    icon: Schema.Attribute.String
+    image: Schema.Attribute.Media<"images">
+    slug: Schema.Attribute.String & Schema.Attribute.Required
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface CaeServiceDetail extends Struct.ComponentSchema {
+  collectionName: "components_cae_service_details"
+  info: {
+    displayName: "Detalle de servicio CAE"
+    icon: "briefcase"
+  }
+  attributes: {
+    body: Schema.Attribute.RichText &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    ctaLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    eyebrow: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    image: Schema.Attribute.Media<"images">
+    items: Schema.Attribute.Component<"cae.text-item", true>
+    itemsTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface CaeTeamMember extends Struct.ComponentSchema {
+  collectionName: "components_cae_team_members"
+  info: {
+    displayName: "Integrante del equipo CAE"
+    icon: "user"
+  }
+  attributes: {
+    area: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    experience: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    photo: Schema.Attribute.Media<"images">
+    position: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    specialties: Schema.Attribute.Component<"cae.text-item", true>
+    summary: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
+export interface CaeTextItem extends Struct.ComponentSchema {
+  collectionName: "components_cae_text_items"
+  info: {
+    displayName: "Texto corto CAE"
+    icon: "bulletList"
+  }
+  attributes: {
+    text: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+  }
+}
+
 export interface ElementsFooterItem extends Struct.ComponentSchema {
   collectionName: "components_elements_footer_items"
   info: {
@@ -2305,6 +2721,14 @@ declare module "@strapi/strapi" {
       "bancaliv.card": BancalivCard
       "bancaliv.section": BancalivSection
       "blog.tag": BlogTag
+      "cae.ally": CaeAlly
+      "cae.home-advantage": CaeHomeAdvantage
+      "cae.homepage": CaeHomepage
+      "cae.process-step": CaeProcessStep
+      "cae.service-card": CaeServiceCard
+      "cae.service-detail": CaeServiceDetail
+      "cae.team-member": CaeTeamMember
+      "cae.text-item": CaeTextItem
       "elements.footer-item": ElementsFooterItem
       "form.field": FormField
       "form.option": FormOption

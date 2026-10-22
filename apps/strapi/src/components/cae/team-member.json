@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_cae_team_members",
+  "info": { "displayName": "Integrante del equipo CAE", "icon": "user" },
+  "options": {},
+  "attributes": {
+    "name": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "position": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "area": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "summary": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "experience": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "specialties": { "type": "component", "component": "cae.text-item", "repeatable": true },
+    "photo": { "type": "media", "multiple": false, "allowedTypes": ["images"] }
+  }
+}

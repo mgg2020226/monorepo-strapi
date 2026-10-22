@@ -1,0 +1,177 @@
+{
+  "collectionName": "components_cae_homepages",
+  "info": { "displayName": "Portada CAE GROUP", "icon": "layout" },
+  "options": {},
+  "attributes": {
+    "heroEyebrow": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "heroTitle": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "heroAccent": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "heroDescription": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "servicePickerLabel": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "servicePlaceholder": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "companySizeLabel": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "companySizePlaceholder": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "companySizes": {
+      "type": "component",
+      "component": "cae.text-item",
+      "repeatable": true
+    },
+    "ctaLabel": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "scrollLabel": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "advantagesEyebrow": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "advantagesTitle": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } },
+      "default": "¿Por qué elegirnos?"
+    },
+    "advantages": {
+      "type": "component",
+      "component": "cae.home-advantage",
+      "repeatable": true
+    },
+    "servicesEyebrow": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "servicesTitle": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "servicesDescription": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "serviceCardLinkLabel": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "services": {
+      "type": "component",
+      "component": "cae.service-card",
+      "repeatable": true
+    },
+    "processTitle": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "processEyebrow": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "processSteps": {
+      "type": "component",
+      "component": "cae.process-step",
+      "repeatable": true
+    },
+    "aboutEyebrow": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "aboutTitle": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "aboutBody": {
+      "type": "richtext",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "valuesTitle": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "valuesEyebrow": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "values": {
+      "type": "component",
+      "component": "cae.home-advantage",
+      "repeatable": true
+    },
+    "teamTitle": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "teamEyebrow": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "team": {
+      "type": "component",
+      "component": "cae.team-member",
+      "repeatable": true
+    },
+    "alliesTitle": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "alliesEyebrow": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "alliesDescription": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "allies": {
+      "type": "component",
+      "component": "cae.ally",
+      "repeatable": true
+    },
+    "contactTitle": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "contactEyebrow": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "contactDescription": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "contactCtaLabel": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    }
+  }
+}

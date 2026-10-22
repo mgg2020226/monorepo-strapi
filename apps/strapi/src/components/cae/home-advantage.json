@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_cae_home_advantages",
+  "info": { "displayName": "Ventaja CAE", "icon": "star" },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "description": { "type": "text", "pluginOptions": { "i18n": { "localized": true } } },
+    "icon": { "type": "string" }
+  }
+}
