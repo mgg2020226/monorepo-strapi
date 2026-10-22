@@ -18,6 +18,7 @@
     "defaultSeo": { "type": "component", "component": "seo.metadata", "repeatable": false, "pluginOptions": { "i18n": { "localized": true } } },
     "header": { "type": "component", "component": "site.header-config", "repeatable": false, "pluginOptions": { "i18n": { "localized": true } } },
     "footer": { "type": "component", "component": "site.footer-config", "repeatable": false, "pluginOptions": { "i18n": { "localized": true } } },
+    "whatsappButton": { "type": "component", "component": "site.whatsapp-button", "repeatable": false, "pluginOptions": { "i18n": { "localized": true } } },
     "contactEmail": { "type": "email" },
     "contactPhone": { "type": "string" },
     "address": { "type": "text" },

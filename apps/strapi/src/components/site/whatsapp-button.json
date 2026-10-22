@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_site_whatsapp_buttons",
+  "info": { "displayName": "Botón de WhatsApp", "icon": "phone" },
+  "options": {},
+  "attributes": {
+    "enabled": { "type": "boolean", "default": true },
+    "phone": { "type": "string" },
+    "message": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "buttonLabel": {
+      "type": "string",
+      "default": "WhatsApp",
+      "pluginOptions": { "i18n": { "localized": true } }
+    }
+  }
+}

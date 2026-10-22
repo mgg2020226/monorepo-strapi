@@ -978,6 +978,12 @@ export interface ApiSiteSite extends Struct.CollectionTypeSchema {
       "oneToMany",
       "api::site-user-assignment.site-user-assignment"
     >
+    whatsappButton: Schema.Attribute.Component<"site.whatsapp-button", false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
   }
 }
 
