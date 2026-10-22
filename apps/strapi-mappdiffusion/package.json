@@ -19,31 +19,34 @@
     "migrate:legacy-model": "node scripts/migrate-legacy-model.mjs",
     "migrate:legacy-media": "node scripts/migrate-legacy-media.mjs",
     "migrate:navigation-links": "node scripts/migrate-navigation-links.mjs",
+    "migrate:images-to-s3": "node scripts/migrate-image-media-to-s3.mjs",
+    "migrate:pdf-media-to-s3": "node scripts/migrate-pdf-media-to-s3.mjs",
     "migrate:resolution-documents": "node scripts/migrate-resolution-documents.mjs"
   },
   "dependencies": {
     "@strapi/database": "5.58.0",
     "@strapi/plugin-cloud": "5.58.0",
+    "@strapi/plugin-color-picker": "5.58.0",
     "@strapi/plugin-users-permissions": "5.58.0",
+    "@strapi/provider-upload-aws-s3": "5.58.0",
     "@strapi/strapi": "5.58.0",
+    "nodemailer": "^8.0.5",
+    "pdfjs-dist": "^5.6.205",
     "pg": "8.20.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.30.3",
-    "styled-components": "^6.0.0",
-    "@strapi/plugin-color-picker": "5.58.0",
-    "nodemailer": "^8.0.5",
-    "pdfjs-dist": "^5.6.205",
     "strapi-plugin-all-in-one-accessibility": "^1.0.30",
     "strapi-plugin-audit-log": "^0.3.3",
-    "strapi-plugin-meilisearch": "^0.16.0"
+    "strapi-plugin-meilisearch": "^0.16.0",
+    "styled-components": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/nodemailer": "^8.0.0",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "typescript": "^5",
-    "@types/nodemailer": "^8.0.0"
+    "typescript": "^5"
   },
   "engines": {
     "node": ">=20.0.0 <=26.x.x",
