@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "terms_of_use_pages",
+  "info": {
+    "singularName": "terms-of-use-page",
+    "pluralName": "terms-of-use-pages",
+    "displayName": "Terms Of Use Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "content": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "manager": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::manager.manager",
+      "mappedBy": "terms_of_use_page"
+    }
+  }
+}

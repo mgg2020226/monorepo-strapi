@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "edictos",
+  "info": {
+    "singularName": "edicto",
+    "pluralName": "edictos",
+    "displayName": "Edicto"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "fecha_publicacion": {
+      "type": "date",
+      "required": true
+    },
+    "tramite": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "manager": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::manager.manager",
+      "inversedBy": "edictos"
+    }
+  }
+}

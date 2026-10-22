@@ -1,0 +1,56 @@
+{
+  "name": "strapi-mappdiffusion",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A Strapi application",
+  "scripts": {
+    "build": "strapi build",
+    "console": "strapi console",
+    "deploy": "strapi deploy",
+    "dev": "strapi develop",
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "strapi": "strapi",
+    "upgrade": "npx @strapi/upgrade latest",
+    "upgrade:dry": "npx @strapi/upgrade latest --dry",
+    "audit:upload-coverage": "node scripts/audit-upload-coverage.mjs",
+    "backfill:resolution-dates": "node scripts/backfill-resolution-dates.mjs",
+    "fix:legacy-text-encoding": "node scripts/fix-legacy-text-encoding.mjs",
+    "migrate:legacy-model": "node scripts/migrate-legacy-model.mjs",
+    "migrate:legacy-media": "node scripts/migrate-legacy-media.mjs",
+    "migrate:navigation-links": "node scripts/migrate-navigation-links.mjs",
+    "migrate:resolution-documents": "node scripts/migrate-resolution-documents.mjs"
+  },
+  "dependencies": {
+    "@strapi/database": "5.58.0",
+    "@strapi/plugin-cloud": "5.58.0",
+    "@strapi/plugin-users-permissions": "5.58.0",
+    "@strapi/strapi": "5.58.0",
+    "pg": "8.20.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.30.3",
+    "styled-components": "^6.0.0",
+    "@strapi/plugin-color-picker": "5.58.0",
+    "nodemailer": "^8.0.5",
+    "pdfjs-dist": "^5.6.205",
+    "strapi-plugin-all-in-one-accessibility": "^1.0.30",
+    "strapi-plugin-audit-log": "^0.3.3",
+    "strapi-plugin-meilisearch": "^0.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5",
+    "@types/nodemailer": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0 <=26.x.x",
+    "npm": ">=6.0.0"
+  },
+  "strapi": {
+    "uuid": "9bb13f20-5117-4f77-ac15-63e31e4385b3",
+    "installId": "77644d56047f661ad7104cb220b2056629c835b99007b8845617cda092ef5c23"
+  }
+}

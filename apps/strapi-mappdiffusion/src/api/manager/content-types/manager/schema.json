@@ -1,0 +1,173 @@
+{
+  "kind": "collectionType",
+  "collectionName": "managers",
+  "info": {
+    "singularName": "manager",
+    "pluralName": "managers",
+    "displayName": "Manager",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "primary_color": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "secundary_color": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "admin_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::user"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article",
+      "mappedBy": "manager"
+    },
+    "cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::card.card",
+      "mappedBy": "manager"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category",
+      "mappedBy": "manager"
+    },
+    "faqs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::faq.faq",
+      "mappedBy": "manager"
+    },
+    "links": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::link.link",
+      "mappedBy": "manager"
+    },
+    "resolutions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::resolution.resolution",
+      "mappedBy": "manager"
+    },
+    "team_members": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::team-member.team-member",
+      "mappedBy": "manager"
+    },
+    "home_page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::home-page.home-page",
+      "mappedBy": "manager"
+    },
+    "footer_layout": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::footer-layout.footer-layout",
+      "mappedBy": "manager"
+    },
+    "about_page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::about-page.about-page",
+      "mappedBy": "manager"
+    },
+    "privacy_policies_page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::privacy-policies-page.privacy-policies-page",
+      "inversedBy": "manager"
+    },
+    "terms_of_use_page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::terms-of-use-page.terms-of-use-page",
+      "inversedBy": "manager"
+    },
+    "metadatum": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::metadata.metadata",
+      "inversedBy": "manager"
+    },
+    "navigation_layout": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::navigation-layout.navigation-layout",
+      "inversedBy": "manager"
+    },
+    "theme_setting": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme-setting.theme-setting",
+      "inversedBy": "manager"
+    },
+    "contact_page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::contact-page.contact-page",
+      "mappedBy": "manager"
+    },
+    "contacts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::contact.contact",
+      "mappedBy": "manager"
+    },
+    "agenda_events": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::agenda-event.agenda-event",
+      "mappedBy": "manager"
+    },
+    "subscribers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subscriber.subscriber",
+      "mappedBy": "manager"
+    },
+    "edictos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::edicto.edicto",
+      "mappedBy": "manager"
+    }
+  }
+}

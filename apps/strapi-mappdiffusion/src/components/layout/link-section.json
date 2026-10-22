@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_layout_link_sections",
+  "info": {
+    "displayName": "Links Section"
+  },
+  "options": {},
+  "attributes": {
+    "links": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::link.link"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "view_all_button": {
+      "type": "component",
+      "component": "component.link",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

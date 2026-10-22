@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_catastro_deliverable_items",
+  "info": {
+    "displayName": "Deliverable Item"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "accent": {
+      "type": "enumeration",
+      "enum": ["green", "blue", "orange", "gray"],
+      "default": "blue"
+    }
+  },
+  "config": {}
+}

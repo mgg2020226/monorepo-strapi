@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "navigation_layouts",
+  "info": {
+    "singularName": "navigation-layout",
+    "pluralName": "navigation-layouts",
+    "displayName": "Navigation Layout"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "items": {
+      "type": "component",
+      "component": "component.nav-item",
+      "repeatable": true
+    },
+    "manager": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::manager.manager",
+      "mappedBy": "navigation_layout"
+    }
+  }
+}

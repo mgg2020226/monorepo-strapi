@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_catastro_norma_banner_slides",
+  "info": {
+    "displayName": "Norma Banner Slide",
+    "icon": "file-alt"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "button": {
+      "type": "component",
+      "component": "component.link",
+      "repeatable": false
+    }
+  }
+}

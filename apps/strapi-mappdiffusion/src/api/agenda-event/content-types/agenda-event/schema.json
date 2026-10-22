@@ -1,0 +1,100 @@
+{
+  "kind": "collectionType",
+  "collectionName": "agenda_events",
+  "info": {
+    "singularName": "agenda-event",
+    "pluralName": "agenda-events",
+    "displayName": "Agenda Event"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "description": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "start_time": {
+      "type": "time"
+    },
+    "end_time": {
+      "type": "time"
+    },
+    "modality": {
+      "type": "enumeration",
+      "enum": ["presential", "virtual", "hybrid"],
+      "required": true
+    },
+    "event_type": {
+      "type": "enumeration",
+      "enum": ["tecnico", "academico", "internacional", "operacional", "civico"],
+      "required": true
+    },
+    "location": {
+      "type": "string"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "conferencistas": {
+      "type": "component",
+      "component": "catastro.conferencista",
+      "repeatable": true
+    },
+    "agenda_items": {
+      "type": "component",
+      "component": "catastro.agenda-item",
+      "repeatable": true
+    },
+    "recursos": {
+      "type": "component",
+      "component": "catastro.recurso-evento",
+      "repeatable": true
+    },
+    "manager": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::manager.manager",
+      "inversedBy": "agenda_events"
+    }
+  }
+}

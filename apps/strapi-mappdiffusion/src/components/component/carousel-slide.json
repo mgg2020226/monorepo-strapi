@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_component_carousel_slides",
+  "info": {
+    "displayName": "Carousel Slide"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "buttons": {
+      "type": "component",
+      "component": "component.link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

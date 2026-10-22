@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_catastro_requirement_items",
+  "info": {
+    "displayName": "Requirement Item"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

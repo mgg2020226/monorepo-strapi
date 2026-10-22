@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_component_contact_channels",
+  "info": {
+    "displayName": "Contact Channel"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "phone",
+        "email",
+        "address"
+      ]
+    },
+    "value": {
+      "type": "text",
+      "required": true
+    },
+    "icon": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "phone",
+        "mail",
+        "map-pin"
+      ]
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "privacy_policies_pages",
+  "info": {
+    "singularName": "privacy-policies-page",
+    "pluralName": "privacy-policies-pages",
+    "displayName": "Privacy Policies Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "content": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "manager": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::manager.manager",
+      "mappedBy": "privacy_policies_page"
+    }
+  }
+}

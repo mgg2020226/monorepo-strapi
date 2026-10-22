@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_catastro_contact_channels",
+  "info": {
+    "displayName": "Contact Channel",
+    "icon": "phone",
+    "description": "Canal de atención"
+  },
+  "options": {},
+  "attributes": {
+    "icon_type": {
+      "type": "enumeration",
+      "enum": ["map_pin", "phone", "mail", "clock"],
+      "required": true,
+      "default": "phone"
+    },
+    "title": { "type": "string", "required": true },
+    "line1": { "type": "string" },
+    "line2": { "type": "string" },
+    "line1_muted": { "type": "boolean", "default": false },
+    "line2_muted": { "type": "boolean", "default": false }
+  }
+}

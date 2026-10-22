@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact_pages",
+  "info": {
+    "singularName": "contact-page",
+    "pluralName": "contact-pages",
+    "displayName": "Contact Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero_eyebrow": {
+      "type": "string"
+    },
+    "hero_title": {
+      "type": "string",
+      "required": true
+    },
+    "hero_description": {
+      "type": "text"
+    },
+    "channels": {
+      "type": "component",
+      "component": "component.contact-channel",
+      "repeatable": true
+    },
+    "map_address": {
+      "type": "string"
+    },
+    "map_city": {
+      "type": "string"
+    },
+    "map_url": {
+      "type": "string"
+    },
+    "smtp_email": {
+      "type": "email",
+      "private": true
+    },
+    "smtp_password": {
+      "type": "password",
+      "private": true
+    },
+    "manager": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::manager.manager",
+      "inversedBy": "contact_page"
+    }
+  }
+}

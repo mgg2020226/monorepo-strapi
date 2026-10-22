@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_catastro_agenda_items",
+  "info": {
+    "displayName": "Agenda Item",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "start_time": {
+      "type": "time"
+    },
+    "end_time": {
+      "type": "time"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

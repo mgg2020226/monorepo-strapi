@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_component_social_links",
+  "info": {
+    "displayName": "Social Link",
+    "icon": "chartCircle"
+  },
+  "options": {},
+  "attributes": {
+    "platform": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "facebook",
+        "twitter",
+        "instagram",
+        "youtube",
+        "whatsapp"
+      ]
+    },
+    "url": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_layout_image_carousels",
+  "info": {
+    "displayName": "Image Carousel"
+  },
+  "options": {},
+  "attributes": {
+    "slides": {
+      "type": "component",
+      "component": "component.carousel-slide",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

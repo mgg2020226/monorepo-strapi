@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_catastro_recurso_eventos",
+  "info": {
+    "displayName": "Recurso Evento",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string"
+    },
+    "locked": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

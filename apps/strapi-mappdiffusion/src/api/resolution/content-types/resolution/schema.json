@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "resolutions",
+  "info": {
+    "singularName": "resolution",
+    "pluralName": "resolutions",
+    "displayName": "Resolution"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "unique": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "document": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["files"]
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images", "files"]
+    },
+    "is_active": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "resolution_type": {
+      "type": "enumeration",
+      "enum": ["avaluos", "geografica", "catastral"],
+      "required": true
+    },
+    "year": {
+      "type": "integer",
+      "required": true
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    },
+    "manager": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::manager.manager",
+      "inversedBy": "resolutions"
+    }
+  }
+}

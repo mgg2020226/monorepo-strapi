@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_layout_norma_banners",
+  "info": {
+    "displayName": "Norma Banner"
+  },
+  "options": {},
+  "attributes": {
+    "slides": {
+      "type": "component",
+      "component": "catastro.norma-banner-slide",
+      "repeatable": true,
+      "required": true
+    }
+  },
+  "config": {}
+}
