@@ -96,18 +96,20 @@ export function CaeHome({
 }) {
   const [service, setService] = useState("")
   const [companySize, setCompanySize] = useState("")
+  const configuredMessage = contact.whatsappMessage?.trim()
   const message = useMemo(() => {
+    if (configuredMessage) return configuredMessage
+
     const selected = [service, companySize].filter(Boolean).join(" · ")
 
     return selected
       ? `Hola, quisiera solicitar una asesoría con CAE GROUP sobre ${selected}`
       : "Hola, quisiera solicitar una asesoría con CAE GROUP"
-  }, [service, companySize])
-  const whatsapp = whatsappHref(contact.whatsappPhone ?? contact.phone, message)
-  const generalWhatsapp = whatsappHref(
-    contact.whatsappPhone ?? contact.phone,
-    "Hola, quisiera conocer más sobre los servicios de CAE GROUP."
-  )
+  }, [configuredMessage, service, companySize])
+  const whatsappEnabled = contact.whatsappEnabled !== false
+  const whatsapp = whatsappEnabled
+    ? whatsappHref(contact.whatsappPhone ?? contact.phone, message)
+    : undefined
   const localPrefix = locale === "en" ? "/en" : ""
   const heroStyle = data.heroImage?.url
     ? { backgroundImage: `url("${data.heroImage.url}")` }
@@ -173,7 +175,8 @@ export function CaeHome({
                 target="_blank"
                 rel="noreferrer"
               >
-                <MessageCircle /> {data.ctaLabel}
+                <MessageCircle />
+                {contact.whatsappButtonLabel || data.ctaLabel || "WhatsApp"}
               </a>
             ) : (
               <span className="cae-button cae-hero__action cae-button--disabled">
@@ -429,7 +432,9 @@ export function CaeHome({
               rel="noreferrer"
             >
               <MessageCircle aria-hidden="true" />
-              {data.contactCtaLabel || "Escríbanos por WhatsApp"}
+              {contact.whatsappButtonLabel ||
+                data.contactCtaLabel ||
+                "Escríbanos por WhatsApp"}
             </a>
           )}
           <div className="cae-contact__details">
@@ -442,18 +447,6 @@ export function CaeHome({
             {contact.address && <span>{contact.address}</span>}
           </div>
         </section>
-        {generalWhatsapp && (
-          <a
-            className="cae-whatsapp-float"
-            href={generalWhatsapp}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Escríbanos por WhatsApp"
-          >
-            <MessageCircle aria-hidden="true" />
-            <span>WhatsApp</span>
-          </a>
-        )}
       </div>
     </main>
   )
@@ -466,13 +459,17 @@ export function CaeServiceDetail({
   data: CaeServiceData
   contact: CaeContactData
 }) {
-  const href = whatsappHref(
-    contact.whatsappPhone ?? contact.phone,
-    `Hola, quisiera solicitar información sobre ${data.title ?? "un servicio"}`
-  )
+  const href =
+    contact.whatsappEnabled === false
+      ? undefined
+      : whatsappHref(
+          contact.whatsappPhone ?? contact.phone,
+          contact.whatsappMessage?.trim() ||
+            `Hola, quisiera solicitar información sobre ${data.title ?? "un servicio"}`
+        )
 
   return (
-    <main className="cae-page">
+    <main className="cae-page cae-service-page">
       <div className="cae-shell">
         <section className="cae-service-hero">
           {data.image?.url && (
@@ -483,8 +480,10 @@ export function CaeServiceDetail({
               />
             </div>
           )}
-          <div>
-            <span className="cae-eyebrow">{data.eyebrow}</span>
+          <div className="cae-service-hero__content">
+            {data.eyebrow && (
+              <span className="cae-service-hero__category">{data.eyebrow}</span>
+            )}
             <h1>{data.title}</h1>
             <p>{data.description}</p>
           </div>
@@ -492,27 +491,46 @@ export function CaeServiceDetail({
         <section className="cae-service-body">
           {data.body && <div className="cae-richtext">{data.body}</div>}
           {data.items?.length ? (
-            <div>
-              <h2>{data.itemsTitle}</h2>
+            <div className="cae-service-scope">
+              <div className="cae-service-scope__heading">
+                <h2>{data.itemsTitle || "Alcance de nuestra intervención"}</h2>
+                <span aria-hidden="true" />
+              </div>
               <ul className="cae-service-items">
                 {data.items.map((item, index) => (
                   <li key={item.id ?? index}>
-                    <Check />
-                    {item.text}
+                    <span className="cae-service-items__icon">
+                      <Check aria-hidden="true" />
+                    </span>
+                    <span>{item.text}</span>
                   </li>
                 ))}
               </ul>
             </div>
           ) : null}
           {href && (
-            <a
-              className="cae-button"
-              href={href}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {data.ctaLabel} <ArrowRight />
-            </a>
+            <section className="cae-service-contact">
+              <div className="cae-service-contact__copy">
+                <span className="cae-service-contact__eyebrow">
+                  Atención inmediata
+                </span>
+                <h2>¿Necesita ayuda con {data.title?.toLowerCase()}?</h2>
+                <p>
+                  Conversemos sobre las necesidades de su organización. Nuestro
+                  equipo le brindará orientación y preparará una propuesta a
+                  medida.
+                </p>
+              </div>
+              <a
+                className="cae-button cae-service-contact__button"
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {contact.whatsappButtonLabel || data.ctaLabel || "WhatsApp"}
+                <ArrowRight aria-hidden="true" />
+              </a>
+            </section>
           )}
         </section>
       </div>

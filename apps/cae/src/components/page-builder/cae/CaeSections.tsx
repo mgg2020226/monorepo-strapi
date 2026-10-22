@@ -48,13 +48,15 @@ function getContact(page: Data.ContentType<"api::page.page">) {
     | Data.ContentType<"api::site.site">
     | null
     | undefined
-  const configuredWhatsApp = site?.header?.cta?.href?.match(
-    /(?:wa\.me\/|phone=)(\+?\d{8,15})/i
-  )?.[1]
+  const whatsappButton = site?.whatsappButton
+  const whatsappPhone = whatsappButton?.phone ?? site?.contactPhone
 
   return {
     phone: site?.contactPhone,
-    whatsappPhone: site?.contactPhone ?? configuredWhatsApp,
+    whatsappPhone,
+    whatsappEnabled: whatsappButton?.enabled === true && Boolean(whatsappPhone),
+    whatsappMessage: whatsappButton?.message,
+    whatsappButtonLabel: whatsappButton?.buttonLabel,
     email: site?.contactEmail,
     address: site?.address,
   }

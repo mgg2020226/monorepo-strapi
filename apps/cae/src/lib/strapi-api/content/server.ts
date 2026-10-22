@@ -34,7 +34,10 @@ export async function fetchPage(
           content: "smart",
           site: {
             fields: ["contactEmail", "contactPhone", "address"],
-            populate: { header: { populate: { cta: true } } },
+            populate: {
+              header: { populate: { cta: true } },
+              whatsappButton: true,
+            },
           },
         },
       },
@@ -136,6 +139,7 @@ export async function fetchSite(locale: Locale) {
           header: "smart",
           footer: "smart",
           socialLinks: "smart",
+          whatsappButton: true,
         },
       },
       {

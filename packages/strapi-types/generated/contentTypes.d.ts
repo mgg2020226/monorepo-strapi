@@ -941,6 +941,12 @@ export interface ApiSiteSite extends Struct.CollectionTypeSchema {
           localized: true
         }
       }>
+    whatsappButton: Schema.Attribute.Component<"site.whatsapp-button", false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
     legalName: Schema.Attribute.String
     legalPages: Schema.Attribute.Relation<
       "oneToMany",

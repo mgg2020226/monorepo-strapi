@@ -41,7 +41,7 @@ export default function StrapiPageView({ params, searchParams }: Props) {
       <StrapiStructuredData structuredData={data?.seo?.structuredData} />
 
       <main className={cn("flex w-full flex-col overflow-hidden")}>
-        {params.rest?.length ? (
+        {params.rest?.length && response?.meta?.breadcrumbs?.length ? (
           <Container className="mb-10 md:mb-20">
             <Breadcrumbs
               breadcrumbs={response?.meta?.breadcrumbs}
@@ -57,6 +57,8 @@ export default function StrapiPageView({ params, searchParams }: Props) {
             const name = comp.__component
             const id = comp.id
             const key = `${name}-${id}`
+            const componentSpacing =
+              name === "cae.service-detail" ? "mb-0" : "mb-20 md:mb-32 lg:mb-40"
             const Component = PageContentComponents[name]
             if (Component == null) {
               logger.warn("Unknown page-builder component", { name, id })
@@ -71,7 +73,7 @@ export default function StrapiPageView({ params, searchParams }: Props) {
 
             return (
               <ErrorBoundary key={key}>
-                <div className={cn("mb-20 md:mb-32 lg:mb-40")}>
+                <div className={cn(componentSpacing)}>
                   <Component
                     component={comp}
                     pageParams={params}

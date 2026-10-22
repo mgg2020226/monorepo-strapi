@@ -92,6 +92,9 @@ export type CaeServiceData = {
 export type CaeContactData = {
   phone?: string | null
   whatsappPhone?: string | null
+  whatsappEnabled?: boolean | null
+  whatsappMessage?: string | null
+  whatsappButtonLabel?: string | null
   email?: string | null
   address?: string | null
   whatsappHref?: string | null

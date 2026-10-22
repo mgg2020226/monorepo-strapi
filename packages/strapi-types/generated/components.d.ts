@@ -1950,6 +1950,31 @@ export interface SiteHeaderConfig extends Struct.ComponentSchema {
   }
 }
 
+export interface SiteWhatsappButton extends Struct.ComponentSchema {
+  collectionName: "components_site_whatsapp_buttons"
+  info: {
+    displayName: "Bot\u00F3n de WhatsApp"
+    icon: "phone"
+  }
+  attributes: {
+    buttonLabel: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }> &
+      Schema.Attribute.DefaultTo<"WhatsApp">
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>
+    message: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    phone: Schema.Attribute.String
+  }
+}
+
 export interface SiteLocaleConfig extends Struct.ComponentSchema {
   collectionName: "components_site_locale_configs"
   info: {
@@ -2746,6 +2771,7 @@ declare module "@strapi/strapi" {
       "site.navigation-item": SiteNavigationItem
       "site.palette": SitePalette
       "site.social-link": SiteSocialLink
+      "site.whatsapp-button": SiteWhatsappButton
       "ui.link": UiLink
       "ui.motion": UiMotion
       "ui.style": UiStyle

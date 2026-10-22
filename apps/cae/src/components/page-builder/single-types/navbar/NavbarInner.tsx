@@ -22,6 +22,11 @@ export function NavbarInner({
   readonly locale: Locale
   readonly siteData?: Data.ContentType<"api::site.site"> | null
 }) {
+  const isCaeGroup = siteData?.slug === "cae-group"
+  const hasConfiguredCaeWhatsapp =
+    siteData?.whatsappButton?.enabled === true &&
+    Boolean(siteData.whatsappButton.phone?.trim())
+
   return (
     <NavbarMobileProvider>
       <header className="bg-background/60 sticky top-0 z-50 h-16 w-full border-b shadow-sm backdrop-blur-md transition-colors duration-300">
@@ -43,7 +48,9 @@ export function NavbarInner({
                 <LocaleSwitcher locale={locale} />
               )}
               <div className="flex h-8 w-px flex-1 bg-black/70" />
-              {siteData?.header?.showCta && siteData.header.cta ? (
+              {siteData?.header?.showCta &&
+              siteData.header.cta &&
+              (!isCaeGroup || hasConfiguredCaeWhatsapp) ? (
                 <StrapiLink
                   component={siteData.header.cta}
                   className="text-primary-foreground h-auto min-h-8 w-fit px-4 py-1.5"
@@ -57,7 +64,9 @@ export function NavbarInner({
       <NavbarMobileNavigation
         siteNavigationItems={siteData?.header?.navigation ?? undefined}
         primaryButtons={
-          siteData?.header?.showCta && siteData.header.cta
+          siteData?.header?.showCta &&
+          siteData.header.cta &&
+          (!isCaeGroup || hasConfiguredCaeWhatsapp)
             ? [siteData.header.cta]
             : undefined
         }

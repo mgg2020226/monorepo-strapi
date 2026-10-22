@@ -8,6 +8,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { setRequestLocale } from "next-intl/server"
 
+import { CaeWhatsAppButton } from "@/components/elementary/CaeWhatsAppButton"
 import { CsrConfigScript } from "@/components/elementary/CsrConfigScript"
 import { ErrorBoundary } from "@/components/elementary/ErrorBoundary"
 import { TailwindIndicator } from "@/components/elementary/TailwindIndicator"
@@ -132,6 +133,13 @@ export default async function RootLayout({
                 <div className="flex-1">
                   <div>{children}</div>
                 </div>
+
+                <CaeWhatsAppButton
+                  enabled={siteData?.whatsappButton?.enabled}
+                  phone={siteData?.whatsappButton?.phone}
+                  message={siteData?.whatsappButton?.message}
+                  label={siteData?.whatsappButton?.buttonLabel}
+                />
 
                 <TailwindIndicator />
 
