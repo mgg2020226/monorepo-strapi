@@ -94,7 +94,7 @@
     "postcss": "8.5.26",
     "prosemirror-model": "1.25.4",
     "radix-ui": "1.6.0",
-    "react": "19.3.0",
+    "react": "19.3.1",
     "react-day-picker": "10.0.1",
     "react-dom": "19.3.0",
     "react-hook-form": "7.79.0",
@@ -106,7 +106,7 @@
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@types/node": "24.13.3",
-    "@types/react": "19.2.18",
+    "@types/react": "19.3.0",
     "@types/react-dom": "19.2.4",
     "postcss-modules-values": "4.0.0",
     "typescript": "5.9.3"
