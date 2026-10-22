@@ -64,6 +64,17 @@ export const getStrapiImageUrl = (
   // Buscar el formato solicitado
   const formatData = image.formats[format];
   if (formatData?.url) {
+    const formatUrl = formatData.url.trim();
+    const isStaleLocalFormat =
+      image.provider === "aws-s3" &&
+      formatUrl.startsWith("/uploads/");
+
+    // The S3 migration moved original files but kept Strapi's local format
+    // paths. Use the verified S3 original until those variants are migrated.
+    if (isStaleLocalFormat) {
+      return getStrapiMediaUrl(image.url);
+    }
+
     return getStrapiMediaUrl(formatData.url);
   }
 
