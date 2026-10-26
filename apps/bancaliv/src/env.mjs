@@ -30,11 +30,6 @@ export const env = createEnv({
     STRAPI_REVALIDATE_SECRET: z.string().optional(),
     NEXT_OUTPUT: z.string().optional(),
 
-    SENTRY_AUTH_TOKEN: z.string().optional(),
-    SENTRY_ORG: z.string().optional(),
-    SENTRY_PROJECT: z.string().optional(),
-    SENTRY_SUPPRESS_GLOBAL_ERROR_HANDLER_FILE_WARNING: z.string().optional(),
-
     RECAPTCHA_SECRET_KEY: z.string().optional(),
 
     BASIC_AUTH_ENABLED: optionalZodBoolean(),
@@ -53,7 +48,6 @@ export const env = createEnv({
    * consider runtime injection instead (through `window.__ENV__` or similar hack).
    */
   client: {
-    NEXT_PUBLIC_SENTRY_DSN: z.string().optional(),
     NEXT_PUBLIC_RECAPTCHA_SITE_KEY: z.string().optional(),
     NEXT_PUBLIC_PREVENT_UNUSED_FUNCTIONS_ERROR_LOGS: optionalZodBoolean(),
   },
@@ -84,12 +78,6 @@ export const env = createEnv({
     STRAPI_REVALIDATE_SECRET: process.env.STRAPI_REVALIDATE_SECRET,
     NEXT_OUTPUT: process.env.NEXT_OUTPUT,
 
-    SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
-    SENTRY_ORG: process.env.SENTRY_ORG,
-    SENTRY_PROJECT: process.env.SENTRY_PROJECT,
-    SENTRY_SUPPRESS_GLOBAL_ERROR_HANDLER_FILE_WARNING:
-      process.env.SENTRY_SUPPRESS_GLOBAL_ERROR_HANDLER_FILE_WARNING,
-
     RECAPTCHA_SECRET_KEY: process.env.RECAPTCHA_SECRET_KEY,
 
     BASIC_AUTH_ENABLED: process.env.BASIC_AUTH_ENABLED,
@@ -100,7 +88,6 @@ export const env = createEnv({
 
     // client
     // @dominik-juriga - find out if these are specific per environment
-    NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
     NEXT_PUBLIC_RECAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
     NEXT_PUBLIC_PREVENT_UNUSED_FUNCTIONS_ERROR_LOGS:
       process.env.NEXT_PUBLIC_PREVENT_UNUSED_FUNCTIONS_ERROR_LOGS,

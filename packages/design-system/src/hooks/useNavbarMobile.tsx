@@ -24,7 +24,6 @@ export function NavbarMobileProvider({
     <NavbarMobileContext.Provider
       // React Compiler handles this memoization; keeping this explicit avoids
       // unnecessary useMemo noise around a tiny UI state provider.
-      // eslint-disable-next-line react/jsx-no-constructed-context-values
       value={[mobileOpen, setMobileOpen]}
     >
       {children}

@@ -22,7 +22,7 @@ Review a change before merge — run the build/test gates, dispatch focused revi
 
 PR mode is **GitHub-only** (it uses `gh`). On GitLab/Bitbucket/other hosts, check the branch out and use local mode — it reviews the same diff host-agnostically; only posting is skipped.
 
-**Be thorough but terse.** Surface real issues; skip nits already handled by formatters / linters / commitlint. This skill reviews only — it never pushes fixes or merges.
+**Be thorough but terse.** Surface real issues; skip purely stylistic nits. This skill reviews only — it never pushes fixes or merges.
 
 ## Phase 1 — Set up the review workspace
 
@@ -58,7 +58,6 @@ From the review worktree, in parallel where independent (command + suite referen
 ```bash
 pnpm install --frozen-lockfile --prefer-offline
 pnpm typecheck
-pnpm lint
 pnpm test:ci
 ```
 

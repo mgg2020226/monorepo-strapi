@@ -95,7 +95,6 @@ function Carousel({
 
   React.useEffect(() => {
     if (!api) return
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     onSelect(api)
     api.on("reInit", onSelect)
     api.on("select", onSelect)
@@ -107,7 +106,6 @@ function Carousel({
 
   return (
     <CarouselContext.Provider
-      // eslint-disable-next-line react/jsx-no-constructed-context-values
       value={{
         carouselRef,
         api: api,

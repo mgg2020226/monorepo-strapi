@@ -8,7 +8,6 @@ import { z } from "zod"
 import { setupLibraries } from "@/lib/general-helpers"
 
 // Setup libraries in client environment
-// eslint-disable-next-line unicorn/no-top-level-side-effects
 setupLibraries()
 
 const queryClient = new QueryClient()

@@ -10,7 +10,6 @@ Desde la raíz:
 pnpm dev:bancaliv
 pnpm build:bancaliv
 pnpm typecheck:bancaliv
-pnpm lint:bancaliv
 ```
 
 Configura `apps/bancaliv/.env.local` a partir de `.env.local.example`. Usa `SITE_DOMAIN={"localhost":"bancaliv","127.0.0.1":"bancaliv","::1":"bancaliv"}` y el `STRAPI_URL` y token de lectura ya usados por el monorepo. En despliegue, asigna el dominio público al slug `bancaliv`.

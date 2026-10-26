@@ -8,7 +8,6 @@ import { useState } from "react"
 export default function PageList({
   pages,
 }: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   pages: any[]
 }) {
   const [show, setShow] = useState(true)
@@ -39,7 +38,6 @@ export default function PageList({
             {show && (
               <div className="pl-4">
                 {page?.content?.map(
-                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   (block: any) => (
                     <Typography key={block.id}>{block.__component}</Typography>
                   )

@@ -17,8 +17,6 @@
   "scripts": {
     "build": "echo 'Types-only package, no build needed'",
     "dev": "echo 'Types-only package, no dev needed'",
-    "lint": "eslint -c ../../eslint.config.mjs .",
-    "lint:fix": "pnpm lint --fix",
     "sync-types": "node ../../scripts/sync-types.mjs"
   },
   "devDependencies": {

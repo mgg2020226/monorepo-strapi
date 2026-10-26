@@ -8,10 +8,6 @@
     "STRAPI_REST_READONLY_API_KEY",
     "NEXT_OUTPUT",
     "WEBPACK_CACHE_TYPE",
-    "SENTRY_AUTH_TOKEN",
-    "SENTRY_ORG",
-    "SENTRY_PROJECT",
-    "SENTRY_SUPPRESS_GLOBAL_ERROR_HANDLER_FILE_WARNING",
     "LOG_LEVEL",
     "CI",
     "MOBILE_VIEWPORTS_TESTING_ENABLED",
@@ -53,12 +49,6 @@
         "public/**",
         "out/**"
       ]
-    },
-    "lint": {
-      "dependsOn": ["^lint"]
-    },
-    "lint:fix": {
-      "dependsOn": ["^lint:fix"]
     },
     "sync-types": {
       "cache": false

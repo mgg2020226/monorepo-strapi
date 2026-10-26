@@ -43,7 +43,6 @@ import StrapiDynamicForm from "@/components/page-builder/components/forms/Strapi
  * Consider improving dynamic/lazy loading of these components to reduce bundle size.
  */
 export const PageContentComponents: Partial<
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- generic component map requires any for varying prop types
   Record<string, React.ComponentType<any>>
 > = {
   // elements, seo-utilities, utilities

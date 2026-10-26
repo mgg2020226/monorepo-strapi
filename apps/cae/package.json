@@ -6,8 +6,6 @@
     "build": "next build",
     "build:static": "NEXT_OUTPUT=export next build",
     "dev": "next dev",
-    "lint": "eslint -c ./eslint.config.mjs .",
-    "lint:fix": "pnpm lint --fix",
     "preview": "next build && next start",
     "start": "next start",
     "test": "vitest run",
@@ -39,7 +37,6 @@
     "@repo/design-system": "workspace:*",
     "@repo/sections": "workspace:*",
     "@repo/shared-data": "workspace:*",
-    "@sentry/nextjs": "10.58.0",
     "@t3-oss/env-nextjs": "0.13.11",
     "@tanstack/react-query": "5.101.0",
     "@tanstack/react-table": "8.21.3",
@@ -90,7 +87,6 @@
     "zod": "4.4.3"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
     "@repo/strapi-types": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "4.3.1",
@@ -99,7 +95,6 @@
     "@types/qs": "6.15.1",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.4",
-    "eslint-plugin-jsx-a11y": "6.10.2",
     "postcss": "8.5.26",
     "tailwindcss": "4.3.1",
     "typescript": "5.9.3",

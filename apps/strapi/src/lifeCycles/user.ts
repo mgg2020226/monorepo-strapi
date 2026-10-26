@@ -3,7 +3,6 @@ import type { Core } from "@strapi/strapi"
 
 import { logError, logger } from "../utils/logging"
 
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 const crypto = require("node:crypto")
 
 export const registerUserSubscriber = async ({

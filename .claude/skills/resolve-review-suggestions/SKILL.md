@@ -133,7 +133,7 @@ Apply direct fixes for **Implement** threads. Keep edits tightly scoped to the r
 
 After edits, run the narrowest useful validation:
 
-- Code or config changed: `pnpm lint` and `pnpm typecheck` when available.
+- Code or config changed: `pnpm typecheck` when available.
 - Tests changed or behavior changed: run the relevant unit or Playwright command from `apps/docs/docs/reference/commands.md`.
 - Strapi schemas changed: run `bash .claude/skills/strapi-schema-check/scripts/check.sh`.
 

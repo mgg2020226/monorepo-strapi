@@ -5,7 +5,6 @@ import type { Locale } from "next-intl"
  */
 export const removeEmptyImagesFromContent = (content?: string | null): string =>
   content?.replaceAll(
-    // eslint-disable-next-line sonarjs/empty-string-repetition
     /<img\b[^>]*\bsrc\s*=\s*(['"])(?:\s*|\?(?:[^'" >]*)?)\1[^>]*>/gi,
     ""
   ) || ""

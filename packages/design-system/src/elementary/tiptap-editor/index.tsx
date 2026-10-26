@@ -116,7 +116,6 @@ export function TiptapRichText({
     return null
   }
 
-  /* eslint-disable unicorn/prefer-short-arrow-method -- Tiptap mapping API is clearer with named object handlers. */
   return renderToReactElement({
     extensions: [
       StarterKit.configure({ heading: false }),
@@ -327,7 +326,6 @@ export function TiptapRichText({
       },
     },
   })
-  /* eslint-enable unicorn/prefer-short-arrow-method */
 }
 
 function normalizeContent(

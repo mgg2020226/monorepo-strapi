@@ -37,7 +37,6 @@ Comandos adicionales desde la raíz:
 pnpm dev             # todos los workspaces con tarea dev
 pnpm dev:docs        # documentación
 pnpm build
-pnpm lint
 pnpm typecheck
 pnpm test
 pnpm --filter @repo/strapi generate:types

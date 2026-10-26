@@ -18,7 +18,7 @@ env:
 
 jobs:
   build_and_verify:
-    name: Install, Lint, Test and Build
+    name: Install, Test and Build
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -32,12 +32,6 @@ jobs:
         run: |
           cp apps/strapi/.env.example apps/strapi/.env
           cp apps/empresaX/.env.local.example apps/empresaX/.env.local
-
-      - name: Run linter
-        run: pnpm lint
-
-      - name: Check css/md formatting
-        run: pnpm format:check
 
       - name: Run unit tests
         run: pnpm test:ci

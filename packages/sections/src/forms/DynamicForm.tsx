@@ -147,7 +147,7 @@ function DynamicFormFieldRenderer({ field }: { field: DynamicFormField }) {
                     value={option.value}
                     checked={controllerField.value === option.value}
                     onChange={() => controllerField.onChange(option.value)}
-                    onBlur={controllerField.onBlur} // eslint-disable-line react/jsx-handler-names -- react-hook-form API
+                    onBlur={controllerField.onBlur}
                   />
                   <span>{option.label}</span>
                 </label>

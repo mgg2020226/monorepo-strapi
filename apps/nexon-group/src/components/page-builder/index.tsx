@@ -48,7 +48,6 @@ import {
  * Consider improving dynamic/lazy loading of these components to reduce bundle size.
  */
 export const PageContentComponents: Partial<
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- dynamic-zone renderers have distinct props
   Record<string, React.ComponentType<any>>
 > = {
   // elements, seo-utilities, utilities

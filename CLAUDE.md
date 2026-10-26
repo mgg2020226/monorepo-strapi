@@ -15,7 +15,7 @@ Monorepo starter with Strapi v5 CMS, Next.js 16 EmpresaX frontend, Docusaurus do
 | `packages/shared-data`   | Shared constants and types                                                    |
 | `packages/logging`       | Structured Pino logging for Strapi (`@repo/logging`)                          |
 
-Config-only workspaces (`@repo/eslint-config`, `@repo/typescript-config`, `@repo/semantic-release-config`) are omitted from the table.
+Config-only workspaces (`@repo/typescript-config`, `@repo/semantic-release-config`) are omitted from the table.
 
 ## Essential Commands
 
@@ -27,7 +27,6 @@ pnpm dev:strapi       # Start Strapi only
 pnpm dev:empresax     # Start EmpresaX only
 pnpm dev:docs         # Start Docusaurus only on port 3300
 pnpm build            # Build all
-pnpm lint             # ESLint all packages
 pnpm typecheck        # Typecheck all packages
 pnpm test             # Vitest in all apps
 ```
@@ -45,7 +44,7 @@ Start with [Documentation Overview](apps/docs/docs/getting-started/features.md) 
 Use these pages for common coding-agent tasks:
 
 - [Commands Reference](apps/docs/docs/reference/commands.md) — Root scripts, package filters, worktrees, tests, and cleanup commands
-- [Workflow](apps/docs/docs/reference/workflow.md) — Git hooks, branch naming, Conventional Commits, env vars in commits, and release notes
+- [Workflow](apps/docs/docs/reference/workflow.md) — Env vars in commits, release notes, and repository workflow
 - [Quick Start](apps/docs/docs/getting-started/quick-start.md) — Local setup flow
 - [Add Content Type](apps/docs/docs/getting-started/add-content-type.md) — Strapi schema-to-UI implementation workflow
 - [Page Builder](apps/docs/docs/page-builder/introduction.md) — Dynamic zones, component registry, rendering, and population rules
@@ -59,20 +58,6 @@ Use these pages for common coding-agent tasks:
 - [Testing](apps/docs/docs/reference/testing/overview.md) — Unit and typecheck coverage
 - [Deployment](apps/docs/docs/reference/deployment/overview.md) — GitHub Actions, Heroku, Vercel, and Docker notes
 - [AI Skills](apps/docs/docs/reference/AI/skills/overview.md) — Agent skills catalog, per-skill What/How/When, and [workflow diagrams](apps/docs/docs/reference/AI/skills/overview.md#workflows)
-
-## Commits
-
-Use Conventional Commits. The repo enforces branch naming and commit messages through Lefthook and commitlint.
-
-```bash
-pnpm commit    # Interactive Commitizen flow
-```
-
-Manual format:
-
-```text
-type(scope): subject
-```
 
 When adding environment variables, mention them in the commit body as `env.VARIABLE_NAME` or `VARIABLE_NAME` in `CONSTANT_CASE` so the Auto PR workflow can surface them. See [Workflow](apps/docs/docs/reference/workflow.md) for details.
 

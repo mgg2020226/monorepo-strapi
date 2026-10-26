@@ -78,10 +78,7 @@ Skip if working tree is clean.
 
 1. Stage explicit files: `git add <file...>` (never `-A` or `.`).
 2. Generate a conventional commit subject (`type(scope): subject`, under 50 chars). Type from branch prefix (`feat/` → `feat`, etc.) or change context.
-3. Commit. If the pre-commit hook (Lefthook + commitlint) fails:
-   - Read the error.
-   - Fix lint/format/commitlint complaint.
-   - Re-stage and create a **new** commit (do NOT `--amend`).
+3. Commit the changes with the generated subject.
 
 ## Phase 3 — Push & open PR
 

@@ -84,7 +84,6 @@ export function useTranslatedZod(zod: typeof z) {
           message = code
       }
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- dynamic translation keys from zod error codes
       return { message: t(message as any, normalizedValues as any) }
     },
     [t, zod]

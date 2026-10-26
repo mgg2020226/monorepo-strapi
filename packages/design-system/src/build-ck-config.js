@@ -34,7 +34,6 @@ const fontSizeOutputJsonPath = path.resolve(
 
 // First collect all CSS variables
 const allVars = []
-// eslint-disable-next-line sonarjs/slow-regex
 const allVarRegex = /(--[\w-]+)\s*:\s*([^;]+);/g
 
 let match
@@ -52,7 +51,6 @@ const colorVars = allVars
   }))
 
 const fontSizeVars = allVars
-  // eslint-disable-next-line sonarjs/slow-regex
   .filter((v) => /^--text-\w+(?!.*--)$/.test(v.name))
   .map((v) => ({ model: v.value, title: v.name.replaceAll("--", "") }))
 

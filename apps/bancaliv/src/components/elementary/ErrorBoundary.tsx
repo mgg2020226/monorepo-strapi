@@ -7,7 +7,6 @@ import {
   AlertTitle,
 } from "@repo/design-system/ui/alert"
 import { Button } from "@repo/design-system/ui/button"
-import * as Sentry from "@sentry/nextjs"
 import { XIcon } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { useState } from "react"
@@ -30,7 +29,6 @@ function ErrorBoundaryFallback({
 }) {
   const [hidden, setHidden] = useState(false)
   // Hooks must run unconditionally, so this stays before the early exit.
-  // eslint-disable-next-line unicorn/no-declarations-before-early-exit
   const t = useTranslations("errors.global")
 
   if (hidden) {
@@ -122,7 +120,7 @@ export function ErrorBoundary({
       onError(error, info)
     }
 
-    Sentry.captureException(error)
+    console.error(error)
   }
 
   return (

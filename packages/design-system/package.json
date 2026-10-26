@@ -46,8 +46,6 @@
   "scripts": {
     "build": "tailwindcss -i ./src/styles.css -o ./dist/styles.css && node ./src/build-ck-config.js && node ./src/build-tiptap-config.js",
     "dev": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
-    "lint": "eslint -c ../../eslint.config.mjs .",
-    "lint:fix": "pnpm lint --fix",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

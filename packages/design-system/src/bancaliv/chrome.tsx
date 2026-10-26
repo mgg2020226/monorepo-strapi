@@ -1,6 +1,5 @@
 "use client"
 
-/* eslint-disable unicorn/no-declarations-before-early-exit */
 
 import type { Data } from "@repo/strapi-types"
 import { usePathname } from "next/navigation"
