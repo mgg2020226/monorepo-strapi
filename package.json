@@ -53,8 +53,7 @@
     "test:bancaliv": "turbo run test --filter=@repo/bancaliv",
     "test:cae": "turbo run test --filter=@repo/cae",
     "worktree:cleanup": "scripts/worktree/cleanup.sh",
-    "worktree:create": "scripts/worktree/create.sh",
-    "worktree:setup": "scripts/worktree/setup.sh"
+    "worktree:create": "scripts/worktree/create.sh"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",

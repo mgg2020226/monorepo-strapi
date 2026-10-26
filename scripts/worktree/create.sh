@@ -14,12 +14,10 @@
 # Hard rules:
 #   - never nests a worktree inside another worktree
 #   - aborts if the resolved target falls under any existing worktree path
-#   - calls `setup.sh` after creation to apply the manifest
 
 set -eu
 
 script_dir="$(cd "$(dirname "$0")" && pwd)"
-. "${script_dir}/lib/manifest.sh"
 
 force=0
 branch=""
@@ -124,9 +122,6 @@ if [ -x "${canonical_root}/scripts/validate-branch-name.sh" ]; then
     exit 1
   }
 fi
-
-# Apply manifest.
-"${script_dir}/setup.sh" "${target}"
 
 echo "create: done — target path:"
 # Last line is just the path, suitable for `cd $(...)`.

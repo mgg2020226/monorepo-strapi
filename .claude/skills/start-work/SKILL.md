@@ -12,7 +12,7 @@ argument-hint: "[issue-number | issue-key | issue-url | branch-name]"
 
 Set up an isolated workspace for new work. Prefer a git worktree so the current checkout stays untouched. Fetch issue context when available, draft a short plan, then hand off to implementation.
 
-Worktree mechanics + branch naming: `apps/docs/docs/reference/workflow.md` and `worktree.config.json` (manifest the scripts apply).
+Worktree mechanics + branch naming: `apps/docs/docs/reference/workflow.md` and `scripts/worktree/`.
 
 **Be automated.** Resolve arguments by shape, do not interrogate the user unless something is genuinely ambiguous (e.g. multiple plausible base branches, branch name fails the project's validation hook).
 
@@ -77,7 +77,7 @@ If `scripts/worktree/create.sh` exists in the canonical repo root, call it:
 bash scripts/worktree/create.sh <branch> <base>
 ```
 
-The script handles canonical-root resolution, env propagation, and `pnpm install`. Trust its exit code.
+The script creates the worktree and prints its path. It does not copy environment files or install dependencies.
 
 ### Fallback: plain `git worktree add`
 
@@ -90,7 +90,7 @@ git worktree add -b <branch> ../.worktrees/<branch-slug> <base>
 
 Use `<branch-slug>` = `<branch>` with `/` → `-` for the directory name. Place at `<repo-root>/../.worktrees/<slug>` so worktrees stay siblings of the repo, not nested.
 
-After the worktree exists, print its path. Do not `cd` for the user — print the command they'd run.
+After the worktree exists, print its path and remind the user to run `pnpm install` and copy any required environment files from the canonical checkout. Do not `cd` for the user — print the command they'd run.
 
 ### Refuse to nest
 
@@ -148,6 +148,6 @@ Stop there. Do not start implementing — that is the user's call (or another sk
 ## Notes
 
 - Do not push the new branch. `make-pr` handles that.
-- Do not run `pnpm install` yourself when the worktree script is absent — the user picks when to install. If the fallback path was used, mention it explicitly so they remember.
+- Do not run `pnpm install` yourself; the user picks when to install. Always mention that a new worktree has no installed dependencies or copied environment files.
 - Supported trackers: GitHub, Linear, Jira. Asana and Azure DevOps are out of scope — for an untracked or unrecognized reference, fall back to branch-name-only mode and tell the user.
 - Never delete or reset existing worktrees. Hand off to `scripts/worktree/cleanup.sh` (when it exists) for that.

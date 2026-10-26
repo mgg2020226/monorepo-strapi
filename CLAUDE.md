@@ -63,7 +63,7 @@ When adding environment variables, mention them in the commit body as `env.VARIA
 
 ## Agent skills
 
-Reusable agent instructions live in [`.claude/skills/`](./.claude/skills/) — the single source of truth, auto-discovered by Claude Code. A committed symlink at [`.agents/skills/`](./.agents/skills/) exposes the same set to any agent following the [agentskills.io](https://agentskills.io) standard (Codex, Copilot CLI, Gemini). Vendored community skills are installed via `skills.sh` and tracked in [`skills-lock.json`](./skills-lock.json).
+Reusable agent instructions live in [`.claude/skills/`](./.claude/skills/) — the single source of truth, auto-discovered by Claude Code. A committed symlink at [`.agents/skills/`](./.agents/skills/) exposes the same set to any agent following the [agentskills.io](https://agentskills.io) standard (Codex, Copilot CLI, Gemini). Community skills are installed via `skills.sh` into the same directory.
 
 See [`.claude/skills/README.md`](./.claude/skills/README.md) for the authoring guide and full catalog, and the [AI → Skills docs](apps/docs/docs/reference/AI/skills/overview.md) (with [workflow diagrams](apps/docs/docs/reference/AI/skills/overview.md#workflows)) for what each skill does and how they chain. Worktree-based isolation is wired through the `start-work` skill.
 
