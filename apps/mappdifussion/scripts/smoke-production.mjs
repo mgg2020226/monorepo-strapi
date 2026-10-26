@@ -32,9 +32,9 @@ const forbiddenMarkers = [
   "El contenido de las políticas de privacidad no está disponible",
   "El contenido de las condiciones de uso no está disponible",
   "Tipo de contenido requerido:",
-  "http://localhost:1337",
+  "http://localhost:1339",
   "http://localhost:7700",
-  "209.145.59.20:1337",
+  "209.145.59.20:1339",
 ];
 
 function ensure(condition, message) {

@@ -1,7 +1,7 @@
 const DEFAULT_STRAPI_URL =
   process.env.NODE_ENV === "production"
     ? "https://micatastro.mapptech.com.co"
-    : "http://localhost:1337";
+    : "http://localhost:1339";
 
 function getRemotePatterns() {
   const patterns = [
