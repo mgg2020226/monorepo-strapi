@@ -15,7 +15,7 @@ Monorepo starter with Strapi v5 CMS, Next.js 16 EmpresaX frontend, Docusaurus do
 | `packages/shared-data`   | Shared constants and types                                                    |
 | `packages/logging`       | Structured Pino logging for Strapi (`@repo/logging`)                          |
 
-Config-only workspaces (`@repo/typescript-config`, `@repo/semantic-release-config`) are omitted from the table.
+The config-only workspace (`@repo/typescript-config`) is omitted from the table.
 
 ## Essential Commands
 
@@ -44,7 +44,7 @@ Start with [Documentation Overview](apps/docs/docs/getting-started/features.md) 
 Use these pages for common coding-agent tasks:
 
 - [Commands Reference](apps/docs/docs/reference/commands.md) — Root scripts, package filters, worktrees, tests, and cleanup commands
-- [Workflow](apps/docs/docs/reference/workflow.md) — Env vars in commits, release notes, and repository workflow
+- [Workflow](apps/docs/docs/reference/workflow.md) — Env vars in commits and repository workflow
 - [Quick Start](apps/docs/docs/getting-started/quick-start.md) — Local setup flow
 - [Add Content Type](apps/docs/docs/getting-started/add-content-type.md) — Strapi schema-to-UI implementation workflow
 - [Page Builder](apps/docs/docs/page-builder/introduction.md) — Dynamic zones, component registry, rendering, and population rules

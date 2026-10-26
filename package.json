@@ -57,9 +57,7 @@
     "worktree:setup": "scripts/worktree/setup.sh"
   },
   "devDependencies": {
-    "@repo/semantic-release-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "semantic-release": "24.2.9",
     "tslib": "2.8.1",
     "turbo": "2.9.18"
   },
