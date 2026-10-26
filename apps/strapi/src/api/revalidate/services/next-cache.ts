@@ -26,12 +26,6 @@ export type RevalidationResponse = {
  * collects the entity's canonical cache tag alongside any explicit tags, and
  * surfaces upstream failures as thrown errors so the caller (admin button or
  * document middleware) does not silently proceed.
- *
- * The CDN is intentionally not purged here. CDN purge propagation (up to
- * 20 minutes) is always slower than the affected route's `revalidate` TTL,
- * so the natural TTL refresh after `revalidateTag` wins. Operators can still
- * force a purge through the CDN cache widget on the Strapi homepage.
- * See `apps/docs/docs/reference/cache-revalidation.md` for the full reasoning.
  */
 export async function revalidateNextCache({
   uid,

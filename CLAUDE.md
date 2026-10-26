@@ -13,7 +13,7 @@ Monorepo starter with Strapi v5 CMS, Next.js 16 EmpresaX frontend, Docusaurus do
 | `packages/design-system` | Shared visual components, form controls, hooks, typography, and editor styles |
 | `packages/sections`      | Reusable page-builder sections and Strapi rendering utilities                 |
 | `packages/shared-data`   | Shared constants and types                                                    |
-| `packages/logging`       | Structured pino logging + OpenTelemetry trace context (`@repo/logging`)       |
+| `packages/logging`       | Structured Pino logging for Strapi (`@repo/logging`)                          |
 
 Config-only workspaces (`@repo/eslint-config`, `@repo/typescript-config`, `@repo/semantic-release-config`) are omitted from the table.
 

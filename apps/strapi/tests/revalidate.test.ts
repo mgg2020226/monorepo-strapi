@@ -38,7 +38,6 @@ const buildMiddleware = () => {
 }
 
 const REVALIDATE_URL = "https://frontend.example/api/strapi-revalidate"
-const CDN_PURGE_URL = "https://frontend.example/api/cdn-purge"
 
 const findFetchCall = (
   mock: ReturnType<typeof vi.fn>,
@@ -117,7 +116,6 @@ describe("revalidate service", () => {
       },
     })
     expect(result).toEqual({ revalidated: true })
-    expect(findFetchCall(fetchMock, CDN_PURGE_URL)).toBeUndefined()
   })
 
   it("sends only the matching collection tag for non-page entities", async () => {
@@ -137,7 +135,6 @@ describe("revalidate service", () => {
         tags: ["strapi:api::subscriber.subscriber"],
       },
     })
-    expect(findFetchCall(fetchMock, CDN_PURGE_URL)).toBeUndefined()
   })
 
   it("throws when required configuration is missing", async () => {
@@ -171,8 +168,6 @@ describe("revalidate service", () => {
         fullPaths: ["/about"],
       })
     ).rejects.toThrow("Failed to revalidate Next.js cache.")
-
-    expect(findFetchCall(fetchMock, CDN_PURGE_URL)).toBeUndefined()
   })
 })
 

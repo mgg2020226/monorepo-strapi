@@ -37,7 +37,6 @@
     "@radix-ui/react-toast": "1.2.17",
     "@radix-ui/react-tooltip": "1.2.10",
     "@repo/design-system": "workspace:*",
-    "@repo/logging": "workspace:*",
     "@repo/sections": "workspace:*",
     "@repo/shared-data": "workspace:*",
     "@sentry/nextjs": "10.58.0",

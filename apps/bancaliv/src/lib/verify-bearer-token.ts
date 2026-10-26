@@ -6,7 +6,7 @@ import { createHash, timingSafeEqual } from "node:crypto"
  * Both tokens are SHA-256 hashed before comparison so `timingSafeEqual` always
  * receives equal-length buffers (it throws otherwise) and the comparison never
  * leaks the token length through timing. Used by the Strapi-driven cache
- * revalidation and CDN purge endpoints to authenticate the calling backend.
+ * revalidation endpoint to authenticate the calling backend.
  */
 export function hasValidBearerToken(
   request: Request,

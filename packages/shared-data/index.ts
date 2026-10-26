@@ -69,13 +69,12 @@ export const strapiCacheTag = <TUid extends string>(
 ): StrapiCacheTag<TUid> => `strapi:${uid}`
 
 /**
- * Normalizes a path for cache operations (Next.js revalidation or CDN purge).
+ * Normalizes a path for Next.js cache revalidation.
  * Wildcard paths (`/jobs/*`, `/*`) are preserved as-is, only ensuring a leading
  * slash; concrete paths collapse to their canonical form via
  * `normalizePageFullPath`. Pass `locale` when the caller knows it.
  *
- * Shared so Strapi (building revalidate/purge payloads) and the UI (expanding
- * locale variants before `revalidatePath`/CDN purge) normalize identically.
+ * Shared so Strapi and the UI normalize revalidation paths identically.
  */
 export const normalizeCachePath = (
   path: string,

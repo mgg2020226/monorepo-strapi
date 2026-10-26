@@ -5,7 +5,7 @@ const LOCAL_STRAPI_MEDIA_URL = "http://127.0.0.1:1337"
 /**
  * Formats a Strapi media URL for use in the UI.
  *
- * Production media should already be absolute, usually from Azure Blob Storage, AWS S3
+ * Production media should already be absolute, usually from AWS S3
  * or another public storage/CDN origin.
  *
  * Local Strapi upload storage returns relative `/uploads/...` paths. Those

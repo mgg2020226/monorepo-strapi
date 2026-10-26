@@ -1,6 +1,6 @@
 # Strapi — CMS del monorepo
 
-Strapi 5 es el CMS de la plataforma. Define el modelo de contenido, ofrece el panel editorial y sirve al frontend EmpresaX mediante su API. La persistencia es PostgreSQL; las imágenes usan almacenamiento local en desarrollo salvo que se configure un proveedor como S3 o Azure.
+Strapi 5 es el CMS de la plataforma. Define el modelo de contenido, ofrece el panel editorial y sirve al frontend EmpresaX mediante su API. La persistencia es PostgreSQL; las imágenes usan almacenamiento local en desarrollo salvo que se configure el proveedor S3.
 
 ## Modelo de contenido
 

@@ -6,12 +6,7 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.js"
-    },
-    "./azure": {
-      "types": "./dist/azure.d.ts",
-      "import": "./dist/azure.js",
-      "require": "./dist/azure.js"
+    "require": "./dist/index.js"
     }
   },
   "main": "dist/index.js",
@@ -24,8 +19,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@azure/monitor-opentelemetry": "^1.18.1",
-    "@opentelemetry/api": "^1.9.1",
     "pino": "^10.3.1"
   },
   "devDependencies": {

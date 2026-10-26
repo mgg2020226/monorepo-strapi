@@ -19,13 +19,6 @@ const nextConfig = {
   },
   reactCompiler: true,
   transpilePackages: ["@repo/design-system", "@repo/sections"],
-  // pino (via @repo/logging) and the Azure Monitor exporter rely on Node
-  // internals / worker threads that must not be bundled by the server compiler.
-  serverExternalPackages: [
-    "pino",
-    "pino-pretty",
-    "@azure/monitor-opentelemetry",
-  ],
   images: {
     // See apps/UI/README.md#image-optimization for the full policy.
     // Keep global optimization enabled so components can opt in/out.

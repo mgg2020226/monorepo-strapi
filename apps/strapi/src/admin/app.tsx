@@ -1,5 +1,4 @@
 import { setPluginConfig } from "@_sh/strapi-plugin-ckeditor"
-import { Cloud } from "@strapi/icons"
 import type { StrapiApp } from "@strapi/strapi/admin"
 
 import "@repo/design-system/styles.css"
@@ -66,20 +65,6 @@ export default {
     }
   },
   register(app: StrapiApp) {
-    app.widgets.register({
-      icon: Cloud,
-      title: {
-        id: "cdn-cache.widget.title",
-        defaultMessage: "CDN cache",
-      },
-      component: async () => {
-        const component = await import("./widgets/CdnCacheWidget")
-
-        return component.default
-      },
-      id: "cdn-cache",
-    })
-
     setPluginConfig({ presets: [defaultCkEditorConfig, simpleCkEditorConfig] })
   },
 }

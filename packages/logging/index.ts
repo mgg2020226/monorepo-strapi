@@ -1,17 +1,13 @@
-import { SpanStatusCode, trace } from "@opentelemetry/api"
-import pino, { type DestinationStream } from "pino"
+import pino from "pino"
 
 export type LogContext = Record<string, unknown>
 export type LogLevel = "trace" | "debug" | "info" | "warn" | "error" | "fatal"
 export type PinoLogLevel = LogLevel | "silent"
-export type LogDestination = DestinationStream
-
 export interface CreateLoggerOptions {
   readonly serviceName: string
   readonly environment: string
   readonly logLevel?: string
   readonly pretty?: boolean
-  readonly destination?: DestinationStream
 }
 
 export function createLogging({
@@ -19,7 +15,6 @@ export function createLogging({
   environment,
   logLevel,
   pretty = false,
-  destination,
 }: CreateLoggerOptions) {
   const pinoOptions: pino.LoggerOptions = {
     level: getLogLevel(logLevel),
@@ -29,7 +24,7 @@ export function createLogging({
     },
     // Redaction runs before a log line is written. These paths cover common
     // top-level fields and nested objects so accidental secrets are replaced
-    // before logs are emitted locally or shipped to a telemetry backend.
+    // before logs are emitted locally.
     redact: {
       paths: [
         "authorization",
@@ -57,7 +52,7 @@ export function createLogging({
     },
   }
 
-  if (pretty && !destination) {
+  if (pretty) {
     pinoOptions.transport = {
       target: "pino-pretty",
       options: {
@@ -68,18 +63,12 @@ export function createLogging({
     }
   }
 
-  const pinoLogger = destination
-    ? pino(pinoOptions, destination)
-    : pino(pinoOptions)
+  const pinoLogger = pino(pinoOptions)
 
   function log(level: LogLevel, message: string, context?: LogContext) {
     pinoLogger[level](
       {
         ...context,
-        // Spread last so the active span's IDs always win — a caller-provided
-        // traceId/spanId must not override real trace correlation. When there is
-        // no active span this returns {}, so it never clobbers caller context.
-        ...getTraceContext(),
       },
       message
     )
@@ -107,77 +96,18 @@ export function createLogging({
   ) {
     const normalizedError = normalizeError(error)
 
-    trace.getActiveSpan()?.recordException(normalizedError)
-
     pinoLogger.error(
       {
         ...context,
-        // Active span IDs win over any caller-provided traceId/spanId; `err`
-        // stays last so the normalized error is never overridden.
-        ...getTraceContext(),
         err: normalizedError,
       },
       message
     )
   }
 
-  async function withSpan<T>(
-    name: string,
-    operation: () => Promise<T>,
-    attributes?: Record<string, string | number | boolean | undefined>
-  ): Promise<T> {
-    const tracer = trace.getTracer(serviceName)
-
-    return tracer.startActiveSpan(name, async (span) => {
-      try {
-        if (attributes) {
-          for (const [key, value] of Object.entries(attributes)) {
-            if (value !== undefined) {
-              span.setAttribute(key, value)
-            }
-          }
-        }
-
-        return await operation()
-      } catch (error) {
-        const normalizedError = normalizeError(error)
-
-        span.recordException(normalizedError)
-        span.setStatus({
-          code: SpanStatusCode.ERROR,
-          message: normalizedError.message,
-        })
-
-        throw error
-      } finally {
-        span.end()
-      }
-    })
-  }
-
   return {
     logger,
     logError,
-    withSpan,
-  }
-}
-
-/**
- * Reads the active OpenTelemetry span, if one exists, and returns IDs that let
- * logs be correlated with traces in the configured telemetry backend (e.g.
- * Azure Monitor/Application Insights).
- */
-function getTraceContext() {
-  const span = trace.getActiveSpan()
-  const spanContext = span?.spanContext()
-
-  if (!spanContext) {
-    return {}
-  }
-
-  return {
-    traceId: spanContext.traceId,
-    spanId: spanContext.spanId,
   }
 }
 
