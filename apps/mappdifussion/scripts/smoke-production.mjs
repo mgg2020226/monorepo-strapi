@@ -45,8 +45,10 @@ function ensure(condition, message) {
 
 async function fetchText(url, options) {
   const response = await fetch(url, options);
+  if (!response.ok) {
+    throw new Error(`${url} returned ${response.status}`);
+  }
   const text = await response.text();
-  ensure(response.ok, `${url} returned ${response.status}`);
   return { response, text };
 }
 

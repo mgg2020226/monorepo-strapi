@@ -19,13 +19,10 @@ export async function postJson<TResult extends MutationResult>(
     body: JSON.stringify(payload),
   });
 
-  const data = (await response.json().catch(() => null)) as
-    | TResult
-    | MutationResult
-    | ApiErrorResponse
-    | null;
-
   if (!response.ok) {
+    const data = (await response.json().catch(() => null)) as
+      | ApiErrorResponse
+      | null;
     const apiError = data && "error" in data ? data.error : undefined;
     const message =
       typeof apiError === "string"
@@ -33,6 +30,11 @@ export async function postJson<TResult extends MutationResult>(
         : apiError?.message || "No se pudo completar la solicitud.";
     throw new Error(message);
   }
+
+  const data = (await response.json().catch(() => null)) as
+    | TResult
+    | MutationResult
+    | null;
 
   if (!data || !("ok" in data) || !data.ok) {
     const apiError = data && "error" in data ? data.error : undefined;
