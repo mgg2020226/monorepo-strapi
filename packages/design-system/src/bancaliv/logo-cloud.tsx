@@ -16,11 +16,7 @@ export function BancalivLogoCloud({
 }: {
   component: Data.Component<"sections.logo-cloud">
 }) {
-  const partners = (component.logos ?? []).filter((item) => {
-    const alt = item.image?.alt?.trim().toLocaleLowerCase()
-
-    return !alt || !alt.includes("nexon")
-  })
+  const partners = component.logos ?? []
 
   return (
     <section className="bancaliv-logo-cloud">
