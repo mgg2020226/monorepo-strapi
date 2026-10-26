@@ -1,2846 +1,2852 @@
-import type { Schema, Struct } from "@strapi/strapi"
+import type { Schema, Struct } from '@strapi/strapi';
 
 export interface AdminPermission extends Struct.ComponentSchema {
-  collectionName: "components_admin_permissions"
+  collectionName: 'components_admin_permissions';
   info: {
-    displayName: "Admin permission"
-    icon: "lock"
-  }
+    displayName: 'Admin permission';
+    icon: 'lock';
+  };
   attributes: {
     actions: Schema.Attribute.JSON &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<["read"]>
+      Schema.Attribute.DefaultTo<['read']>;
     resource: Schema.Attribute.Enumeration<
       [
-        "site",
-        "page",
-        "portfolio-project",
-        "legal-page",
-        "form-definition",
-        "media",
+        'site',
+        'page',
+        'portfolio-project',
+        'legal-page',
+        'form-definition',
+        'media',
       ]
     > &
-      Schema.Attribute.Required
-    scope: Schema.Attribute.Enumeration<["assigned-sites", "all-sites"]> &
+      Schema.Attribute.Required;
+    scope: Schema.Attribute.Enumeration<['assigned-sites', 'all-sites']> &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<"assigned-sites">
-  }
+      Schema.Attribute.DefaultTo<'assigned-sites'>;
+  };
 }
 
 export interface BancalivCard extends Struct.ComponentSchema {
-  collectionName: "components_bancaliv_cards"
+  collectionName: 'components_bancaliv_cards';
   info: {
-    displayName: "Bancaliv content card"
-    icon: "layout"
-  }
+    displayName: 'Bancaliv content card';
+    icon: 'layout';
+  };
   attributes: {
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     href: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    image: Schema.Attribute.Media<"images">
+          localized: true;
+        };
+      }>;
+    image: Schema.Attribute.Media<'images'>;
     label: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     linkLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    target: Schema.Attribute.Enumeration<["_self", "_blank"]> &
-      Schema.Attribute.DefaultTo<"_self">
+          localized: true;
+        };
+      }>;
+    target: Schema.Attribute.Enumeration<['_self', '_blank']> &
+      Schema.Attribute.DefaultTo<'_self'>;
     title: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     value: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface BancalivSection extends Struct.ComponentSchema {
-  collectionName: "components_bancaliv_sections"
+  collectionName: 'components_bancaliv_sections';
   info: {
-    displayName: "Bancaliv section"
-    icon: "layout"
-  }
+    displayName: 'Bancaliv section';
+    icon: 'layout';
+  };
   attributes: {
-    anchor: Schema.Attribute.String
+    anchor: Schema.Attribute.String;
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     eyebrow: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    image: Schema.Attribute.Media<"images">
-    items: Schema.Attribute.Component<"bancaliv.card", true>
+          localized: true;
+        };
+      }>;
+    image: Schema.Attribute.Media<'images'>;
+    items: Schema.Attribute.Component<'bancaliv.card', true>;
     primaryActionLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    primaryActionTarget: Schema.Attribute.Enumeration<["_self", "_blank"]> &
-      Schema.Attribute.DefaultTo<"_self">
-    primaryActionUrl: Schema.Attribute.String
+          localized: true;
+        };
+      }>;
+    primaryActionTarget: Schema.Attribute.Enumeration<['_self', '_blank']> &
+      Schema.Attribute.DefaultTo<'_self'>;
+    primaryActionUrl: Schema.Attribute.String;
     secondaryActionLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    secondaryActionTarget: Schema.Attribute.Enumeration<["_self", "_blank"]> &
-      Schema.Attribute.DefaultTo<"_self">
-    secondaryActionUrl: Schema.Attribute.String
+          localized: true;
+        };
+      }>;
+    secondaryActionTarget: Schema.Attribute.Enumeration<['_self', '_blank']> &
+      Schema.Attribute.DefaultTo<'_self'>;
+    secondaryActionUrl: Schema.Attribute.String;
     sectionType: Schema.Attribute.Enumeration<
       [
-        "hero",
-        "steps",
-        "products",
-        "benefits",
-        "security",
-        "allies",
-        "metrics",
-        "testimonials",
-        "faq",
-        "cta",
-        "content",
+        'hero',
+        'steps',
+        'products',
+        'benefits',
+        'security',
+        'allies',
+        'metrics',
+        'testimonials',
+        'faq',
+        'cta',
+        'content',
       ]
     > &
-      Schema.Attribute.Required
+      Schema.Attribute.Required;
     title: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface BlogTag extends Struct.ComponentSchema {
-  collectionName: "components_blog_tags"
+  collectionName: 'components_blog_tags';
   info: {
-    displayName: "Blog tag"
-    icon: "tag"
-  }
+    displayName: 'Blog tag';
+    icon: 'tag';
+  };
   attributes: {
-    active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>
-    color: Schema.Attribute.String
+    active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    color: Schema.Attribute.String;
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    slug: Schema.Attribute.UID<"name"> &
+          localized: true;
+        };
+      }>;
+    slug: Schema.Attribute.UID<'name'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface CaeAlly extends Struct.ComponentSchema {
-  collectionName: "components_cae_allies"
+  collectionName: 'components_cae_allies';
   info: {
-    displayName: "Aliado CAE"
-    icon: "link"
-  }
+    displayName: 'Aliado CAE';
+    icon: 'link';
+  };
   attributes: {
-    darkBackground: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
-    logo: Schema.Attribute.Media<"images">
+    darkBackground: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    logo: Schema.Attribute.Media<'images'>;
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    url: Schema.Attribute.String
-  }
+          localized: true;
+        };
+      }>;
+    url: Schema.Attribute.String;
+  };
 }
 
 export interface CaeHomeAdvantage extends Struct.ComponentSchema {
-  collectionName: "components_cae_home_advantages"
+  collectionName: 'components_cae_home_advantages';
   info: {
-    displayName: "Ventaja CAE"
-    icon: "star"
-  }
+    displayName: 'Ventaja CAE';
+    icon: 'star';
+  };
   attributes: {
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    icon: Schema.Attribute.String
+          localized: true;
+        };
+      }>;
+    icon: Schema.Attribute.String;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface CaeHomepage extends Struct.ComponentSchema {
-  collectionName: "components_cae_homepages"
+  collectionName: 'components_cae_homepages';
   info: {
-    displayName: "Portada CAE GROUP"
-    icon: "layout"
-  }
+    displayName: 'Portada CAE GROUP';
+    icon: 'layout';
+  };
   attributes: {
     aboutBody: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     aboutEyebrow: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     aboutTitle: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    advantages: Schema.Attribute.Component<"cae.home-advantage", true>
+          localized: true;
+        };
+      }>;
+    advantages: Schema.Attribute.Component<'cae.home-advantage', true>;
     advantagesEyebrow: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     advantagesTitle: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
+          localized: true;
+        };
       }> &
-      Schema.Attribute.DefaultTo<"\u00BFPor qu\u00E9 elegirnos?">
-    allies: Schema.Attribute.Component<"cae.ally", true>
+      Schema.Attribute.DefaultTo<'\u00BFPor qu\u00E9 elegirnos?'>;
+    allies: Schema.Attribute.Component<'cae.ally', true>;
     alliesDescription: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     alliesEyebrow: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     alliesTitle: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     companySizeLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     companySizePlaceholder: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    companySizes: Schema.Attribute.Component<"cae.text-item", true>
+          localized: true;
+        };
+      }>;
+    companySizes: Schema.Attribute.Component<'cae.text-item', true>;
     contactCtaLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     contactDescription: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     contactEyebrow: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     contactTitle: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     ctaLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     heroAccent: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     heroDescription: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     heroEyebrow: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    heroImage: Schema.Attribute.Media<"images">
+          localized: true;
+        };
+      }>;
+    heroImage: Schema.Attribute.Media<'images'>;
     heroTitle: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     processEyebrow: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    processSteps: Schema.Attribute.Component<"cae.process-step", true>
+          localized: true;
+        };
+      }>;
+    processSteps: Schema.Attribute.Component<'cae.process-step', true>;
     processTitle: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     scrollLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     serviceCardLinkLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     servicePickerLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     servicePlaceholder: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    services: Schema.Attribute.Component<"cae.service-card", true>
+          localized: true;
+        };
+      }>;
+    services: Schema.Attribute.Component<'cae.service-card', true>;
     servicesDescription: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     servicesEyebrow: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     servicesTitle: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    team: Schema.Attribute.Component<"cae.team-member", true>
+          localized: true;
+        };
+      }>;
+    team: Schema.Attribute.Component<'cae.team-member', true>;
     teamEyebrow: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     teamTitle: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    values: Schema.Attribute.Component<"cae.home-advantage", true>
+          localized: true;
+        };
+      }>;
+    values: Schema.Attribute.Component<'cae.home-advantage', true>;
     valuesEyebrow: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     valuesTitle: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface CaeProcessStep extends Struct.ComponentSchema {
-  collectionName: "components_cae_process_steps"
+  collectionName: 'components_cae_process_steps';
   info: {
-    displayName: "Paso del proceso CAE"
-    icon: "number"
-  }
+    displayName: 'Paso del proceso CAE';
+    icon: 'number';
+  };
   attributes: {
-    number: Schema.Attribute.String
+    number: Schema.Attribute.String;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface CaeServiceCard extends Struct.ComponentSchema {
-  collectionName: "components_cae_service_cards"
+  collectionName: 'components_cae_service_cards';
   info: {
-    displayName: "Tarjeta de servicio CAE"
-    icon: "briefcase"
-  }
+    displayName: 'Tarjeta de servicio CAE';
+    icon: 'briefcase';
+  };
   attributes: {
     category: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
-    icon: Schema.Attribute.String
-    image: Schema.Attribute.Media<"images">
-    slug: Schema.Attribute.String & Schema.Attribute.Required
+          localized: true;
+        };
+      }>;
+    featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    icon: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface CaeServiceDetail extends Struct.ComponentSchema {
-  collectionName: "components_cae_service_details"
+  collectionName: 'components_cae_service_details';
   info: {
-    displayName: "Detalle de servicio CAE"
-    icon: "briefcase"
-  }
+    displayName: 'Detalle de servicio CAE';
+    icon: 'briefcase';
+  };
   attributes: {
     body: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     ctaLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     eyebrow: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    image: Schema.Attribute.Media<"images">
-    items: Schema.Attribute.Component<"cae.text-item", true>
+          localized: true;
+        };
+      }>;
+    image: Schema.Attribute.Media<'images'>;
+    items: Schema.Attribute.Component<'cae.text-item', true>;
     itemsTitle: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface CaeTeamMember extends Struct.ComponentSchema {
-  collectionName: "components_cae_team_members"
+  collectionName: 'components_cae_team_members';
   info: {
-    displayName: "Integrante del equipo CAE"
-    icon: "user"
-  }
+    displayName: 'Integrante del equipo CAE';
+    icon: 'user';
+  };
   attributes: {
     area: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     experience: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    photo: Schema.Attribute.Media<"images">
+          localized: true;
+        };
+      }>;
+    photo: Schema.Attribute.Media<'images'>;
     position: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    specialties: Schema.Attribute.Component<"cae.text-item", true>
+          localized: true;
+        };
+      }>;
+    specialties: Schema.Attribute.Component<'cae.text-item', true>;
     summary: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface CaeTextItem extends Struct.ComponentSchema {
-  collectionName: "components_cae_text_items"
+  collectionName: 'components_cae_text_items';
   info: {
-    displayName: "Texto corto CAE"
-    icon: "bulletList"
-  }
+    displayName: 'Texto corto CAE';
+    icon: 'bulletList';
+  };
   attributes: {
     text: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface ElementsFooterItem extends Struct.ComponentSchema {
-  collectionName: "components_elements_footer_items"
+  collectionName: 'components_elements_footer_items';
   info: {
-    description: ""
-    displayName: "FooterItem"
-  }
+    description: '';
+    displayName: 'FooterItem';
+  };
   attributes: {
-    links: Schema.Attribute.Component<"utilities.link", true>
-    title: Schema.Attribute.String & Schema.Attribute.Required
-  }
+    links: Schema.Attribute.Component<'utilities.link', true>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface FormField extends Struct.ComponentSchema {
-  collectionName: "components_form_fields"
+  collectionName: 'components_form_fields';
   info: {
-    displayName: "Form field"
-    icon: "input"
-  }
+    displayName: 'Form field';
+    icon: 'input';
+  };
   attributes: {
-    accept: Schema.Attribute.String
+    accept: Schema.Attribute.String;
     helpText: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     label: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    maxLength: Schema.Attribute.Integer
-    maxValue: Schema.Attribute.Decimal
-    minLength: Schema.Attribute.Integer
-    minValue: Schema.Attribute.Decimal
-    name: Schema.Attribute.String & Schema.Attribute.Required
-    options: Schema.Attribute.Component<"form.option", true>
-    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>
+          localized: true;
+        };
+      }>;
+    maxLength: Schema.Attribute.Integer;
+    maxValue: Schema.Attribute.Decimal;
+    minLength: Schema.Attribute.Integer;
+    minValue: Schema.Attribute.Decimal;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    options: Schema.Attribute.Component<'form.option', true>;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     placeholder: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    required: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
+          localized: true;
+        };
+      }>;
+    required: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     type: Schema.Attribute.Enumeration<
       [
-        "text",
-        "email",
-        "tel",
-        "number",
-        "date",
-        "time",
-        "textarea",
-        "select",
-        "checkbox",
-        "radio",
-        "file",
+        'text',
+        'email',
+        'tel',
+        'number',
+        'date',
+        'time',
+        'textarea',
+        'select',
+        'checkbox',
+        'radio',
+        'file',
       ]
     > &
-      Schema.Attribute.Required
-    visible: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>
-  }
+      Schema.Attribute.Required;
+    visible: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+  };
 }
 
 export interface FormOption extends Struct.ComponentSchema {
-  collectionName: "components_form_options"
+  collectionName: 'components_form_options';
   info: {
-    displayName: "Form option"
-    icon: "check"
-  }
+    displayName: 'Form option';
+    icon: 'check';
+  };
   attributes: {
     label: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>
-    value: Schema.Attribute.String & Schema.Attribute.Required
-  }
+          localized: true;
+        };
+      }>;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface FormsContactForm extends Struct.ComponentSchema {
-  collectionName: "components_forms_contact_forms"
+  collectionName: 'components_forms_contact_forms';
   info: {
-    displayName: "ContactForm"
-  }
+    displayName: 'ContactForm';
+  };
   attributes: {
-    description: Schema.Attribute.Text
-    gdpr: Schema.Attribute.Component<"utilities.link", false>
-    title: Schema.Attribute.String
-  }
+    description: Schema.Attribute.Text;
+    gdpr: Schema.Attribute.Component<'utilities.link', false>;
+    title: Schema.Attribute.String;
+  };
 }
 
 export interface FormsDynamicForm extends Struct.ComponentSchema {
-  collectionName: "components_sections_dynamic_forms"
+  collectionName: 'components_sections_dynamic_forms';
   info: {
-    displayName: "Dynamic form"
-    icon: "forms"
-  }
+    displayName: 'Dynamic form';
+    icon: 'forms';
+  };
   attributes: {
-    anchor: Schema.Attribute.String
-    formSlug: Schema.Attribute.String & Schema.Attribute.Required
-    motion: Schema.Attribute.Component<"ui.motion", false>
-    style: Schema.Attribute.Component<"ui.style", false>
-  }
+    anchor: Schema.Attribute.String;
+    formSlug: Schema.Attribute.String & Schema.Attribute.Required;
+    motion: Schema.Attribute.Component<'ui.motion', false>;
+    style: Schema.Attribute.Component<'ui.style', false>;
+  };
 }
 
 export interface LayoutNavbarItem extends Struct.ComponentSchema {
-  collectionName: "components_layout_navbar_items"
+  collectionName: 'components_layout_navbar_items';
   info: {
-    displayName: "NavbarItem"
-  }
+    displayName: 'NavbarItem';
+  };
   attributes: {
-    categoryItems: Schema.Attribute.Component<"utilities.link", true>
-    isCategoryLink: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
-    label: Schema.Attribute.String
-    link: Schema.Attribute.Component<"utilities.link", false>
-  }
+    categoryItems: Schema.Attribute.Component<'utilities.link', true>;
+    isCategoryLink: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    label: Schema.Attribute.String;
+    link: Schema.Attribute.Component<'utilities.link', false>;
+  };
 }
 
 export interface NexonAbout extends Struct.ComponentSchema {
-  collectionName: "components_nexon_about_sections"
+  collectionName: 'components_nexon_about_sections';
   info: {
-    displayName: "Nexon \u2014 Qui\u00E9nes somos"
-    icon: "information"
-  }
+    displayName: 'Nexon \u2014 Qui\u00E9nes somos';
+    icon: 'information';
+  };
   attributes: {
-    backgroundImage: Schema.Attribute.Media<"images">
+    backgroundImage: Schema.Attribute.Media<'images'>;
     cardDescription: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     cardTitle: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     heading: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     headingAccent: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     label: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    paragraphs: Schema.Attribute.Component<"nexon.about-paragraph", true>
-    stats: Schema.Attribute.Component<"nexon.stat", true>
-  }
+          localized: true;
+        };
+      }>;
+    paragraphs: Schema.Attribute.Component<'nexon.about-paragraph', true>;
+    stats: Schema.Attribute.Component<'nexon.stat', true>;
+  };
 }
 
 export interface NexonAboutParagraph extends Struct.ComponentSchema {
-  collectionName: "components_nexon_about_paragraphs"
+  collectionName: 'components_nexon_about_paragraphs';
   info: {
-    displayName: "Nexon \u2014 P\u00E1rrafo institucional"
-  }
+    displayName: 'Nexon \u2014 P\u00E1rrafo institucional';
+  };
   attributes: {
     highlight: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     rest: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     text: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface NexonBentoServices extends Struct.ComponentSchema {
-  collectionName: "components_nexon_bento_services"
+  collectionName: 'components_nexon_bento_services';
   info: {
-    displayName: "Nexon \u2014 Servicios Bento"
-    icon: "grid"
-  }
+    displayName: 'Nexon \u2014 Servicios Bento';
+    icon: 'grid';
+  };
   attributes: {
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     heading: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     headingAccent: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     label: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    services: Schema.Attribute.Component<"nexon.service", true> &
-      Schema.Attribute.Required
-  }
+          localized: true;
+        };
+      }>;
+    services: Schema.Attribute.Component<'nexon.service', true> &
+      Schema.Attribute.Required;
+  };
 }
 
 export interface NexonContact extends Struct.ComponentSchema {
-  collectionName: "components_nexon_contacts"
+  collectionName: 'components_nexon_contacts';
   info: {
-    displayName: "Nexon \u2014 Contacto"
-    icon: "envelop"
-  }
+    displayName: 'Nexon \u2014 Contacto';
+    icon: 'envelop';
+  };
   attributes: {
     companyLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     companyPlaceholder: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     emailLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     emailPlaceholder: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     errorMessage: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    formActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
-    formSlug: Schema.Attribute.String & Schema.Attribute.DefaultTo<"contact">
+          localized: true;
+        };
+      }>;
+    formActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    formSlug: Schema.Attribute.String & Schema.Attribute.DefaultTo<'contact'>;
     heading: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     label: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     messageLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     messagePlaceholder: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     nameLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     namePlaceholder: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     phoneLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     phonePlaceholder: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     siteSlug: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<"nexon-group">
+      Schema.Attribute.DefaultTo<'nexon-group'>;
     submitLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     successMessage: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface NexonCustomerLogo extends Struct.ComponentSchema {
-  collectionName: "components_nexon_customer_logos_items"
+  collectionName: 'components_nexon_customer_logos_items';
   info: {
-    displayName: "Nexon \u2014 Cliente"
-    icon: "picture"
-  }
+    displayName: 'Nexon \u2014 Cliente';
+    icon: 'picture';
+  };
   attributes: {
-    image: Schema.Attribute.Media<"images">
-    name: Schema.Attribute.String & Schema.Attribute.Required
-  }
+    image: Schema.Attribute.Media<'images'>;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface NexonCustomerLogos extends Struct.ComponentSchema {
-  collectionName: "components_nexon_customer_logos"
+  collectionName: 'components_nexon_customer_logos';
   info: {
-    displayName: "Nexon \u2014 Clientes"
-    icon: "picture"
-  }
+    displayName: 'Nexon \u2014 Clientes';
+    icon: 'picture';
+  };
   attributes: {
-    logos: Schema.Attribute.Component<"nexon.customer-logo", true> &
-      Schema.Attribute.Required
+    logos: Schema.Attribute.Component<'nexon.customer-logo', true> &
+      Schema.Attribute.Required;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface NexonGrowthStories extends Struct.ComponentSchema {
-  collectionName: "components_nexon_growth_stories"
+  collectionName: 'components_nexon_growth_stories';
   info: {
-    displayName: "Nexon \u2014 Historias de crecimiento"
-    icon: "chartBubble"
-  }
+    displayName: 'Nexon \u2014 Historias de crecimiento';
+    icon: 'chartBubble';
+  };
   attributes: {
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     heading: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     headingAccent: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     label: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    stories: Schema.Attribute.Component<"nexon.growth-story", true> &
-      Schema.Attribute.Required
-  }
+          localized: true;
+        };
+      }>;
+    stories: Schema.Attribute.Component<'nexon.growth-story', true> &
+      Schema.Attribute.Required;
+  };
 }
 
 export interface NexonGrowthStory extends Struct.ComponentSchema {
-  collectionName: "components_nexon_growth_story_items"
+  collectionName: 'components_nexon_growth_story_items';
   info: {
-    displayName: "Nexon \u2014 Historia de crecimiento"
-    icon: "chartBubble"
-  }
+    displayName: 'Nexon \u2014 Historia de crecimiento';
+    icon: 'chartBubble';
+  };
   attributes: {
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     icon: Schema.Attribute.Enumeration<
-      ["Store", "Globe", "Rocket", "Megaphone", "BarChart2", "Handshake"]
+      ['Store', 'Globe', 'Rocket', 'Megaphone', 'BarChart2', 'Handshake']
     > &
-      Schema.Attribute.DefaultTo<"Store">
-    image: Schema.Attribute.Media<"images">
-    link: Schema.Attribute.String
-    metric: Schema.Attribute.String
+      Schema.Attribute.DefaultTo<'Store'>;
+    image: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
+    metric: Schema.Attribute.String;
     metricLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     visual: Schema.Attribute.Enumeration<
       [
-        "expansion",
-        "markets",
-        "startup",
-        "marketing",
-        "intelligence",
-        "alliances",
+        'expansion',
+        'markets',
+        'startup',
+        'marketing',
+        'intelligence',
+        'alliances',
       ]
     > &
-      Schema.Attribute.DefaultTo<"expansion">
-  }
+      Schema.Attribute.DefaultTo<'expansion'>;
+  };
 }
 
 export interface NexonHero extends Struct.ComponentSchema {
-  collectionName: "components_nexon_heroes"
+  collectionName: 'components_nexon_heroes';
   info: {
-    displayName: "Nexon \u2014 Hero"
-    icon: "landscape"
-  }
+    displayName: 'Nexon \u2014 Hero';
+    icon: 'landscape';
+  };
   attributes: {
-    ctaHref: Schema.Attribute.String & Schema.Attribute.Required
+    ctaHref: Schema.Attribute.String & Schema.Attribute.Required;
     ctaText: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     description: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     heading: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     headingAccent: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     navCta: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    navCtaHref: Schema.Attribute.String
-    particleCount: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<24>
-    watermark: Schema.Attribute.String & Schema.Attribute.DefaultTo<"NEXON">
-  }
+          localized: true;
+        };
+      }>;
+    navCtaHref: Schema.Attribute.String;
+    particleCount: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<24>;
+    watermark: Schema.Attribute.String & Schema.Attribute.DefaultTo<'NEXON'>;
+  };
 }
 
 export interface NexonMethodStep extends Struct.ComponentSchema {
-  collectionName: "components_nexon_method_steps"
+  collectionName: 'components_nexon_method_steps';
   info: {
-    displayName: "Nexon \u2014 Paso metodol\u00F3gico"
-    icon: "bulletList"
-  }
+    displayName: 'Nexon \u2014 Paso metodol\u00F3gico';
+    icon: 'bulletList';
+  };
   attributes: {
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     icon: Schema.Attribute.Enumeration<
-      ["Search", "BarChart2", "Crosshair", "Rocket", "Target"]
+      ['Search', 'BarChart2', 'Crosshair', 'Rocket', 'Target']
     > &
-      Schema.Attribute.DefaultTo<"Search">
-    image: Schema.Attribute.Media<"images">
-    number: Schema.Attribute.String & Schema.Attribute.Required
+      Schema.Attribute.DefaultTo<'Search'>;
+    image: Schema.Attribute.Media<'images'>;
+    number: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface NexonMethodology extends Struct.ComponentSchema {
-  collectionName: "components_nexon_methodologies"
+  collectionName: 'components_nexon_methodologies';
   info: {
-    displayName: "Nexon \u2014 Metodolog\u00EDa"
-    icon: "bulletList"
-  }
+    displayName: 'Nexon \u2014 Metodolog\u00EDa';
+    icon: 'bulletList';
+  };
   attributes: {
     bannerAccent: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     bannerStatement: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     heading: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     headingAccent: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     label: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    pillars: Schema.Attribute.Component<"nexon.pillar", true>
-    steps: Schema.Attribute.Component<"nexon.method-step", true> &
-      Schema.Attribute.Required
-  }
+          localized: true;
+        };
+      }>;
+    pillars: Schema.Attribute.Component<'nexon.pillar', true>;
+    steps: Schema.Attribute.Component<'nexon.method-step', true> &
+      Schema.Attribute.Required;
+  };
 }
 
 export interface NexonPillar extends Struct.ComponentSchema {
-  collectionName: "components_nexon_pillars"
+  collectionName: 'components_nexon_pillars';
   info: {
-    displayName: "Nexon \u2014 Pilar"
-    icon: "bulletList"
-  }
+    displayName: 'Nexon \u2014 Pilar';
+    icon: 'bulletList';
+  };
   attributes: {
-    icon: Schema.Attribute.Enumeration<["Users", "Zap", "TrendingUp"]> &
-      Schema.Attribute.DefaultTo<"Users">
+    icon: Schema.Attribute.Enumeration<['Users', 'Zap', 'TrendingUp']> &
+      Schema.Attribute.DefaultTo<'Users'>;
     text: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface NexonService extends Struct.ComponentSchema {
-  collectionName: "components_nexon_services"
+  collectionName: 'components_nexon_services';
   info: {
-    displayName: "Nexon \u2014 Servicio"
-    icon: "briefcase"
-  }
+    displayName: 'Nexon \u2014 Servicio';
+    icon: 'briefcase';
+  };
   attributes: {
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     icon: Schema.Attribute.Enumeration<
-      ["TrendingUp", "Target", "Handshake", "Zap", "Megaphone"]
+      ['TrendingUp', 'Target', 'Handshake', 'Zap', 'Megaphone']
     > &
-      Schema.Attribute.DefaultTo<"TrendingUp">
-    image: Schema.Attribute.Media<"images">
+      Schema.Attribute.DefaultTo<'TrendingUp'>;
+    image: Schema.Attribute.Media<'images'>;
     tag: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface NexonStat extends Struct.ComponentSchema {
-  collectionName: "components_nexon_stats"
+  collectionName: 'components_nexon_stats';
   info: {
-    displayName: "Nexon \u2014 Indicador"
-    icon: "chartBubble"
-  }
+    displayName: 'Nexon \u2014 Indicador';
+    icon: 'chartBubble';
+  };
   attributes: {
     icon: Schema.Attribute.Enumeration<
-      ["Building2", "BarChart3", "Target", "Globe2", "TrendingUp"]
+      ['Building2', 'BarChart3', 'Target', 'Globe2', 'TrendingUp']
     > &
-      Schema.Attribute.DefaultTo<"Building2">
+      Schema.Attribute.DefaultTo<'Building2'>;
     label: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    value: Schema.Attribute.String & Schema.Attribute.Required
-  }
+          localized: true;
+        };
+      }>;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SectionsAnimatedLogoRow extends Struct.ComponentSchema {
-  collectionName: "components_sections_animated_logo_rows"
+  collectionName: 'components_sections_animated_logo_rows';
   info: {
-    description: ""
-    displayName: "AnimatedLogoRow"
-  }
+    description: '';
+    displayName: 'AnimatedLogoRow';
+  };
   attributes: {
-    logos: Schema.Attribute.Component<"utilities.basic-image", true>
+    logos: Schema.Attribute.Component<'utilities.basic-image', true>;
     title: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
-        "plugin::ckeditor5.CKEditor",
+        'plugin::ckeditor5.CKEditor',
         {
-          preset: "defaultCkEditor"
+          preset: 'defaultCkEditor';
         }
-      >
-  }
+      >;
+  };
 }
 
 export interface SectionsBeforeAfterSlider extends Struct.ComponentSchema {
-  collectionName: "components_sections_before_after_sliders"
+  collectionName: 'components_sections_before_after_sliders';
   info: {
-    displayName: "Before and after slider"
-    icon: "picture"
-  }
+    displayName: 'Before and after slider';
+    icon: 'picture';
+  };
   attributes: {
-    afterImage: Schema.Attribute.Component<"utilities.basic-image", false> &
-      Schema.Attribute.Required
+    afterImage: Schema.Attribute.Component<'utilities.basic-image', false> &
+      Schema.Attribute.Required;
     afterLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    beforeImage: Schema.Attribute.Component<"utilities.basic-image", false> &
-      Schema.Attribute.Required
+          localized: true;
+        };
+      }>;
+    beforeImage: Schema.Attribute.Component<'utilities.basic-image', false> &
+      Schema.Attribute.Required;
     beforeLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     hint: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     sliderLabel: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     title: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface SectionsBenefitsSplit extends Struct.ComponentSchema {
-  collectionName: "components_sections_benefits_splits"
+  collectionName: 'components_sections_benefits_splits';
   info: {
-    displayName: "Benefits split"
-    icon: "layout"
-  }
+    displayName: 'Benefits split';
+    icon: 'layout';
+  };
   attributes: {
-    panels: Schema.Attribute.Component<"shared.benefit-panel", true> &
-      Schema.Attribute.Required
-    style: Schema.Attribute.Component<"ui.style", false>
-  }
+    panels: Schema.Attribute.Component<'shared.benefit-panel', true> &
+      Schema.Attribute.Required;
+    style: Schema.Attribute.Component<'ui.style', false>;
+  };
 }
 
 export interface SectionsCarousel extends Struct.ComponentSchema {
-  collectionName: "components_sections_carousels"
+  collectionName: 'components_sections_carousels';
   info: {
-    description: ""
-    displayName: "Carousel"
-  }
+    description: '';
+    displayName: 'Carousel';
+  };
   attributes: {
-    images: Schema.Attribute.Component<"utilities.image-with-link", true>
-    radius: Schema.Attribute.Enumeration<["sm", "md", "lg", "xl", "full"]>
-  }
+    images: Schema.Attribute.Component<'utilities.image-with-link', true>;
+    radius: Schema.Attribute.Enumeration<['sm', 'md', 'lg', 'xl', 'full']>;
+  };
 }
 
 export interface SectionsContentRichText extends Struct.ComponentSchema {
-  collectionName: "components_sections_content_rich_texts"
+  collectionName: 'components_sections_content_rich_texts';
   info: {
-    displayName: "Rich text"
-    icon: "align-left"
-  }
+    displayName: 'Rich text';
+    icon: 'align-left';
+  };
   attributes: {
     body: Schema.Attribute.RichText &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     eyebrow: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    motion: Schema.Attribute.Component<"ui.motion", false>
-    style: Schema.Attribute.Component<"ui.style", false>
+          localized: true;
+        };
+      }>;
+    motion: Schema.Attribute.Component<'ui.motion', false>;
+    style: Schema.Attribute.Component<'ui.style', false>;
     title: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface SectionsCta extends Struct.ComponentSchema {
-  collectionName: "components_sections_ctas"
+  collectionName: 'components_sections_ctas';
   info: {
-    displayName: "CTA"
-    icon: "cursor"
-  }
+    displayName: 'CTA';
+    icon: 'cursor';
+  };
   attributes: {
-    actions: Schema.Attribute.Component<"ui.link", true>
+    actions: Schema.Attribute.Component<'ui.link', true>;
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    motion: Schema.Attribute.Component<"ui.motion", false>
-    style: Schema.Attribute.Component<"ui.style", false>
+          localized: true;
+        };
+      }>;
+    motion: Schema.Attribute.Component<'ui.motion', false>;
+    style: Schema.Attribute.Component<'ui.style', false>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface SectionsCtaBanner extends Struct.ComponentSchema {
-  collectionName: "components_sections_cta_banners"
+  collectionName: 'components_sections_cta_banners';
   info: {
-    displayName: "CTABanner"
-  }
+    displayName: 'CTABanner';
+  };
   attributes: {
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
-        "plugin::ckeditor5.CKEditor",
+        'plugin::ckeditor5.CKEditor',
         {
-          preset: "defaultCkEditor"
+          preset: 'defaultCkEditor';
         }
-      >
+      >;
     features: Schema.Attribute.Component<
-      "shared.image-with-title-and-description",
+      'shared.image-with-title-and-description',
       true
-    >
-    links: Schema.Attribute.Component<"utilities.link", true>
+    >;
+    links: Schema.Attribute.Component<'utilities.link', true>;
     title: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
-        "plugin::ckeditor5.CKEditor",
+        'plugin::ckeditor5.CKEditor',
         {
-          preset: "defaultCkEditor"
+          preset: 'defaultCkEditor';
         }
-      >
-  }
+      >;
+  };
 }
 
 export interface SectionsFaq extends Struct.ComponentSchema {
-  collectionName: "components_sections_faqs"
+  collectionName: 'components_sections_faqs';
   info: {
-    description: ""
-    displayName: "Faq"
-  }
+    description: '';
+    displayName: 'Faq';
+  };
   attributes: {
-    accordions: Schema.Attribute.Component<"utilities.accordions", true>
-    image: Schema.Attribute.Component<"utilities.basic-image", false>
-    subTitle: Schema.Attribute.String
-    title: Schema.Attribute.String & Schema.Attribute.Required
-  }
+    accordions: Schema.Attribute.Component<'utilities.accordions', true>;
+    image: Schema.Attribute.Component<'utilities.basic-image', false>;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SectionsFeatureGrid extends Struct.ComponentSchema {
-  collectionName: "components_sections_feature_grids"
+  collectionName: 'components_sections_feature_grids';
   info: {
-    displayName: "Feature grid"
-    icon: "grid"
-  }
+    displayName: 'Feature grid';
+    icon: 'grid';
+  };
   attributes: {
     columnsDesktop: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {
-          max: 6
-          min: 1
+          max: 6;
+          min: 1;
         },
         number
       > &
-      Schema.Attribute.DefaultTo<3>
+      Schema.Attribute.DefaultTo<3>;
     columnsMobile: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {
-          max: 2
-          min: 1
+          max: 2;
+          min: 1;
         },
         number
       > &
-      Schema.Attribute.DefaultTo<1>
+      Schema.Attribute.DefaultTo<1>;
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     eyebrow: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    items: Schema.Attribute.Component<"sections.feature-item", true> &
-      Schema.Attribute.Required
-    motion: Schema.Attribute.Component<"ui.motion", false>
-    style: Schema.Attribute.Component<"ui.style", false>
+          localized: true;
+        };
+      }>;
+    items: Schema.Attribute.Component<'sections.feature-item', true> &
+      Schema.Attribute.Required;
+    motion: Schema.Attribute.Component<'ui.motion', false>;
+    style: Schema.Attribute.Component<'ui.style', false>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface SectionsFeatureItem extends Struct.ComponentSchema {
-  collectionName: "components_sections_feature_items"
+  collectionName: 'components_sections_feature_items';
   info: {
-    displayName: "Feature item"
-    icon: "star"
-  }
+    displayName: 'Feature item';
+    icon: 'star';
+  };
   attributes: {
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    icon: Schema.Attribute.String
-    link: Schema.Attribute.Component<"ui.link", false>
+          localized: true;
+        };
+      }>;
+    icon: Schema.Attribute.String;
+    link: Schema.Attribute.Component<'ui.link', false>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface SectionsFeaturesList extends Struct.ComponentSchema {
-  collectionName: "components_sections_features_lists"
+  collectionName: 'components_sections_features_lists';
   info: {
-    displayName: "FeaturesList"
-  }
+    displayName: 'FeaturesList';
+  };
   attributes: {
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
-        "plugin::ckeditor5.CKEditor",
+        'plugin::ckeditor5.CKEditor',
         {
-          preset: "defaultCkEditor"
+          preset: 'defaultCkEditor';
         }
-      >
+      >;
     features: Schema.Attribute.Component<
-      "shared.image-with-title-and-description",
+      'shared.image-with-title-and-description',
       true
-    >
-    listStyle: Schema.Attribute.Enumeration<["boxGrid", "grid", "list"]> &
-      Schema.Attribute.DefaultTo<"list">
-    mainImage: Schema.Attribute.Component<"shared.image-with-config", false>
+    >;
+    listStyle: Schema.Attribute.Enumeration<['boxGrid', 'grid', 'list']> &
+      Schema.Attribute.DefaultTo<'list'>;
+    mainImage: Schema.Attribute.Component<'shared.image-with-config', false>;
     title: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
-        "plugin::ckeditor5.CKEditor",
+        'plugin::ckeditor5.CKEditor',
         {
-          preset: "defaultCkEditor"
+          preset: 'defaultCkEditor';
         }
-      >
-  }
+      >;
+  };
 }
 
 export interface SectionsGallery extends Struct.ComponentSchema {
-  collectionName: "components_sections_galleries"
+  collectionName: 'components_sections_galleries';
   info: {
-    displayName: "Gallery"
-    icon: "images"
-  }
+    displayName: 'Gallery';
+    icon: 'images';
+  };
   attributes: {
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    images: Schema.Attribute.Media<"images", true> & Schema.Attribute.Required
-    layout: Schema.Attribute.Enumeration<["grid", "masonry", "carousel"]> &
-      Schema.Attribute.DefaultTo<"grid">
-    motion: Schema.Attribute.Component<"ui.motion", false>
-    style: Schema.Attribute.Component<"ui.style", false>
+          localized: true;
+        };
+      }>;
+    images: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
+    layout: Schema.Attribute.Enumeration<['grid', 'masonry', 'carousel']> &
+      Schema.Attribute.DefaultTo<'grid'>;
+    motion: Schema.Attribute.Component<'ui.motion', false>;
+    style: Schema.Attribute.Component<'ui.style', false>;
     title: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface SectionsHeadingWithCtaButton extends Struct.ComponentSchema {
-  collectionName: "components_sections_heading_with_cta_buttons"
+  collectionName: 'components_sections_heading_with_cta_buttons';
   info: {
-    description: ""
-    displayName: "HeadingWithCTAButton"
-  }
+    description: '';
+    displayName: 'HeadingWithCTAButton';
+  };
   attributes: {
-    cta: Schema.Attribute.Component<"utilities.link", false>
-    subText: Schema.Attribute.String
-    title: Schema.Attribute.String & Schema.Attribute.Required
-  }
+    cta: Schema.Attribute.Component<'utilities.link', false>;
+    subText: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SectionsHero extends Struct.ComponentSchema {
-  collectionName: "components_sections_heroes"
+  collectionName: 'components_sections_heroes';
   info: {
-    description: ""
-    displayName: "Hero"
-  }
+    description: '';
+    displayName: 'Hero';
+  };
   attributes: {
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    links: Schema.Attribute.Component<"utilities.link", true>
+          localized: true;
+        };
+      }>;
+    links: Schema.Attribute.Component<'utilities.link', true>;
     note: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     tag: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     title: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface SectionsHeroFeatured extends Struct.ComponentSchema {
-  collectionName: "components_sections_hero_featureds"
+  collectionName: 'components_sections_hero_featureds';
   info: {
-    displayName: "Featured hero"
-    icon: "landscape"
-  }
+    displayName: 'Featured hero';
+    icon: 'landscape';
+  };
   attributes: {
-    actions: Schema.Attribute.Component<"ui.link", true>
-    description: Schema.Attribute.Text
-    eyebrow: Schema.Attribute.String
-    image: Schema.Attribute.Component<"utilities.basic-image", false>
-    perks: Schema.Attribute.Component<"shared.hero-perk", true>
-    style: Schema.Attribute.Component<"ui.style", false>
-    title: Schema.Attribute.String & Schema.Attribute.Required
-  }
+    actions: Schema.Attribute.Component<'ui.link', true>;
+    description: Schema.Attribute.Text;
+    eyebrow: Schema.Attribute.String;
+    image: Schema.Attribute.Component<'utilities.basic-image', false>;
+    perks: Schema.Attribute.Component<'shared.hero-perk', true>;
+    style: Schema.Attribute.Component<'ui.style', false>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SectionsHeroMedia extends Struct.ComponentSchema {
-  collectionName: "components_sections_hero_medias"
+  collectionName: 'components_sections_hero_medias';
   info: {
-    displayName: "Hero with media"
-    icon: "landscape"
-  }
+    displayName: 'Hero with media';
+    icon: 'landscape';
+  };
   attributes: {
-    actions: Schema.Attribute.Component<"ui.link", true>
-    alignment: Schema.Attribute.Enumeration<["left", "center"]> &
-      Schema.Attribute.DefaultTo<"left">
+    actions: Schema.Attribute.Component<'ui.link', true>;
+    alignment: Schema.Attribute.Enumeration<['left', 'center']> &
+      Schema.Attribute.DefaultTo<'left'>;
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     eyebrow: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    image: Schema.Attribute.Media<"images">
-    perks: Schema.Attribute.Component<"shared.hero-perk", true>
-    poster: Schema.Attribute.Media<"images">
+          localized: true;
+        };
+      }>;
+    image: Schema.Attribute.Media<'images'>;
+    perks: Schema.Attribute.Component<'shared.hero-perk', true>;
+    poster: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    video: Schema.Attribute.Media<"videos">
-    videoUrl: Schema.Attribute.String
-  }
+          localized: true;
+        };
+      }>;
+    video: Schema.Attribute.Media<'videos'>;
+    videoUrl: Schema.Attribute.String;
+  };
 }
 
 export interface SectionsHeroStandard extends Struct.ComponentSchema {
-  collectionName: "components_sections_hero_standards"
+  collectionName: 'components_sections_hero_standards';
   info: {
-    displayName: "Standard hero"
-    icon: "picture"
-  }
+    displayName: 'Standard hero';
+    icon: 'picture';
+  };
   attributes: {
-    actions: Schema.Attribute.Component<"ui.link", true>
-    alignment: Schema.Attribute.Enumeration<["left", "center", "right"]> &
-      Schema.Attribute.DefaultTo<"left">
+    actions: Schema.Attribute.Component<'ui.link', true>;
+    alignment: Schema.Attribute.Enumeration<['left', 'center', 'right']> &
+      Schema.Attribute.DefaultTo<'left'>;
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     eyebrow: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    image: Schema.Attribute.Media<"images">
-    motion: Schema.Attribute.Component<"ui.motion", false>
-    style: Schema.Attribute.Component<"ui.style", false>
+          localized: true;
+        };
+      }>;
+    image: Schema.Attribute.Media<'images'>;
+    motion: Schema.Attribute.Component<'ui.motion', false>;
+    style: Schema.Attribute.Component<'ui.style', false>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface SectionsImageWithCtaButton extends Struct.ComponentSchema {
-  collectionName: "components_sections_image_with_cta_buttons"
+  collectionName: 'components_sections_image_with_cta_buttons';
   info: {
-    description: ""
-    displayName: "ImageWithCTAButton"
-  }
+    description: '';
+    displayName: 'ImageWithCTAButton';
+  };
   attributes: {
-    image: Schema.Attribute.Component<"utilities.basic-image", false>
-    link: Schema.Attribute.Component<"utilities.link", false>
-    subText: Schema.Attribute.String
-    title: Schema.Attribute.String & Schema.Attribute.Required
-  }
+    image: Schema.Attribute.Component<'utilities.basic-image', false>;
+    link: Schema.Attribute.Component<'utilities.link', false>;
+    subText: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SectionsLogoCloud extends Struct.ComponentSchema {
-  collectionName: "components_sections_logo_clouds"
+  collectionName: 'components_sections_logo_clouds';
   info: {
-    displayName: "Logo cloud"
-    icon: "picture"
-  }
+    displayName: 'Logo cloud';
+    icon: 'picture';
+  };
   attributes: {
-    description: Schema.Attribute.Text
-    eyebrow: Schema.Attribute.String
-    layout: Schema.Attribute.Enumeration<["strip", "grid"]> &
-      Schema.Attribute.DefaultTo<"grid">
-    logos: Schema.Attribute.Component<"shared.logo-item", true> &
-      Schema.Attribute.Required
-    style: Schema.Attribute.Component<"ui.style", false>
-    title: Schema.Attribute.String & Schema.Attribute.Required
-  }
+    description: Schema.Attribute.Text;
+    eyebrow: Schema.Attribute.String;
+    layout: Schema.Attribute.Enumeration<['strip', 'grid']> &
+      Schema.Attribute.DefaultTo<'grid'>;
+    logos: Schema.Attribute.Component<'shared.logo-item', true> &
+      Schema.Attribute.Required;
+    style: Schema.Attribute.Component<'ui.style', false>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SectionsMissionVision extends Struct.ComponentSchema {
-  collectionName: "components_sections_mission_visions"
+  collectionName: 'components_sections_mission_visions';
   info: {
-    displayName: "Mission and vision"
-    icon: "picture"
-  }
+    displayName: 'Mission and vision';
+    icon: 'picture';
+  };
   attributes: {
     heading: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     missionDescription: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    missionImage: Schema.Attribute.Media<"images">
+          localized: true;
+        };
+      }>;
+    missionImage: Schema.Attribute.Media<'images'>;
     missionTitle: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    values: Schema.Attribute.Component<"utilities.text", true> &
+          localized: true;
+        };
+      }>;
+    values: Schema.Attribute.Component<'utilities.text', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     valuesTitle: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     visionDescription: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    visionImage: Schema.Attribute.Media<"images">
+          localized: true;
+        };
+      }>;
+    visionImage: Schema.Attribute.Media<'images'>;
     visionTitle: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface SectionsPortfolioProjects extends Struct.ComponentSchema {
-  collectionName: "components_sections_portfolio_projects"
+  collectionName: 'components_sections_portfolio_projects';
   info: {
-    displayName: "Portfolio projects"
-    icon: "grid"
-  }
+    displayName: 'Portfolio projects';
+    icon: 'grid';
+  };
   attributes: {
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     projects: Schema.Attribute.Relation<
-      "manyToMany",
-      "api::portfolio-project.portfolio-project"
+      'manyToMany',
+      'api::portfolio-project.portfolio-project'
     > &
-      Schema.Attribute.Required
+      Schema.Attribute.Required;
     title: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     variant: Schema.Attribute.Enumeration<
-      ["featured", "grid", "featured-plus-grid"]
+      ['featured', 'grid', 'featured-plus-grid']
     > &
-      Schema.Attribute.DefaultTo<"grid">
-    viewAllAction: Schema.Attribute.Component<"ui.link", false>
-  }
+      Schema.Attribute.DefaultTo<'grid'>;
+    viewAllAction: Schema.Attribute.Component<'ui.link', false>;
+  };
 }
 
 export interface SectionsProcessSteps extends Struct.ComponentSchema {
-  collectionName: "components_sections_process_steps"
+  collectionName: 'components_sections_process_steps';
   info: {
-    displayName: "Process steps"
-    icon: "bulletList"
-  }
+    displayName: 'Process steps';
+    icon: 'bulletList';
+  };
   attributes: {
-    description: Schema.Attribute.Text
-    steps: Schema.Attribute.Component<"shared.process-step", true> &
-      Schema.Attribute.Required
-    style: Schema.Attribute.Component<"ui.style", false>
-    title: Schema.Attribute.String & Schema.Attribute.Required
-  }
+    description: Schema.Attribute.Text;
+    steps: Schema.Attribute.Component<'shared.process-step', true> &
+      Schema.Attribute.Required;
+    style: Schema.Attribute.Component<'ui.style', false>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SectionsProductGrid extends Struct.ComponentSchema {
-  collectionName: "components_sections_product_grids"
+  collectionName: 'components_sections_product_grids';
   info: {
-    displayName: "Product grid"
-    icon: "grid"
-  }
+    displayName: 'Product grid';
+    icon: 'grid';
+  };
   attributes: {
-    description: Schema.Attribute.Text
-    products: Schema.Attribute.Component<"shared.product-card", true> &
-      Schema.Attribute.Required
-    style: Schema.Attribute.Component<"ui.style", false>
-    title: Schema.Attribute.String & Schema.Attribute.Required
-  }
+    description: Schema.Attribute.Text;
+    products: Schema.Attribute.Component<'shared.product-card', true> &
+      Schema.Attribute.Required;
+    style: Schema.Attribute.Component<'ui.style', false>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SectionsSecurityBlock extends Struct.ComponentSchema {
-  collectionName: "components_sections_security_blocks"
+  collectionName: 'components_sections_security_blocks';
   info: {
-    displayName: "Security block"
-    icon: "shield"
-  }
+    displayName: 'Security block';
+    icon: 'shield';
+  };
   attributes: {
-    description: Schema.Attribute.Text
-    eyebrow: Schema.Attribute.String
-    image: Schema.Attribute.Component<"utilities.basic-image", false>
-    points: Schema.Attribute.Component<"shared.security-point", true>
-    style: Schema.Attribute.Component<"ui.style", false>
-    supportingTitle: Schema.Attribute.String
-    title: Schema.Attribute.String & Schema.Attribute.Required
-  }
+    description: Schema.Attribute.Text;
+    eyebrow: Schema.Attribute.String;
+    image: Schema.Attribute.Component<'utilities.basic-image', false>;
+    points: Schema.Attribute.Component<'shared.security-point', true>;
+    style: Schema.Attribute.Component<'ui.style', false>;
+    supportingTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SectionsServicesHub extends Struct.ComponentSchema {
-  collectionName: "components_sections_services_hubs"
+  collectionName: 'components_sections_services_hubs';
   info: {
-    displayName: "Services hub"
-    icon: "cube"
-  }
+    displayName: 'Services hub';
+    icon: 'cube';
+  };
   attributes: {
     benefitsTitle: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    cards: Schema.Attribute.Component<"shared.service-card", true> &
-      Schema.Attribute.Required
+          localized: true;
+        };
+      }>;
+    cards: Schema.Attribute.Component<'shared.service-card', true> &
+      Schema.Attribute.Required;
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     heading: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     relatedProjectLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     specialtiesTitle: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface SectionsStatistics extends Struct.ComponentSchema {
-  collectionName: "components_sections_statistics"
+  collectionName: 'components_sections_statistics';
   info: {
-    displayName: "Statistics"
-  }
+    displayName: 'Statistics';
+  };
   attributes: {
-    description: Schema.Attribute.Text
-    figures: Schema.Attribute.Component<"shared.figure", true>
-    style: Schema.Attribute.Component<"ui.style", false>
-    title: Schema.Attribute.String
-  }
+    description: Schema.Attribute.Text;
+    figures: Schema.Attribute.Component<'shared.figure', true>;
+    style: Schema.Attribute.Component<'ui.style', false>;
+    title: Schema.Attribute.String;
+  };
 }
 
 export interface SectionsTestimonials extends Struct.ComponentSchema {
-  collectionName: "components_sections_testimonials"
+  collectionName: 'components_sections_testimonials';
   info: {
-    displayName: "Testimonials"
-    icon: "discuss"
-  }
+    displayName: 'Testimonials';
+    icon: 'discuss';
+  };
   attributes: {
-    description: Schema.Attribute.Text
-    items: Schema.Attribute.Component<"shared.testimonial", true> &
-      Schema.Attribute.Required
-    title: Schema.Attribute.String & Schema.Attribute.Required
-  }
+    description: Schema.Attribute.Text;
+    items: Schema.Attribute.Component<'shared.testimonial', true> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SectionsVideo extends Struct.ComponentSchema {
-  collectionName: "components_sections_videos"
+  collectionName: 'components_sections_videos';
   info: {
-    displayName: "Video"
-    icon: "video"
-  }
+    displayName: 'Video';
+    icon: 'video';
+  };
   attributes: {
-    autoplay: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
+    autoplay: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    loop: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
-    motion: Schema.Attribute.Component<"ui.motion", false>
-    muted: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>
-    poster: Schema.Attribute.Media<"images">
-    style: Schema.Attribute.Component<"ui.style", false>
+          localized: true;
+        };
+      }>;
+    loop: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    motion: Schema.Attribute.Component<'ui.motion', false>;
+    muted: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    poster: Schema.Attribute.Media<'images'>;
+    style: Schema.Attribute.Component<'ui.style', false>;
     title: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    videoUrl: Schema.Attribute.String & Schema.Attribute.Required
-  }
+          localized: true;
+        };
+      }>;
+    videoUrl: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SeoUtilitiesSeo extends Struct.ComponentSchema {
-  collectionName: "components_seo_utilities_seos"
+  collectionName: 'components_seo_utilities_seos';
   info: {
-    description: ""
-    displayName: "Seo"
-    icon: "search"
-  }
+    description: '';
+    displayName: 'Seo';
+    icon: 'search';
+  };
   attributes: {
-    applicationName: Schema.Attribute.String
-    canonicalUrl: Schema.Attribute.String
-    keywords: Schema.Attribute.Text
+    applicationName: Schema.Attribute.String;
+    canonicalUrl: Schema.Attribute.String;
+    keywords: Schema.Attribute.Text;
     metaDescription: Schema.Attribute.String &
       Schema.Attribute.SetMinMaxLength<{
-        maxLength: 160
-      }>
-    metaImage: Schema.Attribute.Media<"images">
+        maxLength: 160;
+      }>;
+    metaImage: Schema.Attribute.Media<'images'>;
     metaRobots: Schema.Attribute.Enumeration<
       [
-        "all",
-        "index",
-        "index,follow",
-        "noindex",
-        "noindex,follow",
-        "noindex,nofollow",
-        "none",
-        "noarchive",
-        "nosnippet",
-        "max-snippet",
+        'all',
+        'index',
+        'index,follow',
+        'noindex',
+        'noindex,follow',
+        'noindex,nofollow',
+        'none',
+        'noarchive',
+        'nosnippet',
+        'max-snippet',
       ]
     > &
-      Schema.Attribute.DefaultTo<"all">
+      Schema.Attribute.DefaultTo<'all'>;
     metaTitle: Schema.Attribute.String &
       Schema.Attribute.SetMinMaxLength<{
-        maxLength: 60
-      }>
-    og: Schema.Attribute.Component<"seo-utilities.seo-og", false>
-    structuredData: Schema.Attribute.JSON
-    twitter: Schema.Attribute.Component<"seo-utilities.seo-twitter", false>
-  }
+        maxLength: 60;
+      }>;
+    og: Schema.Attribute.Component<'seo-utilities.seo-og', false>;
+    structuredData: Schema.Attribute.JSON;
+    twitter: Schema.Attribute.Component<'seo-utilities.seo-twitter', false>;
+  };
 }
 
 export interface SeoUtilitiesSeoOg extends Struct.ComponentSchema {
-  collectionName: "components_seo_utilities_seo_ogs"
+  collectionName: 'components_seo_utilities_seo_ogs';
   info: {
-    displayName: "SeoOg"
-    icon: "oneToMany"
-  }
+    displayName: 'SeoOg';
+    icon: 'oneToMany';
+  };
   attributes: {
-    description: Schema.Attribute.String
-    image: Schema.Attribute.Media<"images">
-    siteName: Schema.Attribute.String
-    title: Schema.Attribute.String
-    type: Schema.Attribute.Enumeration<["website", "article"]> &
-      Schema.Attribute.DefaultTo<"website">
-    url: Schema.Attribute.String
-  }
+    description: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    siteName: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<['website', 'article']> &
+      Schema.Attribute.DefaultTo<'website'>;
+    url: Schema.Attribute.String;
+  };
 }
 
 export interface SeoUtilitiesSeoTwitter extends Struct.ComponentSchema {
-  collectionName: "components_seo_utilities_seo_twitters"
+  collectionName: 'components_seo_utilities_seo_twitters';
   info: {
-    displayName: "SeoTwitter"
-    icon: "oneToMany"
-  }
+    displayName: 'SeoTwitter';
+    icon: 'oneToMany';
+  };
   attributes: {
-    card: Schema.Attribute.String
-    creator: Schema.Attribute.String
-    creatorId: Schema.Attribute.String
-    description: Schema.Attribute.String
-    images: Schema.Attribute.Media<"images", true>
-    siteId: Schema.Attribute.String
-    title: Schema.Attribute.String
-  }
+    card: Schema.Attribute.String;
+    creator: Schema.Attribute.String;
+    creatorId: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+    images: Schema.Attribute.Media<'images', true>;
+    siteId: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
 }
 
 export interface SeoUtilitiesSocialIcons extends Struct.ComponentSchema {
-  collectionName: "components_seo_utilities_social_icons"
+  collectionName: 'components_seo_utilities_social_icons';
   info: {
-    displayName: "SocialIcons"
-  }
+    displayName: 'SocialIcons';
+  };
   attributes: {
-    socials: Schema.Attribute.Component<"utilities.image-with-link", true>
-    title: Schema.Attribute.String
-  }
+    socials: Schema.Attribute.Component<'utilities.image-with-link', true>;
+    title: Schema.Attribute.String;
+  };
 }
 
 export interface SeoMetadata extends Struct.ComponentSchema {
-  collectionName: "components_seo_metadata"
+  collectionName: 'components_seo_metadata';
   info: {
-    displayName: "SEO metadata"
-    icon: "search"
-  }
+    displayName: 'SEO metadata';
+    icon: 'search';
+  };
   attributes: {
-    canonicalUrl: Schema.Attribute.String
+    canonicalUrl: Schema.Attribute.String;
     keywords: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     metaDescription: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     metaTitle: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    noFollow: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
-    noIndex: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
-    shareImage: Schema.Attribute.Media<"images">
-  }
+          localized: true;
+        };
+      }>;
+    noFollow: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    noIndex: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    shareImage: Schema.Attribute.Media<'images'>;
+  };
 }
 
 export interface SharedBenefitPanel extends Struct.ComponentSchema {
-  collectionName: "components_shared_benefit_panels"
+  collectionName: 'components_shared_benefit_panels';
   info: {
-    displayName: "Benefit panel"
-    icon: "grid"
-  }
+    displayName: 'Benefit panel';
+    icon: 'grid';
+  };
   attributes: {
-    benefits: Schema.Attribute.Component<"utilities.text", true>
-    description: Schema.Attribute.Text
-    eyebrow: Schema.Attribute.String
-    image: Schema.Attribute.Component<"utilities.basic-image", false>
-    title: Schema.Attribute.String & Schema.Attribute.Required
-  }
+    benefits: Schema.Attribute.Component<'utilities.text', true>;
+    description: Schema.Attribute.Text;
+    eyebrow: Schema.Attribute.String;
+    image: Schema.Attribute.Component<'utilities.basic-image', false>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SharedFigure extends Struct.ComponentSchema {
-  collectionName: "components_shared_figures"
+  collectionName: 'components_shared_figures';
   info: {
-    displayName: "Figure"
-  }
+    displayName: 'Figure';
+  };
   attributes: {
-    description: Schema.Attribute.String
-    number: Schema.Attribute.BigInteger
-    prefix: Schema.Attribute.String
-    suffix: Schema.Attribute.String
-  }
+    description: Schema.Attribute.String;
+    number: Schema.Attribute.BigInteger;
+    prefix: Schema.Attribute.String;
+    suffix: Schema.Attribute.String;
+  };
 }
 
 export interface SharedHeroPerk extends Struct.ComponentSchema {
-  collectionName: "components_shared_hero_perks"
+  collectionName: 'components_shared_hero_perks';
   info: {
-    displayName: "Hero perk"
-    icon: "spark"
-  }
+    displayName: 'Hero perk';
+    icon: 'spark';
+  };
   attributes: {
-    description: Schema.Attribute.String
-    icon: Schema.Attribute.Enumeration<["zap", "shield-check", "user-round"]> &
-      Schema.Attribute.DefaultTo<"zap">
-    title: Schema.Attribute.String & Schema.Attribute.Required
-  }
+    description: Schema.Attribute.String;
+    icon: Schema.Attribute.Enumeration<['zap', 'shield-check', 'user-round']> &
+      Schema.Attribute.DefaultTo<'zap'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SharedImageWithConfig extends Struct.ComponentSchema {
-  collectionName: "components_shared_image_with_configs"
+  collectionName: 'components_shared_image_with_configs';
   info: {
-    displayName: "ImageWithConfig"
-  }
+    displayName: 'ImageWithConfig';
+  };
   attributes: {
-    image: Schema.Attribute.Component<"utilities.basic-image", false>
-    position: Schema.Attribute.Enumeration<["left", "right"]>
-  }
+    image: Schema.Attribute.Component<'utilities.basic-image', false>;
+    position: Schema.Attribute.Enumeration<['left', 'right']>;
+  };
 }
 
 export interface SharedImageWithTitleAndDescription
   extends Struct.ComponentSchema {
-  collectionName: "components_shared_image_with_title_and_descriptions"
+  collectionName: 'components_shared_image_with_title_and_descriptions';
   info: {
-    displayName: "ImageWithTitleAndDescription"
-  }
+    displayName: 'ImageWithTitleAndDescription';
+  };
   attributes: {
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
-        "plugin::ckeditor5.CKEditor",
+        'plugin::ckeditor5.CKEditor',
         {
-          preset: "defaultCkEditor"
+          preset: 'defaultCkEditor';
         }
-      >
-    image: Schema.Attribute.Component<"utilities.basic-image", false>
+      >;
+    image: Schema.Attribute.Component<'utilities.basic-image', false>;
     title: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
-        "plugin::ckeditor5.CKEditor",
+        'plugin::ckeditor5.CKEditor',
         {
-          preset: "defaultCkEditor"
+          preset: 'defaultCkEditor';
         }
-      >
-  }
+      >;
+  };
 }
 
 export interface SharedLogoItem extends Struct.ComponentSchema {
-  collectionName: "components_shared_logo_items"
+  collectionName: 'components_shared_logo_items';
   info: {
-    displayName: "Logo item"
-    icon: "picture"
-  }
+    displayName: 'Logo item';
+    icon: 'picture';
+  };
   attributes: {
-    href: Schema.Attribute.String
-    image: Schema.Attribute.Component<"utilities.basic-image", false> &
-      Schema.Attribute.Required
-  }
+    href: Schema.Attribute.String;
+    image: Schema.Attribute.Component<'utilities.basic-image', false> &
+      Schema.Attribute.Required;
+  };
 }
 
 export interface SharedProcessStep extends Struct.ComponentSchema {
-  collectionName: "components_shared_process_steps"
+  collectionName: 'components_shared_process_steps';
   info: {
-    displayName: "Process step"
-    icon: "bulletList"
-  }
+    displayName: 'Process step';
+    icon: 'bulletList';
+  };
   attributes: {
-    description: Schema.Attribute.Text
-    icon: Schema.Attribute.Component<"utilities.basic-image", false>
-    title: Schema.Attribute.String & Schema.Attribute.Required
-  }
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Component<'utilities.basic-image', false>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SharedProductCard extends Struct.ComponentSchema {
-  collectionName: "components_shared_product_cards"
+  collectionName: 'components_shared_product_cards';
   info: {
-    displayName: "Product card"
-    icon: "cube"
-  }
+    displayName: 'Product card';
+    icon: 'cube';
+  };
   attributes: {
-    action: Schema.Attribute.Component<"ui.link", false>
-    description: Schema.Attribute.Text
-    image: Schema.Attribute.Component<"utilities.basic-image", false>
-    title: Schema.Attribute.String & Schema.Attribute.Required
-  }
+    action: Schema.Attribute.Component<'ui.link', false>;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Component<'utilities.basic-image', false>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SharedSecurityPoint extends Struct.ComponentSchema {
-  collectionName: "components_shared_security_points"
+  collectionName: 'components_shared_security_points';
   info: {
-    displayName: "Security point"
-    icon: "shield"
-  }
+    displayName: 'Security point';
+    icon: 'shield';
+  };
   attributes: {
-    description: Schema.Attribute.Text
+    description: Schema.Attribute.Text;
     icon: Schema.Attribute.Enumeration<
-      ["eye", "shield-check", "search-check", "badge-check"]
+      ['eye', 'shield-check', 'search-check', 'badge-check']
     > &
-      Schema.Attribute.DefaultTo<"shield-check">
-    title: Schema.Attribute.String & Schema.Attribute.Required
-  }
+      Schema.Attribute.DefaultTo<'shield-check'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SharedServiceCard extends Struct.ComponentSchema {
-  collectionName: "components_shared_service_cards"
+  collectionName: 'components_shared_service_cards';
   info: {
-    displayName: "Service card"
-    icon: "cube"
-  }
+    displayName: 'Service card';
+    icon: 'cube';
+  };
   attributes: {
-    action: Schema.Attribute.Component<"ui.link", false>
-    benefits: Schema.Attribute.Component<"shared.service-label", true> &
+    action: Schema.Attribute.Component<'ui.link', false>;
+    benefits: Schema.Attribute.Component<'shared.service-label', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    image: Schema.Attribute.Component<"utilities.basic-image", false>
+          localized: true;
+        };
+      }>;
+    image: Schema.Attribute.Component<'utilities.basic-image', false>;
     relatedProject: Schema.Attribute.Relation<
-      "oneToOne",
-      "api::portfolio-project.portfolio-project"
-    >
+      'oneToOne',
+      'api::portfolio-project.portfolio-project'
+    >;
     relatedProjectLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    specialties: Schema.Attribute.Component<"shared.service-label", true> &
+          localized: true;
+        };
+      }>;
+    specialties: Schema.Attribute.Component<'shared.service-label', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     whatWeDo: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface SharedServiceLabel extends Struct.ComponentSchema {
-  collectionName: "components_shared_service_labels"
+  collectionName: 'components_shared_service_labels';
   info: {
-    displayName: "Service label"
-    icon: "bulletList"
-  }
+    displayName: 'Service label';
+    icon: 'bulletList';
+  };
   attributes: {
     label: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface SharedTechnology extends Struct.ComponentSchema {
-  collectionName: "components_shared_technologies"
+  collectionName: 'components_shared_technologies';
   info: {
-    displayName: "Technology"
-    icon: "stack"
-  }
+    displayName: 'Technology';
+    icon: 'stack';
+  };
   attributes: {
     label: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface SharedTestimonial extends Struct.ComponentSchema {
-  collectionName: "components_shared_testimonials"
+  collectionName: 'components_shared_testimonials';
   info: {
-    displayName: "Testimonial"
-    icon: "discuss"
-  }
+    displayName: 'Testimonial';
+    icon: 'discuss';
+  };
   attributes: {
-    authorName: Schema.Attribute.String & Schema.Attribute.Required
-    authorRole: Schema.Attribute.String
-    avatar: Schema.Attribute.Component<"utilities.basic-image", false>
-    quote: Schema.Attribute.Text & Schema.Attribute.Required
-  }
+    authorName: Schema.Attribute.String & Schema.Attribute.Required;
+    authorRole: Schema.Attribute.String;
+    avatar: Schema.Attribute.Component<'utilities.basic-image', false>;
+    quote: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
 }
 
 export interface SiteFooterConfig extends Struct.ComponentSchema {
-  collectionName: "components_site_footer_configs"
+  collectionName: 'components_site_footer_configs';
   info: {
-    displayName: "Footer config"
-    icon: "layout"
-  }
+    displayName: 'Footer config';
+    icon: 'layout';
+  };
   attributes: {
-    columns: Schema.Attribute.Component<"site.navigation-column", true>
+    columns: Schema.Attribute.Component<'site.navigation-column', true>;
     copyright: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
+          localized: true;
+        };
+      }>;
     description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    legalLinks: Schema.Attribute.Component<"ui.link", true>
-    showSocialLinks: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>
-  }
+          localized: true;
+        };
+      }>;
+    legalLinks: Schema.Attribute.Component<'ui.link', true>;
+    showSocialLinks: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+  };
 }
 
 export interface SiteHeaderConfig extends Struct.ComponentSchema {
-  collectionName: "components_site_header_configs"
+  collectionName: 'components_site_header_configs';
   info: {
-    displayName: "Header config"
-    icon: "layout"
-  }
+    displayName: 'Header config';
+    icon: 'layout';
+  };
   attributes: {
-    cta: Schema.Attribute.Component<"ui.link", false>
-    logoVariant: Schema.Attribute.Enumeration<["default", "light", "dark"]> &
-      Schema.Attribute.DefaultTo<"default">
-    navigation: Schema.Attribute.Component<"site.navigation-item", true>
-    showCta: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
+    cta: Schema.Attribute.Component<'ui.link', false>;
+    logoVariant: Schema.Attribute.Enumeration<['default', 'light', 'dark']> &
+      Schema.Attribute.DefaultTo<'default'>;
+    navigation: Schema.Attribute.Component<'site.navigation-item', true>;
+    showCta: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     showLanguageSwitcher: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<true>
-    showSearch: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
-  }
+      Schema.Attribute.DefaultTo<true>;
+    showSearch: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
 }
 
 export interface SiteLocaleConfig extends Struct.ComponentSchema {
-  collectionName: "components_site_locale_configs"
+  collectionName: 'components_site_locale_configs';
   info: {
-    displayName: "Locale config"
-    icon: "language"
-  }
+    displayName: 'Locale config';
+    icon: 'language';
+  };
   attributes: {
-    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>
-    isDefault: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>
-    locale: Schema.Attribute.Enumeration<["es", "en"]> &
-      Schema.Attribute.Required
-  }
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    isDefault: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.Enumeration<['es', 'en']> &
+      Schema.Attribute.Required;
+  };
 }
 
 export interface SiteNavigationColumn extends Struct.ComponentSchema {
-  collectionName: "components_site_navigation_columns"
+  collectionName: 'components_site_navigation_columns';
   info: {
-    displayName: "Navigation column"
-    icon: "list"
-  }
+    displayName: 'Navigation column';
+    icon: 'list';
+  };
   attributes: {
-    links: Schema.Attribute.Component<"site.navigation-item", true>
+    links: Schema.Attribute.Component<'site.navigation-item', true>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-  }
+          localized: true;
+        };
+      }>;
+  };
 }
 
 export interface SiteNavigationItem extends Struct.ComponentSchema {
-  collectionName: "components_site_navigation_items"
+  collectionName: 'components_site_navigation_items';
   info: {
-    displayName: "Navigation item"
-    icon: "link"
-  }
+    displayName: 'Navigation item';
+    icon: 'link';
+  };
   attributes: {
-    href: Schema.Attribute.String & Schema.Attribute.Required
+    href: Schema.Attribute.String & Schema.Attribute.Required;
     label: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>
-    target: Schema.Attribute.Enumeration<["_self", "_blank"]> &
-      Schema.Attribute.DefaultTo<"_self">
-  }
+          localized: true;
+        };
+      }>;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    target: Schema.Attribute.Enumeration<['_self', '_blank']> &
+      Schema.Attribute.DefaultTo<'_self'>;
+  };
 }
 
 export interface SitePalette extends Struct.ComponentSchema {
-  collectionName: "components_site_palettes"
+  collectionName: 'components_site_palettes';
   info: {
-    displayName: "Site palette"
-    icon: "paint-brush"
-  }
+    displayName: 'Site palette';
+    icon: 'paint-brush';
+  };
   attributes: {
-    accent: Schema.Attribute.String & Schema.Attribute.Required
-    background: Schema.Attribute.String & Schema.Attribute.Required
-    border: Schema.Attribute.String
-    contrastMode: Schema.Attribute.Enumeration<["light", "dark", "auto"]> &
-      Schema.Attribute.DefaultTo<"light">
-    destructive: Schema.Attribute.String
-    fontBody: Schema.Attribute.String
-    fontHeading: Schema.Attribute.String
-    foreground: Schema.Attribute.String & Schema.Attribute.Required
-    muted: Schema.Attribute.String
-    primary: Schema.Attribute.String & Schema.Attribute.Required
-    radius: Schema.Attribute.Enumeration<["none", "sm", "md", "lg", "xl"]> &
-      Schema.Attribute.DefaultTo<"md">
-    secondary: Schema.Attribute.String & Schema.Attribute.Required
-  }
+    accent: Schema.Attribute.String & Schema.Attribute.Required;
+    background: Schema.Attribute.String & Schema.Attribute.Required;
+    border: Schema.Attribute.String;
+    contrastMode: Schema.Attribute.Enumeration<['light', 'dark', 'auto']> &
+      Schema.Attribute.DefaultTo<'light'>;
+    destructive: Schema.Attribute.String;
+    fontBody: Schema.Attribute.String;
+    fontHeading: Schema.Attribute.String;
+    foreground: Schema.Attribute.String & Schema.Attribute.Required;
+    muted: Schema.Attribute.String;
+    primary: Schema.Attribute.String & Schema.Attribute.Required;
+    radius: Schema.Attribute.Enumeration<['none', 'sm', 'md', 'lg', 'xl']> &
+      Schema.Attribute.DefaultTo<'md'>;
+    secondary: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SiteSocialLink extends Struct.ComponentSchema {
-  collectionName: "components_site_social_links"
+  collectionName: 'components_site_social_links';
   info: {
-    displayName: "Social link"
-    icon: "share-alt"
-  }
+    displayName: 'Social link';
+    icon: 'share-alt';
+  };
   attributes: {
-    icon: Schema.Attribute.String
-    label: Schema.Attribute.String
-    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>
+    icon: Schema.Attribute.String;
+    label: Schema.Attribute.String;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     platform: Schema.Attribute.Enumeration<
-      ["facebook", "instagram", "linkedin", "x", "youtube", "tiktok", "other"]
+      ['facebook', 'instagram', 'linkedin', 'x', 'youtube', 'tiktok', 'other']
     > &
-      Schema.Attribute.Required
-    url: Schema.Attribute.String & Schema.Attribute.Required
-  }
+      Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SiteWhatsappButton extends Struct.ComponentSchema {
-  collectionName: "components_site_whatsapp_buttons"
+  collectionName: 'components_site_whatsapp_buttons';
   info: {
-    displayName: "Bot\u00F3n de WhatsApp"
-    icon: "phone"
-  }
+    displayName: 'Bot\u00F3n de WhatsApp';
+    icon: 'phone';
+  };
   attributes: {
     buttonLabel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
+          localized: true;
+        };
       }> &
-      Schema.Attribute.DefaultTo<"WhatsApp">
-    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>
+      Schema.Attribute.DefaultTo<'WhatsApp'>;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     message: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    phone: Schema.Attribute.String
-  }
+          localized: true;
+        };
+      }>;
+    phone: Schema.Attribute.String;
+  };
 }
 
 export interface UiLink extends Struct.ComponentSchema {
-  collectionName: "components_ui_links"
+  collectionName: 'components_ui_links';
   info: {
-    displayName: "UI link"
-    icon: "link"
-  }
+    displayName: 'UI link';
+    icon: 'link';
+  };
   attributes: {
-    href: Schema.Attribute.String & Schema.Attribute.Required
-    icon: Schema.Attribute.String
+    href: Schema.Attribute.String & Schema.Attribute.Required;
+    icon: Schema.Attribute.String;
     label: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
-        }
-      }>
-    size: Schema.Attribute.Enumeration<["sm", "md", "lg"]> &
-      Schema.Attribute.DefaultTo<"md">
-    target: Schema.Attribute.Enumeration<["_self", "_blank"]> &
-      Schema.Attribute.DefaultTo<"_self">
+          localized: true;
+        };
+      }>;
+    size: Schema.Attribute.Enumeration<['sm', 'md', 'lg']> &
+      Schema.Attribute.DefaultTo<'md'>;
+    target: Schema.Attribute.Enumeration<['_self', '_blank']> &
+      Schema.Attribute.DefaultTo<'_self'>;
     type: Schema.Attribute.Enumeration<
-      ["internal", "external", "email", "phone"]
+      ['internal', 'external', 'email', 'phone']
     > &
-      Schema.Attribute.DefaultTo<"internal">
+      Schema.Attribute.DefaultTo<'internal'>;
     variant: Schema.Attribute.Enumeration<
-      ["default", "secondary", "outline", "ghost", "link"]
+      ['default', 'secondary', 'outline', 'ghost', 'link']
     > &
-      Schema.Attribute.DefaultTo<"default">
-  }
+      Schema.Attribute.DefaultTo<'default'>;
+  };
 }
 
 export interface UiMotion extends Struct.ComponentSchema {
-  collectionName: "components_ui_motions"
+  collectionName: 'components_ui_motions';
   info: {
-    displayName: "UI motion"
-    icon: "magic"
-  }
+    displayName: 'UI motion';
+    icon: 'magic';
+  };
   attributes: {
-    delay: Schema.Attribute.Enumeration<["none", "short", "medium", "long"]> &
-      Schema.Attribute.DefaultTo<"none">
-    duration: Schema.Attribute.Enumeration<["fast", "normal", "slow"]> &
-      Schema.Attribute.DefaultTo<"normal">
+    delay: Schema.Attribute.Enumeration<['none', 'short', 'medium', 'long']> &
+      Schema.Attribute.DefaultTo<'none'>;
+    duration: Schema.Attribute.Enumeration<['fast', 'normal', 'slow']> &
+      Schema.Attribute.DefaultTo<'normal'>;
     preset: Schema.Attribute.Enumeration<
       [
-        "none",
-        "fade",
-        "slide-up",
-        "slide-down",
-        "slide-left",
-        "slide-right",
-        "scale",
-        "reveal",
+        'none',
+        'fade',
+        'slide-up',
+        'slide-down',
+        'slide-left',
+        'slide-right',
+        'scale',
+        'reveal',
       ]
     > &
-      Schema.Attribute.DefaultTo<"none">
+      Schema.Attribute.DefaultTo<'none'>;
     respectReducedMotion: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<true>
+      Schema.Attribute.DefaultTo<true>;
     trigger: Schema.Attribute.Enumeration<
-      ["on-load", "on-scroll", "on-hover"]
+      ['on-load', 'on-scroll', 'on-hover']
     > &
-      Schema.Attribute.DefaultTo<"on-scroll">
-  }
+      Schema.Attribute.DefaultTo<'on-scroll'>;
+  };
 }
 
 export interface UiStyle extends Struct.ComponentSchema {
-  collectionName: "components_ui_styles"
+  collectionName: 'components_ui_styles';
   info: {
-    displayName: "UI style"
-    icon: "brush"
-  }
+    displayName: 'UI style';
+    icon: 'brush';
+  };
   attributes: {
-    alignment: Schema.Attribute.Enumeration<["left", "center", "right"]> &
-      Schema.Attribute.DefaultTo<"left">
+    alignment: Schema.Attribute.Enumeration<['left', 'center', 'right']> &
+      Schema.Attribute.DefaultTo<'left'>;
     background: Schema.Attribute.Enumeration<
-      ["default", "muted", "primary", "secondary", "dark", "custom"]
+      ['default', 'muted', 'primary', 'secondary', 'dark', 'custom']
     > &
-      Schema.Attribute.DefaultTo<"default">
+      Schema.Attribute.DefaultTo<'default'>;
     container: Schema.Attribute.Enumeration<
-      ["none", "narrow", "default", "wide", "full"]
+      ['none', 'narrow', 'default', 'wide', 'full']
     > &
-      Schema.Attribute.DefaultTo<"default">
-    customClass: Schema.Attribute.String
+      Schema.Attribute.DefaultTo<'default'>;
+    customClass: Schema.Attribute.String;
     itemAppearance: Schema.Attribute.Enumeration<
-      ["default", "card", "decorated"]
+      ['default', 'card', 'decorated']
     > &
-      Schema.Attribute.DefaultTo<"default">
+      Schema.Attribute.DefaultTo<'default'>;
     layout: Schema.Attribute.Enumeration<
-      ["default", "row", "grid", "split", "background-image"]
+      ['default', 'row', 'grid', 'split', 'background-image']
     > &
-      Schema.Attribute.DefaultTo<"default">
+      Schema.Attribute.DefaultTo<'default'>;
     paddingBottom: Schema.Attribute.Enumeration<
-      ["none", "sm", "md", "lg", "xl"]
+      ['none', 'sm', 'md', 'lg', 'xl']
     > &
-      Schema.Attribute.DefaultTo<"lg">
-    paddingTop: Schema.Attribute.Enumeration<["none", "sm", "md", "lg", "xl"]> &
-      Schema.Attribute.DefaultTo<"lg">
-  }
+      Schema.Attribute.DefaultTo<'lg'>;
+    paddingTop: Schema.Attribute.Enumeration<['none', 'sm', 'md', 'lg', 'xl']> &
+      Schema.Attribute.DefaultTo<'lg'>;
+  };
 }
 
 export interface UtilitiesAccordions extends Struct.ComponentSchema {
-  collectionName: "components_utilities_accordions"
+  collectionName: 'components_utilities_accordions';
   info: {
-    description: ""
-    displayName: "Accordions"
-  }
+    description: '';
+    displayName: 'Accordions';
+  };
   attributes: {
-    answer: Schema.Attribute.Text & Schema.Attribute.Required
-    question: Schema.Attribute.String & Schema.Attribute.Required
-  }
+    answer: Schema.Attribute.Text & Schema.Attribute.Required;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface UtilitiesBasicImage extends Struct.ComponentSchema {
-  collectionName: "components_utilities_basic_images"
+  collectionName: 'components_utilities_basic_images';
   info: {
-    displayName: "BasicImage"
-  }
+    displayName: 'BasicImage';
+  };
   attributes: {
-    alt: Schema.Attribute.String
-    fallbackSrc: Schema.Attribute.String
-    height: Schema.Attribute.Integer
-    media: Schema.Attribute.Media<"images" | "videos"> &
-      Schema.Attribute.Required
-    width: Schema.Attribute.Integer
-  }
+    alt: Schema.Attribute.String;
+    fallbackSrc: Schema.Attribute.String;
+    height: Schema.Attribute.Integer;
+    media: Schema.Attribute.Media<'images' | 'videos'> &
+      Schema.Attribute.Required;
+    width: Schema.Attribute.Integer;
+  };
 }
 
 export interface UtilitiesCkEditorContent extends Struct.ComponentSchema {
-  collectionName: "components_utilities_ck_editor_contents"
+  collectionName: 'components_utilities_ck_editor_contents';
   info: {
-    displayName: "CkEditorContent"
-  }
+    displayName: 'CkEditorContent';
+  };
   attributes: {
     content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
-        "plugin::ckeditor5.CKEditor",
+        'plugin::ckeditor5.CKEditor',
         {
-          preset: "defaultCkEditor"
+          preset: 'defaultCkEditor';
         }
-      >
-  }
+      >;
+  };
 }
 
 export interface UtilitiesCkEditorText extends Struct.ComponentSchema {
-  collectionName: "components_utilities_ck_editor_texts"
+  collectionName: 'components_utilities_ck_editor_texts';
   info: {
-    displayName: "CkEditorText"
-  }
+    displayName: 'CkEditorText';
+  };
   attributes: {
     content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
-        "plugin::ckeditor5.CKEditor",
+        'plugin::ckeditor5.CKEditor',
         {
-          preset: "simpleCkEditor"
+          preset: 'simpleCkEditor';
         }
-      >
-  }
+      >;
+  };
 }
 
 export interface UtilitiesImageWithLink extends Struct.ComponentSchema {
-  collectionName: "components_utilities_image_with_links"
+  collectionName: 'components_utilities_image_with_links';
   info: {
-    description: ""
-    displayName: "ImageWithLink"
-  }
+    description: '';
+    displayName: 'ImageWithLink';
+  };
   attributes: {
-    image: Schema.Attribute.Component<"utilities.basic-image", false>
-    link: Schema.Attribute.Component<"utilities.link", false>
-  }
+    image: Schema.Attribute.Component<'utilities.basic-image', false>;
+    link: Schema.Attribute.Component<'utilities.link', false>;
+  };
 }
 
 export interface UtilitiesLink extends Struct.ComponentSchema {
-  collectionName: "components_utilities_links"
+  collectionName: 'components_utilities_links';
   info: {
-    displayName: "Link"
-  }
+    displayName: 'Link';
+  };
   attributes: {
-    decorations: Schema.Attribute.Component<"utilities.link-decorations", false>
-    href: Schema.Attribute.String & Schema.Attribute.Required
-    label: Schema.Attribute.String & Schema.Attribute.Required
+    decorations: Schema.Attribute.Component<
+      'utilities.link-decorations',
+      false
+    >;
+    href: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
     newTab: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<false>
-    page: Schema.Attribute.Relation<"oneToOne", "api::page.page">
-    type: Schema.Attribute.Enumeration<["external", "page"]> &
+      Schema.Attribute.DefaultTo<false>;
+    page: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
+    type: Schema.Attribute.Enumeration<['external', 'page']> &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<"page">
-  }
+      Schema.Attribute.DefaultTo<'page'>;
+  };
 }
 
 export interface UtilitiesLinkDecorations extends Struct.ComponentSchema {
-  collectionName: "components_utilities_link_decorations"
+  collectionName: 'components_utilities_link_decorations';
   info: {
-    displayName: "LinkDecorations"
-  }
+    displayName: 'LinkDecorations';
+  };
   attributes: {
     disableAnimations: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<false>
+      Schema.Attribute.DefaultTo<false>;
     hasIcons: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<false>
-    leftIcon: Schema.Attribute.Component<"utilities.basic-image", false>
-    rightIcon: Schema.Attribute.Component<"utilities.basic-image", false>
+      Schema.Attribute.DefaultTo<false>;
+    leftIcon: Schema.Attribute.Component<'utilities.basic-image', false>;
+    rightIcon: Schema.Attribute.Component<'utilities.basic-image', false>;
     size: Schema.Attribute.Enumeration<
-      ["default", "xs", "sm", "lg", "icon", "icon-xs", "icon-sm", "icon-lg"]
+      ['default', 'xs', 'sm', 'lg', 'icon', 'icon-xs', 'icon-sm', 'icon-lg']
     > &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<"default">
+      Schema.Attribute.DefaultTo<'default'>;
     variant: Schema.Attribute.Enumeration<
-      ["default", "destructive", "outline", "secondary", "ghost", "link"]
+      ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link']
     > &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<"link">
-  }
+      Schema.Attribute.DefaultTo<'link'>;
+  };
 }
 
 export interface UtilitiesLinksWithTitle extends Struct.ComponentSchema {
-  collectionName: "components_utilities_links_with_titles"
+  collectionName: 'components_utilities_links_with_titles';
   info: {
-    displayName: "LinksWithTitle"
-  }
+    displayName: 'LinksWithTitle';
+  };
   attributes: {
-    links: Schema.Attribute.Component<"utilities.link", true>
-    title: Schema.Attribute.String
-  }
+    links: Schema.Attribute.Component<'utilities.link', true>;
+    title: Schema.Attribute.String;
+  };
 }
 
 export interface UtilitiesText extends Struct.ComponentSchema {
-  collectionName: "components_utilities_texts"
+  collectionName: 'components_utilities_texts';
   info: {
-    displayName: "Text"
-  }
+    displayName: 'Text';
+  };
   attributes: {
-    text: Schema.Attribute.String
-  }
+    text: Schema.Attribute.String;
+  };
 }
 
 export interface UtilitiesTipTapRichText extends Struct.ComponentSchema {
-  collectionName: "components_utilities_tip_tap_rich_texts"
+  collectionName: 'components_utilities_tip_tap_rich_texts';
   info: {
-    displayName: "TipTapRichText"
-    icon: "layer"
-  }
+    displayName: 'TipTapRichText';
+    icon: 'layer';
+  };
   attributes: {
     content: Schema.Attribute.Text &
       Schema.Attribute.CustomField<
-        "plugin::tiptap-editor.RichText",
+        'plugin::tiptap-editor.RichText',
         {
-          preset: "everything"
+          preset: 'everything';
         }
-      >
-  }
+      >;
+  };
 }
 
-declare module "@strapi/strapi" {
+declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
-      "admin.permission": AdminPermission
-      "bancaliv.card": BancalivCard
-      "bancaliv.section": BancalivSection
-      "blog.tag": BlogTag
-      "cae.ally": CaeAlly
-      "cae.home-advantage": CaeHomeAdvantage
-      "cae.homepage": CaeHomepage
-      "cae.process-step": CaeProcessStep
-      "cae.service-card": CaeServiceCard
-      "cae.service-detail": CaeServiceDetail
-      "cae.team-member": CaeTeamMember
-      "cae.text-item": CaeTextItem
-      "elements.footer-item": ElementsFooterItem
-      "form.field": FormField
-      "form.option": FormOption
-      "forms.contact-form": FormsContactForm
-      "forms.dynamic-form": FormsDynamicForm
-      "layout.navbar-item": LayoutNavbarItem
-      "nexon.about": NexonAbout
-      "nexon.about-paragraph": NexonAboutParagraph
-      "nexon.bento-services": NexonBentoServices
-      "nexon.contact": NexonContact
-      "nexon.customer-logo": NexonCustomerLogo
-      "nexon.customer-logos": NexonCustomerLogos
-      "nexon.growth-stories": NexonGrowthStories
-      "nexon.growth-story": NexonGrowthStory
-      "nexon.hero": NexonHero
-      "nexon.method-step": NexonMethodStep
-      "nexon.methodology": NexonMethodology
-      "nexon.pillar": NexonPillar
-      "nexon.service": NexonService
-      "nexon.stat": NexonStat
-      "sections.animated-logo-row": SectionsAnimatedLogoRow
-      "sections.before-after-slider": SectionsBeforeAfterSlider
-      "sections.benefits-split": SectionsBenefitsSplit
-      "sections.carousel": SectionsCarousel
-      "sections.content-rich-text": SectionsContentRichText
-      "sections.cta": SectionsCta
-      "sections.cta-banner": SectionsCtaBanner
-      "sections.faq": SectionsFaq
-      "sections.feature-grid": SectionsFeatureGrid
-      "sections.feature-item": SectionsFeatureItem
-      "sections.features-list": SectionsFeaturesList
-      "sections.gallery": SectionsGallery
-      "sections.heading-with-cta-button": SectionsHeadingWithCtaButton
-      "sections.hero": SectionsHero
-      "sections.hero-featured": SectionsHeroFeatured
-      "sections.hero-media": SectionsHeroMedia
-      "sections.hero-standard": SectionsHeroStandard
-      "sections.image-with-cta-button": SectionsImageWithCtaButton
-      "sections.logo-cloud": SectionsLogoCloud
-      "sections.mission-vision": SectionsMissionVision
-      "sections.portfolio-projects": SectionsPortfolioProjects
-      "sections.process-steps": SectionsProcessSteps
-      "sections.product-grid": SectionsProductGrid
-      "sections.security-block": SectionsSecurityBlock
-      "sections.services-hub": SectionsServicesHub
-      "sections.statistics": SectionsStatistics
-      "sections.testimonials": SectionsTestimonials
-      "sections.video": SectionsVideo
-      "seo-utilities.seo": SeoUtilitiesSeo
-      "seo-utilities.seo-og": SeoUtilitiesSeoOg
-      "seo-utilities.seo-twitter": SeoUtilitiesSeoTwitter
-      "seo-utilities.social-icons": SeoUtilitiesSocialIcons
-      "seo.metadata": SeoMetadata
-      "shared.benefit-panel": SharedBenefitPanel
-      "shared.figure": SharedFigure
-      "shared.hero-perk": SharedHeroPerk
-      "shared.image-with-config": SharedImageWithConfig
-      "shared.image-with-title-and-description": SharedImageWithTitleAndDescription
-      "shared.logo-item": SharedLogoItem
-      "shared.process-step": SharedProcessStep
-      "shared.product-card": SharedProductCard
-      "shared.security-point": SharedSecurityPoint
-      "shared.service-card": SharedServiceCard
-      "shared.service-label": SharedServiceLabel
-      "shared.technology": SharedTechnology
-      "shared.testimonial": SharedTestimonial
-      "site.footer-config": SiteFooterConfig
-      "site.header-config": SiteHeaderConfig
-      "site.locale-config": SiteLocaleConfig
-      "site.navigation-column": SiteNavigationColumn
-      "site.navigation-item": SiteNavigationItem
-      "site.palette": SitePalette
-      "site.social-link": SiteSocialLink
-      "site.whatsapp-button": SiteWhatsappButton
-      "ui.link": UiLink
-      "ui.motion": UiMotion
-      "ui.style": UiStyle
-      "utilities.accordions": UtilitiesAccordions
-      "utilities.basic-image": UtilitiesBasicImage
-      "utilities.ck-editor-content": UtilitiesCkEditorContent
-      "utilities.ck-editor-text": UtilitiesCkEditorText
-      "utilities.image-with-link": UtilitiesImageWithLink
-      "utilities.link": UtilitiesLink
-      "utilities.link-decorations": UtilitiesLinkDecorations
-      "utilities.links-with-title": UtilitiesLinksWithTitle
-      "utilities.text": UtilitiesText
-      "utilities.tip-tap-rich-text": UtilitiesTipTapRichText
+      'admin.permission': AdminPermission;
+      'bancaliv.card': BancalivCard;
+      'bancaliv.section': BancalivSection;
+      'blog.tag': BlogTag;
+      'cae.ally': CaeAlly;
+      'cae.home-advantage': CaeHomeAdvantage;
+      'cae.homepage': CaeHomepage;
+      'cae.process-step': CaeProcessStep;
+      'cae.service-card': CaeServiceCard;
+      'cae.service-detail': CaeServiceDetail;
+      'cae.team-member': CaeTeamMember;
+      'cae.text-item': CaeTextItem;
+      'elements.footer-item': ElementsFooterItem;
+      'form.field': FormField;
+      'form.option': FormOption;
+      'forms.contact-form': FormsContactForm;
+      'forms.dynamic-form': FormsDynamicForm;
+      'layout.navbar-item': LayoutNavbarItem;
+      'nexon.about': NexonAbout;
+      'nexon.about-paragraph': NexonAboutParagraph;
+      'nexon.bento-services': NexonBentoServices;
+      'nexon.contact': NexonContact;
+      'nexon.customer-logo': NexonCustomerLogo;
+      'nexon.customer-logos': NexonCustomerLogos;
+      'nexon.growth-stories': NexonGrowthStories;
+      'nexon.growth-story': NexonGrowthStory;
+      'nexon.hero': NexonHero;
+      'nexon.method-step': NexonMethodStep;
+      'nexon.methodology': NexonMethodology;
+      'nexon.pillar': NexonPillar;
+      'nexon.service': NexonService;
+      'nexon.stat': NexonStat;
+      'sections.animated-logo-row': SectionsAnimatedLogoRow;
+      'sections.before-after-slider': SectionsBeforeAfterSlider;
+      'sections.benefits-split': SectionsBenefitsSplit;
+      'sections.carousel': SectionsCarousel;
+      'sections.content-rich-text': SectionsContentRichText;
+      'sections.cta': SectionsCta;
+      'sections.cta-banner': SectionsCtaBanner;
+      'sections.faq': SectionsFaq;
+      'sections.feature-grid': SectionsFeatureGrid;
+      'sections.feature-item': SectionsFeatureItem;
+      'sections.features-list': SectionsFeaturesList;
+      'sections.gallery': SectionsGallery;
+      'sections.heading-with-cta-button': SectionsHeadingWithCtaButton;
+      'sections.hero': SectionsHero;
+      'sections.hero-featured': SectionsHeroFeatured;
+      'sections.hero-media': SectionsHeroMedia;
+      'sections.hero-standard': SectionsHeroStandard;
+      'sections.image-with-cta-button': SectionsImageWithCtaButton;
+      'sections.logo-cloud': SectionsLogoCloud;
+      'sections.mission-vision': SectionsMissionVision;
+      'sections.portfolio-projects': SectionsPortfolioProjects;
+      'sections.process-steps': SectionsProcessSteps;
+      'sections.product-grid': SectionsProductGrid;
+      'sections.security-block': SectionsSecurityBlock;
+      'sections.services-hub': SectionsServicesHub;
+      'sections.statistics': SectionsStatistics;
+      'sections.testimonials': SectionsTestimonials;
+      'sections.video': SectionsVideo;
+      'seo-utilities.seo': SeoUtilitiesSeo;
+      'seo-utilities.seo-og': SeoUtilitiesSeoOg;
+      'seo-utilities.seo-twitter': SeoUtilitiesSeoTwitter;
+      'seo-utilities.social-icons': SeoUtilitiesSocialIcons;
+      'seo.metadata': SeoMetadata;
+      'shared.benefit-panel': SharedBenefitPanel;
+      'shared.figure': SharedFigure;
+      'shared.hero-perk': SharedHeroPerk;
+      'shared.image-with-config': SharedImageWithConfig;
+      'shared.image-with-title-and-description': SharedImageWithTitleAndDescription;
+      'shared.logo-item': SharedLogoItem;
+      'shared.process-step': SharedProcessStep;
+      'shared.product-card': SharedProductCard;
+      'shared.security-point': SharedSecurityPoint;
+      'shared.service-card': SharedServiceCard;
+      'shared.service-label': SharedServiceLabel;
+      'shared.technology': SharedTechnology;
+      'shared.testimonial': SharedTestimonial;
+      'site.footer-config': SiteFooterConfig;
+      'site.header-config': SiteHeaderConfig;
+      'site.locale-config': SiteLocaleConfig;
+      'site.navigation-column': SiteNavigationColumn;
+      'site.navigation-item': SiteNavigationItem;
+      'site.palette': SitePalette;
+      'site.social-link': SiteSocialLink;
+      'site.whatsapp-button': SiteWhatsappButton;
+      'ui.link': UiLink;
+      'ui.motion': UiMotion;
+      'ui.style': UiStyle;
+      'utilities.accordions': UtilitiesAccordions;
+      'utilities.basic-image': UtilitiesBasicImage;
+      'utilities.ck-editor-content': UtilitiesCkEditorContent;
+      'utilities.ck-editor-text': UtilitiesCkEditorText;
+      'utilities.image-with-link': UtilitiesImageWithLink;
+      'utilities.link': UtilitiesLink;
+      'utilities.link-decorations': UtilitiesLinkDecorations;
+      'utilities.links-with-title': UtilitiesLinksWithTitle;
+      'utilities.text': UtilitiesText;
+      'utilities.tip-tap-rich-text': UtilitiesTipTapRichText;
     }
   }
 }
