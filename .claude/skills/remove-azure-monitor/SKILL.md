@@ -106,7 +106,6 @@ pnpm -F @repo/strapi exec tsc --noEmit -p tsconfig.json
 pnpm -F @repo/ui build
 pnpm -F @repo/ui test
 pnpm -F @repo/strapi test
-pnpm -F @repo/docs build        # fails on broken links — confirms no dangling Azure Monitor refs
 ```
 
 Confirm logging still works: `@repo/logging` still exports `logger`/`logError`/`withSpan`,

@@ -16,7 +16,6 @@
   ],
   "scripts": {
     "build": "turbo build --cache-dir=.turbo",
-    "build:docs": "pnpm -F @repo/docs build",
     "build:strapi": "turbo run build --filter=@repo/strapi",
     "build:empresax": "turbo run build --filter=@repo/empresax",
     "build:empresax:static": "NODE_OPTIONS=--max-old-space-size=2048 turbo run build:static --filter=@repo/empresax",
@@ -25,7 +24,6 @@
     "build:cae": "turbo run build --filter=@repo/cae",
     "commit": "git-cz",
     "dev": "turbo dev",
-    "dev:docs": "pnpm -F @repo/docs start",
     "dev:strapi": "turbo run dev --filter=@repo/strapi",
     "dev:empresax": "turbo run dev --filter=@repo/empresax",
     "dev:nexon-group": "turbo run dev --filter=@repo/nexon-group",
@@ -44,7 +42,6 @@
     "seed:export": "turbo run seed:export --filter=@repo/strapi",
     "seed:import": "turbo run seed:import --filter=@repo/strapi",
     "setup:apps": "node scripts/setup-apps.mjs",
-    "start:docs": "pnpm -F @repo/docs serve",
     "start:strapi": "turbo run start --filter=@repo/strapi",
     "start:empresax": "turbo run start --filter=@repo/empresax",
     "start:bancaliv": "turbo run start --filter=@repo/bancaliv",

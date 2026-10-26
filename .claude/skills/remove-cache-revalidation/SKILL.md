@@ -85,7 +85,6 @@ pnpm -F @repo/ui exec tsc --noEmit
 pnpm -F @repo/strapi test
 pnpm -F @repo/ui test
 pnpm lint
-pnpm -F @repo/docs build
 ```
 
 Typechecks, the UI test suite, lint, and docs build must pass. (The Strapi `app.test.ts` suite requires a running Postgres and is environmental — unrelated to this removal.)
