@@ -12,7 +12,8 @@ Este workspace sirve el sitio Nexon Group con Next.js y consume la instancia com
 | src/components | Layouts, navegación, formularios e interfaz. |
 | src/lib | Cliente Strapi, resolución del sitio, metadata, autenticación y proxies. |
 | src/hooks, locales, public | Hooks, traducciones y recursos estáticos. |
-| packages/design-system/src/nexon | Identidad visual, animaciones y componentes de Nexon. |
+| src/components/brand | Identidad visual, animaciones y componentes propios de Nexon. |
+| src/styles/nexon.css | Estilos propios de la marca Nexon. |
 | packages/sections | Secciones reutilizables entre frontends. |
 
 Los esquemas específicos se definen en apps/strapi/src/components/nexon. Los componentes del CMS deben tener su renderer registrado en Nexon y los tipos deben regenerarse tras cambiar el esquema.

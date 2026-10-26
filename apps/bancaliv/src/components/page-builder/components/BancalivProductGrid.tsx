@@ -1,4 +1,4 @@
-import { BancalivProductGrid as BancalivProductGridView } from "@repo/design-system/bancaliv"
+import { BancalivProductGrid as BancalivProductGridView } from "@/components/brand/product-grid"
 import type { PageBuilderComponentProps } from "@repo/sections/types"
 import {
   sectionContainerClass,

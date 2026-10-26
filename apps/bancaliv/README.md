@@ -1,6 +1,6 @@
 # Bancaliv — frontend Next.js
 
-Este workspace sirve el sitio Bancaliv y consume contenido del CMS común en apps/strapi. Resuelve el hostname de la petición, lo convierte al Site.slug configurado y consulta solamente contenido relacionado con ese sitio. Los componentes visuales de marca se comparten desde packages/design-system/src/bancaliv.
+Este workspace sirve el sitio Bancaliv y consume contenido del CMS común en apps/strapi. Resuelve el hostname de la petición, lo convierte al Site.slug configurado y consulta solamente contenido relacionado con ese sitio. Los componentes y estilos propios de Bancaliv están dentro de esta app; los elementos genéricos que comparte con otros frontends siguen en `packages/design-system`.
 
 ## Estructura
 
@@ -13,7 +13,8 @@ Este workspace sirve el sitio Bancaliv y consume contenido del CMS común en app
 | src/hooks                   | Hooks de interfaz y datos. |
 | locales                     | Mensajes de traducción. |
 | public y src/styles         | Recursos y estilos del frontend. |
-| packages/design-system/src/bancaliv | Presentación y secciones visuales propias de Bancaliv.              |
+| src/components/brand | Presentación y secciones visuales propias de Bancaliv.              |
+| src/styles/bancaliv.css | Estilos propios de la marca Bancaliv.                               |
 | packages/sections           | Componentes y utilidades compartidos con otros frontends.                   |
 
 ## Variables de entorno

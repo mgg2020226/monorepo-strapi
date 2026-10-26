@@ -12,10 +12,11 @@ Este workspace publica el sitio de CAE Group. Es un frontend Next.js separado, p
 | src/lib | Site resolver, cliente Strapi, metadata, navegación y proxies. |
 | src/hooks | Hooks de interfaz y consulta de contenido. |
 | locales y public | Traducciones y recursos estáticos. |
-| packages/design-system/src/cae | Componentes visuales propios de CAE. |
+| src/components/brand | Componentes visuales propios de CAE. |
+| src/styles/cae.css | Estilos propios de la marca CAE. |
 | packages/sections | Secciones y utilidades comunes a varios sitios. |
 
-Los componentes de contenido específicos incluyen cae.homepage y cae.service-detail; sus esquemas viven en apps/strapi y sus renderers en el frontend y el design system.
+Los componentes de contenido específicos incluyen cae.homepage y cae.service-detail; sus esquemas viven en apps/strapi y sus renderers viven en esta app. El design system conserva solo los elementos genéricos compartidos.
 
 ## Variables de entorno
 

@@ -4,7 +4,7 @@ import {
   NexonFooter,
   NexonHeader,
   NexonFloatingWhatsAppButton,
-} from "@repo/design-system/nexon"
+} from "@/components/brand"
 import { Toaster } from "@repo/design-system/ui/sonner"
 import type { Data } from "@repo/strapi-types"
 import { ThemeProvider } from "@teispace/next-themes"

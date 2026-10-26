@@ -237,7 +237,7 @@
     ),
     linear-gradient(225deg, #8a005e 0%, #a6006b 35%, #b00072 70%, #c0007a 100%) !important;
   color: white !important;
-  padding: 1em !important;
+  padding: clamp(1.5rem, 4vw, 3rem) !important;
 }
 .site-theme main section.bancaliv-cta-banner h2,
 .site-theme main section.bancaliv-cta-banner p {
@@ -343,9 +343,11 @@
   border-radius: 2rem;
   background: #f8f7f8;
   padding: clamp(1.5rem, 4vw, 3rem);
+  color: var(--bancaliv-ink);
 }
 .bancaliv-faq__heading h2 {
   max-width: 15ch;
+  color: var(--bancaliv-ink) !important;
 }
 .bancaliv-faq__image {
   display: block;
@@ -374,6 +376,7 @@
   gap: 1rem;
   padding: 0.75rem 1.25rem;
   cursor: pointer;
+  color: var(--bancaliv-ink);
   font-weight: 700;
   list-style: none;
 }

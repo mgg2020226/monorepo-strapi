@@ -1,6 +1,6 @@
 import "@/styles/globals.css"
 
-import { BancalivChrome } from "@repo/design-system/bancaliv"
+import { BancalivChrome } from "@/components/brand"
 import { Toaster } from "@repo/design-system/ui/sonner"
 import type { Data } from "@repo/strapi-types"
 import { ThemeProvider } from "@teispace/next-themes"
@@ -70,7 +70,17 @@ export default async function RootLayout({
     | Data.ContentType<"api::site.site">
     | undefined
   const palette = siteData?.palette
-  const themeStyle = createSiteThemeStyle(palette)
+  const themeStyle = {
+    ...createSiteThemeStyle(palette),
+    "--color-background": "#ffffff",
+    "--color-foreground": "#241a2b",
+    "--color-card": "#ffffff",
+    "--color-card-foreground": "#241a2b",
+    "--color-popover": "#ffffff",
+    "--color-popover-foreground": "#241a2b",
+    "--color-muted": "#f8f7f8",
+    "--color-muted-foreground": "#6f6874",
+  }
 
   /**
    * This allows you to make following env variables RUNTIME.
@@ -118,15 +128,16 @@ export default async function RootLayout({
         <TrackingScripts />
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          forcedTheme="light"
+          defaultTheme="light"
+          enableSystem={false}
           storage="local"
         >
           <ServerProviders>
             <ClientProviders>
               <div
                 className="site-theme text-foreground relative flex min-h-screen flex-col"
-                data-contrast-mode={palette?.contrastMode ?? "light"}
+                data-contrast-mode="light"
                 style={themeStyle}
               >
                 <ErrorBoundary showErrorMessage>

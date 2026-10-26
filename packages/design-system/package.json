@@ -8,12 +8,6 @@
   "exports": {
     ".": "./src/index.ts",
     "./ui/*": "./src/ui/*.tsx",
-    "./nexon": "./src/nexon/index.ts",
-    "./nexon/styles.css": "./src/nexon/styles.css",
-    "./cae": "./src/cae/index.ts",
-    "./cae/styles.css": "./src/cae/styles.css",
-    "./bancaliv": "./src/bancaliv/index.ts",
-    "./bancaliv/styles.css": "./src/bancaliv/styles.css",
     "./forms/*": "./src/forms/*.tsx",
     "./typography": "./src/typography/index.tsx",
     "./typography/config": "./src/typography/config.ts",

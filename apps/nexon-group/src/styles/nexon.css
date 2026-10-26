@@ -1,4 +1,4 @@
-@source "./**/*.{ts,tsx}";
+@source "../components/brand";
 
 :root {
   --nexon-blue-cyan: #50ceff;

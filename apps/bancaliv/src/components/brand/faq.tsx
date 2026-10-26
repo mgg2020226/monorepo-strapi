@@ -2,7 +2,7 @@ import "server-only"
 
 import type { Data } from "@repo/strapi-types"
 
-import { Container } from "../elementary/Container"
+import { Container } from "@repo/design-system/elementary/Container"
 
 type BancalivFaqComponent = Data.Component<"sections.faq"> & {
   image?: Data.Component<"utilities.basic-image"> | null

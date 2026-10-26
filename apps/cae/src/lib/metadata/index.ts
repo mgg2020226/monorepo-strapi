@@ -52,7 +52,10 @@ export async function getMetadataFromStrapi({
     return null
   }
 
-  const defaultMeta: Metadata = getDefaultMetadata(siteUrl, t)
+  const defaultMeta: Metadata = {
+    ...getDefaultMetadata(siteUrl, t),
+    title: { absolute: "CAE GROUP" },
+  }
   const defaultOgMeta: Metadata["openGraph"] = getDefaultOgMeta(
     locale,
     fullPath,

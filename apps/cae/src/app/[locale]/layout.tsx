@@ -1,6 +1,6 @@
 import "@/styles/globals.css"
 
-import { CaeFooter, CaeHeader } from "@repo/design-system/cae"
+import { CaeFooter, CaeHeader } from "@/components/brand"
 import { Toaster } from "@repo/design-system/ui/sonner"
 import type { Data } from "@repo/strapi-types"
 import { ThemeProvider } from "@teispace/next-themes"

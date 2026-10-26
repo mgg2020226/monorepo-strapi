@@ -4,7 +4,7 @@ import {
   BancalivLogoCloud,
   BancalivSection,
   BancalivStatistics,
-} from "@repo/design-system/bancaliv"
+} from "@/components/brand"
 import {
   StrapiAnimatedLogoRow,
   StrapiCarousel,

@@ -112,7 +112,7 @@ Para el CMS común, STRAPI_REVALIDATE_SECRET debe coincidir entre Strapi y el fr
 
 ## Flujo de contenido
 
-En el CMS común, Site representa una empresa o marca; páginas y otros registros se relacionan con ese sitio. La zona Page.content contiene componentes Strapi y cada frontend registra sus renderizadores React. Las secciones genéricas viven en packages/sections; las variantes visuales de marca están en packages/design-system.
+En el CMS común, Site representa una empresa o marca; páginas y otros registros se relacionan con ese sitio. La zona Page.content contiene componentes Strapi y cada frontend registra sus renderizadores React. Las secciones genéricas viven en `packages/sections`; los componentes y estilos propios de cada marca viven en `apps/<app>/src/components/brand` y `apps/<app>/src/styles`. `packages/design-system` conserva los elementos que comparten varias apps.
 
 Para añadir campos o componentes al CMS común, cambia el esquema en apps/strapi, regenera tipos y actualiza el renderer del frontend correspondiente:
 

@@ -1,7 +1,7 @@
 import { Container } from "@repo/design-system/elementary/Container"
 import { StrapiStructuredData } from "@repo/sections"
-import { ROOT_PAGE_PATH } from "@repo/shared-data"
-import { notFound } from "next/navigation"
+import { normalizePageFullPath, ROOT_PAGE_PATH } from "@repo/shared-data"
+import { notFound, redirect } from "next/navigation"
 import type { Locale } from "next-intl"
 import { setRequestLocale } from "next-intl/server"
 import { use } from "react"
@@ -10,7 +10,7 @@ import { Breadcrumbs } from "@/components/elementary/Breadcrumbs"
 import { ErrorBoundary } from "@/components/elementary/ErrorBoundary"
 import { PageContentComponents } from "@/components/page-builder"
 import { logger } from "@/lib/logging"
-import { fetchPage } from "@/lib/strapi-api/content/server"
+import { fetchLegalPage, fetchPage } from "@/lib/strapi-api/content/server"
 import { cn } from "@/lib/styles"
 
 interface Props {
@@ -19,9 +19,14 @@ interface Props {
     rest?: string[]
   }
   searchParams?: Record<string, string | string[] | undefined>
+  allowLegalAlias?: boolean
 }
 
-export default function StrapiPageView({ params, searchParams }: Props) {
+export default function StrapiPageView({
+  params,
+  searchParams,
+  allowLegalAlias = false,
+}: Props) {
   const locale = params.locale as Locale
 
   setRequestLocale(locale)
@@ -31,6 +36,15 @@ export default function StrapiPageView({ params, searchParams }: Props) {
 
   const data = response?.data
   if (data?.content == null) {
+    if (allowLegalAlias && params.rest?.length === 1) {
+      const slug = params.rest[0]
+      const legalPage = use(fetchLegalPage(slug, locale))
+
+      if (legalPage.data) {
+        redirect(normalizePageFullPath(["/legal", slug], locale))
+      }
+    }
+
     notFound()
   }
 

@@ -33,5 +33,5 @@ export default function StaticStrapiPage(
     notFound()
   }
 
-  return <StrapiPageView params={params} />
+  return <StrapiPageView params={params} allowLegalAlias />
 }

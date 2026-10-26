@@ -3,7 +3,7 @@ import {
   CaeServiceDetail,
   type CaeHomeData,
   type CaeServiceData,
-} from "@repo/design-system/cae"
+} from "@/components/brand"
 import CKEditorRenderer from "@repo/design-system/elementary/ck-editor"
 import type { Data } from "@repo/strapi-types"
 

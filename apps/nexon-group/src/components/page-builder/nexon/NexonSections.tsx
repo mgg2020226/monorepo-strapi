@@ -13,7 +13,7 @@ import {
   type NexonHeroContent,
   type NexonMethodologyContent,
   type NexonServicesContent,
-} from "@repo/design-system/nexon"
+} from "@/components/brand"
 
 import { formatStrapiMediaUrl } from "@/lib/strapi-helpers"
 

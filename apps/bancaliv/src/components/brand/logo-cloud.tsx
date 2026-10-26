@@ -2,7 +2,7 @@ import "server-only"
 
 import type { Data } from "@repo/strapi-types"
 
-import { Container } from "../elementary/Container"
+import { Container } from "@repo/design-system/elementary/Container"
 
 function mediaUrl(url?: string | null) {
   if (!url) return null

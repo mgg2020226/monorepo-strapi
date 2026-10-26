@@ -1,12 +1,12 @@
 @import "tailwindcss";
 @source "../../../../packages/sections/src";
 @source "../../../../packages/design-system/src";
-@source "../../../../packages/design-system/src/cae";
+@source "../components/brand";
 @import "@repo/design-system/theme.css";
 @import "@repo/design-system/custom-styles.css";
 @import "@repo/design-system/ckeditor-default-styles.css";
 @import "@repo/sections/styles.css";
-@import "@repo/design-system/cae/styles.css";
+@import "./cae.css";
 
 @plugin "tailwindcss-animate";
 

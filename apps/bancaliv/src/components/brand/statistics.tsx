@@ -8,7 +8,7 @@ import {
   WalletCards,
 } from "lucide-react"
 
-import { Container } from "../elementary/Container"
+import { Container } from "@repo/design-system/elementary/Container"
 
 const metricIcons = [Building2, UsersRound, WalletCards, CircleDollarSign]
 
