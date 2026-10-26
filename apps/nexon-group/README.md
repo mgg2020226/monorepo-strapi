@@ -1,19 +1,56 @@
 # Nexon Group — frontend Next.js
 
-Aplicación Next.js del sitio Nexon Group. Resuelve el `Site` de Strapi mediante `SITE_DOMAIN` y renderiza sus páginas publicadas con los bloques `nexon.*`.
+Este workspace sirve el sitio Nexon Group con Next.js y consume la instancia compartida de Strapi en apps/strapi. El middleware resuelve el hostname mediante SITE_DOMAIN y las consultas filtran el contenido por el Site.slug asociado.
 
-## Configuración local
+## Estructura
 
-1. Copia `.env.local.example` a `.env.local` y configura `STRAPI_URL`, las credenciales de lectura y el dominio local.
-2. Ejecuta desde la raíz del monorepo: `pnpm --filter @repo/nexon-group dev`.
-3. El slug configurado por defecto es `nexon-group`.
+| Ruta | Propósito |
+| --- | --- |
+| src/app/[locale] | Rutas localizadas del sitio, páginas, portfolio, contenido legal y metadata. |
+| src/app/api | Revalidación, formularios, proxies y endpoints propios. |
+| src/components/page-builder/nexon | Renderers de bloques específicos de Nexon. |
+| src/components | Layouts, navegación, formularios e interfaz. |
+| src/lib | Cliente Strapi, resolución del sitio, metadata, autenticación y proxies. |
+| src/hooks, locales, public | Hooks, traducciones y recursos estáticos. |
+| packages/design-system/src/nexon | Identidad visual, animaciones y componentes de Nexon. |
+| packages/sections | Secciones reutilizables entre frontends. |
 
-## Contenido Nexon
+Los esquemas específicos se definen en apps/strapi/src/components/nexon. Los componentes del CMS deben tener su renderer registrado en Nexon y los tipos deben regenerarse tras cambiar el esquema.
 
-Los esquemas específicos viven en `apps/strapi/src/components/nexon/`. El contenido de texto de la página de inicio se carga con `pnpm --filter @repo/strapi seed:nexon-group` después de que Strapi registre los nuevos esquemas. Ese seed reemplaza las páginas y formularios ligados al sitio Nexon, no los registros de otros sitios; como no asigna multimedia, selecciona de nuevo las imágenes desde el editor después de ejecutarlo. El bloque de contacto se publica y el formulario queda inactivo: no se crea ninguna definición de formulario.
+## Variables de entorno
 
-Los renderizadores Strapi están en `src/components/page-builder/nexon/`. La interfaz, las animaciones y el tema de Nexon viven en `@repo/design-system/nexon`. Las imágenes de clientes, servicios, metodología, quiénes somos e historias se asignan desde el selector de la Biblioteca multimedia de Strapi en cada campo del componente. No se buscan por nombre de archivo; si un campo queda vacío, el componente usa su presentación sin imagen.
+pnpm install crea .env.local desde .env.local.example si no existe. Configura:
 
-Después de agregar campos de tipo `media` a los esquemas, reinicia Strapi para que el editor cargue los selectores. Abre la página de inicio, expande cada componente y elige los recursos existentes desde la Biblioteca multimedia; luego guarda y publica la página.
+- STRAPI_URL: URL del CMS común, normalmente http://localhost:1337.
+- STRAPI_REST_READONLY_API_KEY: token limitado de lectura, solo en el servidor.
+- APP_PUBLIC_URL: URL canónica del frontend.
+- SITE_DOMAIN: JSON que relaciona cada hostname con el Site.slug real de Nexon en Strapi.
+- STRAPI_REVALIDATE_SECRET: secreto compartido con apps/strapi para la revalidación.
+- STRAPI_PREVIEW_SECRET: opcional, si se habilita preview.
+- NEXT_OUTPUT, Basic Auth, reCAPTCHA, imgproxy y variables de depuración son opcionales.
 
-Los componentes nuevos de Nexon deben agregarse al Dynamic Zone de `api::page.page` y a `PageContentComponents`. Para actualizar los tipos generados, reinicia Strapi o ejecuta `pnpm --filter @repo/strapi generate:types`.
+No expongas tokens en variables NEXT_PUBLIC_* ni los guardes en Git.
+
+## Ejecutar
+
+Inicia primero el CMS común y luego Nexon desde otra terminal:
+
+    pnpm dev:strapi
+    pnpm dev:nexon-group
+
+Abre http://localhost:3000 y confirma que SITE_DOMAIN apunta al Site existente.
+
+Comandos útiles:
+
+    pnpm build:nexon-group
+    pnpm typecheck:nexon-group
+    pnpm test:nexon-group
+
+El repositorio no ofrece actualmente un comando seed específico de Nexon. Crea o actualiza el Site y su contenido desde Strapi, o usa los comandos generales de seed solo si la exportación corresponde al entorno que quieres reemplazar.
+
+Para generar tipos luego de cambiar esquemas:
+
+    pnpm generate:types
+    pnpm sync-types
+
+Consulta [Strapi común](../strapi/README.md), [EmpresaX](../empresax/README.md) para el flujo multiempresa y el [README raíz](../../README.md).

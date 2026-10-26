@@ -1,84 +1,76 @@
-# Strapi — CMS del monorepo
+# Strapi — CMS común del monorepo
 
-Strapi 5 es el CMS de la plataforma. Define el modelo de contenido, ofrece el panel editorial y sirve al frontend EmpresaX mediante su API. La persistencia es PostgreSQL; las imágenes usan almacenamiento local en desarrollo salvo que se configure el proveedor S3.
+Esta aplicación es el backend compartido de Bancaliv, CAE, EmpresaX y Nexon Group. Strapi define el esquema de contenido, administra editores desde el panel y expone la API que consultan los frontends. Usa PostgreSQL. En desarrollo, los archivos pueden guardarse localmente; S3 es opcional.
 
-## Modelo de contenido
+No es el backend de MappDiffusion. Ese proyecto tiene una instancia separada en apps/strapi-mappdiffusion.
 
-`Site` representa una empresa o marca. Páginas, formularios, blog, categorías, eventos, proyectos de portfolio, páginas legales, envíos y redirecciones se asocian a un sitio. En `apps/strapi/src/api` están los collection types; sus componentes están en `apps/strapi/src/components`.
+## Estructura
 
-`Page.content` es una Dynamic Zone. Al agregar un UID de componente al esquema de Strapi también hay que implementar o reutilizar su renderer en EmpresaX; ver [README de EmpresaX](../empresaX/README.md). El renderer de `forms.dynamic-form` ya está registrado en el frontend.
+| Ruta | Responsabilidad |
+| --- | --- |
+| config | Servidor, base de datos, plugins y middlewares de Strapi. |
+| src/api | Endpoints, controladores, servicios y rutas propias. |
+| src/components | Componentes y bloques del modelo; incluye variantes específicas de sitios. |
+| src/documentMiddlewares | Reglas aplicadas al guardar o publicar documentos. |
+| src/extensions | Extensiones del comportamiento de Strapi o plugins. |
+| src/lifeCycles | Automatizaciones asociadas al ciclo de vida de usuarios y otros modelos. |
+| src/admin | Personalización del panel, como CKEditor y configuración de marca. |
+| scripts | Validación y exportación/importación de datos seed. |
+| types/generated | Tipos generados desde los esquemas de Strapi. |
 
-Los tipos de frontend se regeneran después de cambios al esquema:
+El tipo Site representa una marca o sitio. El contenido de páginas y formularios se relaciona con ese registro. Page.content es una Dynamic Zone: cada UID incluido en el esquema debe tener un renderer React en el frontend que lo use.
 
-```bash
-pnpm --filter @repo/strapi generate:types
-```
+## Preparar variables
 
-## Crear otra empresa/sitio en el panel
+Desde la raíz, pnpm install crea apps/strapi/.env a partir de .env.example si aún no existe. También puedes copiarlo manualmente. Completa al menos:
 
-Para una nueva empresa con el esquema y la experiencia existentes:
+- Secretos de Strapi: APP_KEYS, API_TOKEN_SALT, ADMIN_JWT_SECRET y JWT_SECRET. Usa valores aleatorios distintos en producción.
+- PostgreSQL: DATABASE_URL o DATABASE_CLIENT, DATABASE_HOST, DATABASE_PORT, DATABASE_NAME, DATABASE_USERNAME y DATABASE_PASSWORD.
+- URL pública: APP_URL, especialmente en producción.
 
-1. En `Content Manager` → `Site`, crear el sitio y definir un `slug` único. Completar estado, paleta, idiomas, metadatos, cabecera, pie y datos de contacto.
-2. Crear las páginas y registros relacionados seleccionando ese `Site`; no reutilizar registros que pertenezcan a otra empresa.
-3. Para cada idioma habilitado, crear/revisar la localización de los contenidos traducibles. El frontend actualmente soporta globalmente `es` y `en`; la configuración `Site.locales` del CMS no activa idiomas adicionales en Next.js.
-4. Añadir el dominio al `SITE_DOMAIN` del despliegue EmpresaX para que resuelva al slug creado. Ver [replicación multiempresa en EmpresaX](../empresaX/README.md#replicar-para-otras-empresas).
-5. Revisar permisos de lectura API, publicación, medios y entrega de contenido antes de activar el sitio.
+No dejes asignaciones vacías cuando esperas que se use un valor predeterminado: Strapi puede interpretar una cadena vacía como un valor explícito. La plantilla documenta los campos adicionales.
 
-El `Site` no crea automáticamente páginas ni configura el dominio. Los slugs deben coincidir exactamente entre el registro CMS y `SITE_DOMAIN`.
+Variables opcionales:
 
-## API y tokens
+- AWS_ACCESS_KEY_ID, AWS_ACCESS_SECRET, AWS_REGION y AWS_BUCKET activan almacenamiento S3 cuando se configura el proveedor.
+- SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD y SMTP_FROM configuran el envío de correo.
+- Typesense se activa cuando están definidos TYPESENSE_HOST y TYPESENSE_API_KEY.
+- CLIENT_URL y STRAPI_REVALIDATE_SECRET conectan la revalidación de caché con el frontend. STRAPI_REVALIDATE_SECRET debe coincidir en ambos lados.
+- ADMIN_PANEL_CONFIG_API_AUTH_TOKEN y APP_BRAND personalizan la configuración de la interfaz de administración.
+- STRAPI_MCP_ENABLED, CRON_ENABLED y WEBHOOKS_POPULATE_RELATIONS controlan funciones opcionales del servidor.
 
-EmpresaX consume la API server-side. Crea en Strapi un API Token de solo lectura con acceso únicamente a los endpoints requeridos por las consultas del frontend. Coloca su valor en `STRAPI_REST_READONLY_API_KEY` dentro de `apps/empresaX/.env.local` (o en el gestor de secretos del despliegue). Configura `STRAPI_URL` con el origen de Strapi.
+No compartas secretos con el navegador ni los subas a Git.
 
-No guardar tokens en Git, no pasarlos a variables `NEXT_PUBLIC_*` y no exponerlos en componentes cliente. Los tokens de escritura deben estar separados y no son necesarios para renderizar las páginas públicas. Configura también `STRAPI_PREVIEW_SECRET` en ambos lados solo si vas a usar preview.
+## Ejecutar
 
-Una API token de solo lectura no es por sí misma un límite de tenant. El frontend filtra contenido por `Site.slug`, pero los permisos nativos del API token suelen ser globales por endpoint; no equivalen a aislamiento entre empresas.
+Desde la raíz, inicia el servidor de desarrollo:
 
-## Panel editorial y aislamiento
+    pnpm dev:strapi
 
-El acceso administrativo usa los usuarios, roles y permisos nativos de Strapi. El filtrado del frontend por `Site.slug` no impone por sí mismo restricciones sobre los CRUD del Content Manager.
+El panel queda en http://localhost:1337/admin. Para producción usa build y start:
 
-Antes de dar acceso a editores de varias empresas, implementar y probar una policy/middleware que limite lectura, creación, actualización, borrado y publicación por sitio, incluyendo relaciones, medios y endpoints personalizados. Si se necesita aislamiento inmediato o fuerte, desplegar instancias de Strapi y bases de datos separadas por empresa.
+    pnpm build:strapi
+    pnpm start:strapi
 
-## Configurar y ejecutar
+Comandos específicos:
 
-1. Copiar `apps/strapi/.env.example` a `apps/strapi/.env`.
-2. Completar secretos de Strapi, PostgreSQL y URL pública. No dejar valores de ejemplo en producción.
-3. Iniciar Strapi desde la raíz del monorepo:
+    pnpm --filter @repo/strapi typecheck
+    pnpm test:strapi
+    pnpm generate:types
+    pnpm sync-types
 
-   ```bash
-   pnpm install
-   pnpm dev:strapi
-   ```
+Después de cambiar esquemas o componentes, genera los tipos y sincronízalos al paquete compartido antes de actualizar consumidores.
 
-   Panel local: `http://localhost:1337/admin`.
+## Datos iniciales y operación
 
-Variables mínimas: `APP_KEYS`, `API_TOKEN_SALT`, `ADMIN_JWT_SECRET`, `JWT_SECRET`, `DATABASE_CLIENT=postgres`, `DATABASE_HOST`, `DATABASE_PORT`, `DATABASE_NAME`, `DATABASE_USERNAME` y `DATABASE_PASSWORD`. También puede usarse `DATABASE_URL`.
+La aplicación no importa seeds al iniciar. Los comandos disponibles desde la raíz son:
 
-### Seed y registros manuales
+    pnpm seed:check
+    pnpm seed:export
+    pnpm seed:import
 
-Strapi no importa seeds automáticamente al iniciar. Si necesitas los datos de ejemplo, impórtalos manualmente desde la raíz con `pnpm seed:import`. La importación reemplaza los datos de Strapi; exporta o respalda el contenido local antes de usarla. También puedes crear los registros desde el panel.
+seed:import reemplaza los registros incluidos en la exportación. Haz una copia de seguridad de la base destino antes de importarla.
 
-Los `.env` son locales y no deben añadirse al control de versiones. Las variables opcionales de email, almacenamiento, Typesense, observabilidad y revalidación están descritas en `.env.example`.
+El frontend filtra contenido por Site.slug, pero ese filtro no impone aislamiento a los usuarios del panel ni convierte un API token global en uno limitado por sitio. Revisa roles y permisos de Strapi antes de dar acceso editorial a organizaciones distintas. Para aislamiento fuerte, usa instancias, bases y credenciales separadas.
 
-## Operación habitual
-
-```bash
-pnpm dev:strapi
-pnpm --filter @repo/strapi typecheck
-pnpm --filter @repo/strapi lint
-pnpm --filter @repo/strapi test
-pnpm --filter @repo/strapi generate:types
-```
-
-Para publicar contenido: crear/editar el registro, asociarlo al `Site`, verificar relaciones y traducciones, revisar la vista previa y publicar. Confirmar luego que EmpresaX resuelve el dominio al mismo slug y obtiene el contenido esperado.
-
-## Pendientes de plataforma
-
-- Autorización efectiva por sitio para los equipos editoriales, si se necesita aislamiento entre empresas.
-- Proveedor SMTP y almacenamiento definitivo para producción, más validación de credenciales y permisos.
-- Alinear idiomas habilitados por sitio con routing/locales del frontend si cada marca debe tener configuraciones distintas.
-- Validar tema dinámico basado en `Site.palette` en EmpresaX.
-- Completar dominios, branding, contenido inicial y configuración de despliegue por empresa.
-
-Consulta el [README raíz](../../README.md) y [SITES_ARCHITECTURE.md](../../SITES_ARCHITECTURE.md) para el panorama del monorepo y las decisiones del modelo.
+Consulta el [README del monorepo](../../README.md).

@@ -1,25 +1,55 @@
-# Bancaliv — Next.js y Strapi
+# Bancaliv — frontend Next.js
 
-Este workspace es el frontend Next.js de Bancaliv. Conserva el page builder compartido del monorepo, resuelve el sitio por hostname y solo consulta páginas relacionadas con el `Site` cuyo slug sea `bancaliv`. Los componentes visuales propios están en `packages/design-system/src/bancaliv`.
+Este workspace sirve el sitio Bancaliv y consume contenido del CMS común en apps/strapi. Resuelve el hostname de la petición, lo convierte al Site.slug configurado y consulta solamente contenido relacionado con ese sitio. Los componentes visuales de marca se comparten desde packages/design-system/src/bancaliv.
 
-## Desarrollo
+## Estructura
 
-Desde la raíz:
+| Ruta | Propósito |
+| ---                         | ---                                                                        |
+| src/app                     | Rutas Next.js App Router, páginas, layouts, sitemap y endpoints.           |
+| src/components              | Componentes del sitio y adaptadores del page builder.                      |
+| src/components/page-builder | Traduce UID de componentes Strapi a renderizadores React.                  |
+| src/lib                     | Resolución de sitio, API Strapi, metadata, proxies, imágenes y utilidades. |
+| src/hooks                   | Hooks de interfaz y datos. |
+| locales                     | Mensajes de traducción. |
+| public y src/styles         | Recursos y estilos del frontend. |
+| packages/design-system/src/bancaliv | Presentación y secciones visuales propias de Bancaliv.              |
+| packages/sections           | Componentes y utilidades compartidos con otros frontends.                   |
 
-```bash
-pnpm dev:bancaliv
-pnpm build:bancaliv
-pnpm typecheck:bancaliv
-```
+## Variables de entorno
 
-Configura `apps/bancaliv/.env.local` a partir de `.env.local.example`. Usa `SITE_DOMAIN={"localhost":"bancaliv","127.0.0.1":"bancaliv","::1":"bancaliv"}` y el `STRAPI_URL` y token de lectura ya usados por el monorepo. En despliegue, asigna el dominio público al slug `bancaliv`.
+pnpm install crea .env.local desde .env.local.example si no existe. Configura:
 
-## Contenido en Strapi
+- STRAPI_URL: origen del CMS común, normalmente http://localhost:1337.
+- STRAPI_REST_READONLY_API_KEY: token de lectura limitado a los endpoints que usa el frontend. Permanece del lado servidor.
+- APP_PUBLIC_URL: URL canónica del frontend, normalmente http://localhost:3000.
+- SITE_DOMAIN: objeto JSON que relaciona cada hostname con el slug Site real. Para desarrollo, asigna localhost, 127.0.0.1 y ::1 al slug bancaliv.
+- STRAPI_REVALIDATE_SECRET: secreto compartido con apps/strapi para autenticar revalidaciones.
+- STRAPI_PREVIEW_SECRET: opcional, solo para habilitar el flujo de preview.
+- NEXT_OUTPUT, Basic Auth, reCAPTCHA, imgproxy y variables de depuración son opcionales y solo se configuran si se usa esa función.
 
-El modelo `Site` mantiene logo, favicon, paleta, idiomas, navegación, footer, contacto y las relaciones a páginas, formularios y contenido legal. Las páginas utilizan el content type `Page` con locales, SEO, draft/publish y `site`.
+No pongas tokens en variables NEXT_PUBLIC_* ni en Git. La plantilla incluye más opciones y explica su uso.
 
-Para conservar las secciones particulares de la referencia, `Page.content` admite `bancaliv.section`. Cada bloque guarda el tipo de sección, textos, acciones, tarjetas y relaciones directas a medios de la biblioteca de Strapi. Las imágenes se eligen desde el selector de medios; URLs absolutas (incluido S3) se renderizan tal como llegan.
+## Ejecutar
 
-El registro `Site` y las páginas Bancaliv deben existir en Strapi y estar relacionadas por `site`. Tras el cambio de schema, reinicia Strapi para generar tipos. En el Content Manager crea o localiza el `Site` con slug `bancaliv`, configura idiomas, logo/favicon, paleta, navegación y footer, y crea las páginas localizadas relacionadas. En la página de inicio agrega bloques `Bancaliv section` en el orden deseado y publica cada localización. La sección de formulario solo debe usar definiciones activas con destinatario configurado.
+Desde la raíz, arranca primero el CMS en una terminal:
 
-Los endpoints `/api/*` están excluidos del proxy de idiomas para que formularios, preview, health y revalidación lleguen a sus route handlers.
+    pnpm dev:strapi
+
+Luego inicia Bancaliv en otra:
+
+    pnpm dev:bancaliv
+
+Abre http://localhost:3000. Asegúrate de que existe en Strapi un registro Site con slug bancaliv y que la API token puede leer sus páginas y medios.
+
+Comandos útiles:
+
+    pnpm build:bancaliv
+    pnpm typecheck:bancaliv
+    pnpm test:bancaliv
+
+## Contenido
+
+Site conserva marca, paleta, idiomas, navegación, footer y relaciones. El tipo Page incluye contenido dinámico; cada bloque Bancaliv se guarda como componente de Strapi y se dibuja con su renderer en el frontend. El bloque bancaliv.section conserva el orden y contenido definido por editores.
+
+Para agregar o cambiar un bloque, actualiza el esquema en apps/strapi, genera los tipos y registra el renderer correspondiente. Consulta la [guía del CMS](../strapi/README.md), la [guía de EmpresaX](../empresax/README.md) y el [README raíz](../../README.md).

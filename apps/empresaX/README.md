@@ -1,93 +1,78 @@
-# EmpresaX — frontend Next.js
+# EmpresaX — frontend de referencia
 
-EmpresaX es el nombre de ejemplo para el frontend Next.js del monorepo. Resuelve el sitio por el hostname de la petición, consulta contenido publicado en Strapi y renderiza páginas usando Next.js App Router. No es un constructor visual autónomo: el esquema de contenido y los bloques disponibles se definen en Strapi y deben tener un renderer compatible en el frontend.
+EmpresaX es el frontend Next.js de referencia para los sitios que comparten el modelo y el page builder del monorepo. Resuelve el hostname, selecciona el Site correspondiente en Strapi y renderiza sus páginas publicadas. El CMS define el contenido; el frontend asocia los UID de componentes a renderizadores React.
 
-## Estructura y responsabilidades
+Para crear otro sitio con la misma experiencia, normalmente se añade un registro Site y su dominio en SITE_DOMAIN. Solo crea otro workspace cuando necesites código o despliegue independiente.
+
+## Estructura
 
 | Ruta | Responsabilidad |
 | --- | --- |
-| `src/app/[locale]` | Rutas localizadas para páginas, blog, eventos, portfolio y contenido legal. |
-| `src/lib/site.ts`, `src/lib/site-server.ts` | Normalización del hostname y resolución hostname → `Site.slug`. |
-| `src/lib/strapi-api` | Cliente y consultas a la API de Strapi. |
-| `src/components/page-builder/index.tsx` | Registro UID de componente Strapi → renderer React (`PageContentComponents`). |
-| `src/components/page-builder` | Layout de página, navegación, footer y adaptadores ligados al frontend. |
-| `src/app/api` | Proxies, envío de formularios, revalidación y endpoints del frontend. |
-| `packages/sections` | Secciones visuales y lógica compartida que no debe duplicarse por empresa. |
-| `packages/design-system` | Componentes/primitivas de UI compartidos. |
+| src/app/[locale] | Rutas localizadas para páginas, blog, eventos, portfolio y contenido legal. |
+| src/app/api | Envío de formularios, preview, revalidación y otros endpoints del frontend. |
+| src/lib/site.ts y site-server.ts | Normalización del hostname y resolución a Site.slug. |
+| src/lib/strapi-api | Cliente, autenticación y consultas al CMS. |
+| src/lib/metadata | Metadata SEO generada desde el contenido de Strapi. |
+| src/components/page-builder | Registro UID de Strapi a componente React. |
+| src/components | Layout, navegación, footer y adaptadores del sitio. |
+| packages/sections | Bloques y utilidades compartidos. |
+| packages/design-system | Primitivas UI y estilos comunes. |
 
-La página dinámica llega desde Strapi y el page builder itera sus bloques por UID. Por ejemplo, `forms.dynamic-form` se registra en `PageContentComponents` y delega la interfaz común a `@repo/sections`; EmpresaX conserva el adaptador que conoce sus endpoints y configuración.
+El renderer debe existir para cada tipo de bloque que aparezca en Page.content. Los componentes reutilizables viven en packages; el frontend conserva adaptadores que dependen de sus rutas, formularios y APIs.
 
-## Configuración local
+## Variables de entorno
 
-Desde la raíz del monorepo:
+pnpm install crea .env.local desde .env.local.example si no existe. Configura:
 
-```bash
-pnpm install
-pnpm dev:strapi
-pnpm dev:empresax
-```
+- APP_PUBLIC_URL: URL canónica de este despliegue, por ejemplo http://localhost:3000.
+- STRAPI_URL: URL del CMS común, normalmente http://localhost:1337.
+- STRAPI_REST_READONLY_API_KEY: token de solo lectura con acceso a los endpoints del sitio.
+- SITE_DOMAIN: JSON que relaciona hostname con Site.slug. Ejemplo local:
 
-El workspace se identifica como `@repo/empresax`; los comandos específicos son `pnpm dev:empresax`, `pnpm build:empresax`, `pnpm test:empresax` y `pnpm typecheck:empresax`.
+      {"localhost":"empresax","127.0.0.1":"empresax","::1":"empresax"}
 
-Copia `apps/empresaX/.env.local.example` como `apps/empresaX/.env.local`. Configura como mínimo `APP_PUBLIC_URL`, `STRAPI_URL`, `SITE_DOMAIN`, `STRAPI_REST_READONLY_API_KEY` y los secretos requeridos para los flujos que vayas a probar. Configura la base de datos y secretos propios de Strapi en `apps/strapi/.env`; ver [guía de Strapi](../strapi/README.md).
+- STRAPI_REVALIDATE_SECRET: debe coincidir con el secreto configurado en Strapi.
+- STRAPI_PREVIEW_SECRET: opcional, para el endpoint de preview.
+- STRAPI_REST_CUSTOM_API_KEY: opcional, solo si una operación requiere permisos personalizados.
+- NEXT_OUTPUT: opcional; define el modo Next indicado en la plantilla.
+- BASIC_AUTH_*, RECAPTCHA_*, IMGPROXY_URL y variables DEBUG_*: opcionales según el despliegue.
 
-```env
-APP_PUBLIC_URL=http://localhost:3000
-STRAPI_URL=http://127.0.0.1:1337
-STRAPI_REST_READONLY_API_KEY=token-de-solo-lectura
-SITE_DOMAIN={"localhost":"empresax","127.0.0.1":"empresax","::1":"empresax"}
-```
+Las variables de servidor y los tokens no deben llevar el prefijo NEXT_PUBLIC_. Ese prefijo publica el valor en el bundle del navegador. Cada despliegue tiene un APP_PUBLIC_URL canónico. Los slugs del mapa deben coincidir con registros Site existentes.
 
-Los valores del mapa deben corresponder a slugs existentes en `Site`. El slug no se cambia automáticamente al renombrar el workspace: actualiza el registro `Site` existente a `empresax` en Strapi o conserva su slug actual en `SITE_DOMAIN` hasta completar esa migración.
+## Ejecutar
 
-El token debe tener únicamente los permisos de lectura necesarios y permanecer del lado servidor: no usar prefijo `NEXT_PUBLIC_` ni publicarlo en el navegador o en Git. La guía de variables completa está en `.env.local.example`.
+Instala dependencias desde la raíz y configura apps/strapi/.env y apps/empresax/.env.local. En una terminal inicia Strapi y en otra EmpresaX:
 
-## Replicar para otras empresas
+    pnpm dev:strapi
+    pnpm dev:empresax
 
-### Misma experiencia, otro dominio
+Abre http://localhost:3000. La variable SITE_DOMAIN debe apuntar al sitio que quieras probar.
 
-1. Crear en Strapi un registro `Site` con `slug` único y completar marca, estado y contenido.
-2. Relacionar las páginas y demás registros con ese `Site`.
-3. Añadir el dominio en `SITE_DOMAIN`, apuntando al mismo slug, por ejemplo:
+Comandos:
 
-   ```env
-   SITE_DOMAIN={"empresax.example.com":"empresax","empresa.example.com":"empresa-x"}
-   ```
+    pnpm build:empresax
+    pnpm typecheck:empresax
+    pnpm test:empresax
 
-4. Configurar DNS/proxy para que ambos dominios lleguen al despliegue de EmpresaX. Validar URLs canónicas, sitemap, assets, idioma y caché antes de publicar.
+## Replicar para otra marca
 
-`SITE_DOMAIN` selecciona el slug; por sí solo no configura DNS ni un dominio. Para otra empresa que requiera `APP_PUBLIC_URL` propio, usar un despliegue independiente del frontend y configurar sus variables de entorno. Un despliegue tiene un solo `APP_PUBLIC_URL` canónico.
+1. Crea en Strapi un Site con slug único y añade sus páginas y registros relacionados.
+2. Añade hostnames al SITE_DOMAIN del despliegue y mapea cada uno al slug correcto.
+3. Configura DNS y el proxy para dirigir los dominios al frontend.
+4. Verifica locales, metadata, sitemap, medios, formularios y revalidación antes de publicar.
 
-### Experiencia distinta
+SITE_DOMAIN no configura DNS. El filtro por Site en las consultas no restringe por sí solo los permisos del Content Manager ni los API tokens. Antes de dar acceso editorial a organizaciones diferentes, define permisos adecuados o separa CMS, base de datos y credenciales.
 
-Si otra empresa necesita una identidad o comportamiento realmente diferente, crear un workspace con nombre de paquete único y consumir los paquetes compartidos. Evitar duplicar `apps/empresaX` como una implementación divergente. Al añadir un workspace revisar `pnpm-workspace.yaml` (el patrón `apps/*` ya lo incluye), configuración de Turbo, variables, despliegue y pruebas.
+## Cambiar el page builder
 
-## Límites actuales del multiempresa
+1. Define el componente en apps/strapi y añádelo a Page.content.
+2. Genera y sincroniza los tipos:
 
-- El mapeo de dominios y el filtrado de contenido por slug están implementados.
-- `APP_PUBLIC_URL` y los idiomas soportados por Next (`es`, `en`) son globales al despliegue; `Site.locales` no crea rutas Next dinámicamente por marca.
-- `Site.palette` se aplica como variables CSS del sitio para colores, contraste de texto en botones, radios y familias tipográficas. En modo oscuro, la interfaz usa únicamente negro y blanco, incluidos los roles primary, secondary, accent y destructive; en modo claro se conserva la paleta del CMS. `contrastMode` ajusta `color-scheme`. Los nombres de fuente deben estar disponibles para el navegador; el CMS no descarga fuentes automáticamente.
-- El filtro por `Site` en las consultas del frontend no sustituye autorización del panel. Las operaciones CRUD de Strapi usan sus roles y permisos nativos.
-- El tipo de datos generado (`@repo/strapi-types`) representa el esquema de la instancia Strapi del monorepo. Si se separan instancias con esquemas divergentes, hay que planear y generar tipos para cada contrato.
+       pnpm generate:types
+       pnpm sync-types
 
-No conceder acceso a equipos de empresas diferentes en una instancia compartida hasta implementar y probar el alcance por sitio. Para aislamiento fuerte, usar instancias separadas de Strapi y bases de datos/credenciales separadas.
+3. Implementa el bloque reusable en packages/sections o packages/design-system cuando corresponda.
+4. Registra el UID en src/components/page-builder.
+5. Revisa preview, publicación, locale y relaciones; después ejecuta typecheck y las pruebas pertinentes.
 
-## Añadir una sección nueva
-
-1. Crear/ajustar el componente en `apps/strapi/src/components` y añadir su UID a `Page.content` (Dynamic Zone).
-2. Ejecutar `pnpm --filter @repo/strapi generate:types`.
-3. Implementar la sección visual en `packages/sections` si es genérica; mantener en EmpresaX el renderer/adaptador si depende de sus APIs o rutas.
-4. Registrar el UID y el renderer en `src/components/page-builder/index.tsx`.
-5. Verificar el componente en Strapi, comprobar draft/publicado y locale, y ejecutar `pnpm --filter @repo/empresax typecheck` y pruebas pertinentes.
-
-## Comandos
-
-```bash
-pnpm dev:empresax
-pnpm --filter @repo/empresax typecheck
-pnpm --filter @repo/empresax lint
-pnpm --filter @repo/empresax test
-pnpm --filter @repo/empresax build
-```
-
-Ver también el [README del monorepo](../../README.md) y la [arquitectura general](../../SITES_ARCHITECTURE.md).
+Consulta la [guía de Strapi](../strapi/README.md) y el [README raíz](../../README.md).
