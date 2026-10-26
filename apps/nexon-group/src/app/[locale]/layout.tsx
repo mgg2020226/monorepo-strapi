@@ -63,7 +63,17 @@ export default async function RootLayout({
     | Data.ContentType<"api::site.site">
     | undefined
   const palette = siteData?.palette
-  const themeStyle = createSiteThemeStyle(palette)
+  const themeStyle = {
+    ...createSiteThemeStyle(palette),
+    "--color-background": "#ffffff",
+    "--color-foreground": "#020367",
+    "--color-card": "#ffffff",
+    "--color-card-foreground": "#020367",
+    "--color-popover": "#ffffff",
+    "--color-popover-foreground": "#020367",
+    "--color-muted": "#f0f4ff",
+    "--color-muted-foreground": "#6b7280",
+  }
   const siteLogoDarkUrl = formatStrapiMediaUrl(siteData?.logo?.url)
   const siteLogoAlt =
     siteData?.name ?? siteData?.logo?.alternativeText ?? "Nexon Group"
@@ -116,15 +126,16 @@ export default async function RootLayout({
         <TrackingScripts />
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          forcedTheme="light"
+          defaultTheme="light"
+          enableSystem={false}
           storage="local"
         >
           <ServerProviders>
             <ClientProviders>
               <div
                 className="site-theme nexon-site text-foreground relative flex min-h-screen flex-col"
-                data-contrast-mode={palette?.contrastMode ?? "light"}
+                data-contrast-mode="light"
                 style={themeStyle}
               >
                 <ErrorBoundary showErrorMessage>

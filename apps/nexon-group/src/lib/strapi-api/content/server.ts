@@ -22,24 +22,30 @@ export async function fetchPage(
   options?: CustomFetchOptions
 ) {
   try {
-    return await PublicStrapiClient.fetchOneByFullPath(
-      "api::page.page",
-      fullPath,
-      {
-        locale,
-        status: await getContentStatus(),
-        filters: { site: { slug: await getSiteSlugFromRequest() } },
-        populate: { seo: "smart", content: "smart" },
-      },
-      {
-        ...requestInit,
-        next: {
-          ...requestInit?.next,
-          revalidate: requestInit?.next?.revalidate ?? 120,
+    const fetchForLocale = async (contentLocale: Locale) =>
+      PublicStrapiClient.fetchOneByFullPath(
+        "api::page.page",
+        fullPath,
+        {
+          locale: contentLocale,
+          status: await getContentStatus(),
+          filters: { site: { slug: await getSiteSlugFromRequest() } },
+          populate: { seo: "smart", content: "smart" },
         },
-      },
-      options
-    )
+        {
+          ...requestInit,
+          next: {
+            ...requestInit?.next,
+            revalidate: requestInit?.next?.revalidate ?? 120,
+          },
+        },
+        options
+      )
+    const response = await fetchForLocale(locale)
+
+    if (response?.data?.content != null || locale !== "es-CO") return response
+
+    return fetchForLocale("es")
   } catch (e: unknown) {
     logNonBlockingError({
       message: `Error fetching page '${fullPath}' for locale '${locale}'`,
@@ -115,27 +121,33 @@ export async function fetchSeo(
 
 export async function fetchSite(locale: Locale) {
   try {
-    return await PublicStrapiClient.fetchAll(
-      "api::site.site",
-      {
-        locale,
-        status: await getContentStatus(),
-        filters: { slug: await getSiteSlugFromRequest() },
-        populate: {
-          logo: true,
-          palette: true,
-          header: "smart",
-          footer: "smart",
-          socialLinks: "smart",
+    const fetchForLocale = async (contentLocale: Locale) =>
+      PublicStrapiClient.fetchAll(
+        "api::site.site",
+        {
+          locale: contentLocale,
+          status: await getContentStatus(),
+          filters: { slug: await getSiteSlugFromRequest() },
+          populate: {
+            logo: true,
+            palette: true,
+            header: "smart",
+            footer: "smart",
+            socialLinks: "smart",
+          },
         },
-      },
-      {
-        next: {
-          revalidate: 600,
-          tags: [strapiCacheTag("api::site.site")],
+        {
+          next: {
+            revalidate: 600,
+            tags: [strapiCacheTag("api::site.site")],
+          },
         },
-      }
-    )
+      )
+    const response = await fetchForLocale(locale)
+
+    if (response.data.length > 0 || locale !== "es-CO") return response
+
+    return fetchForLocale("es")
   } catch (e: unknown) {
     logNonBlockingError({
       message: `Error fetching site chrome for locale '${locale}'`,
