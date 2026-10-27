@@ -54,6 +54,6 @@ export const config = {
     // Keep this as a plain string literal: Next statically analyzes matchers.
     // Excluding framework and API assets prevents next-intl from rewriting
     // them to /es/..., where no matching static asset or API route exists.
-    String.raw`/((?!_next|_vercel|api|images|robots\.txt|favicon\.ico|sitemap|.*\..*).*)`,
+    "/((?!_next|_vercel|api|images|robots\\.txt|favicon\\.ico|sitemap|.*\\..*).*)",
   ],
 }
